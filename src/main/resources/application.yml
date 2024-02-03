@@ -1,0 +1,15 @@
+server:
+  port: ${port}
+
+spring:
+  datasource:
+    url: ${url}
+    username: ${user}
+    password: ${pwd}
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+  sql.init.mode: always
+  
+  output.ansi.enabled: always
