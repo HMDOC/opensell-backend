@@ -1,4 +1,4 @@
-package com.opensell.backend;
+package com.opensell;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
