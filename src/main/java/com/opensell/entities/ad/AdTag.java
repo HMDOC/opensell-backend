@@ -7,9 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-	@Entity @Data @AllArgsConstructor @NoArgsConstructor
-public class AdType {
-    @Id private int idAdType;
+@Entity @Data @AllArgsConstructor @NoArgsConstructor
+public class AdTag {
+    @Id private int idAdTag;
     
     @Column(unique = true)
     private String name;
