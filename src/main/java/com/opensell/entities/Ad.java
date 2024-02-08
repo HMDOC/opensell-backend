@@ -1,11 +1,18 @@
 package com.opensell.entities;
 
 import java.sql.Date;
+import java.util.List;
+import java.util.Set;
+
+import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -30,10 +37,6 @@ public class Ad {
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
     private Date addedDate;
 
-    @OneToOne
-    @JoinColumn(name = "ad_type_id", nullable = false)
-    private AdType adType;
-
     @Column(nullable = false)
     private int adCondition;
 
@@ -42,4 +45,19 @@ public class Ad {
     
     @Column(nullable = false)
     private String reference;
+    
+    @Column(nullable = false)
+    private String address;
+    
+    @OneToOne
+    @JoinColumn(name = "ad_type_id", nullable = false)
+    private AdType adType;
+    
+    @ManyToMany
+    @JoinTable(
+    	name = "ad_tag_rel",
+        joinColumns = @JoinColumn(name = "ad_id"),
+        inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private Set<AdTag> adTags;
 }
