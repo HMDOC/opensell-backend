@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Table(uniqueConstraints = {
 	@UniqueConstraint(columnNames = {"reference", "idAd"}),
 	@UniqueConstraint(columnNames = {"title", "idAd"})
