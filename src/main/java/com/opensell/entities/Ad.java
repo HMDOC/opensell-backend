@@ -1,7 +1,10 @@
 package com.opensell.entities;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
+
+import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
 import jakarta.persistence.Column;
@@ -10,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -60,4 +64,9 @@ public class Ad {
         inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private Set<AdTag> adTags;
+    
+	
+	@OneToMany
+	@JoinColumn(name = "ad_id", nullable = false)
+	private List<AdImage> adImages;
 }
