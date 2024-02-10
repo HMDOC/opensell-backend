@@ -4,6 +4,10 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.annotations.DialectOverride.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
@@ -39,9 +43,12 @@ public class Ad {
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
     private Date addedDate;
-
+    
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT 0")
+    private boolean isSold;
+    
     @Column(nullable = false)
-    private int state;
+    private int visibility;
 
     @Column(nullable = false)
     private int shape;

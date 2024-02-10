@@ -1,8 +1,7 @@
 package com.opensell.entities.ad;
 
-public enum AdState {
+public enum AdVisibility {
 	PUBLIC,
 	PRIVATE,
-	LINK_ONLY,
-	SOLD
+	LINK_ONLY
 }
