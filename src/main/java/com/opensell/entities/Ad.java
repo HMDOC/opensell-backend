@@ -61,6 +61,9 @@ public class Ad {
     
     @Column(nullable = false)
     private String address;
+
+    @Column(nullable = false, unique = true)
+    private String link;
     
     @OneToOne
     @JoinColumn(name = "ad_type_id", nullable = false)
@@ -68,13 +71,12 @@ public class Ad {
     
     @ManyToMany
     @JoinTable(
-    	name = "ad_tag_rel",
+    	name = "ad_ad_tag_rel",
         joinColumns = @JoinColumn(name = "ad_id"),
-        inverseJoinColumns = @JoinColumn(name = "tag_id")
+        inverseJoinColumns = @JoinColumn(name = "ad_tag_id")
     )
     private Set<AdTag> adTags;
     
-	
 	@OneToMany
 	@JoinColumn(name = "ad_id", nullable = false)
 	private List<AdImage> adImages;
