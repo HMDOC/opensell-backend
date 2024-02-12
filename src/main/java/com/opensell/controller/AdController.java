@@ -5,6 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import com.opensell.entities.User;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
 
+@CrossOrigin(value = "http://localhost/")
 @RestController
 public class AdController {
 	@Autowired
@@ -39,10 +41,10 @@ public class AdController {
 			ad.getAdTags().forEach(tags -> adTagsName.add(tags.getName()));
 			
 			return new AdBuyerView(ad.getTitle(), ad.getPrice(), ad.getAddedDate(), 
-									ad.getShape(), ad.isSold(), ad.getVisibility(), 
-									ad.getDescription(), ad.getAddress(), ad.getAdType().getName(), 
-									adTagsName, adImagesPath, ad.getLink(), 
-									user.getUserName(), user.getProfilLink(), user.getUserInfo().getIconPath());
+								   ad.getShape(), ad.isSold(), ad.getVisibility(), 
+								   ad.getDescription(), ad.getAddress(), ad.getAdType().getName(), 
+								   adTagsName, adImagesPath, ad.getLink(), 
+								   user.getUserName(), user.getProfilLink(), user.getUserInfo().getIconPath());
 		} else return null;
 	}
 }
