@@ -20,7 +20,7 @@ public record AdBuyerView(String adTitle,
 						  String adAddress,
 						  String adTypeName,
 						  Set<String> adTagsName,
-						  List<String> adImagePath,
+						  List<String> adImagesPath,
 						  String username,
 						  String userLink,
 						  String userIcon) {}
