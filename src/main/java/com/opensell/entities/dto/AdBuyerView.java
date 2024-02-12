@@ -11,7 +11,7 @@ import java.util.Set;
  * @author Achraf
  */
 public record AdBuyerView(String adTitle, 
-						  float adPrice, 
+						  float adPrice,
 						  Date adAddedDate, 
 						  int adShape,
 						  boolean isAdSold,
@@ -21,7 +21,6 @@ public record AdBuyerView(String adTitle,
 						  String adTypeName,
 						  Set<String> adTagsName,
 						  List<String> adImagePath,
-						  String adLink,
 						  String username,
 						  String userLink,
 						  String userIcon) {}

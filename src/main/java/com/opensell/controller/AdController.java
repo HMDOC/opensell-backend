@@ -43,7 +43,7 @@ public class AdController {
 			return new AdBuyerView(ad.getTitle(), ad.getPrice(), ad.getAddedDate(), 
 								   ad.getShape(), ad.isSold(), ad.getVisibility(), 
 								   ad.getDescription(), ad.getAddress(), ad.getAdType().getName(), 
-								   adTagsName, adImagesPath, ad.getLink(), 
+								   adTagsName, adImagesPath, 
 								   user.getUserName(), user.getProfilLink(), user.getUserInfo().getIconPath());
 		} else return null;
 	}
