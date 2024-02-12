@@ -11,7 +11,7 @@ import java.util.Set;
  * @author Achraf
  */
 public record AdBuyerView(String adTitle, 
-						  float adPrice,
+						  double adPrice,
 						  Date adAddedDate, 
 						  int adShape,
 						  boolean isAdSold,

@@ -960,7 +960,7 @@ insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, v
 insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (151, '2023-04-16', 151, false, 88.34, 0, 151, 2, 'Suite 54', 'Nulla facilisi. Cras non velit nec nisi vulputate nonummy.', '182M2TeG1WNXJ6tjhat4e55Eyn2GZAWLvC', 'leverage', 'Ranger');
 insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (152, '2023-12-05', 152, false, 4105.37, 1, 152, 0, 'Room 1429', 'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', '14sGBuiC13o2X8Km84Dx77WrJ9iiTG1YSH', 'frame', 'Intrigue');
 insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (153, '2023-05-18', 153, false, 8491.91, 0, 153, 1, 'Suite 53', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', '1QGDBEYtvAfCPxQxFU9hrbsFwB4kqwpDjP', 'even-keeled', 'Oasis');
-insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (154, '2023-05-07', 154, false, 201.23, 0, 154, 2, 'Apt 1376', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', '113j4sh992z9VTQKDh6xjPmmdjDq52gLeE', 'dedicated', 'Yukon XL 2500');
+insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (154, '2023-05-07', 154, false, 12795.73, 0, 154, 2, 'Apt 1376', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', '113j4sh992z9VTQKDh6xjPmmdjDq52gLeE', 'dedicated', 'Yukon XL 2500');
 insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (155, '2023-05-15', 155, true, 7038.61, 4, 155, 1, 'PO Box 72438', 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', '1DxTBjkgRrjj4Rc98GGppiQT8B1S3hrjnU', 'Extended', 'Ion');
 insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (156, '2024-01-27', 156, false, 6651.97, 2, 156, 2, 'PO Box 36715', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', '1FdDrac8CtT8cphFEUVDmWjExudY6jLFFm', 'Multi-layered', 'Boxster');
 insert into ad (ad_type_id, added_date, id_ad, is_sold, price, shape, user_id, visibility, address, description, link, reference, title) values (157, '2023-04-10', 157, true, 3093.12, 3, 157, 0, 'PO Box 87174', 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.', '1C8BgyM4nsVMXbQL4ySDwAgjLmtXGakhp9', 'Robust', 'Impala');
@@ -1162,7 +1162,6 @@ insert into ad_image (ad_id, id_ad_image, path) values (150, 150, 'http://dummyi
 insert into ad_image (ad_id, id_ad_image, path) values (151, 151, 'http://dummyimage.com/233x100.png/5fa2dd/ffffff');
 insert into ad_image (ad_id, id_ad_image, path) values (152, 152, 'http://dummyimage.com/141x100.png/5fa2dd/ffffff');
 insert into ad_image (ad_id, id_ad_image, path) values (153, 153, 'http://dummyimage.com/152x100.png/ff4444/ffffff');
-insert into ad_image (ad_id, id_ad_image, path) values (154, 154, 'http://dummyimage.com/244x100.png/cc0000/ffffff');
 insert into ad_image (ad_id, id_ad_image, path) values (155, 155, 'http://dummyimage.com/141x100.png/5fa2dd/ffffff');
 insert into ad_image (ad_id, id_ad_image, path) values (156, 156, 'http://dummyimage.com/226x100.png/cc0000/ffffff');
 insert into ad_image (ad_id, id_ad_image, path) values (157, 157, 'http://dummyimage.com/238x100.png/ff4444/ffffff');
@@ -1209,6 +1208,12 @@ insert into ad_image (ad_id, id_ad_image, path) values (197, 197, 'http://dummyi
 insert into ad_image (ad_id, id_ad_image, path) values (198, 198, 'http://dummyimage.com/139x100.png/dddddd/000000');
 insert into ad_image (ad_id, id_ad_image, path) values (199, 199, 'http://dummyimage.com/162x100.png/cc0000/ffffff');
 insert into ad_image (ad_id, id_ad_image, path) values (200, 200, 'http://dummyimage.com/126x100.png/cc0000/ffffff');
+insert into ad_image (ad_id, id_ad_image, path) values (154, 201, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021001.jpg');
+insert into ad_image (ad_id, id_ad_image, path) values (154, 202, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021002.jpg');
+insert into ad_image (ad_id, id_ad_image, path) values (154, 203, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021025.jpg');
+insert into ad_image (ad_id, id_ad_image, path) values (154, 204, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021024.jpg');
+insert into ad_image (ad_id, id_ad_image, path) values (154, 205, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021005.jpg');
+insert into ad_image (ad_id, id_ad_image, path) values (154, 206, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021003.jpg');
 
 /* ad_ad_tag_rel */
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (89, 1);

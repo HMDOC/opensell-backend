@@ -7,6 +7,7 @@ import java.util.Set;
 import org.hibernate.annotations.DialectOverride.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.format.annotation.NumberFormat;
 
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
@@ -39,7 +40,7 @@ public class Ad {
     private String title;
 
     @Column(nullable = false)
-    private float price;
+    private double price;
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
     private Date addedDate;
