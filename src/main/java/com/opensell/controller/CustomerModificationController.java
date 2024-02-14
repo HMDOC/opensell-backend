@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
  * @author Olivier
  */
 @RestController
-@CrossOrigin("http://localhost:9998")
+@CrossOrigin("http://localhost")
 @RequestMapping("/change")
 public class CustomerModificationController {
 
