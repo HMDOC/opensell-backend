@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Record that contain the essential data that a user need to see
+ * Record that contain the essential data that a customer need to see
  * when clicking on ad.
  * 
  * @author Achraf

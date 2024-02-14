@@ -1,18 +1,20 @@
-package com.opensell.entities.user;
+package com.opensell.entities.customer;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserInfo {
+public class CustomerInfo {
 
     @Id
-    private int idUserInfo;
+    private int idCustomerInfo;
 
     @Column(nullable = true)
     private String firstName;
@@ -21,12 +23,22 @@ public class UserInfo {
     private String lastName;
 
     @Column(nullable = true, unique = true)
+    private String exposedEmail;
+
+    @Column(nullable = true, unique = true)
     private String phoneNumber;
 
     @Column(nullable = true)
     private String primaryAddress;
 
     @Column(nullable = true)
+    private String bio;
+
+    @Column(nullable = true)
     private String iconPath;
+
+    @OneToMany
+    @JoinColumn(name = "customer_info_id", nullable = false)
+    private List<CustomerSocialLink> socials;
 
 }

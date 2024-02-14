@@ -4,11 +4,6 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.annotations.DialectOverride.ColumnDefault;
-import org.hibernate.annotations.DynamicInsert;
-import org.springframework.boot.context.properties.bind.DefaultValue;
-import org.springframework.format.annotation.NumberFormat;
-
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
@@ -83,6 +78,6 @@ public class Ad {
 	private List<AdImage> adImages;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	@JoinColumn(name = "customer_id", nullable = false)
+	private Customer customer;
 }

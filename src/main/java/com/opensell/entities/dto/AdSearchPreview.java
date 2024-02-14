@@ -2,7 +2,7 @@ package com.opensell.entities.dto;
 
 
 /**
- * Record used for when the user will see an Ad while searching. 
+ * Record used for when the customer will see an Ad while searching.
  * Like a preview of it
  * 
  * @author Davide
