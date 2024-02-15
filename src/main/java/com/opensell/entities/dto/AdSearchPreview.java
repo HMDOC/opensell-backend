@@ -8,6 +8,7 @@ package com.opensell.entities.dto;
  * @author Davide
  */
 
+// Maybe the order
 public record AdSearchPreview(
 			String adTitle,
 			double adPrice,

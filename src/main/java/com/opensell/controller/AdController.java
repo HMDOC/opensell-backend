@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.opensell.entities.Ad;
 import com.opensell.entities.dto.AdBuyerView;
+import com.opensell.entities.dto.AdSearchPreview;
 import com.opensell.repository.AdRepository;
 
 @CrossOrigin(value = "http://localhost/")
@@ -52,4 +53,18 @@ public class AdController {
 			return null;
 		}
 	}
+	
+	/*
+	 * Unfinished
+		@GetMapping("/search")
+		public List<AdSearchPreview> adSearchPreview(@RequestParam String searchQuery) {
+			List<AdSearchPreview> adList = adRepo.getUnfilteredSearch(searchQuery);
+			
+			if (adList != null) {
+				return adList;
+			}else {
+				return null;
+			}
+		}
+	 */
 }
