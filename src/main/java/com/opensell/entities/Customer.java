@@ -1,6 +1,6 @@
 package com.opensell.entities;
 
-import com.opensell.entities.user.UserInfo;
+import com.opensell.entities.customer.CustomerInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,25 +11,24 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Customer {
 
     @Id
-    private int idUser;
+    private int idCustomer;
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
     private Date joinedDate;
 
     @Column(nullable = false, unique = true)
-    private String userName;
+    private String username;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String personalEmail;
 
     @Column(nullable = false)
     private String pwd;
 
     /**
-     * @Source <a href="https://stackoverflow.com/questions/28207359/how-to-set-default-boolean-value-in-jpa">Source</a>
      * "@ColumnDefault("0")"
      */
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
@@ -42,10 +41,10 @@ public class User {
     private Boolean isActivated;
 
     @Column(nullable = false, unique = true)
-    private String profilLink;
+    private String link;
     
     @OneToOne
-    @JoinColumn(name = "user_info_id")
-    private UserInfo userInfo;
+    @JoinColumn(name = "customer_info_id")
+    private CustomerInfo customerInfo;
 
 }

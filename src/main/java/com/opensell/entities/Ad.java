@@ -4,8 +4,6 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.annotations.BatchSize;
-
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
@@ -84,6 +82,6 @@ public class Ad {
 	private List<AdImage> adImages;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	@JoinColumn(name = "customer_id", nullable = false)
+	private Customer customer;
 }
