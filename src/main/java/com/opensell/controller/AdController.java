@@ -8,7 +8,10 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.opensell.entities.Ad;
@@ -55,5 +58,11 @@ public class AdController {
 			System.out.println(e.getMessage());
 			return null;
 		}
+	}
+	
+	@PatchMapping("/change-title")
+	public boolean changeAdTitle(@RequestParam String title, @RequestParam int idAd) {
+		adRepo.changeAdTitle(idAd, title);
+		return false;
 	}
 }
