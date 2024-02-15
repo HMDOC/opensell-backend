@@ -11,8 +11,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
  * @author Olivier Mansuy
  */
@@ -49,5 +47,4 @@ public class CustomerInfo {
     @OneToMany
     @JoinColumn(name = "customer_info_id", nullable = false)
     private List<CustomerSocialLink> socials;
-
 }

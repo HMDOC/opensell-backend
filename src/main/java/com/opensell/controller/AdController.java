@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
 import com.opensell.entities.dto.AdBuyerView;
-import com.opensell.entities.dto.AdSearchPreview;
 import com.opensell.repository.AdRepository;
 
 @CrossOrigin(value = "http://localhost/")
