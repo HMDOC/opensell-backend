@@ -7,12 +7,12 @@ import java.util.Set;
 /**
  * Record that contain the essential data that a customer need to see
  * when clicking on ad.
- * 
+ *
  * @author Achraf
  */
-public record AdBuyerView(String adTitle, 
+public record AdBuyerView(String adTitle,
 						  double adPrice,
-						  Date adAddedDate, 
+						  Date adAddedDate,
 						  int adShape,
 						  boolean isAdSold,
 						  int adVisibility,

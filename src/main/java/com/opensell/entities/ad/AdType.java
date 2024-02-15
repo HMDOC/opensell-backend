@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
 public class AdType {
     @Id private int idAdType;
-    
+
     @Column(unique = true)
     private String name;
 }

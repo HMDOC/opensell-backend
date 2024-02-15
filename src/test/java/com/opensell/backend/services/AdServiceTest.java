@@ -19,7 +19,7 @@ public class AdServiceTest {
 	public static String goodLink;
 	public static String wrongLink;
 	public static String errorLink;
-	
+
 	@BeforeAll
 	void setup() {
 		goodLink = "113j4sh992z9VTQKDh6xjPmmdjDq52gLeE";
@@ -27,19 +27,19 @@ public class AdServiceTest {
 		errorLink = "%$-*!~`}[{@+\"''/";
 		adService = new AdController();
 	}
-	
+
 	@AfterEach
 	void cleanAE() {
-		
+
 	}
-	
+
 	@AfterAll
 	void cleanAA() {
 		goodLink = null;
 		wrongLink = null;
 		errorLink = null;
 	}
-	
+
 	@Test
 	void testGetAdBuyerView() {
 		assertTrue(adService.adBuyerView(goodLink) != null);

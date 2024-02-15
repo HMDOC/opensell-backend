@@ -16,7 +16,6 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -30,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
 public class Ad {
     @Id private int idAd;
-    
+
     @Column(nullable = false)
     private String title;
 
@@ -39,13 +38,13 @@ public class Ad {
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
     private Date addedDate;
-    
+
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT 0")
     private boolean isSold;
-    
+
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT 0")
     private boolean isDeleted;
-    
+
     @Column(nullable = false)
     private int visibility;
 
@@ -54,20 +53,20 @@ public class Ad {
 
     @Column(nullable = false)
     private String description;
-    
+
     @Column(nullable = false)
     private String reference;
-    
+
     @Column(nullable = false)
     private String address;
 
     @Column(nullable = false, unique = true)
     private String link;
-    
+
     @ManyToOne
     @JoinColumn(name = "ad_type_id", nullable = false)
     private AdType adType;
-    
+
     @ManyToMany
     @JoinTable(
     	name = "ad_ad_tag_rel",
@@ -75,12 +74,12 @@ public class Ad {
         inverseJoinColumns = @JoinColumn(name = "ad_tag_id")
     )
     private Set<AdTag> adTags;
-    
-    
+
+
 	@OneToMany
 	@JoinColumn(name = "ad_id", nullable = false)
 	private List<AdImage> adImages;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
