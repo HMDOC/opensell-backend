@@ -6,13 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
@@ -21,6 +15,7 @@ import com.opensell.repository.AdRepository;
 
 @CrossOrigin(value = "http://localhost/")
 @RestController
+@RequestMapping("/ad")
 public class AdController {
 	@Autowired
 	private AdRepository adRepo;
