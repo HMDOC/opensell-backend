@@ -4,14 +4,12 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.annotations.DialectOverride.ColumnDefault;
-import org.hibernate.annotations.DynamicInsert;
-import org.springframework.boot.context.properties.bind.DefaultValue;
-import org.springframework.format.annotation.NumberFormat;
+import org.hibernate.annotations.BatchSize;
 
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -26,7 +24,6 @@ import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 @Table(uniqueConstraints = {
 	@UniqueConstraint(columnNames = {"reference", "idAd"}),
@@ -47,6 +44,9 @@ public class Ad {
     
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT 0")
     private boolean isSold;
+    
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT 0")
+    private boolean isDeleted;
     
     @Column(nullable = false)
     private int visibility;
@@ -77,6 +77,7 @@ public class Ad {
         inverseJoinColumns = @JoinColumn(name = "ad_tag_id")
     )
     private Set<AdTag> adTags;
+    
     
 	@OneToMany
 	@JoinColumn(name = "ad_id", nullable = false)
