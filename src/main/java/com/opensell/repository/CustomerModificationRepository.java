@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author Olivier
+ * @author Olivier Mansuy
  */
 @Repository
 @Transactional
@@ -52,7 +52,10 @@ public interface CustomerModificationRepository extends CrudRepository<Customer,
     public abstract int updateCustomerIconPath(String iconPath, Integer id_customer);
 
     @Modifying
+    @Query(value = "update customer_info c set c.exposed_email = ?1 where c.id_customer_info = ?2", nativeQuery = true)
+    public abstract int updateCustomerExposedEmail(String email, Integer id_customer);
+
+    @Modifying
     @Query(value = "update customer_social_link c set c.link = ?1 where c.customer_info_id = ?2 and c.link = ?3 limit 1", nativeQuery = true)
     public abstract int updateCustomerSocialLink(String link, Integer id_customer, String oldLink);
-
 }

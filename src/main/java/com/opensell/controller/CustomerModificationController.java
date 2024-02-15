@@ -6,63 +6,70 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Olivier
+ * @Note ex: http://localhost:9108/change/nouveauusername/35/change-username
  */
 @RestController
 @CrossOrigin("http://localhost")
-@RequestMapping("/change")
+@RequestMapping(value = "/change")
 public class CustomerModificationController {
 
     @Autowired
     private CustomerModificationRepository rep;
 
-    @GetMapping("/email")
-    public int updateCustomerPersonalEmail(@RequestParam String email, @RequestParam int id) {
+    @PatchMapping("/change-private-email")
+    public int changeCustomerPersonalEmail(@RequestParam String email, @RequestParam int id) {
         return rep.updateCustomerPersonalEmail(email, id);
     }
 
-    @GetMapping("/username")
-    public int updateCustomerName(@RequestParam String username, @RequestParam int id) {
+    @PatchMapping("/change-username")
+    public int changeCustomerUsername(@RequestParam String username, @RequestParam int id) {
         return rep.updateCustomerUsername(username, id);
     }
 
-    @GetMapping("/pwd")
-    public int updateCustomerPwd(@RequestParam String pwd, @RequestParam int id) {
+    @PatchMapping("/change-pwd")
+    public int changeCustomerPwd(@RequestParam String pwd, @RequestParam int id) {
         return rep.updateCustomerPwd(pwd, id);
     }
 
-    @GetMapping("/firstname")
-    public int updateCustomerFirstName(@RequestParam String firstname, @RequestParam int id) {
-        return rep.updateCustomerFirstName(firstname, id);
+    @PatchMapping("/change-first-name")
+    public int changeCustomerFirstName(@RequestParam String firstName, @RequestParam int id) {
+        return rep.updateCustomerFirstName(firstName, id);
     }
 
-    @GetMapping("/lastname")
-    public int updateCustomerLastName(@RequestParam String lastname, @RequestParam int id) {
-        return rep.updateCustomerLastName(lastname, id);
+    @PatchMapping("/change-last-name")
+    public int changeCustomerLastName(@RequestParam String lastName, @RequestParam int id) {
+        return rep.updateCustomerLastName(lastName, id);
     }
 
-    @GetMapping("/phonenumber")
-    public int updateCustomerPhoneNumber(@RequestParam String phonenumber, @RequestParam int id) {
-        return rep.updateCustomerPhoneNumber(phonenumber, id);
+    @PatchMapping("/change-phone-number")
+    public int changeCustomerPhoneNumber(@RequestParam String phoneNumber, @RequestParam int id) {
+        return rep.updateCustomerPhoneNumber(phoneNumber, id);
     }
 
-    @GetMapping("/primaryaddress")
-    public int updateCustomerPrimaryAddress(@RequestParam String address, @RequestParam int id) {
+    @PatchMapping("/change-primary-address")
+    public int changeCustomerPrimaryAddress(@RequestParam String address, @RequestParam int id) {
         return rep.updateCustomerPrimaryAddress(address, id);
     }
 
-    @GetMapping("/iconpath")
-    public int updateCustomerIconPath(@RequestParam String iconpath, @RequestParam int id) {
-        return rep.updateCustomerIconPath(iconpath, id);
+    @PatchMapping("/change-icon-path")
+    public int changeCustomerIconPath(@RequestParam String iconPath, @RequestParam int id) {
+        return rep.updateCustomerIconPath(iconPath, id);
     }
 
-    @GetMapping("/bio")
-    public int updateCustomerBio(@RequestParam String bio, @RequestParam int id) {
+    @PatchMapping("/change-bio")
+    public int changeCustomerBio(@RequestParam String bio, @RequestParam int id) {
         return rep.updateCustomerBio(bio, id);
     }
 
-    @GetMapping("/socials")
-    public int updateCustomerSocialLink(@RequestParam String link, @RequestParam int id, @RequestParam String oldlink) {
-        return rep.updateCustomerSocialLink(link, id, oldlink);
+    @PatchMapping( "/change-public-email")
+    public int changeCustomerExposedEmail(@RequestParam String email, @RequestParam int id) {
+        return rep.updateCustomerExposedEmail(email, id);
     }
+
+    @PatchMapping("/change-socials")
+    public int changeCustomerSocialLink(@RequestParam String link, @RequestParam int id, @RequestParam String oldLink) {
+        return rep.updateCustomerSocialLink(link, id, oldLink);
+    }
+
 
 }

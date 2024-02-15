@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * @author Olivier Mansuy
  * need to add limitation(5)
  */
 @Entity
