@@ -64,7 +64,7 @@ public class Ad {
     @Column(nullable = false, unique = true)
     private String link;
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ad_type_id", nullable = false)
     private AdType adType;
     
