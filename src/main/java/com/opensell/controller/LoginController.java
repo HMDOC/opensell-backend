@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author Quoc Dung
  */
 
-@CrossOrigin("http://localhost:3308")
+@CrossOrigin("http://localhost/")
 @RestController
 public class LoginController {
 
