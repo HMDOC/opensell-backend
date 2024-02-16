@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.opensell.entities.Ad;
-import com.opensell.entities.dto.AdSearchPreview;
 
 @Repository
 public interface AdRepository extends JpaRepository<Ad, Integer> {
@@ -17,9 +15,9 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	
 	 // Unfinished. https://www.baeldung.com/spring-jpa-like-queries
 		@Query("SELECT a FROM Ad a "
-				+ "WHERE (a.isDeleted = false AND a.visibility != 1 AND (a.title LIKE %:search% OR a.description LIKE %:search%)) "
+				+ "WHERE (a.isDeleted = false AND a.visibility != 1 AND (a.title LIKE %?1% OR a.description LIKE %?1% )) "
 				+ "ORDER BY a.addedDate DESC")
-		public List<Ad> getUnfilteredSearch(@Param("search") String searchName);
+		public List<Ad> getUnfilteredSearch(String searchName);
 	
 	/*
 	 // Unfinished. https://www.baeldung.com/spring-jpa-like-queries
