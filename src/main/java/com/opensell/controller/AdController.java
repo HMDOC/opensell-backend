@@ -55,17 +55,21 @@ public class AdController {
 		}
 	}
 	
-	/*
-	 * Unfinished
-		@GetMapping("/search")
-		public List<AdSearchPreview> adSearchPreview(@RequestParam String searchQuery) {
-			List<AdSearchPreview> adList = adRepo.getUnfilteredSearch(searchQuery);
-			
-			if (adList != null) {
-				return adList;
-			}else {
-				return null;
+	
+	@GetMapping("/search")
+	public List<AdSearchPreview> adSearchPreview(@RequestParam String searchQuery) {
+		List<Ad> adList = adRepo.getUnfilteredSearch(searchQuery);
+		
+		if (adList != null) {
+			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
+			for(Ad ad : adList) {
+				resultList.add(new AdSearchPreview(ad.getTitle(), ad.getPrice(), ad.getShape(), 
+						ad.isSold(), ad.getLink(), ad.getAdImages().get(0).getPath()));
 			}
+			
+			return resultList;
+		}else {
+			return null;
 		}
-	 */
+	}
 }
