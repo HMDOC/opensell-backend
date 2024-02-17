@@ -19,18 +19,6 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 			+ "ORDER BY a.addedDate DESC")
 	public List<Ad> getAdSearch(String searchName);
 	
-	/*
-	 
-	 */
-	/*
-	 * Filters:
-	 * Prix 
-	 * Adresse la plus proche (pas sur)
-	 * Date d’ajouts 
-	 * Catégorie 
-	 * Tags générés par l’utilisateur (#BMW, #Benz) 
-	 * Condition (usé, neuf) 
-	 */
 }
 
 
