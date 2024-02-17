@@ -13,18 +13,13 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	@Query("SELECT a FROM Ad a WHERE a.link = ?1 AND a.isDeleted = false AND a.visibility != 1")
 	public Ad getAdByLink(String link);
 	
-	 // Unfinished. https://www.baeldung.com/spring-jpa-like-queries
-		@Query("SELECT a FROM Ad a "
-				+ "WHERE (a.isDeleted = false AND a.visibility != 1 AND (a.title LIKE %?1% OR a.description LIKE %?1% )) "
-				+ "ORDER BY a.addedDate DESC")
-		public List<Ad> getUnfilteredSearch(String searchName);
+	 // https://www.baeldung.com/spring-jpa-like-queries
+	@Query("SELECT a FROM Ad a "
+			+ "WHERE (a.isDeleted = false AND a.visibility != 1 AND (a.title LIKE %?1% OR a.description LIKE %?1% )) "
+			+ "ORDER BY a.addedDate DESC")
+	public List<Ad> getAdSearch(String searchName);
 	
 	/*
-	 // Unfinished. https://www.baeldung.com/spring-jpa-like-queries
-	@Query("SELECT new com.opensell.entities.dto.AdSearchPreview(a.title, a.price, a.shape, a.isSold, a.link, '') FROM Ad a "
-			+ "WHERE (a.isDeleted = false AND a.visibility != 1 AND (a.title LIKE %:search% OR a.description LIKE %:search%)) "
-			+ "ORDER BY a.addedDate DESC")
-	public List<AdSearchPreview> getUnfilteredSearch(@Param("search") String searchName);
 	 
 	 */
 	/*
@@ -32,7 +27,6 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	 * Prix 
 	 * Adresse la plus proche (pas sur)
 	 * Date d’ajouts 
-	 * Couleur 
 	 * Catégorie 
 	 * Tags générés par l’utilisateur (#BMW, #Benz) 
 	 * Condition (usé, neuf) 

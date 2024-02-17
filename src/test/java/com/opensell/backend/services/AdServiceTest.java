@@ -2,6 +2,8 @@ package com.opensell.backend.services;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,6 +13,8 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.opensell.controller.AdController;
+import com.opensell.entities.Ad;
+import com.opensell.entities.dto.AdSearchPreview;
 
 @SpringBootTest
 @TestInstance(Lifecycle.PER_CLASS)
@@ -45,5 +49,13 @@ public class AdServiceTest {
 		assertTrue(adService.adBuyerView(goodLink) != null);
 		//assertTrue(adService.adBuyerView(wrongLink) == null);
 	}
+	
+	/*
+	@Test
+	void testGetFilteredSearch() {
+		List<AdSearchPreview> adList = adService.adSearchPreview("E", 100, 300); 
+		assertTrue(adList.size() == 2);
+	}
+	*/
 
 }

@@ -83,4 +83,6 @@ public class Ad {
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
+	
+	
 }

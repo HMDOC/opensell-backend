@@ -1,5 +1,6 @@
 package com.opensell.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -54,18 +55,56 @@ public class AdController {
 		}
 	}
 	
-	
+	/*
+	 * Filters:
+	 * Prix 
+	 * Adresse la plus proche (pas sur)
+	 * Date d’ajouts 
+	 * Catégorie 
+	 * Tags générés par l’utilisateur (#BMW, #Benz) 
+	 * Condition (usé, neuf) 
+		for the required parameter : https://www.baeldung.com/spring-request-param
+		this is still unfinished!!!
+	 */
 	@GetMapping("/search")
-	public List<AdSearchPreview> adSearchPreview(@RequestParam String searchQuery) {
-		List<Ad> adList = adRepo.getUnfilteredSearch(searchQuery);
+	public List<AdSearchPreview> adSearchPreview(@RequestParam(value="q", required=true) String searchQuery,
+			@RequestParam(value="p1", required=false) Double priceMin,
+			@RequestParam(value="p2", required=false) Double priceMax,
+			@RequestParam(value="d1", required=false) Date dateMin,
+			@RequestParam(value="d2", required=false) Date dateMax,
+			@RequestParam(value="c", required=false) Integer typeId,
+			@RequestParam(value="t", required=false) Set<Integer> tagListId,
+			@RequestParam(value="s", required=false) Integer shapeId) {
+		List<Ad> adList = adRepo.getAdSearch(searchQuery);
 		
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
-			for(Ad ad : adList) {
-				resultList.add(new AdSearchPreview(ad.getTitle(), ad.getPrice(), ad.getShape(), 
-						ad.isSold(), ad.getLink(), ad.getAdImages().get(0).getPath()));
-			}
+			// Set a value to parameters if null
+			priceMin = (priceMin==null) ? 0 : priceMin; priceMax = (priceMax==null) ? 9999999d : priceMax; 
+			dateMin = (dateMin==null) ? new Date(0) : dateMin; dateMax = (dateMax==null) ? new Date(Long.MAX_VALUE) : dateMax; 
 			
+			for(Ad ad : adList) {
+				// Shortcuts for variables
+				double price = ad.getPrice(); int shape = ad.getShape();
+				Date date = ad.getAddedDate(); int type = ad.getAdType().getIdAdType();
+				
+				// Filter results
+				if ( ((price < priceMin) || (price > priceMax)) ||
+					( (shapeId!=null) && (shape!=shapeId) ) ||
+					( (typeId!=null) && (type!=typeId) ) ||
+					// if date is before dateMin, return -1. if date is after dateMax, return 1.
+					( ( date.compareTo(dateMin)<=0 ) || ( date.compareTo(dateMax)>=0 ) )
+					) {
+					System.out.println("Failed");
+					continue;
+				}else {
+					System.out.println("Passed");
+				}
+				
+				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), 
+						ad.getLink(), ad.getAdImages().get(0).getPath()));
+			}
+			System.out.println(resultList.size());
 			return resultList;
 		}else {
 			return null;
