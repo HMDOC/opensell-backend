@@ -75,13 +75,14 @@ public class AdController {
 			@RequestParam(value="c", required=false) Integer typeId,
 			@RequestParam(value="t", required=false) Set<Integer> tagListId,
 			@RequestParam(value="s", required=false) Integer shapeId) {
-		List<Ad> adList = adRepo.getAdSearch(searchQuery);
+		// Set a value to parameters if null
+		priceMin = (priceMin==null) ? 0 : priceMin; priceMax = (priceMax==null) ? 9999999d : priceMax; 
+		dateMin = (dateMin==null) ? new Date(0) : dateMin; dateMax = (dateMax==null) ? new Date(Long.MAX_VALUE) : dateMax; 
+		
+		List<Ad> adList = adRepo.getAdSearch(searchQuery.toUpperCase(), priceMin, priceMax);
 		
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
-			// Set a value to parameters if null
-			priceMin = (priceMin==null) ? 0 : priceMin; priceMax = (priceMax==null) ? 9999999d : priceMax; 
-			dateMin = (dateMin==null) ? new Date(0) : dateMin; dateMax = (dateMax==null) ? new Date(Long.MAX_VALUE) : dateMax; 
 			
 			for(Ad ad : adList) {
 				// Shortcuts for variables
@@ -89,8 +90,7 @@ public class AdController {
 				Date date = ad.getAddedDate(); int type = ad.getAdType().getIdAdType();
 				
 				// Filter results
-				if ( ((price < priceMin) || (price > priceMax)) ||
-					( (shapeId!=null) && (shape!=shapeId) ) ||
+				if ( ( (shapeId!=null) && (shape!=shapeId) ) ||
 					( (typeId!=null) && (type!=typeId) ) ||
 					// if date is before dateMin, return -1. if date is after dateMax, return 1.
 					( ( date.compareTo(dateMin)<=0 ) || ( date.compareTo(dateMax)>=0 ) )
