@@ -1243,5 +1243,6 @@ insert into customer_social_link (customer_info_id, id_customer_social_link, lin
 insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 4, 'https://www.instagram.com/');
 insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 5, 'https://www.instagram.com/');
 insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 6, 'https://www.instagram.com/');
+insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 8, 'https://www.in/');
 
 insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (76, 7, 'https://www.facebook.com/');
