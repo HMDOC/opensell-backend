@@ -11,7 +11,6 @@ import com.opensell.repository.CustomerModificationRepository;
 
 /**
  * @author Olivier
- * @Note ex: http://localhost:9108/change/nouveauusername/35/change-username
  */
 @RestController
 @CrossOrigin("http://localhost")

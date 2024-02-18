@@ -6,7 +6,7 @@ import java.util.List;
  * Record for data meant to be used has placeholder in the modification page form
  * @author Olivier Mansuy
  */
-public record CustomerModificationPage(
+public record CustomerModificationPagePlaceholder(
         String customerUsername,
         String customerFistName,
         String customerLastName,
