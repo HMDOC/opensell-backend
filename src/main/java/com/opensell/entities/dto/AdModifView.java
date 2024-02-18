@@ -4,7 +4,7 @@ import java.util.Set;
 
 /**
  * Record that contain the essential data when a user is trying to UPDATE a Ad.
- * 
+ *
  * @author Achraf
  */
 public record AdModifView(String title,

@@ -15,7 +15,7 @@ import com.opensell.repository.CustomerModificationRepository;
  */
 @RestController
 @CrossOrigin("http://localhost")
-@RequestMapping(value = "/change")
+@RequestMapping("/change")
 public class CustomerModificationController {
 
     @Autowired

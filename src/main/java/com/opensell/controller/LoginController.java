@@ -1,13 +1,12 @@
 package com.opensell.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-
-import com.opensell.repository.LoginRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.opensell.repository.LoginRepository;
 
 /**
  * @author Quoc Dung
@@ -22,7 +21,7 @@ public class LoginController {
 
     // Tu dois faire un record
     // Moi je te dirais return des chiffres et interprete dans le frontend ou
-    // Si le user est valide retourne les informations de lutilisateur utiles, aussi les sites, il dise pas 
+    // Si le user est valide retourne les informations de lutilisateur utiles, aussi les sites, il dise pas
     // le userbname est invalide, il te dise username or password invalid
     @PostMapping("/login")
     public int login(@RequestParam String username, @RequestParam String pwd) {

@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 public class AdType {
     @Id private int idAdType;
 
-    @Column(unique = true)
+    @Column(nullable = false, unique = true, length = 60)
     private String name;
 }

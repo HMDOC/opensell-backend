@@ -6,7 +6,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
@@ -55,21 +60,21 @@ public class AdController {
 			return null;
 		}
 	}
-	
-	
+
+
 	@GetMapping("/search")
 	public List<AdSearchPreview> adSearchPreview(@RequestParam String searchQuery) {
 		List<Ad> adList = adRepo.getUnfilteredSearch(searchQuery);
-		
+
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
 			for(Ad ad : adList) {
-				resultList.add(new AdSearchPreview(ad.getTitle(), ad.getPrice(), ad.getShape(), 
+				resultList.add(new AdSearchPreview(ad.getTitle(), ad.getPrice(), ad.getShape(),
 						ad.isSold(), ad.getLink(), ad.getAdImages().get(0).getPath()));
 			}
-			
+
 			return resultList;
-		}else {
+		} else {
 			return null;
 		}
 	}
