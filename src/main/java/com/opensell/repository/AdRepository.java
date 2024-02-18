@@ -1,9 +1,11 @@
 package com.opensell.repository;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.opensell.entities.Ad;
 
@@ -16,10 +18,15 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	 // https://www.baeldung.com/spring-jpa-like-queries
 	@Query("SELECT a FROM Ad a "
 			+ "WHERE ( a.isDeleted = false AND a.visibility != 1 AND "
-			+ "( UPPER(a.title) LIKE %?1% OR UPPER(a.description) LIKE %?1% ) AND "
-			+ "( a.price >= ?2 AND a.price <= ?3 ) ) "
-			+ "ORDER BY a.addedDate DESC")
-	public List<Ad> getAdSearch(String searchName, Double priceMin, Double priceMax);
+			+ "( UPPER(a.title) LIKE %:search% OR UPPER(a.description) LIKE %:search% ) AND "
+			+ "( a.price >= :pMin AND a.price <= :pMax ) AND "
+			+ "( a.addedDate > :dMin AND a.addedDate < :dMax ) AND "
+			+ "( a.shape = :shape OR :shape is null ) AND"
+			+ "( a.adType.idAdType = :type OR :type is null ) ) "
+			+ "ORDER BY a.addedDate DESC LIMIT :limit")
+	public List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin, 
+			@Param("pMax") Double priceMax, @Param("dMin") Date dateMin, @Param("dMax") Date dateMax,
+			@Param("shape") Integer shapeId, @Param("type") Integer typeId, @Param("limit") Integer limitNb);
 	
 }
 

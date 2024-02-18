@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.opensell.entities.Customer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,22 +65,21 @@ public class AdController {
 	 * Tags générés par l’utilisateur (#BMW, #Benz) 
 	 * Condition (usé, neuf) 
 		for the required parameter : https://www.baeldung.com/spring-request-param
+		for the defaultValue parameter : https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html
 		this is still unfinished!!!
 	 */
 	@GetMapping("/search")
 	public List<AdSearchPreview> adSearchPreview(@RequestParam(value="q", required=true) String searchQuery,
-			@RequestParam(value="p1", required=false) Double priceMin,
-			@RequestParam(value="p2", required=false) Double priceMax,
-			@RequestParam(value="d1", required=false) Date dateMin,
-			@RequestParam(value="d2", required=false) Date dateMax,
+			@RequestParam(value="p1", required=false, defaultValue="0") Double priceMin,
+			@RequestParam(value="p2", required=false, defaultValue="9999999d") Double priceMax,
+			@RequestParam(value="d1", required=false, defaultValue="2020-01-01") Date dateMin,
+			@RequestParam(value="d2", required=false, defaultValue="3000-01-01") Date dateMax,
 			@RequestParam(value="c", required=false) Integer typeId,
 			@RequestParam(value="t", required=false) Set<Integer> tagListId,
-			@RequestParam(value="s", required=false) Integer shapeId) {
-		// Set a value to parameters if null
-		priceMin = (priceMin==null) ? 0 : priceMin; priceMax = (priceMax==null) ? 9999999d : priceMax; 
-		dateMin = (dateMin==null) ? new Date(0) : dateMin; dateMax = (dateMax==null) ? new Date(Long.MAX_VALUE) : dateMax; 
+			@RequestParam(value="s", required=false) Integer shapeId,
+			@RequestParam(value="l", required=false, defaultValue="8") Integer limitNb) {
 		
-		List<Ad> adList = adRepo.getAdSearch(searchQuery.toUpperCase(), priceMin, priceMax);
+		List<Ad> adList = adRepo.getAdSearch(searchQuery.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, limitNb );
 		
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
@@ -89,17 +89,16 @@ public class AdController {
 				double price = ad.getPrice(); int shape = ad.getShape();
 				Date date = ad.getAddedDate(); int type = ad.getAdType().getIdAdType();
 				
+				/*
 				// Filter results
-				if ( ( (shapeId!=null) && (shape!=shapeId) ) ||
-					( (typeId!=null) && (type!=typeId) ) ||
-					// if date is before dateMin, return -1. if date is after dateMax, return 1.
-					( ( date.compareTo(dateMin)<=0 ) || ( date.compareTo(dateMax)>=0 ) )
-					) {
+				if ( false ) {
 					System.out.println("Failed");
 					continue;
 				}else {
+					System.out.println(date);
 					System.out.println("Passed");
 				}
+				*/
 				
 				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), 
 						ad.getLink(), ad.getAdImages().get(0).getPath()));
