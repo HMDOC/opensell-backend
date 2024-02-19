@@ -9,7 +9,9 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
 import com.opensell.entities.dto.AdBuyerView;
+import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
 import com.opensell.repository.AdRepository;
 
@@ -115,5 +118,55 @@ public class AdController {
 		} else {
 			return null;
 		}
+	}
+	
+	/**
+	 * To get an adView when a user want to modify an ad.
+	 * 
+	 * @author Achraf
+	 */
+	@GetMapping("/to-modify/{idAd}")
+	public AdModifView getAdModifView(@PathVariable int idAd) {
+		Ad ad = adRepo.getAdByIdAd(idAd);
+		
+		if(ad != null) {
+			Set<String> adTagsName = new LinkedHashSet<>();
+			ad.getAdTags().forEach(tag -> adTagsName.add(tag.getName()));
+			
+			List<String> adImagesPath = new ArrayList<>();
+			ad.getAdImages().forEach(image -> adImagesPath.add(image.getPath()));
+			
+			return new AdModifView(idAd, ad.getTitle(), ad.getPrice(), 
+								   ad.getShape(), ad.isSold(), ad.getVisibility(),
+								   ad.getDescription(), ad.getReference(), ad.getAddress(), 
+								   ad.getLink(), ad.getAdType().getName(), adTagsName, adImagesPath);			
+		}
+
+		return null;
+	}
+	
+	/**
+	 * To change an Ad.
+	 * 
+	 * @author Achraf
+	 */
+	@PatchMapping("/change/")
+	public Ad changeAd(@RequestBody AdModifView adModifView, @RequestParam int idCustomer) {
+		Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
+		
+		if(ad != null && adModifView != null) {
+			if(adModifView.title() != null && adModifView.title().length() <= 255 && adRepo.checkTitle(idCustomer, adModifView.title()) == 0) {
+				ad.setTitle(adModifView.title());
+				
+				if(adModifView.reference() != null && adModifView.reference().length() <= 255 && adRepo.checkReference(idCustomer, adModifView.reference()) != 0) {
+					ad.setReference(adModifView.reference());
+
+					// I need to figure it out to deal with the new image because they are not String path.
+					
+				}
+			}
+		}
+
+		return ad;
 	}
 }

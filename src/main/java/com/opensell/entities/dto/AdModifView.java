@@ -1,13 +1,15 @@
 package com.opensell.entities.dto;
 
+import java.util.List;
 import java.util.Set;
 
 /**
- * Record that contain the essential data when a user is trying to UPDATE a Ad.
+ * Record that contain the essential data when a user is trying to UPDATE an Ad.
  *
  * @author Achraf
  */
-public record AdModifView(String title,
+public record AdModifView(int idAd,
+						  String title,
 						  double price,
 						  int shape,
 						  boolean isSold,
@@ -18,4 +20,4 @@ public record AdModifView(String title,
 						  String link,
 						  String adTypeName,
 						  Set<String> adTagsName,
-						  String adImagesPath) {}
+						  List<String> adImagesPath) {}

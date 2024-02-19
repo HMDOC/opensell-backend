@@ -51,7 +51,7 @@ public class Ad {
     @Column(nullable = false)
     private int shape;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 5000)
     private String description;
 
     @Column(nullable = false)
