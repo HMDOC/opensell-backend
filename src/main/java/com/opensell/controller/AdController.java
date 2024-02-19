@@ -76,7 +76,7 @@ public class AdController {
 		this is still unfinished!!!
 	 */
 	@GetMapping("/search")
-	public List<AdSearchPreview> adSearchPreview(@RequestParam(value="q", required=true) String searchQuery,
+	public List<AdSearchPreview> adSearch(@RequestParam(value="q", required=true) String searchQuery,
 			@RequestParam(value="p1", required=false, defaultValue="0") Double priceMin,
 			@RequestParam(value="p2", required=false, defaultValue="9999999d") Double priceMax,
 			@RequestParam(value="d1", required=false, defaultValue="2020-01-01") Date dateMin,
