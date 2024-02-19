@@ -21,7 +21,7 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	 */
 	@Query("SELECT a FROM Ad a WHERE a.link = ?1 AND a.isDeleted = false AND a.visibility != 1")
 	public Ad getAdByLink(String link);
-	
+
 	 // https://www.baeldung.com/spring-jpa-like-queries
 	@Query("SELECT a FROM Ad a "
 			+ "WHERE ( a.isDeleted = false AND a.visibility != 1 AND "
@@ -31,10 +31,10 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 			+ "( a.shape = :shape OR :shape is null ) AND"
 			+ "( a.adType.idAdType = :type OR :type is null ) ) "
 			+ "ORDER BY a.addedDate DESC LIMIT :limit")
-	public List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin, 
+	public List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin,
 			@Param("pMax") Double priceMax, @Param("dMin") Date dateMin, @Param("dMax") Date dateMax,
 			@Param("shape") Integer shapeId, @Param("type") Integer typeId, @Param("limit") Integer limitNb);
-	
+
 }
 
 

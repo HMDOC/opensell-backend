@@ -6,8 +6,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.opensell.entities.Customer;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,15 +62,15 @@ public class AdController {
 			return null;
 		}
 	}
-	
+
 	/*
 	 * Filters:
-	 * Prix 
+	 * Prix
 	 * Adresse la plus proche (pas sur)
-	 * Date d’ajouts 
-	 * Catégorie 
-	 * Tags générés par l’utilisateur (#BMW, #Benz) 
-	 * Condition (usé, neuf) 
+	 * Date d’ajouts
+	 * Catégorie
+	 * Tags générés par l’utilisateur (#BMW, #Benz)
+	 * Condition (usé, neuf)
 		for the required parameter : https://www.baeldung.com/spring-request-param
 		for the defaultValue parameter : https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html
 		this is still unfinished!!!
@@ -87,17 +85,17 @@ public class AdController {
 			@RequestParam(value="t", required=false) Set<Integer> tagListId,
 			@RequestParam(value="s", required=false) Integer shapeId,
 			@RequestParam(value="l", required=false, defaultValue="8") Integer limitNb) {
-		
+
 		List<Ad> adList = adRepo.getAdSearch(searchQuery.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, limitNb );
-		
+
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
-			
+
 			for(Ad ad : adList) {
 				// Shortcuts for variables
 				double price = ad.getPrice(); int shape = ad.getShape();
 				Date date = ad.getAddedDate(); int type = ad.getAdType().getIdAdType();
-				
+
 				/*
 				// Filter results
 				if ( false ) {
@@ -108,8 +106,8 @@ public class AdController {
 					System.out.println("Passed");
 				}
 				*/
-				
-				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), 
+
+				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(),
 						ad.getLink(), ad.getAdImages().get(0).getPath()));
 			}
 			System.out.println(resultList.size());
