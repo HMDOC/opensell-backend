@@ -1,4 +1,4 @@
-package com.opensell.controller;
+package com.opensell.service;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,8 @@ import org.springframework.stereotype.Service;
 @CrossOrigin("http://localhost/")
 @Service
 @RestController
-public class EmailService {    
+public class EmailService {
+
         @Autowired
         private JavaMailSender javaMailSender;
     

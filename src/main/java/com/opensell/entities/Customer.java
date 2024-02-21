@@ -14,14 +14,16 @@ import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
+
     @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCustomer;
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
