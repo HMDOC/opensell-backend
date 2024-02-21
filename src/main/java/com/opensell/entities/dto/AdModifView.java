@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public record AdModifView(int idAd,
 						  String title,
-						  double price,
+						  Double price,
 						  int shape,
 						  boolean isSold,
 						  int visibility,

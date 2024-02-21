@@ -10,6 +10,8 @@ import com.opensell.entities.ad.AdType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -28,7 +30,9 @@ import lombok.NoArgsConstructor;
 })
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
 public class Ad {
-    @Id private int idAd;
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private int idAd;
 
     @Column(nullable = false)
     private String title;
