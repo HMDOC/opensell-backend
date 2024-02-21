@@ -18,3 +18,16 @@ spring:
   output:
     ansi:
       enabled: always
+  mail:
+    host: live.smtp.mailtrap.io
+    port: 25
+    username: api
+    password: a66d1c56f094e6bd14c4c117712f8a45
+    properties:
+      mail:
+        ssl: no
+        smtp:
+          auth: true
+          tls: yes
+          starttls:
+            enable: true
