@@ -1,20 +1,27 @@
 package com.opensell.entities;
 
+import java.sql.Date;
+
 import com.opensell.entities.customer.CustomerInfo;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.sql.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int idCustomer;
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
@@ -43,7 +50,7 @@ public class Customer {
 
     @Column(nullable = false, unique = true)
     private String link;
-    
+
     @OneToOne
     @JoinColumn(name = "customer_info_id")
     private CustomerInfo customerInfo;
