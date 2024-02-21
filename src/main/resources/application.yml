@@ -18,3 +18,23 @@ spring:
   output:
     ansi:
       enabled: always
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${email}
+    password: bvil hixq tfyf bmqc
+    default-encoding: UTF-8
+    properties:
+      mail:
+        mime:
+          charset: UTF
+        smtp:
+          write-timeout: 10000
+          connectiontimeout: 10000
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+      verify:
+        host: http://localhost:${port}

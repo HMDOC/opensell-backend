@@ -23,13 +23,8 @@ public class LoginController {
     @GetMapping("/login")
     public int login(@RequestParam String username, @RequestParam String pwd) {
         if (loginRepository.checkEmailUsername(username) ==  1) {
-            if (loginRepository.checkPassword(username, pwd) == 1) {
-                return 1; // Correct password
-            } else {
-                return 2; // Wrong password
-            }
-        } else {
-            return 3; // User not found
+            if (loginRepository.checkPassword(username, pwd) == 1) return 1; // Correct password
         }
+        return 2;
     }
 }

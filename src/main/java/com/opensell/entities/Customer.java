@@ -14,6 +14,7 @@ import java.sql.Date;
 public class Customer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCustomer;
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
