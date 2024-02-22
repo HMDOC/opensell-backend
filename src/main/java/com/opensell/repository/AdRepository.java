@@ -2,7 +2,9 @@ package com.opensell.repository;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,18 +17,20 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	@Query("SELECT a FROM Ad a WHERE a.link = ?1 AND a.isDeleted = false AND a.visibility != 1")
 	public Ad getAdByLink(String link);
 	
-	 // https://www.baeldung.com/spring-jpa-like-queries
+	// https://www.baeldung.com/spring-jpa-like-queries
+	// https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
 	@Query("SELECT a FROM Ad a "
 			+ "WHERE ( a.isDeleted = false AND a.visibility != 1 AND "
 			+ "( UPPER(a.title) LIKE %:search% OR UPPER(a.description) LIKE %:search% ) AND "
-			+ "( a.price >= :pMin AND a.price <= :pMax ) AND "
-			+ "( a.addedDate > :dMin AND a.addedDate < :dMax ) AND "
-			+ "( a.shape = :shape OR :shape is null ) AND"
-			+ "( a.adType.idAdType = :type OR :type is null ) ) "
-			+ "ORDER BY a.addedDate DESC LIMIT :limit")
-	public List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin, 
-			@Param("pMax") Double priceMax, @Param("dMin") Date dateMin, @Param("dMax") Date dateMax,
-			@Param("shape") Integer shapeId, @Param("type") Integer typeId, @Param("limit") Integer limitNb);
+			+ "( a.price between :pMin And :pMax ) AND "
+			+ "( a.addedDate between :dMin AND :dMax ) AND "
+			+ "( a.shape = :shapeId AND :shapeId not null ) AND"
+			+ "( a.adType.idAdType = :typeId AND :typeId not null ) "
+			+ "( :tags in a.adTags.idAdTag ) ) "
+			+ "LIMIT :limit")
+	public List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin,@Param("pMax") Double priceMax,
+			@Param("dMin") Date dateMin, @Param("dMax") Date dateMax, @Param("shapeId") Integer shapeId, 
+			@Param("typeId") Integer typeId, @Param("limit") Integer limitNb, @Param("tags") Set<Integer> tags, @Param("sort") Sort sort);
 	
 }
 

@@ -9,6 +9,7 @@ import java.util.Set;
 import com.opensell.entities.Customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import com.opensell.entities.Ad;
@@ -69,17 +70,19 @@ public class AdController {
 		this is still unfinished!!!
 	 */
 	@GetMapping("/search")
-	public List<AdSearchPreview> adSearch(@RequestParam(value="q", required=true) String searchQuery,
-			@RequestParam(value="p1", required=false, defaultValue="0") Double priceMin,
-			@RequestParam(value="p2", required=false, defaultValue="9999999d") Double priceMax,
-			@RequestParam(value="d1", required=false, defaultValue="2020-01-01") Date dateMin,
-			@RequestParam(value="d2", required=false, defaultValue="3000-01-01") Date dateMax,
-			@RequestParam(value="c", required=false) Integer typeId,
-			@RequestParam(value="t", required=false) Set<Integer> tagListId,
-			@RequestParam(value="s", required=false) Integer shapeId,
-			@RequestParam(value="l", required=false, defaultValue="8") Integer limitNb) {
+	public List<AdSearchPreview> adSearch(@RequestParam(required=true) String query,
+			@RequestParam(required=false, defaultValue="0") Double priceMin,
+			@RequestParam(required=false, defaultValue="9999999d") Double priceMax,
+			@RequestParam(required=false, defaultValue="2020-01-01") Date dateMin,
+			@RequestParam(required=false, defaultValue="3000-01-01") Date dateMax,
+			@RequestParam(required=false) Integer typeId,
+			@RequestParam(required=false) Set<Integer> tagListId,
+			@RequestParam(required=false) Integer shapeId,
+			@RequestParam(required=false, defaultValue="16") Integer limit,
+			@RequestParam(required=false, defaultValue="addedDate") String sortBy) {
 		
-		List<Ad> adList = adRepo.getAdSearch(searchQuery.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, limitNb );
+		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, 
+				limit, tagListId, Sort.by(sortBy));
 		
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
