@@ -11,6 +11,8 @@ import jakarta.transaction.Transactional;
 
 /**
  * @author Olivier Mansuy
+ * @Note Methods given by the repository are not used so that we can have all the modification methods
+ * at the same place
  */
 @Repository
 @Transactional

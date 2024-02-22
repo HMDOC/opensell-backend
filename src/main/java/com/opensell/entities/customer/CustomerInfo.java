@@ -2,11 +2,7 @@ package com.opensell.entities.customer;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +17,7 @@ import lombok.NoArgsConstructor;
 public class CustomerInfo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCustomerInfo;
 
     @Column(nullable = true)
