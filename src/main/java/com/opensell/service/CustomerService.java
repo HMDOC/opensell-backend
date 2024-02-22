@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService {
+public class CustomerService {
 
     @Autowired
     private CustomerRepository rep;
