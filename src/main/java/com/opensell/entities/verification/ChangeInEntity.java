@@ -1,4 +1,7 @@
-package com.opensell.entities.ad;
+package com.opensell.entities.verification;
+
+import org.antlr.v4.runtime.misc.NotNull;
+
 /**
  * It is to an interface to make it more easy to change the value of an Entity attribute
  * if certain condition are respected.
@@ -22,25 +25,25 @@ public interface ChangeInEntity<T> {
 	 * 
 	 * @author Achraf
 	 */
-	public static <T> byte checkModifError(ChangeInEntity<T> changeInEntity, T attribute, boolean isChangeable) {
-		if(isChangeable) {
-			// The value as not been changed by the user.
-			if(attribute == null) return 0;
-			
-			else {
-				// The data was successfully changed.
-				if(changeInEntity != null) {
-					changeInEntity.setAttribute(attribute);
-					return 1;
-				}
+	public static <T> VerifyCode checkModifError(ChangeInEntity<T> changeInEntity, T attribute, VerifyEntity verifyEntity) throws Exception {
+		if(changeInEntity != null && verifyEntity != null) {
+			if(verifyEntity.isVerified()) {
+				// The value as not been changed by the user.
+				if(attribute == null) return VerifyCode.OK;
 				
-				// Function call error, adSetAttribut cannot be null. 
-				else return 2;
-			}
+				// The data was successfully changed.
+				else {
+					changeInEntity.setAttribute(attribute);
+					return VerifyCode.OK;
+				}
+			} 
+			
+			// The value cannot be changed because it do not respect the SQL restriction.
+			else return VerifyCode.SQL_ERROR;
 		} 
 		
-		// The value cannot be changed because it do not respect the SQL restriction.
-		else return 3;
+		// Bad Call of the function
+		else throw new Exception("The params changeInEntity and verifyEntity cannot be null.");
 	}
 	
 	/**

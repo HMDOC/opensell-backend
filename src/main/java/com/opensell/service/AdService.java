@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
-import com.opensell.entities.ad.ChangeInEntity;
 import com.opensell.entities.dto.AdBuyerView;
+import com.opensell.entities.verification.ChangeInEntity;
+import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 
 @Service
@@ -47,31 +48,24 @@ public class AdService {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * To change the title of an Ad.
 	 *
 	 * @author Achraf
 	 */
-	public boolean changeTitle(ChangeInEntity<String> adSetAttribut, String title, int idCustomer) {
-		if(title != null && adSetAttribut != null && title.length() <= 255 && adRepo.checkTitle(idCustomer, title) == 0) {
-			adSetAttribut.setAttribute(title);
-			return true;
-		}
-		
-		return false;
+	public VerifyCode changeTitle(ChangeInEntity<String> changeInEntity, String title, int idCustomer) throws Exception {
+		return ChangeInEntity.checkModifError(changeInEntity, title,
+				() -> title.length() <= 255 && adRepo.checkTitle(idCustomer, title) == 0);
 	}
-	
+
 	/**
 	 * To change the reference of an Ad.
 	 *
 	 * @author Achraf
 	 */
-	public boolean changeReference(ChangeInEntity<String> adSetReference, String reference) {
-		if(reference != null) {
-			
-		}
-			
-		return false;
+	public VerifyCode changeReference(ChangeInEntity<String> changeInEntity, String reference, int idCustomer) throws Exception {
+		return ChangeInEntity.checkModifError(changeInEntity, reference,
+				() -> reference.length() <= 255 && adRepo.checkReference(idCustomer, reference) == 0);
 	}
 }

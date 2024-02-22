@@ -21,11 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdTag;
-import com.opensell.entities.ad.ChangeInEntity;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdImgSave;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
+import com.opensell.entities.verification.ChangeInEntity;
+import com.opensell.entities.verification.VerifyAdModif;
+import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.service.AdService;
@@ -40,10 +42,10 @@ public class AdController {
 
 	@Autowired
 	private AdTagRepository adTagRepo;
-	
+
 	@Autowired
 	private AdService adService;
-	
+
 	/**
 	 * Call function from AdService to get an AdBuyer from a link.
 	 *
@@ -55,55 +57,62 @@ public class AdController {
 	}
 
 	/**
-	 * The http request that gets the entire list of ads, filtered by the provided parameters
+	 * The http request that gets the entire list of ads, filtered by the provided
+	 * parameters
+	 * 
 	 * @author Davide
 	 */
 	@GetMapping("/search")
-	public List<AdSearchPreview> adSearch(@RequestParam(required=true) String query,
-			@RequestParam(required=false, defaultValue="0") Double priceMin,
-			@RequestParam(required=false, defaultValue="9999999d") Double priceMax,
-			@RequestParam(required=false, defaultValue="2020-01-01") Date dateMin,
-			@RequestParam(required=false, defaultValue="3000-01-01") Date dateMax,
-			@RequestParam(required=false) Integer typeId,
-			@RequestParam(required=false) Set<Integer> tagListId,
-			@RequestParam(required=false) Integer shapeId,
-			@RequestParam(required=false, defaultValue="addedDate") String sortBy) {
-		
-		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, Sort.by(sortBy));
-		
+	public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
+			@RequestParam(required = false, defaultValue = "0") Double priceMin,
+			@RequestParam(required = false, defaultValue = "9999999d") Double priceMax,
+			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
+			@RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
+			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<Integer> tagListId,
+			@RequestParam(required = false) Integer shapeId,
+			@RequestParam(required = false, defaultValue = "addedDate") String sortBy) {
+
+		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId,
+				Sort.by(sortBy));
+
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
 
-			for(Ad ad : adList) {
+			for (Ad ad : adList) {
 				// Shortcuts for variables
-				double price = ad.getPrice(); int shape = ad.getShape();
-				Date date = ad.getAddedDate(); int type = ad.getAdType().getIdAdType();
-				
+				double price = ad.getPrice();
+				int shape = ad.getShape();
+				Date date = ad.getAddedDate();
+				int type = ad.getAdType().getIdAdType();
+
 				boolean hasTag = true;
-				
-				if (tagListId!=null) {
+
+				if (tagListId != null) {
 					hasTag = false;
 					for (Integer tagId : tagListId) {
-						for(AdTag adTag : ad.getAdTags()) {
+						for (AdTag adTag : ad.getAdTags()) {
 							if (adTag.getIdAdTag() == tagId) {
 								hasTag = true;
 								break;
-							};
+							}
+							;
 						}
-						if (hasTag) { break; }
+						if (hasTag) {
+							break;
+						}
 					}
 				}
-				
+
 				// Filter results
-				if ( !hasTag ) {
+				if (!hasTag) {
 					System.out.println("Failed");
 					continue;
-				}else {
+				} else {
 					System.out.println("Passed");
 				}
 
-				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(),
-						ad.getLink(), ad.getAdImages().get(0).getPath()));
+				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), ad.getLink(),
+						ad.getAdImages().get(0).getPath()));
 			}
 			System.out.println(resultList.size());
 			return resultList;
@@ -111,7 +120,7 @@ public class AdController {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * To get an adView when a user want to modify an ad.
 	 * 
@@ -120,88 +129,94 @@ public class AdController {
 	@GetMapping("/to-modify/{idAd}")
 	public AdModifView getAdModifView(@PathVariable int idAd) {
 		Ad ad = adRepo.getAdByIdAd(idAd);
-		
-		if(ad != null) {
+
+		if (ad != null) {
 			Set<String> adTagsName = new LinkedHashSet<>();
 			ad.getAdTags().forEach(tag -> adTagsName.add(tag.getName()));
-			
+
 			List<String> adImagesPath = new ArrayList<>();
 			ad.getAdImages().forEach(image -> adImagesPath.add(image.getPath()));
-			
-			return new AdModifView(idAd, ad.getTitle(), ad.getPrice(), 
-								   ad.getShape(), ad.isSold(), ad.getVisibility(),
-								   ad.getDescription(), ad.getReference(), ad.getAddress(), 
-								   ad.getLink(), ad.getAdType().getName(), adTagsName, adImagesPath);	
+
+			return new AdModifView(idAd, ad.getTitle(), ad.getPrice(), ad.getShape(), ad.isSold(), ad.getVisibility(),
+					ad.getDescription(), ad.getReference(), ad.getAddress(), ad.getLink(), ad.getAdType().getName(),
+					adTagsName, adImagesPath);
 		}
 
 		return null;
 	}
-	
+
 	/**
 	 * To change an Ad.
+	 * 
+	 * CODE : 0 = OK 30 = idCustomer Error 31 = Title Error 32 = Référence Error 33
+	 * = Images Error 34 = Price Error 35 = Tags Error 36 = Type Error 37 =
+	 * Description Error 38 = Visibilité Error 39 = Shape Error
 	 * 
 	 * @author Achraf
 	 */
 	@PatchMapping("/change")
-	public ResponseEntity<Ad> changeAd(@RequestBody AdModifView adModifView, @RequestParam Integer idCustomer, @RequestParam(required = false) AdImgSave adImgSave) throws Exception {
-		if(adModifView != null) {
-			Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
-			
-			
-			byte result = ChangeInEntity.checkModifError(
-				(title) -> ad.setTitle(title), 
-				adModifView.title(),
-				(adModifView.title().length() <= 255 && adRepo.checkTitle(idCustomer, adModifView.title()) == 0)
-			);
-			
-			System.out.println(result);
-			
-			/*
-			if(ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
-				// Le truc avec l'interface marche
-				if(adService.changeTitle((title) -> ad.setTitle(title), adModifView.title(), idCustomer)) {
-					System.out.println("Changed Successfuly!");
-					System.out.println(ad.getTitle());
-				} else {
-					System.out.println("You are screwed!");
+	public byte changeAd(@RequestBody AdModifView adModifView, @RequestParam Integer idCustomer,
+			@RequestParam(required = false) AdImgSave adImgSave) {
+		try {
+			if (adModifView != null) {
+				Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
+				
+				// Need to check reference
+				if (ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
+					if (VerifyCode.SQL_ERROR != adService.changeTitle((title) -> ad.setTitle(title),
+							adModifView.title(), idCustomer)) {
+						System.out.println("");
+						if (VerifyCode.SQL_ERROR != adService.changeReference((reference) -> ad.setReference(reference),
+								adModifView.reference(), idCustomer)) {
+
+						} else
+							return VerifyAdModif.REFERENCE_ERROR;
+					} else {
+						return VerifyAdModif.TITLE_ERROR;
+					}
 				}
-			}*/
-			
-			
-			/*
-				if(adModifView.reference() != null && adModifView.reference().length() <= 255 && adRepo.checkReference(idCustomer, adModifView.reference()) != 0) {
-					ad.setReference(adModifView.reference());
-					
-					// Need to check images
-					
-					if(adModifView.price() != null && adModifView.price() >= 0) {
-						ad.setPrice(adModifView.price());
-					}
-					
-					Set<AdTag> adTagsFresh = new LinkedHashSet<>();
-					AdTag currentTag;
-					for(String tagName : adModifView.adTagsName()) {
-						currentTag = adTagRepo.findByName(tagName);
-						
-						if(currentTag == null) {
-							System.out.println("NEW Tags!");
-							adTagsFresh.add(new AdTag(tagName));
-						} else {
-							adTagsFresh.add(currentTag);
-						}
-					}
-					
-					ad.setAdTags(adTagsFresh);
-				}*/
+
+				/*
+				 * if(ad != null && ad.getCustomer().getIdCustomer() == idCustomer) { // Le truc
+				 * avec l'interface marche if(adService.changeTitle((title) ->
+				 * ad.setTitle(title), adModifView.title(), idCustomer)) {
+				 * System.out.println("Changed Successfuly!");
+				 * System.out.println(ad.getTitle()); } else {
+				 * System.out.println("You are screwed!"); } }
+				 */
+
+				/*
+				 * if(adModifView.reference() != null && adModifView.reference().length() <= 255
+				 * && adRepo.checkReference(idCustomer, adModifView.reference()) != 0) {
+				 * ad.setReference(adModifView.reference());
+				 * 
+				 * // Need to check images
+				 * 
+				 * if(adModifView.price() != null && adModifView.price() >= 0) {
+				 * ad.setPrice(adModifView.price()); }
+				 * 
+				 * Set<AdTag> adTagsFresh = new LinkedHashSet<>(); AdTag currentTag; for(String
+				 * tagName : adModifView.adTagsName()) { currentTag =
+				 * adTagRepo.findByName(tagName);
+				 * 
+				 * if(currentTag == null) { System.out.println("NEW Tags!"); adTagsFresh.add(new
+				 * AdTag(tagName)); } else { adTagsFresh.add(currentTag); } }
+				 * 
+				 * ad.setAdTags(adTagsFresh); }
+				 */
 			}
 
-		return new ResponseEntity<Ad>(HttpStatusCode.valueOf(500));
+			return VerifyAdModif.AD_MODIF_VIEW_ERROR;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return VerifyAdModif.SERVER_ERROR;
+		}
 	}
-	
+
 	@PostMapping("/get-images")
 	public boolean test(@RequestBody AdImgSave adImgSaves[]) {
-		for(AdImgSave adImg : adImgSaves) {
-			if(!adImg.isPath()) {
+		for (AdImgSave adImg : adImgSaves) {
+			if (!adImg.isPath()) {
 				try {
 					System.out.println(((MultipartFile) adImg.object()).getBytes());
 				} catch (Exception e) {
@@ -209,7 +224,7 @@ public class AdController {
 				}
 			}
 		}
-		
+
 		return false;
 	}
 }
