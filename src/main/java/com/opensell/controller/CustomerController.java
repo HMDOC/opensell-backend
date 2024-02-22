@@ -1,14 +1,16 @@
 package com.opensell.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.opensell.service.EmailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 import com.opensell.entities.Customer;
 import com.opensell.entities.customer.CustomerInfo;
 import com.opensell.entities.dto.CustomerModificationPagePlaceholder;
 import com.opensell.repository.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @CrossOrigin(value = "http://localhost/")
@@ -29,4 +31,5 @@ public class CustomerController {
         return new CustomerModificationPagePlaceholder(c.getUsername(), info.getFirstName(), info.getLastName(),
                 info.getExposedEmail(), info.getPrimaryAddress(), info.getBio(), info.getIconPath(), social_links);
     }
+
 }
