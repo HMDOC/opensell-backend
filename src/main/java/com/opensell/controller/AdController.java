@@ -105,8 +105,7 @@ public class AdController {
 			@RequestParam(required=false, defaultValue="16") Integer limit,
 			@RequestParam(required=false, defaultValue="addedDate") String sortBy) {
 		
-		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, 
-				limit, tagListId, Sort.by(sortBy));
+		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, Sort.by(sortBy));
 		
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
