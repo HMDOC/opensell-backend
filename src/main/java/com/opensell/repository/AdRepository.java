@@ -39,8 +39,8 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 			+ "( UPPER(a.title) LIKE %:search% OR UPPER(a.description) LIKE %:search% ) AND "
 			+ "( a.price between :pMin And :pMax ) AND "
 			+ "( a.addedDate between :dMin AND :dMax ) AND "
-			+ "( a.shape = :shapeId AND :shapeId is not null ) AND"
-			+ "( a.adType.idAdType = :typeId AND :typeId is not null ) )")
+			+ "( a.shape = :shapeId OR :shapeId is null ) AND"
+			+ "( a.adType.idAdType = :typeId OR :typeId is null ) )")
 	public List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin,@Param("pMax") Double priceMax,
 			@Param("dMin") Date dateMin, @Param("dMax") Date dateMax, @Param("shapeId") Integer shapeId, 
 			@Param("typeId") Integer typeId, @Param("sort") Sort sort);

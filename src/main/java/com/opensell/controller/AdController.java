@@ -2,6 +2,7 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -81,17 +82,9 @@ public class AdController {
 		}
 	}
 
-	/*
-	 * Filters:
-	 * Prix
-	 * Adresse la plus proche (pas sur)
-	 * Date d’ajouts
-	 * Catégorie
-	 * Tags générés par l’utilisateur (#BMW, #Benz)
-	 * Condition (usé, neuf)
-		for the required parameter : https://www.baeldung.com/spring-request-param
-		for the defaultValue parameter : https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html
-		this is still unfinished!!!
+	/**
+	 * The http request that gets the entire list of ads, filtered by the provided parameters
+	 * @author Davide
 	 */
 	@GetMapping("/search")
 	public List<AdSearchPreview> adSearch(@RequestParam(required=true) String query,
@@ -102,7 +95,6 @@ public class AdController {
 			@RequestParam(required=false) Integer typeId,
 			@RequestParam(required=false) Set<Integer> tagListId,
 			@RequestParam(required=false) Integer shapeId,
-			@RequestParam(required=false, defaultValue="16") Integer limit,
 			@RequestParam(required=false, defaultValue="addedDate") String sortBy) {
 		
 		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId, Sort.by(sortBy));
@@ -114,17 +106,29 @@ public class AdController {
 				// Shortcuts for variables
 				double price = ad.getPrice(); int shape = ad.getShape();
 				Date date = ad.getAddedDate(); int type = ad.getAdType().getIdAdType();
-
-				/*
+				
+				boolean hasTag = true;
+				
+				if (tagListId!=null) {
+					hasTag = false;
+					for (Integer tagId : tagListId) {
+						for(AdTag adTag : ad.getAdTags()) {
+							if (adTag.getIdAdTag() == tagId) {
+								hasTag = true;
+								break;
+							};
+						}
+						if (hasTag) { break; }
+					}
+				}
+				
 				// Filter results
-				if ( false ) {
+				if ( !hasTag ) {
 					System.out.println("Failed");
 					continue;
 				}else {
-					System.out.println(date);
 					System.out.println("Passed");
 				}
-				*/
 
 				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(),
 						ad.getLink(), ad.getAdImages().get(0).getPath()));
