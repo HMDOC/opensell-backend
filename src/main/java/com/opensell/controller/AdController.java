@@ -2,16 +2,11 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.core.metrics.StartupStep.Tags;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,13 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException.Forbidden;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.opensell.entities.Ad;
-import com.opensell.entities.Customer;
-import com.opensell.entities.ad.AdSetAttribut;
 import com.opensell.entities.ad.AdTag;
+import com.opensell.entities.ad.ChangeInEntity;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdImgSave;
 import com.opensell.entities.dto.AdModifView;
@@ -156,7 +148,7 @@ public class AdController {
 			Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
 			
 			
-			byte result = AdSetAttribut.checkModifError(
+			byte result = ChangeInEntity.checkModifError(
 				(title) -> ad.setTitle(title), 
 				adModifView.title(),
 				(adModifView.title().length() <= 255 && adRepo.checkTitle(idCustomer, adModifView.title()) == 0)

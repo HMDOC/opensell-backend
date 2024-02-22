@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
 import com.opensell.entities.ad.AdSetAttribut;
+import com.opensell.entities.ad.ChangeInEntity;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
 
@@ -49,16 +50,26 @@ public class AdService {
 		}
 	}
 	
-	public boolean changeTitle(AdSetAttribut<String> adSetAttribut, String title, int idCustomer) {
+	/**
+	 * To change the title of an Ad.
+	 *
+	 * @author Achraf
+	 */
+	public boolean changeTitle(ChangeInEntity<String> adSetAttribut, String title, int idCustomer) {
 		if(title != null && adSetAttribut != null && title.length() <= 255 && adRepo.checkTitle(idCustomer, title) == 0) {
-			adSetAttribut.setAttribut(title);
+			adSetAttribut.setAttribute(title);
 			return true;
 		}
 		
 		return false;
 	}
 	
-	public boolean changeReference(AdSetAttribut<String> adSetReference, String reference) {
+	/**
+	 * To change the reference of an Ad.
+	 *
+	 * @author Achraf
+	 */
+	public boolean changeReference(ChangeInEntity<String> adSetReference, String reference) {
 		if(reference != null) {
 			
 		}
