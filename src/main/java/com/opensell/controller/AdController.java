@@ -28,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
+import com.opensell.entities.ad.AdSetAttribut;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdImgSave;
@@ -35,6 +36,7 @@ import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
+import com.opensell.service.AdService;
 
 // Test Github
 @CrossOrigin(value = "http://localhost/")
@@ -47,6 +49,9 @@ public class AdController {
 	@Autowired
 	private AdTagRepository adTagRepo;
 	
+	@Autowired
+	private AdService adService;
+	
 	/**
 	 * Call function from AdService to get an AdBuyer from a link.
 	 *
@@ -54,32 +59,7 @@ public class AdController {
 	 */
 	@GetMapping("/get-ad-buyer-view/{link}")
 	public AdBuyerView adBuyerView(@PathVariable String link) {
-		try {
-			Ad ad = adRepo.getAdByLink(link);
-
-			if(ad != null) {
-				Customer customer = ad.getCustomer();
-				List<String> adImagesPath = new ArrayList<>();
-				Set<String> adTagsName = new LinkedHashSet<>();
-
-				/* We need to check if it is the best way, to map the list we have in the Entity or to directly
-				ask the Table. */
-				ad.getAdImages().forEach(image -> adImagesPath.add(image.getPath()));
-				ad.getAdTags().forEach(tags -> adTagsName.add(tags.getName()));
-
-				return new AdBuyerView(ad.getTitle(), ad.getPrice(), ad.getAddedDate(),
-									   ad.getShape(), ad.isSold(), ad.getVisibility(),
-									   ad.getDescription(), ad.getAddress(), ad.getAdType().getName(),
-									   adTagsName, adImagesPath,
-									   customer.getUsername(), customer.getLink(), customer.getCustomerInfo().getIconPath());
-		} else {
-				return null;
-			}
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
+		return adService.getAdBuyerView(link);
 	}
 
 	/**
@@ -171,13 +151,32 @@ public class AdController {
 	 * @author Achraf
 	 */
 	@PatchMapping("/change")
-	public ResponseEntity<Ad> changeAd(@RequestBody AdModifView adModifView, @RequestParam Integer idCustomer, @RequestParam(required = false) AdImgSave adImgSave) {
+	public ResponseEntity<Ad> changeAd(@RequestBody AdModifView adModifView, @RequestParam Integer idCustomer, @RequestParam(required = false) AdImgSave adImgSave) throws Exception {
 		if(adModifView != null) {
 			Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
 			
-			if(ad != null && adModifView.title() != null && adModifView.title().length() <= 255 && adRepo.checkTitle(idCustomer, adModifView.title()) == 0) {
-				ad.setTitle(adModifView.title());
-				
+			
+			byte result = AdSetAttribut.checkModifError(
+				(title) -> ad.setTitle(title), 
+				adModifView.title(),
+				(adModifView.title().length() <= 255 && adRepo.checkTitle(idCustomer, adModifView.title()) == 0)
+			);
+			
+			System.out.println(result);
+			
+			/*
+			if(ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
+				// Le truc avec l'interface marche
+				if(adService.changeTitle((title) -> ad.setTitle(title), adModifView.title(), idCustomer)) {
+					System.out.println("Changed Successfuly!");
+					System.out.println(ad.getTitle());
+				} else {
+					System.out.println("You are screwed!");
+				}
+			}*/
+			
+			
+			/*
 				if(adModifView.reference() != null && adModifView.reference().length() <= 255 && adRepo.checkReference(idCustomer, adModifView.reference()) != 0) {
 					ad.setReference(adModifView.reference());
 					
@@ -201,11 +200,8 @@ public class AdController {
 					}
 					
 					ad.setAdTags(adTagsFresh);
-				}
+				}*/
 			}
-
-			return new ResponseEntity<Ad>(ad, HttpStatusCode.valueOf(200));
-		}
 
 		return new ResponseEntity<Ad>(HttpStatusCode.valueOf(500));
 	}
