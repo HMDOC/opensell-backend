@@ -20,9 +20,9 @@ spring:
       enabled: always
   mail:
     host: smtp.gmail.com
-    port: ${mailport}
+    port: ${mailPort}
     username: ${email}
-    password: ${mailpassword}
+    password: ${mailPassword}
     default-encoding: UTF-8
     properties:
       mail:
