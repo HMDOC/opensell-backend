@@ -20,12 +20,13 @@ public class EmailService {
         public boolean sendEmail(String email, String subject, String text) {
             try {
                 SimpleMailMessage msg = new SimpleMailMessage();
-                msg.setFrom("OpenSell <opensell@gmail.com>");
+                // msg.setFrom("OpenSell <tenaya9567@ebuthor.com>");
                 msg.setTo(email);
                 msg.setSubject(subject);
                 msg.setText(text);
                 javaMailSender.send(msg);
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 return false;
             }
             return true;
