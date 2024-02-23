@@ -19,7 +19,7 @@ spring:
     ansi:
       enabled: always
   mail:
-    host: smtp.elasticemail.com
+    host: smtp.gmail.com
     port: ${mailPort}
     username: ${email}
     password: ${mailPassword}
