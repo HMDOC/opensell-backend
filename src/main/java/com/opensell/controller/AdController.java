@@ -165,15 +165,12 @@ public class AdController {
 				if (ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
 					if (VerifyCode.SQL_ERROR != adService.changeTitle((title) -> ad.setTitle(title),
 							adModifView.title(), idCustomer)) {
-						System.out.println("");
+						System.out.println("Title Correct");
 						if (VerifyCode.SQL_ERROR != adService.changeReference((reference) -> ad.setReference(reference),
 								adModifView.reference(), idCustomer)) {
 
-						} else
-							return VerifyAdModif.REFERENCE_ERROR;
-					} else {
-						return VerifyAdModif.TITLE_ERROR;
-					}
+						} else return VerifyAdModif.REFERENCE_ERROR;
+					} else return VerifyAdModif.TITLE_ERROR;
 				}
 
 				/*

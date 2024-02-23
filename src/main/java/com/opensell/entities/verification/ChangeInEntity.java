@@ -20,9 +20,10 @@ public interface ChangeInEntity<T> {
 	 * @param attribute This is a parameter that contain the new value you want to assign to 
 	 * the attribute of the entity.
 	 * 
-	 * @param isChangeable This where you put the other condition that the new attribute need to respect. Example :
-	 * (entityDto.getTitle().length() <= 255 && entityRepository.findByTitle(entityDto.getTitle()) == null)
-	 * 
+	 * @param verifyEntity This an interface that contain a function named <code>isVerified()</code>. The purpose of 
+	 * this interface is to be able to implement the interface by using lambda function that will contain step of verification. This function should 
+	 * return true if we can call the setter or false if we cannot.
+	 * parameter <code>attribute</code> can 
 	 * @author Achraf
 	 */
 	public static <T> VerifyCode checkModifError(ChangeInEntity<T> changeInEntity, T attribute, VerifyEntity verifyEntity) throws Exception {
