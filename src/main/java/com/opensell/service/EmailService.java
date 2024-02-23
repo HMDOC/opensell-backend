@@ -26,6 +26,7 @@ public class EmailService {
                 msg.setText(text);
                 javaMailSender.send(msg);
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 return false;
             }
             return true;
