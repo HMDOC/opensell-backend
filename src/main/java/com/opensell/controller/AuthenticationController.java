@@ -44,7 +44,7 @@ public class AuthenticationController {
             return 4; // Email not sent
         }
     }
-    @PostMapping("/verification")
+    @PostMapping("/signup")
     public boolean verifyCode(@RequestParam String codeInput) {
         if (code == Integer.parseInt(codeInput)) {
             return true;

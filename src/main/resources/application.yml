@@ -19,7 +19,7 @@ spring:
     ansi:
       enabled: always
   mail:
-    host: smtp.gmail.com
+    host: smtp-mail.outlook.com
     port: ${mailPort}
     username: ${email}
     password: ${mailPassword}

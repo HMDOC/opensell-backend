@@ -20,7 +20,7 @@ public class EmailService {
         public boolean sendEmail(String email, String subject, String text) {
             try {
                 SimpleMailMessage msg = new SimpleMailMessage();
-                msg.setFrom("OpenSell <opensell@gmail.com>");
+                msg.setFrom("OpenSell <opensell.inc@outlook.com>");
                 msg.setTo(email);
                 msg.setSubject(subject);
                 msg.setText(text);
