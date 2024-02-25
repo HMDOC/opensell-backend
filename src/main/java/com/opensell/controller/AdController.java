@@ -6,9 +6,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -25,18 +24,20 @@ import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdImgSave;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
-import com.opensell.entities.verification.ChangeInEntity;
 import com.opensell.entities.verification.VerifyAdModif;
 import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.service.AdService;
+import com.opensell.service.FileUploadService;
 
-// Test Github
 @CrossOrigin(value = "http://localhost/")
 @RestController
 @RequestMapping("/ad")
 public class AdController {
+	@Value("${uploadPath}")
+	public String root;
+	
 	@Autowired
 	private AdRepository adRepo;
 
@@ -211,17 +212,13 @@ public class AdController {
 	}
 
 	@PostMapping("/get-images")
-	public boolean test(@RequestBody AdImgSave adImgSaves[]) {
-		for (AdImgSave adImg : adImgSaves) {
-			if (!adImg.isPath()) {
-				try {
-					System.out.println(((MultipartFile) adImg.object()).getBytes());
-				} catch (Exception e) {
-					System.out.println("Error!");
-				}
-			}
-		}
-
+	public boolean test(@RequestParam List<MultipartFile> files) throws Exception {
+		FileUploadService.saveFile(files, root+FileUploadService.AD_IMAGE_PATH);
+		/*
+		 * Get a result like image/jpeg
+		 * Can pe useful to determinate the extension of the file with 
+		 * a enum that have 2 value one like image/jpeg and the other like .jpeg
+		 * System.out.println(files.get(0).getContentType());*/
 		return false;
 	}
 }
