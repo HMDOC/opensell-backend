@@ -2,18 +2,15 @@ package com.opensell.controller;
 
 import com.opensell.service.CustomerModificationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.opensell.repository.CustomerModificationRepository;
 
 /**
  * @author Olivier
  */
-@RestController
+@RestController //extends @RequestBody, which enables automatic serialization of returned values of controllers
 @CrossOrigin("http://localhost")
 @RequestMapping("/change")
 public class CustomerModificationController {
@@ -21,69 +18,59 @@ public class CustomerModificationController {
     @Autowired
     private CustomerModificationService service;
 
-    @Autowired
-    private CustomerModificationRepository rep;
-
-    @PatchMapping("/change-private-email")
-    public int changeCustomerPersonalEmail(@RequestParam String email, @RequestParam int id) {
+    @PutMapping("/change-private-email")
+    public ResponseEntity<Integer> changeCustomerPersonalEmail(@RequestParam String email, @RequestParam int id) {
         return service.changePersonalEmail(email, id);
     }
 
-    //
-    @PatchMapping("/change-username")
-    public int changeCustomerUsername(@RequestParam String username, @RequestParam int id) {
-        return rep.updateCustomerUsername(username, id);
+    @PutMapping("/change-username")
+    public ResponseEntity<Integer> changeCustomerUsername(@RequestParam String username, @RequestParam int id) {
+        return service.changeUsername(username, id);
     }
 
-    //
-    @PatchMapping("/change-pwd")
-    public int changeCustomerPwd(@RequestParam String pwd, @RequestParam int id) {
-        return rep.updateCustomerPwd(pwd, id);
+    @PutMapping("/change-pwd")
+    public ResponseEntity<Integer> changeCustomerPwd(@RequestParam String pwd, @RequestParam int id) {
+        return service.changePwd(pwd, id);
     }
 
-    @PatchMapping("/change-first-name")
-    public int changeCustomerFirstName(@RequestParam String firstName, @RequestParam int id) {
+    @PutMapping("/change-first-name")
+    public ResponseEntity<Integer> changeCustomerFirstName(@RequestParam String firstName, @RequestParam int id) {
         return service.changeFirstName(firstName, id);
     }
 
-    @PatchMapping("/change-last-name")
-    public int changeCustomerLastName(@RequestParam String lastName, @RequestParam int id) {
+    @PutMapping("/change-last-name")
+    public ResponseEntity<Integer> changeCustomerLastName(@RequestParam String lastName, @RequestParam int id) {
         return service.changeLastName(lastName, id);
     }
 
-    //
-    @PatchMapping("/change-phone-number")
-    public int changeCustomerPhoneNumber(@RequestParam String phoneNumber, @RequestParam int id) {
-        return rep.updateCustomerPhoneNumber(phoneNumber, id);
+    @PutMapping("/change-phone-number")
+    public ResponseEntity<Integer> changeCustomerPhoneNumber(@RequestParam String phoneNumber, @RequestParam int id) {
+        return service.changePhoneNumber(phoneNumber, id);
     }
 
-    //
-    @PatchMapping("/change-primary-address")
-    public int changeCustomerPrimaryAddress(@RequestParam String address, @RequestParam int id) {
-        return rep.updateCustomerPrimaryAddress(address, id);
+    @PutMapping("/change-primary-address")
+    public ResponseEntity<Integer> changeCustomerPrimaryAddress(@RequestParam String address, @RequestParam int id) {
+        return service.changePrimaryAddress(address, id);
     }
 
-    //
-    @PatchMapping("/change-icon-path")
-    public int changeCustomerIconPath(@RequestParam String iconPath, @RequestParam int id) {
-        return rep.updateCustomerIconPath(iconPath, id);
+    @PutMapping("/change-icon-path")
+    public ResponseEntity<Integer> changeCustomerIconPath(@RequestParam String iconPath, @RequestParam int id) {
+        return service.changeIconPath(iconPath, id);
     }
 
-    //
-    @PatchMapping("/change-bio")
-    public int changeCustomerBio(@RequestParam String bio, @RequestParam int id) {
-        return rep.updateCustomerBio(bio, id);
+    @PutMapping("/change-bio")
+    public ResponseEntity<Integer> changeCustomerBio(@RequestParam String bio, @RequestParam int id) {
+        return service.changeBio(bio, id);
     }
 
-    @PatchMapping( "/change-public-email")
-    public int changeCustomerExposedEmail(@RequestParam String email, @RequestParam int id) {
+    @PutMapping( "/change-public-email")
+    public ResponseEntity<Integer> changeCustomerExposedEmail(@RequestParam String email, @RequestParam int id) {
         return service.changeExposedEmail(email, id);
     }
 
-    //
-    @PatchMapping("/change-socials")
-    public int changeCustomerSocialLink(@RequestParam String link, @RequestParam int id, @RequestParam String oldLink) {
-        return rep.updateCustomerSocialLink(link, id, oldLink);
+    @PutMapping("/change-socials")
+    public ResponseEntity<Integer> changeCustomerSocialLink(@RequestParam String link, @RequestParam int id, @RequestParam String oldLink) {
+        return service.changeSocialLink(link, id, oldLink);
     }
 
 
