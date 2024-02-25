@@ -1,6 +1,7 @@
 package com.opensell.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -10,13 +11,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EmailService {
+        @Value("${email}") private String senderEmail;
         @Autowired
         private JavaMailSender javaMailSender;
     
         public boolean sendEmail(String email, String subject, String text) {
             try {
                 SimpleMailMessage msg = new SimpleMailMessage();
-                msg.setFrom("OpenSell <opensell.inc@outlook.com>");
+                msg.setFrom("Opensell <" + senderEmail + ">");
                 msg.setTo(email);
                 msg.setSubject(subject);
                 msg.setText(text);

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 /**
  * @author Quoc Dung
  */
+
 @Service
 public class CodeService {
     public int generateCode() {
