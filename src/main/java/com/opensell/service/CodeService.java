@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Quoc Dung
  */
 
-@CrossOrigin("http://localhost/")
 @Service
-@RestController
 public class CodeService {
     public int generateCode() {
         return (int) (Math.random() * 999999-111111) + 111111;
