@@ -19,7 +19,5 @@ public class AdTag {
     @Column(nullable = false, unique = true, length = 20)
     private String name;
     
-    public AdTag(String name) {
-    	this.name = name;
-    }
+    public AdTag(String name) {this.name = name;}
 }
