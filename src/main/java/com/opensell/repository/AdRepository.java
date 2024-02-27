@@ -29,7 +29,7 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	// https://www.baeldung.com/spring-jpa-like-queries
 	// https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
 	@Query("SELECT a FROM Ad a "
-			+ "WHERE ( a.isDeleted = false AND a.visibility != 1 AND "
+			+ "WHERE ( a.isDeleted = false AND a.visibility = 0 AND "
 			+ "( UPPER(a.title) LIKE %:search% OR UPPER(a.description) LIKE %:search% ) AND "
 			+ "( a.price between :pMin And :pMax ) AND "
 			+ "( a.addedDate between :dMin AND :dMax ) AND "
