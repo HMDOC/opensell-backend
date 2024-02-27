@@ -138,10 +138,10 @@ public class AdServiceTest {
 	 */
 	@Test
 	void testAdSearchOrderByTitle() {
-		List<AdSearchPreview> adList = adService.adSearch("Lorem", 1500.0, 5000.0,
+		List<AdSearchPreview> adList = adService.adSearch("Lorem", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
 				null, null, null, "title");
-		assertTrue(adList.get(0).adTitle().equalsIgnoreCase("rio"));
+		assertTrue(adList.get(0).adTitle().equalsIgnoreCase("NSX"));
 	}
 
 
@@ -150,10 +150,22 @@ public class AdServiceTest {
 	 */
 	@Test
 	void testAdSearchOrderByPrice() {
-		List<AdSearchPreview> adList = adService.adSearch("Ipsum", 1500.0, 5000.0,
+		List<AdSearchPreview> adList = adService.adSearch("Ipsum", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
 				null, null, null, "price");
 		assertEquals(adList.get(0).isAdSold(), 0);
+	}
+
+
+	/**
+	 * @author Davide Fuoco
+	 */
+	@Test
+	void testAdSearchOrderByDate() {
+		List<AdSearchPreview> adList = adService.adSearch("Dolor", 1000.0, 6000.0,
+				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
+				null, null, null, "addedDate");
+		assertEquals(adList.get(0).adShape(), 0);
 	}
 
 }
