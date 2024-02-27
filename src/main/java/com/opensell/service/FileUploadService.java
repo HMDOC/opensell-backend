@@ -1,11 +1,8 @@
 package com.opensell.service;
 
 import java.io.File;
-import java.io.FileReader;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

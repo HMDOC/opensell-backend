@@ -156,58 +156,51 @@ public class AdController {
 	 * @author Achraf
 	 */
 	@PatchMapping("/change")
-	public byte changeAd(@RequestBody AdModifView adModifView, @RequestParam Integer idCustomer,
+	public List<Byte> changeAd(@RequestBody AdModifView adModifView, @RequestParam Integer idCustomer,
 			@RequestParam(required = false) AdImgSave adImgSave) {
 		try {
+			List<Byte> errors = new ArrayList<>();
 			if (adModifView != null) {
 				Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
-				
+				adRepo.save()
 				// Need to check reference
 				if (ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
-					if (VerifyCode.SQL_ERROR != adService.changeTitle((title) -> ad.setTitle(title),
+					// Check the title
+					if (VerifyCode.SQL_ERROR == adService.changeTitle((title) -> ad.setTitle(title),
 							adModifView.title(), idCustomer)) {
-						System.out.println("Title Correct");
-						if (VerifyCode.SQL_ERROR != adService.changeReference((reference) -> ad.setReference(reference),
-								adModifView.reference(), idCustomer)) {
+						errors.add(VerifyAdModif.TITLE_ERROR);
+					}
 
-						} else return VerifyAdModif.REFERENCE_ERROR;
-					} else return VerifyAdModif.TITLE_ERROR;
+					// Check the reference
+					if (VerifyCode.SQL_ERROR == adService.changeReference((reference) -> ad.setReference(reference),
+							adModifView.reference(), idCustomer)) {
+						errors.add(VerifyAdModif.REFERENCE_ERROR);
+					}
+					
+					// Images
+					// if(VerifyCode.SQL_ERROR == adService.)
+					
+					// Check the price
+					if(adModifView.price() >= 0) {
+						ad.setPrice(adModifView.price());
+					}
+					
+					List<AdTag> adTags = new ArrayList<>();
+					
+					if() {
+						adModifView.adTagsName().forEach(tag -> {
+							if(adTagRepo.findByName(tag)) {
+								
+							}
+						});
+					}
 				}
-
-				/*
-				 * if(ad != null && ad.getCustomer().getIdCustomer() == idCustomer) { // Le truc
-				 * avec l'interface marche if(adService.changeTitle((title) ->
-				 * ad.setTitle(title), adModifView.title(), idCustomer)) {
-				 * System.out.println("Changed Successfuly!");
-				 * System.out.println(ad.getTitle()); } else {
-				 * System.out.println("You are screwed!"); } }
-				 */
-
-				/*
-				 * if(adModifView.reference() != null && adModifView.reference().length() <= 255
-				 * && adRepo.checkReference(idCustomer, adModifView.reference()) != 0) {
-				 * ad.setReference(adModifView.reference());
-				 * 
-				 * // Need to check images
-				 * 
-				 * if(adModifView.price() != null && adModifView.price() >= 0) {
-				 * ad.setPrice(adModifView.price()); }
-				 * 
-				 * Set<AdTag> adTagsFresh = new LinkedHashSet<>(); AdTag currentTag; for(String
-				 * tagName : adModifView.adTagsName()) { currentTag =
-				 * adTagRepo.findByName(tagName);
-				 * 
-				 * if(currentTag == null) { System.out.println("NEW Tags!"); adTagsFresh.add(new
-				 * AdTag(tagName)); } else { adTagsFresh.add(currentTag); } }
-				 * 
-				 * ad.setAdTags(adTagsFresh); }
-				 */
 			}
-
-			return VerifyAdModif.AD_MODIF_VIEW_ERROR;
+			
+			return errors;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			return VerifyAdModif.SERVER_ERROR;
+			return null;
 		}
 	}
 
