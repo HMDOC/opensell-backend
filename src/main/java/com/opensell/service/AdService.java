@@ -56,7 +56,7 @@ public class AdService {
 	 */
 	public VerifyCode changeTitle(ChangeInEntity<String> changeInEntity, String title, int idCustomer) throws Exception {
 		return ChangeInEntity.checkModifError(changeInEntity, title,
-				() -> title.length() <= 255 && adRepo.checkTitle(idCustomer, title) == 0);
+				() -> title.length() <= 255 && title.length() > 0 && adRepo.checkTitle(idCustomer, title) == 0);
 	}
 
 	/**
@@ -66,6 +66,6 @@ public class AdService {
 	 */
 	public VerifyCode changeReference(ChangeInEntity<String> changeInEntity, String reference, int idCustomer) throws Exception {
 		return ChangeInEntity.checkModifError(changeInEntity, reference,
-				() -> reference.length() <= 255 && adRepo.checkReference(idCustomer, reference) == 0);
+				() -> reference.length() <= 255 && reference.length() > 0 && adRepo.checkReference(idCustomer, reference) == 0);
 	}
 }

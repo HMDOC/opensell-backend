@@ -162,7 +162,7 @@ public class AdController {
 			List<Byte> errors = new ArrayList<>();
 			if (adModifView != null) {
 				Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
-				adRepo.save()
+				
 				// Need to check reference
 				if (ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
 					// Check the title
@@ -185,12 +185,23 @@ public class AdController {
 						ad.setPrice(adModifView.price());
 					}
 					
+					// The new list of tags
 					List<AdTag> adTags = new ArrayList<>();
-					
-					if() {
+					if(adModifView != null) {
+						// Map over the set of string
 						adModifView.adTagsName().forEach(tag -> {
-							if(adTagRepo.findByName(tag)) {
-								
+							// Get the old tag from the database
+							AdTag tagTemp = adTagRepo.findByName(tag);
+							
+							// If the tag already exists
+							if(tagTemp != null) adTags.add(tagTemp);
+
+							// If the tag does exists
+							// I am here, trying to deal when the tag is new
+							else {
+								if(tag.length() <= 255 && tag.length() > 0) {
+									
+								}
 							}
 						});
 					}
