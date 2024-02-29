@@ -8,14 +8,15 @@ import org.springframework.stereotype.Repository;
 
 import com.opensell.entities.Customer;
 
+
 @Repository
+@Transactional
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     public abstract Customer findCustomerByLink(String link);
 
     //addSocialLink
     @Modifying
-    @Transactional
     @Query(value = "insert into customer_social_link(customer_info_id, link) values (?1, ?2)", nativeQuery = true)
     public void addSocialLink(int customerId, String link);
 
@@ -36,10 +37,9 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     //signup
     public abstract int countByPersonalEmail(String email);
 
-    // @Modifying
-    // @Query(value = "INSERT INTO customer", nativeQuery = true)
-    // il manque le query pour creer un nouveau utilisateur
-
+    @Modifying
+    @Query(value = "UPDATE customer c set c.is_verified = 1 where c.personal_email = ?1", nativeQuery = true)
+    public int makeVerified(String email);
 
 
 }

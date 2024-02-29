@@ -8,11 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CodeService {
-    public int generateCode() {
-        return (int) (Math.random() * 999999-111111) + 111111;
+    public String generateCode() {
+        return String.valueOf((int) (Math.random() * 999999-111111) + 111111);
     }
-
-    // public static boolean checkCode(int code) {
-    //     if 
-    // }
 }
