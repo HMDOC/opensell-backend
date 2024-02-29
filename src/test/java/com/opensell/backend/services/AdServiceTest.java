@@ -83,6 +83,17 @@ public class AdServiceTest {
 				null, null, null, "addedDate");
 		assertEquals(adList.size(), 4);
 	}
+	
+	/**
+	 * @author Davide Fuoco
+	 */
+	@Test
+	void testAdSearchWithImpossibleDate() {
+		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
+				Date.valueOf("2020-01-01"), Date.valueOf("2022-12-31"),
+				null, null, null, "addedDate");
+		assertEquals(adList.size(), 0);
+	}
 
 
 	/**
