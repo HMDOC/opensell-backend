@@ -4,7 +4,11 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
@@ -18,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.dto.AdBuyerView;
@@ -30,6 +35,7 @@ import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
+import com.opensell.service.homesql.AdaptiveQuery;
 
 @CrossOrigin(value = "http://localhost/")
 @RestController
@@ -224,5 +230,13 @@ public class AdController {
 		 * a enum that have 2 value one like image/jpeg and the other like .jpeg
 		 * System.out.println(files.get(0).getContentType());*/
 		return false;
+	}
+	
+	@Autowired
+	private DataSource dataSource;
+	
+	@PostMapping("/test-map-json")
+	public int testMapJson(@RequestBody List<Map<String, ?>> listOfMap) {
+		return AdaptiveQuery.adaptiveUpdate("ad", listOfMap.get(0), listOfMap.get(1), dataSource);
 	}
 }
