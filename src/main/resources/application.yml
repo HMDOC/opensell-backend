@@ -38,3 +38,8 @@ spring:
             required: true
       verify:
         host: http://localhost:${port}
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+
