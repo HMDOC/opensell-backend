@@ -1,7 +1,5 @@
 package com.opensell.entities.verification;
 
-import org.antlr.v4.runtime.misc.NotNull;
-
 /**
  * It is to an interface to make it more easy to change the value of an Entity attribute
  * if certain condition are respected.

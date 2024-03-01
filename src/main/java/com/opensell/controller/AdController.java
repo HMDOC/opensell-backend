@@ -236,7 +236,8 @@ public class AdController {
 	private DataSource dataSource;
 	
 	@PostMapping("/test-map-json")
-	public int testMapJson(@RequestBody List<Map<String, ?>> listOfMap) {
-		return AdaptiveQuery.adaptiveUpdate("ad", listOfMap.get(0), listOfMap.get(1), dataSource);
+	public int testMapJson(@RequestBody List<Map<String, Object>> listOfMap) {
+		adRepo.adaptiveChange();
+		return AdaptiveQuery.adaptiveUpdate2("ad", listOfMap.get(0), listOfMap.get(1), dataSource);
 	}
 }

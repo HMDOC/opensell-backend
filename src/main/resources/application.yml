@@ -1,6 +1,6 @@
 server:
   port: ${port}
-
+  
 spring:
   datasource:
     url: ${url}
