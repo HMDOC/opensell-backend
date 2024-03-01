@@ -3,7 +3,8 @@ package com.opensell.service.homesql;
 import static com.opensell.service.homesql.AdaptiveQueryOption.firstAssign;
 import static com.opensell.service.homesql.AdaptiveQueryOption.otherAssign;
 import static com.opensell.service.homesql.AdaptiveQueryOption.updateWhere;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -12,15 +13,16 @@ import java.util.Map;
 import java.util.Set;
 import javax.sql.DataSource;
 import org.hibernate.type.SqlTypes;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+import jakarta.transaction.Transactional;
 
-@Service
+@Component
+@Transactional
 public class AdaptiveQuery {
 	/**
 	 * Function that convert a string formated with camelCase to snake_case.
@@ -30,7 +32,7 @@ public class AdaptiveQuery {
 	public static String toSnakeCase(String word) {
 		try {
 			StringBuilder stringBuilder = new StringBuilder(word);
-
+			
 			for (int i = 0; i < stringBuilder.length(); i++) {
 				char currentCharachter = stringBuilder.charAt(i);
 
@@ -147,48 +149,88 @@ public class AdaptiveQuery {
 	 * 
 	 * @author Achraf
 	 */
-	public static int adaptiveUpdate(String table, Map<String, ?> valuesToChange, Map<String, ?> conditionValues, DataSource dataSource) {
+	public static int adaptiveUpdate(String table, Map<String, Object> valuesToChange, Map<String, Object> conditionValues, DataSource dataSource) {
 		try {
 			SqlParameterSource parameters = new MapSqlParameterSource();
 			NamedParameterJdbcTemplate nPJT = new NamedParameterJdbcTemplate(dataSource);
+			JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 			
 			// Name et le type: 
 			//new SqlParameter(table, 0);
-						
+			
 			addKeysAndValues(valuesToChange, (MapSqlParameterSource) parameters);
 			addKeysAndValues(conditionValues,(MapSqlParameterSource) parameters);
 
-			String query = updateWhere(table, 
+			String query = AdaptiveQueryOption.updateWhere(table, 
 					createAssign(new LinkedHashSet<>(valuesToChange.keySet())), 
 					createAssign(new LinkedHashSet<>(conditionValues.keySet())));
-			
-			//MapSqlParameterSource jrt = new MapSqlParameterSource();
-			//jrt.addValues(valuesToChange);
-			//jrt.addValues(conditionValues);
 			
 			System.out.println(query);
 			System.out.println(parameters);
 			
-			/*Collection<Object> listOfObjects = new ArrayList<>(valuesToChange.values());
-			listOfObjects.addAll(conditionValues.values());*/
-			//nPJT.update(query, parameters); //jdbcTemplate.update(query, parameters);
-			/*
-			 * "is_deleted" : true, "title" : "Hamid Di Dis Di Dous"},
-	{"id_ad" : 1}
-			 * */
 			Map<String, Object> l = new LinkedHashMap<>();
 			l.put("is_deleted", true);
 			l.put("title", "Hamidous");
 			l.put("id_ad", 1);
-			List<Map<String, ?>> aList = new ArrayList<>();
-			aList.add(l);
-
-			return nPJT.update(query, parameters);
+			
+			System.out.println(query);
+			
+			return jdbc.update(query, true, "dasf", 1);
 			//return jdbcTemplate.update(query, new Object[] {new SqlParameterValue(getSqlType(true), "is_deleted", true), new SqlParameterValue(getSqlType(""), "title", "Hamid Di Dis Di Dous"), new SqlParameterValue(getSqlType(1), "id_ad", 1111)});
 			//return jdbcTemplate.update(query, new Object[] {true, "Hamid Di Dis Di Dous", 11}, new int[] {SqlTypes.TINYINT, SqlTypes.VARCHAR, SqlTypes.INTEGER});
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	public static void addToStatement(PreparedStatement ps, int startIndex, Map<String, Object> json) {
+		try {
+			List<String> keys = new ArrayList<>(json.keySet());
+			
+			for(int i = startIndex; i < keys.size(); i++) {
+				ps.setObject(i+1, json.get(keys.get(i)));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * The function that will generate and update query.
+	 * 
+	 * @author Achraf
+	 */
+	public static int adaptiveUpdate2(String table, Map<String, Object> valuesToChange, Map<String, Object> conditionValues, DataSource dataSource) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		try {
+			String query = AdaptiveQueryOption.updateWhere(table, 
+					createAssign(new LinkedHashSet<>(valuesToChange.keySet())), 
+					createAssign(new LinkedHashSet<>(conditionValues.keySet())));
+			
+			con = dataSource.getConnection();
+			ps = con.prepareStatement(query);
+			
+			addToStatement(ps, 0, valuesToChange);
+			ps.setObject(3, conditionValues.values().toArray()[0]);
+			//addToStatement(ps, valuesToChange.size() - 1, conditionValues);
+			
+			return ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
+		}
+		
+		finally {
+			try {
+				if(con != null) con.close();
+				if(ps != null) ps.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return 0;
+			}
 		}
 	}
 
