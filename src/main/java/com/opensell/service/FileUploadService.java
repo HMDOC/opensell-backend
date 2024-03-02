@@ -21,7 +21,7 @@ public class FileUploadService {
 	
 	/**
 	 * Function that return a random letter using the position of the ASCII table.
-	 * For example, a is at position 97 in the ASCI table.
+	 * For example, 'a' is at position 97 in the ASCI table.
 	 * 
 	 * @author Achraf
 	 */

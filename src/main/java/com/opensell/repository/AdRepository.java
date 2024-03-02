@@ -2,25 +2,19 @@ package com.opensell.repository;
 
 import java.sql.Date;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.opensell.entities.Ad;
-import com.opensell.entities.ad.AdTag;
-import com.opensell.repository.adaptive.AdAdaptive;
+import com.opensell.repository.adaptive.common.AdaptiveRepository;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 @Transactional
 @Repository
-public interface AdRepository extends JpaRepository<Ad, Integer>, AdAdaptive {
+public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveRepository {
 	/**
 	 * Return a ad by the link if it is not deleted and not private.
 	 * 
