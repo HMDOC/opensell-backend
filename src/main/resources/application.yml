@@ -38,3 +38,4 @@ spring:
             required: true
       verify:
         host: http://localhost:${port}
+

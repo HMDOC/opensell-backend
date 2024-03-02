@@ -8,15 +8,21 @@ import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
+import com.opensell.service.QuartzInitializer;
+import com.opensell.service.timeService.CodeCleanup;
+
+import jakarta.annotation.PostConstruct;
+
 import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
 
 import java.sql.Date;
 
+import javax.xml.crypto.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -37,6 +43,9 @@ public class AuthenticationController {
 
     @Autowired
     private CustomerInfoRepository infosrep;
+
+    @Autowired
+    private CodeCleanup codeCleanup;
 
 
     @GetMapping("/login")
@@ -95,6 +104,11 @@ public class AuthenticationController {
             }
         }
         return 1; // Wrong code
+    }
+
+    @PostConstruct // Exécute le job de nettoyage de la base de données au moment que le serveur démarre
+    public void runDatabaseCleanup() throws Exception {
+        codeCleanup.scheduleJob();
     }
     
 }
