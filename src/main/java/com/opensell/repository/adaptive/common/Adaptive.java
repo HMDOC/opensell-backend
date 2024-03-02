@@ -6,6 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -20,11 +21,9 @@ public class Adaptive {
 
 	//public static final String ASSIGN = " %s = ?";
 	public final static String FIRST_ASSIGN = "{0} = :{1}";
-	public final static String OTHER_ASSIGN = " AND "+FIRST_ASSIGN;
+	public final static String OTHER_ASSIGN = ", "+FIRST_ASSIGN;
 	
 	/**
-	 * @deprecated
-	 * 
 	 * Create a update query in String format.
 	 * 
 	 * @param table The table name
@@ -38,8 +37,6 @@ public class Adaptive {
 	}
 	
 	/**
-	 * @deprecated
-	 * 
 	 * Create the first assignement statement(id = :id).
 	 * 
 	 * @return A assignement(id = :id)
@@ -50,8 +47,6 @@ public class Adaptive {
 	}
 	
 	/**
-	 * @deprecated
-	 * 
 	 * Create the statement that will follow the first one.
 	 * 
 	 * @return A string with a assignement that we follow the first one(AND name = :name)
@@ -93,8 +88,6 @@ public class Adaptive {
 	}
 
 	/**
-	 * @deprecated
-	 * 
 	 * To create the assign part of SQL Query just for normal equal with a Set of Map keys. For Example :
 	 * 
 	 * if a had a list like this : <code>["id", "name", "title"]</code>, the result of the function will be :
@@ -117,8 +110,6 @@ public class Adaptive {
 	}
 
 	/**
-	 * @deprecated
-	 * 
 	 * Same as createAssign but in this one we do not deal with a Set, we only deal
 	 * with one id.
 	 * 
@@ -132,8 +123,6 @@ public class Adaptive {
 	}
 
 	/**
-	 * @deprecated
-	 * 
 	 * The purpose of this function is to separe the Map into two part, one part
 	 * will contain the part that we will update with Spring JDBC and the other
 	 * will contain the part that Spring JPA will deal with.

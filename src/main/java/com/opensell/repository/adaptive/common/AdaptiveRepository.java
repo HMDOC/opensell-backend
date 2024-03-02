@@ -7,10 +7,11 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 /**
  * This interface is to put the function usable with other repository.
  * 
- * @deprecated
+ * T can be useful for future update.
+ * 
  * @author Achraf
 */
-public interface AdaptiveRepository {
+public interface AdaptiveRepository<T> {
 	public int updateWithId(Map<String, Object> json, TableInfo tableInfo);
 }
 
@@ -20,10 +21,8 @@ public interface AdaptiveRepository {
  * @author Achraf
  * @deprecated
 */
-class AdaptiveRepositoryImpl extends Adaptive implements AdaptiveRepository {
+class AdaptiveRepositoryImpl<T> extends Adaptive implements AdaptiveRepository<T> {
 	/**
-	 * @deprecated
-	 * 
 	 * This function execute an update with sql native code an a query will be generated
 	 * with the JSON receive from the frontend.
 	 * 
@@ -43,9 +42,10 @@ class AdaptiveRepositoryImpl extends Adaptive implements AdaptiveRepository {
 				super.createAssign(new LinkedHashSet<>(filteredJson.keySet())),
 				super.createIdAssign(tableInfo.getIdColumnName())
 			);
+			
 			filteredJson.put(tableInfo.getIdColumnName(), tableInfo.getIdValue());
-
 			System.out.println(query);
+
 			return npj.update(query, filteredJson);
 		} catch (Exception e) {
 			e.printStackTrace();

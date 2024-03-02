@@ -14,7 +14,7 @@ import jakarta.transaction.Transactional;
 
 @Transactional
 @Repository
-public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveRepository {
+public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveRepository<Ad> {
 	public static final List<String> NO_JDBC_COLS = Arrays.asList("adTags", "");
 	
 	/**
