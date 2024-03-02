@@ -8,22 +8,13 @@ import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
-import com.opensell.service.QuartzInitializer;
 import com.opensell.service.timeService.CodeCleanup;
-
 import jakarta.annotation.PostConstruct;
-
 import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
-
 import java.sql.Date;
-
-import javax.xml.crypto.Data;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @CrossOrigin(value = "http://localhost/")

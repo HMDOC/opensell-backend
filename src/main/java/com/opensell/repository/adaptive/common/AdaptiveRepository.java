@@ -4,22 +4,52 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+/**
+ * This interface is to put the function usable with other repository.
+ * 
+ * @deprecated
+ * @author Achraf
+*/
 public interface AdaptiveRepository {
-	public int updateWithId(Map<String, Object> json);
+	public int updateWithId(Map<String, Object> json, TableInfo tableInfo);
 }
 
+/**
+ * Spring will use this class to get the implementation of the function updateWithId 
+ * 
+ * @author Achraf
+ * @deprecated
+*/
 class AdaptiveRepositoryImpl extends Adaptive implements AdaptiveRepository {
+	/**
+	 * @deprecated
+	 * 
+	 * This function execute an update with sql native code an a query will be generated
+	 * with the JSON receive from the frontend.
+	 * 
+	 * @param json The object received from the frontend
+	 * @param tableInfo Important information of a table
+	 * @author Achraf
+	*/
 	@Override
-	public int updateWithId(Map<String, Object> json) {
+	public int updateWithId(Map<String, Object> json, TableInfo tableInfo) {
 		try {
 			NamedParameterJdbcTemplate npj = new NamedParameterJdbcTemplate(super.dataSource);
-			super.createAssign(new LinkedHashSet<>(json.keySet()));
+			DividedJson dividedJson = super.filterJson(json, tableInfo.getNoJdbcColumns());
+			Map<String, Object> filteredJson = dividedJson.getFilteredJson();
+			
+			String query = super.updateWhere(
+				tableInfo.getTableName(),
+				super.createAssign(new LinkedHashSet<>(filteredJson.keySet())),
+				super.createIdAssign(tableInfo.getIdColumnName())
+			);
+			filteredJson.put(tableInfo.getIdColumnName(), tableInfo.getIdValue());
 
-			return npj.update("UPDATE ad SET title = 'HAMIDIS DIS TOTO' WHERE id_ad = :id_ad", json);
+			System.out.println(query);
+			return npj.update(query, filteredJson);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
 }

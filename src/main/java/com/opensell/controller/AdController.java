@@ -6,9 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
@@ -22,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.dto.AdBuyerView;
@@ -33,9 +30,9 @@ import com.opensell.entities.verification.VerifyAdModif;
 import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
+import com.opensell.repository.adaptive.common.TableInfo;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
-import com.opensell.service.homesql.AdaptiveQuery;
 
 @CrossOrigin(value = "http://localhost/")
 @RestController
@@ -237,7 +234,8 @@ public class AdController {
 	
 	@PostMapping("/test-map-json")
 	public int testMapJson(@RequestBody List<Map<String, Object>> listOfMap) {
-		adRepo.updateWithId(listOfMap.get(0));
-		return AdaptiveQuery.adaptiveUpdate2("ad", listOfMap.get(0), listOfMap.get(1), dataSource);
+		int t = adRepo.updateWithId(listOfMap.get(0), new TableInfo(1, "idAd", AdRepository.NO_JDBC_COLS, "ad"));
+		return t;
+		//return AdaptiveQuery.adaptiveUpdate2("ad", listOfMap.get(0), listOfMap.get(1), dataSource);
 	}
 }
