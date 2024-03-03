@@ -6,13 +6,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * This is a class that contain function to help create adaptive query.
  * 
- * @deprecated
  * @author Achraf
  */
 public class Adaptive {
@@ -134,15 +132,17 @@ public class Adaptive {
 	 * @return A class that contain the two Map
 	 * @author Achraf
 	*/
-	public static DividedJson filterJson(Map<String, Object> json, List<String> noJdbcColumns) {
+	public static DividedJson filterJson(Map<String, Object> json, List<String> noJdbcColumns, List<String> notUpdatable) {
 		Map<String, Object> jpaJson = new LinkedHashMap<>();
 		Map<String, Object> filtredJson = new LinkedHashMap<>();
+		Map<String, Object> cantUpdateJson = new LinkedHashMap<>();
 
 		json.forEach((key, value) -> {
 			if(noJdbcColumns.contains(key)) jpaJson.put(key, value);
+			else if(notUpdatable.contains(key)) cantUpdateJson.put(key, value);
 			else filtredJson.put(key, value);
 		});
 
-		return new DividedJson(jpaJson, filtredJson);
+		return new DividedJson(jpaJson, filtredJson, cantUpdateJson);
 	}
 }

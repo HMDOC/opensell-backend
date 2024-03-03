@@ -6,11 +6,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import javax.sql.DataSource;
-
-import org.hibernate.query.Query;
-import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
@@ -34,7 +29,7 @@ import com.opensell.entities.verification.VerifyAdModif;
 import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
-import com.opensell.repository.adaptive.common.TableInfo;
+import com.opensell.repository.adaptive.common.UpdateResult;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
 
@@ -233,13 +228,8 @@ public class AdController {
 		return false;
 	}
 	
-	@Autowired
-	private DataSource dataSource;
-	
 	@PostMapping("/test-map-json")
-	public int testMapJson(@RequestBody List<Map<String, Object>> listOfMap) {
-		int t = adRepo.updateWithId(listOfMap.get(0), new TableInfo(1, "idAd", AdRepository.NO_JDBC_COLS, "ad"));
-		return t;
-		//return AdaptiveQuery.adaptiveUpdate2("ad", listOfMap.get(0), listOfMap.get(1), dataSource);
+	public UpdateResult testMapJson(@RequestBody Map<String, Object> listOfMap, @RequestParam int idValue) {
+		return adRepo.updateWithId(listOfMap, AdRepository.TABLE_INFO, idValue);
 	}
 }

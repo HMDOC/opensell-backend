@@ -1,7 +1,5 @@
 package com.opensell.service.timeService;
 
-import java.util.Date;
-
 import org.quartz.Job;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;

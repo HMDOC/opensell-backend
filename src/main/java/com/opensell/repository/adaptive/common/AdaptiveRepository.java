@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
  * @author Achraf
 */
 public interface AdaptiveRepository<T> {
-	public int updateWithId(Map<String, Object> json, TableInfo tableInfo);
+	public UpdateResult updateWithId(Map<String, Object> json, TableInfo tableInfo, int idValue);
 }
 
 /**
@@ -28,13 +28,14 @@ class AdaptiveRepositoryImpl<T> extends Adaptive implements AdaptiveRepository<T
 	 * 
 	 * @param json The object received from the frontend
 	 * @param tableInfo Important information of a table
+	 * @param idValue The id of the row you want to change.
 	 * @author Achraf
 	*/
 	@Override
-	public int updateWithId(Map<String, Object> json, TableInfo tableInfo) {
+	public UpdateResult updateWithId(Map<String, Object> json, TableInfo tableInfo, int idValue) {
 		try {
 			NamedParameterJdbcTemplate npj = new NamedParameterJdbcTemplate(super.dataSource);
-			DividedJson dividedJson = super.filterJson(json, tableInfo.getNoJdbcColumns());
+			DividedJson dividedJson = super.filterJson(json, tableInfo.getNoJdbcColumns(), tableInfo.getNotUpdatable());
 			Map<String, Object> filteredJson = dividedJson.getFilteredJson();
 			
 			String query = super.updateWhere(
@@ -43,13 +44,14 @@ class AdaptiveRepositoryImpl<T> extends Adaptive implements AdaptiveRepository<T
 				super.createIdAssign(tableInfo.getIdColumnName())
 			);
 			
-			filteredJson.put(tableInfo.getIdColumnName(), tableInfo.getIdValue());
+			filteredJson.put(tableInfo.getIdColumnName(), idValue);
 			System.out.println(query);
 
-			return npj.update(query, filteredJson);
+			return new UpdateResult(dividedJson, npj.update(query, filteredJson));
 		} catch (Exception e) {
-			e.printStackTrace();
-			return 0;
+			//e.printStackTrace();
+			System.out.println(e.getMessage());
+			return null;
 		}
 	}
 }

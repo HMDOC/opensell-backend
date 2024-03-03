@@ -10,13 +10,18 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.opensell.entities.Ad;
 import com.opensell.repository.adaptive.common.AdaptiveRepository;
+import com.opensell.repository.adaptive.common.TableInfo;
+
 import jakarta.transaction.Transactional;
 
 @Transactional
 @Repository
 public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveRepository<Ad> {
-	public static final List<String> NO_JDBC_COLS = Arrays.asList("adTags", "");
+	public static final List<String> NO_JDBC_COLS = Arrays.asList("adType", "adTags", "adImages");
+	public static final List<String> NOT_UPDATABLE = Arrays.asList("idAd", "addedDate", "link", "customer");
 	
+	public static final TableInfo TABLE_INFO = new TableInfo("idAd", NO_JDBC_COLS, NOT_UPDATABLE, "ad");
+
 	/**
 	 * Return a ad by the link if it is not deleted and not private.
 	 * 

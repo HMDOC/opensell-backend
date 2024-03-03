@@ -1,33 +1,23 @@
 package com.opensell.repository.adaptive.common;
 
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Getter
+/**
+ * Class that will contain useful information about a table.
+ * 
+ * @author Achraf
+*/
+@Data @AllArgsConstructor
 public class TableInfo {
-    private int idValue;
-    @Setter
     private String idColumnName;
-    @Setter
+    
+    // List of the columns that you do not want to deal in JDBC.
     private List<String> noJdbcColumns;
 
-    @Setter
+    // List of could you could not update like an id.
+    private List<String> notUpdatable;
+
     private String tableName;
-
-    public void setIdValue(int idValue) {
-        try {
-            if(idValue >= 1) this.idValue = idValue;
-            else throw new Exception("idValue need to be more than 1.");
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public TableInfo(int idValue, String idColumnName, List<String> noJdbcColumns, String tableName) {
-        setIdValue(idValue);
-        setIdColumnName(idColumnName);
-        setNoJdbcColumns(noJdbcColumns);
-        setTableName(tableName);
-    }
 }
