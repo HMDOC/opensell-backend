@@ -1,16 +1,18 @@
 package com.opensell.repository.adaptive.common;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
- * Entity that will contain the number of row updated and 
- * the seperation(dividedJson) of the original map into 3(jpaJson, filteredJson, cantUpdateJson).
+ * Class that will contain the number of row updated and a list of errors.
  * 
  * @author Achraf
  */
-@AllArgsConstructor @Getter
+@Getter @AllArgsConstructor @NoArgsConstructor
 public class UpdateResult {
-    private DividedJson dividedJson;
     private int updatedRow;
+    private List<SqlError> errorKeys;
+    private String exception;
 }

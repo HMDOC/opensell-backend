@@ -1,21 +1,27 @@
 package com.opensell.repository.adaptive.common;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import com.opensell.repository.adaptive.common.SqlError.SqlErrorType;
 
 /**
- * This is a class that contain function to help create adaptive query.
+ * Spring will use this class to get the implementation of the function updateWithId because 
+ * it is called AdaptiveRepositoryImpl.
  * 
  * @author Achraf
- */
-public class Adaptive {
+*/
+public class AdaptiveRepositoryImpl implements AdaptiveRepository {
 	@Autowired
 	protected DataSource dataSource;
+
+	@Autowired
+	protected NamedParameterJdbcTemplate npj;
 
 	//public static final String ASSIGN = " %s = ?";
 	public final static String FIRST_ASSIGN = "{0} = :{1}";
@@ -30,7 +36,7 @@ public class Adaptive {
 	 * @return The update query.
 	 * @author Achraf
 	*/
-	public static String updateWhere(String table, String changement, String condition) {
+	public static String createUpdateQuery(String table, String changement, String condition) {
 		return MessageFormat.format("UPDATE {0} SET {1} WHERE {2}", table, changement, condition);
 	}
 	
@@ -38,7 +44,7 @@ public class Adaptive {
 	 * Create the first assignement statement(id = :id).
 	 * 
 	 * @return A assignement(id = :id)
-	 * @author Achraf 
+	 * @author Achraf
 	*/
 	public static String firstAssign(String key) {
 		return MessageFormat.format(FIRST_ASSIGN, toSnakeCase(key), key);
@@ -63,7 +69,7 @@ public class Adaptive {
 	 */
 	public static String toSnakeCase(String word) {
 		try {
-			StringBuilder stringBuilder = new StringBuilder(word);
+			var stringBuilder = new StringBuilder(word);
 			
 			for (int i = 0; i < stringBuilder.length(); i++) {
 				char currentCharachter = stringBuilder.charAt(i);
@@ -96,8 +102,8 @@ public class Adaptive {
 	 * @return A string that represent all the assignement we want to do
 	 * @author Achraf
 	 */
-	public static String createAssign(LinkedHashSet<String> jsonKeys) {
-		StringBuilder stringBuilder = new StringBuilder();
+	public static String createAllAssign(LinkedHashSet<String> jsonKeys) {
+		var stringBuilder = new StringBuilder();
 		
 		stringBuilder.append(firstAssign(jsonKeys.removeFirst()));
 		jsonKeys.forEach(key -> {
@@ -132,17 +138,59 @@ public class Adaptive {
 	 * @return A class that contain the two Map
 	 * @author Achraf
 	*/
-	public static DividedJson filterJson(Map<String, Object> json, List<String> noJdbcColumns, List<String> notUpdatable) {
-		Map<String, Object> jpaJson = new LinkedHashMap<>();
-		Map<String, Object> filtredJson = new LinkedHashMap<>();
-		Map<String, Object> cantUpdateJson = new LinkedHashMap<>();
+	public static DividedJson filterJson(Map<String, Object> json, TableInfo tableInfo) {
+		var jpaJson = new LinkedHashMap<String, Object>();
+		var filtredJson = new LinkedHashMap<String, Object>();
+		var errorKeys = new ArrayList<SqlError>();
 
 		json.forEach((key, value) -> {
-			if(noJdbcColumns.contains(key)) jpaJson.put(key, value);
-			else if(notUpdatable.contains(key)) cantUpdateJson.put(key, value);
-			else filtredJson.put(key, value);
+			if(tableInfo.getFieldsName().contains(key)) {
+				if(!tableInfo.getNotUpdatable().contains(key)) {
+					if(tableInfo.getJpaOnly().contains(key)) jpaJson.put(key, value);
+					else filtredJson.put(key, value);
+				} 
+				
+				else {
+					errorKeys.add(new SqlError(SqlErrorType.NOT_UPDATABLE, key));
+				}
+			} else {
+				errorKeys.add(new SqlError(SqlErrorType.COL_DOES_NOT_EXIST, key));
+			}
 		});
 
-		return new DividedJson(jpaJson, filtredJson, cantUpdateJson);
+		return new DividedJson(jpaJson, filtredJson, errorKeys);
+	}
+
+	/**
+	 * This function execute an update with sql native code an a query will be generated
+	 * with the JSON receive from the frontend.
+	 * 
+	 * @param json The object received from the frontend
+	 * @param tableInfo Important information of a table
+	 * @param idValue The id of the row you want to change.
+	 * @author Achraf
+	*/
+	@Override
+	public UpdateResult updateWithId(Map<String, Object> json, TableInfo tableInfo, int idValue) {
+		DividedJson dividedJson = new DividedJson();
+
+		try {
+			dividedJson = filterJson(json, tableInfo);
+			var filteredJson = dividedJson.getFilteredJson();
+			
+			var query = createUpdateQuery(
+				tableInfo.getTableName(),
+				createAllAssign(new LinkedHashSet<>(filteredJson.keySet())),
+				createIdAssign(tableInfo.getIdColumnName())
+			);
+			
+			filteredJson.put(tableInfo.getIdColumnName(), idValue);
+			System.out.println(query);
+
+			return new UpdateResult(npj.update(query, filteredJson), dividedJson.getErrorKeys(), null);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new UpdateResult(0, dividedJson.getErrorKeys(), e.getMessage());
+		}
 	}
 }

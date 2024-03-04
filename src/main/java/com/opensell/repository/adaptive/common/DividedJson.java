@@ -1,9 +1,9 @@
 package com.opensell.repository.adaptive.common;
 
+import java.util.List;
 import java.util.Map;
-
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  * 
  * @author Achraf
 */
-@Data @AllArgsConstructor @NoArgsConstructor
+@Getter @AllArgsConstructor @NoArgsConstructor
 public class DividedJson {
     // The Map that we will deal in JPA
     private Map<String, Object> jpaJson;
@@ -20,6 +20,6 @@ public class DividedJson {
     // The Map with all the attributs that JDBC can use
     private Map<String, Object> filteredJson;
 
-    // The attribute that cannot be updated
-    private Map<String, Object> cantUpdateJson;
+    // A list of error
+    private List<SqlError> errorKeys;
 }

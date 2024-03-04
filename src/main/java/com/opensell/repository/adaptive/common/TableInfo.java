@@ -14,10 +14,13 @@ public class TableInfo {
     private String idColumnName;
     
     // List of the columns that you do not want to deal in JDBC.
-    private List<String> noJdbcColumns;
+    private List<String> jpaOnly;
 
     // List of could you could not update like an id.
     private List<String> notUpdatable;
 
     private String tableName;
+
+    // All field of the entity
+    private List<String> fieldsName;
 }
