@@ -217,6 +217,20 @@ public class AdController {
 		}
 	}
 
+	/**
+	 * To change an Ad.
+	 * 
+	 * CODE : 0 = OK 30 = idCustomer Error 31 = Title Error 32 = Référence Error 33
+	 * = Images Error 34 = Price Error 35 = Tags Error 36 = Type Error 37 =
+	 * Description Error 38 = Visibilité Error 39 = Shape Error
+	 * 
+	 * @author Achraf
+	 */
+	@PatchMapping("/new-change")
+	public UpdateResult changeAd(@RequestBody Map<String, Object> json, @RequestParam Integer idAd) {
+		return adRepo.updateWithId(json, AdRepository.TABLE_INFO, idAd);
+	}
+
 	@PostMapping("/get-images")
 	public boolean test(@RequestParam List<MultipartFile> files) throws Exception {
 		FileUploadService.saveFile(files, root+FileUploadService.AD_IMAGE_PATH);
