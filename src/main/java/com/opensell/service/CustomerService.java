@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This repository allows to get infos from a customer by a provided unique user link by querying the database
+ */
+
 @Service
 public class CustomerService {
 

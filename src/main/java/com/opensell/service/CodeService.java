@@ -3,6 +3,7 @@ package com.opensell.service;
 import org.springframework.stereotype.Service;
 
 /**
+ * This service is used to generate a random code used for the signup verification 
  * @author Quoc Dung
  */
 

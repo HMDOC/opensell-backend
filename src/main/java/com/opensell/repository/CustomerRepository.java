@@ -24,12 +24,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     public int countSocialLinkById(int id);
 
     //login
-    @Query(value = "SELECT COUNT(*) FROM customer c WHERE c.username = ?1 OR c.personal_email = ?1", nativeQuery = true)
-    public int checkUsernameOrPersonalEmail(String usernameOrEmail);
-
-    //login
     @Query(value= "SELECT COUNT(*) FROM customer c WHERE c.username = ?1 AND c.pwd = ?2 OR c.personal_email = ?1 AND c.pwd = ?2", nativeQuery = true)
-    public abstract int checkPassword(String usernameOrEmail, String pwd);
+    public abstract int checkLogin(String usernameOrEmail, String pwd);
 
     //signup
     public abstract int countByUsername(String username);

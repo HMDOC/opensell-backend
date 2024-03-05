@@ -13,6 +13,10 @@ import com.opensell.entities.verification.ChangeInEntity;
 import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 
+/**
+ * This service is used to 
+ */
+
 @Service
 public class AdService {
 	@Autowired

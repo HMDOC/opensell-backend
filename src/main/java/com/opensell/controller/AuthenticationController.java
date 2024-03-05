@@ -41,10 +41,7 @@ public class AuthenticationController {
 
     @GetMapping("/login")
     public int login(@RequestParam String username, @RequestParam String pwd) {
-        if (rep.checkUsernameOrPersonalEmail(username) ==  1) {
-            //return rep.checkPassword(usernameOrEmail, pwd) -> (1 ou 0?)
-            if (rep.checkPassword(username, pwd) == 1) return 1; // Correct password
-        }
+        if (rep.checkLogin(username, pwd) ==  1) return 1; // Correct password
         return 2;
     }
 

@@ -6,6 +6,10 @@ import java.util.Random;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * Methods to create randomized links and save file to the backend
+ */
+
 @Service
 public class FileUploadService {
 	
