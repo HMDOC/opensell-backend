@@ -5,7 +5,7 @@ import com.opensell.entities.customer.CustomerInfo;
 import com.opensell.entities.verification.VerificationCode;
 import com.opensell.entities.verification.VerificationCodeType;
 import com.opensell.repository.CustomerInfoRepository;
-import com.opensell.repository.CustomerRepository;
+import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
 import com.opensell.service.timeService.CodeCleanup;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
 
     @Autowired
-    private CustomerRepository rep;
+    private LoginRepository rep;
 
     @Autowired
     private EmailService emailService;

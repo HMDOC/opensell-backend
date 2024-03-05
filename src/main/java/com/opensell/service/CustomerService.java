@@ -3,7 +3,7 @@ package com.opensell.service;
 import com.opensell.entities.Customer;
 import com.opensell.entities.customer.CustomerInfo;
 import com.opensell.entities.dto.CustomerModificationView;
-import com.opensell.repository.CustomerRepository;
+import com.opensell.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ import java.util.List;
 public class CustomerService {
 
     @Autowired
-    private CustomerRepository rep;
+    private LoginRepository rep;
 
     public CustomerModificationView getPlaceHolder(@PathVariable String link) {
         Customer c = rep.findCustomerByLink(link);

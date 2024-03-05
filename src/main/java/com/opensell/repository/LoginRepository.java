@@ -11,7 +11,7 @@ import com.opensell.entities.Customer;
 
 @Repository
 @Transactional
-public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+public interface LoginRepository extends JpaRepository<Customer, Integer> {
 
     public abstract Customer findCustomerByLink(String link);
 
