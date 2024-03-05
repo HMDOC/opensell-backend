@@ -3,7 +3,7 @@ package com.opensell.service;
 import com.opensell.entities.Customer;
 import com.opensell.entities.customer.CustomerInfo;
 import com.opensell.entities.dto.CustomerModificationView;
-import com.opensell.repository.CustomerRepository;
+import com.opensell.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This repository allows to get infos from a customer by a provided unique user link by querying the database
+ */
+
 @Service
 public class CustomerService {
 
     @Autowired
-    private CustomerRepository rep;
+    private LoginRepository rep;
 
     public CustomerModificationView getPlaceHolder(@PathVariable String link) {
         Customer c = rep.findCustomerByLink(link);

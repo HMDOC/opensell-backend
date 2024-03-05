@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.opensell.entities.Ad;
+import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdImgSave;
@@ -113,9 +114,17 @@ public class AdController {
 				} else {
 					System.out.println("Passed");
 				}
-
-				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), ad.getLink(),
-						ad.getAdImages().get(0).getPath()));
+				
+				String imagePath = "";
+				
+				for(AdImage image : ad.getAdImages()) {
+					if (image.getSpot()==0) {
+						imagePath = image.getPath();
+						break;
+					}
+				}
+				
+				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), ad.getLink(), imagePath));
 			}
 			System.out.println(resultList.size());
 			return resultList;

@@ -7,6 +7,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 /**
+ * Mail service to send customizable emails
  * @author Quoc Dung
  */
 @Service

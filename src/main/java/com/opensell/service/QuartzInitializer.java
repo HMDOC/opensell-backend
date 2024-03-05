@@ -8,6 +8,10 @@ import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * This is the Quartz API initializer. This class can be called to schedule a task
+ */
+
 @Service
 public class QuartzInitializer {
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import static com.opensell.entities.verification.RegexVerifier.wrongFormatResponse;
 
 /**
+ * This service allows to modify the customer's personal information using the repository
  * @author Oliver Mansuy
  */
 @Service
