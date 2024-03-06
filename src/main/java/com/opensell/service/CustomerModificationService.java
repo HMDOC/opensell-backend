@@ -20,55 +20,55 @@ public class CustomerModificationService {
     @Autowired
     private CustomerModificationRepository rep;
 
-    public ResponseEntity<Integer> changePersonalEmail(String email, int id) {
-        if (RegexVerifier.EMAIL.verify(email)) return getResponse(rep.updateCustomerPersonalEmail(email, id));
+    public ResponseEntity<Integer> changePersonalEmail(String email, String link) {
+        if (RegexVerifier.EMAIL.verify(email)) return getResponse(rep.updateCustomerPersonalEmail(email, link));
         return wrongFormatResponse();
     }
 
-    public ResponseEntity<Integer> changeExposedEmail(String email, int id) {
-        if (RegexVerifier.EMAIL.verify(email)) return getResponse(rep.updateCustomerExposedEmail(email, id));
+    public ResponseEntity<Integer> changeExposedEmail(String email, String link) {
+        if (RegexVerifier.EMAIL.verify(email)) return getResponse(rep.updateCustomerExposedEmail(email, link));
         return wrongFormatResponse();
     }
 
-    public ResponseEntity<Integer> changeFirstName(String firstName, int id) {
-        if (RegexVerifier.FIRST_LAST_NAME.verify(firstName)) return getResponse(rep.updateCustomerFirstName(firstName, id));
+    public ResponseEntity<Integer> changeFirstName(String firstName, String link) {
+        if (RegexVerifier.FIRST_LAST_NAME.verify(firstName)) return getResponse(rep.updateCustomerFirstName(firstName, link));
         return wrongFormatResponse();
     }
 
-    public ResponseEntity<Integer> changeLastName(String lastName, int id) {
-        if (RegexVerifier.FIRST_LAST_NAME.verify(lastName)) return getResponse(rep.updateCustomerLastName(lastName, id));
+    public ResponseEntity<Integer> changeLastName(String lastName, String link) {
+        if (RegexVerifier.FIRST_LAST_NAME.verify(lastName)) return getResponse(rep.updateCustomerLastName(lastName, link));
         return wrongFormatResponse();
     }
 
-    public ResponseEntity<Integer> changePwd(String pwd, int id) {
-        if (RegexVerifier.PWD.verify(pwd)) return getResponse(rep.updateCustomerPwd(pwd, id));
+    public ResponseEntity<Integer> changePwd(String pwd, String link) {
+        if (RegexVerifier.PWD.verify(pwd)) return getResponse(rep.updateCustomerPwd(pwd, link));
         return wrongFormatResponse();
     }
 
-    public ResponseEntity<Integer> changeUsername(String username, int id) {
-        if (RegexVerifier.USERNAME.verify(username)) return getResponse(rep.updateCustomerUsername(username, id));
+    public ResponseEntity<Integer> changeUsername(String username, String link) {
+        if (RegexVerifier.USERNAME.verify(username)) return getResponse(rep.updateCustomerUsername(username, link));
         return wrongFormatResponse();
     }
 
-    public ResponseEntity<Integer> changePhoneNumber(String phoneNumber, int id) {
-        if (RegexVerifier.PHONE_NUMBER.verify(phoneNumber)) return getResponse(rep.updateCustomerPhoneNumber(phoneNumber, id));
+    public ResponseEntity<Integer> changePhoneNumber(String phoneNumber, String link) {
+        if (RegexVerifier.PHONE_NUMBER.verify(phoneNumber)) return getResponse(rep.updateCustomerPhoneNumber(phoneNumber, link));
         return wrongFormatResponse();
     }
 
-    public ResponseEntity<Integer> changePrimaryAddress(String address, int id) {
-        return getResponse(rep.updateCustomerPrimaryAddress(address, id));
+    public ResponseEntity<Integer> changePrimaryAddress(String address, String link) {
+        return getResponse(rep.updateCustomerPrimaryAddress(address, link));
     }
 
-    public ResponseEntity<Integer> changeIconPath(String iconPath, int id) {
-        return getResponse(rep.updateCustomerIconPath(iconPath, id));
+    public ResponseEntity<Integer> changeIconPath(String iconPath, String link) {
+        return getResponse(rep.updateCustomerIconPath(iconPath, link));
     }
 
-    public ResponseEntity<Integer> changeBio(@RequestParam String bio, @RequestParam int id) {
-        return getResponse(rep.updateCustomerBio(bio, id));
+    public ResponseEntity<Integer> changeBio(String bio,String link) {
+        return getResponse(rep.updateCustomerBio(bio, link));
     }
 
-    public ResponseEntity<Integer> changeSocialLink(@RequestParam String link, @RequestParam int id, @RequestParam String oldLink) {
-        return getResponse(rep.updateCustomerSocialLink(link, id, oldLink));
+    public ResponseEntity<Integer> changeSocialLink(String link, String customer_link, String oldLink) {
+        return getResponse(rep.updateCustomerSocialLink(link, customer_link, oldLink));
     }
 
     private static ResponseEntity<Integer> getResponse(int body) {
