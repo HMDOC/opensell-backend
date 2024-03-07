@@ -73,11 +73,11 @@ public class AdController {
 			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
 			@RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
 			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<Integer> tagListId,
-			@RequestParam(required = false) Integer shapeId,
+			@RequestParam(required = false) Integer shapeId,@RequestParam(required = false) Boolean filterSold,
 			@RequestParam(required = false, defaultValue = "addedDate") String sortBy) {
 
-		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId, typeId,
-				Sort.by(sortBy));
+		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId,
+				typeId, filterSold, Sort.by(sortBy));
 
 		if (adList != null) {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
