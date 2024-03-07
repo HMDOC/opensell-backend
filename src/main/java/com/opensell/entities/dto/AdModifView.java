@@ -18,6 +18,6 @@ public record AdModifView(int idAd,
 						  String reference,
 						  String address,
 						  String link,
-						  String adTypeName,
-						  Set<String> adTagsName,
-						  List<String> adImagesPath) {}
+						  String type,
+						  Set<String> tags,
+						  List<String> images) {}

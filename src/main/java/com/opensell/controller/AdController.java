@@ -200,7 +200,7 @@ public class AdController {
 					List<AdTag> adTags = new ArrayList<>();
 					if(adModifView != null) {
 						// Map over the set of string
-						adModifView.adTagsName().forEach(tag -> {
+						adModifView.tags().forEach(tag -> {
 							// Get the old tag from the database
 							AdTag tagTemp = adTagRepo.findByName(tag);
 							
