@@ -72,7 +72,7 @@ public class AdController {
 			@RequestParam(required = false, defaultValue = "9999999d") Double priceMax,
 			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
 			@RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
-			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<Integer> tagListId,
+			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<String> tagListId,
 			@RequestParam(required = false) Integer shapeId,@RequestParam(required = false) Boolean filterSold,
 			@RequestParam(required = false, defaultValue = "addedDate") String sortBy) {
 
@@ -93,13 +93,12 @@ public class AdController {
 
 				if (tagListId != null) {
 					hasTag = false;
-					for (Integer tagId : tagListId) {
+					for (String tagName : tagListId) {
 						for (AdTag adTag : ad.getAdTags()) {
-							if (adTag.getIdAdTag() == tagId) {
+							if (adTag.getName().equals(tagName)) {
 								hasTag = true;
 								break;
 							}
-							;
 						}
 						if (hasTag) {
 							break;
