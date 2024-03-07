@@ -83,6 +83,9 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 	 */
 	@Query(value = "SELECT EXISTS(SELECT * FROM ad a WHERE a.customer_id = ?1 AND a.reference = ?2 LIMIT 1)", nativeQuery = true)
 	public byte checkReference(int idCustomer, String reference);
+
+	@Query(value = "SELECT ad.* FROM ad, customer c WHERE ad.customer_id = c.id_customer AND c.link = ?1", nativeQuery = true)
+	public List<Ad> getAdsFromUser(String link);
 }
 
 /*
