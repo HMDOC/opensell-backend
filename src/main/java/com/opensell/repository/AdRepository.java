@@ -62,8 +62,8 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 	 * Purpose : To modify an ad
 	 * @author Achraf
 	 */
-	@Query(value = "SELECT * FROM ad a WHERE a.id_ad = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
-	public Ad getAdByIdAd(int idAd);
+	@Query(value = "SELECT * FROM ad a WHERE a.link = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
+	public Ad getAdToModif(String link);
 	
 	/***
 	 * To see if a this customer already have an ad with this title.

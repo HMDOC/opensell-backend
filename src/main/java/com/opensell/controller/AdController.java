@@ -138,9 +138,9 @@ public class AdController {
 	 * 
 	 * @author Achraf
 	 */
-	@GetMapping("/to-modify/{idAd}")
-	public AdModifView getAdModifView(@PathVariable int idAd) {
-		Ad ad = adRepo.getAdByIdAd(idAd);
+	@GetMapping("/to-modify/{link}")
+	public AdModifView getAdModifView(@PathVariable String link) {
+		Ad ad = adRepo.getAdToModif(link);
 
 		if (ad != null) {
 			Set<String> adTagsName = new LinkedHashSet<>();
@@ -149,7 +149,7 @@ public class AdController {
 			List<String> adImagesPath = new ArrayList<>();
 			ad.getAdImages().forEach(image -> adImagesPath.add(image.getPath()));
 
-			return new AdModifView(idAd, ad.getTitle(), ad.getPrice(), ad.getShape(), ad.isSold(), ad.getVisibility(),
+			return new AdModifView(ad.getIdAd(), ad.getTitle(), ad.getPrice(), ad.getShape(), ad.isSold(), ad.getVisibility(),
 					ad.getDescription(), ad.getReference(), ad.getAddress(), ad.getLink(), ad.getAdType().getName(),
 					adTagsName, adImagesPath);
 		}
@@ -172,7 +172,7 @@ public class AdController {
 		try {
 			List<Byte> errors = new ArrayList<>();
 			if (adModifView != null) {
-				Ad ad = adRepo.getAdByIdAd(adModifView.idAd());
+				Ad ad = adRepo.getAdByLink(adModifView.link());
 				
 				// Need to check reference
 				if (ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
