@@ -58,7 +58,7 @@ public class AdServiceTest {
 	void adSearchWithPrice() {
 		List<AdSearchPreview> adList = adService.adSearch("", 100.0, 1000.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, "addedDate");
+				null, null, null, null, "addedDate");
         assertEquals(6, adList.size());
 	}
 
@@ -69,7 +69,7 @@ public class AdServiceTest {
 	void adSearchWithQuery() {
 		List<AdSearchPreview> adList = adService.adSearch("Lorem", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, "addedDate");
+				null, null, null, null, "addedDate");
         assertEquals(3, adList.size());
 	}
 
@@ -80,7 +80,7 @@ public class AdServiceTest {
 	void adSearchWithDate() {
 		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
 				Date.valueOf("2024-01-01"), Date.valueOf("2024-01-12"),
-				null, null, null, "addedDate");
+				null, null, null, null, "addedDate");
         assertEquals(4, adList.size());
 	}
 	
@@ -91,7 +91,7 @@ public class AdServiceTest {
 	void adSearchWithImpossibleDate() {
 		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("2022-12-31"),
-				null, null, null, "addedDate");
+				null, null, null, null, "addedDate");
         assertEquals(0, adList.size());
 	}
 
@@ -103,7 +103,7 @@ public class AdServiceTest {
 	void adSearchWithType() {
 		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				8, null, null, "addedDate");
+				8, null, null, null, "addedDate");
         assertEquals(2, adList.size());
 	}
 
@@ -115,7 +115,7 @@ public class AdServiceTest {
 	void adSearchWithShape() {
 		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, 2, "addedDate");
+				null, null, 2, null, "addedDate");
         assertEquals(15, adList.size());
 	}
 
@@ -127,7 +127,7 @@ public class AdServiceTest {
 	void adSearchWithShapeAndType() {
 		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				3, null, 2, "addedDate");
+				3, null, 2, null, "addedDate");
         assertEquals(1, adList.size());
 	}
 
@@ -139,7 +139,7 @@ public class AdServiceTest {
 	void adSearchWithPriceAndDate() {
 		List<AdSearchPreview> adList = adService.adSearch("", 1500.0, 5000.0,
 				Date.valueOf("2023-10-01"), Date.valueOf("2024-01-12"),
-				null, null, null, "addedDate");
+				null, null, null, null, "addedDate");
         assertEquals(7, adList.size());
 	}
 
@@ -151,7 +151,7 @@ public class AdServiceTest {
 	void adSearchOrderByTitle() {
 		List<AdSearchPreview> adList = adService.adSearch("Lorem", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, "title");
+				null, null, null, null, "title");
 		assertTrue(adList.get(0).adTitle().equalsIgnoreCase("NSX"));
 	}
 
@@ -163,7 +163,7 @@ public class AdServiceTest {
 	void adSearchOrderByPrice() {
 		List<AdSearchPreview> adList = adService.adSearch("Ipsum", 0.0, 9999999.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, "price");
+				null, null, null, null, "price");
         assertEquals(0, adList.get(0).isAdSold());
 	}
 
@@ -175,7 +175,7 @@ public class AdServiceTest {
 	void adSearchOrderByDate() {
 		List<AdSearchPreview> adList = adService.adSearch("Dolor", 1000.0, 6000.0,
 				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, "addedDate");
+				null, null, null, null, "addedDate");
         assertEquals(0, adList.get(0).adShape());
 	}
 

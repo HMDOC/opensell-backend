@@ -49,11 +49,12 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
             ( a.price between :pMin And :pMax ) AND \
             ( a.addedDate between :dMin AND :dMax ) AND \
             ( a.shape = :shapeId OR :shapeId is null ) AND\
-            ( a.adType.idAdType = :typeId OR :typeId is null ) )\
+            ( a.adType.idAdType = :typeId OR :typeId is null ) AND \
+            ( a.isSold = :filterSold OR :filterSold is null) )\
             """)
 	public List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin,@Param("pMax") Double priceMax,
-			@Param("dMin") Date dateMin, @Param("dMax") Date dateMax, @Param("shapeId") Integer shapeId, 
-			@Param("typeId") Integer typeId, @Param("sort") Sort sort);
+			@Param("dMin") Date dateMin, @Param("dMax") Date dateMax, @Param("shapeId") Integer shapeId,
+			@Param("typeId") Integer typeId, @Param("filterSold") Boolean filterSold, @Param("sort") Sort sort);
 
 
 	/**
