@@ -8,10 +8,12 @@ import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
-import com.opensell.service.timeService.CodeCleanup;
+
 import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
+import com.opensell.service.timeservice.CodeCleanup;
+
 import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -75,6 +77,7 @@ public class AuthenticationController {
             newCode.setCustomer(customer);
             newCode.setCode(code);
             newCode.setType(VerificationCodeType.FIRST_SIGN_UP);
+            newCode.setCreatedAt(now);
 
             rep.save(customer);
             codeRep.save(newCode);

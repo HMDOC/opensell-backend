@@ -1,4 +1,4 @@
-package com.opensell.service.timeService;
+package com.opensell.service.timeservice;
 
 import org.quartz.Job;
 import org.quartz.JobBuilder;
@@ -26,7 +26,7 @@ public class CodeCleanup implements Job {  // création d'un job pour effacer le
     public JobDetail jobSetup() { // set le job
         return JobBuilder.newJob(CodeCleanup.class)
         .withIdentity("deleteExpiredVerificationCodes", "databaseCleanup")
-        .build(); 
+        .build();
     }
 
     public Trigger triggerSetup() { // set le trigger, donc le moment où le job va être exécuté
