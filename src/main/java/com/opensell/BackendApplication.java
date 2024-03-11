@@ -13,14 +13,5 @@ import com.opensell.service.timeservice.JobAction;
 public class BackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
-		//Thread thread = new Thread(new ThreadCleanUp(1000));
-
-		Job threadCleanUp = new Job(new JobAction() {
-			@Override
-			public void task() {
-				System.out.println("Hamid!");
-			}
-		}, 10000);
-		threadCleanUp.run();
 	}
 }

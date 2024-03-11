@@ -1,9 +1,21 @@
 package com.opensell.service.timeservice;
 
+/**
+ * To do a task forever or for a number of repetition.
+ * 
+ * @author Achraf
+*/
 public final class Job implements Runnable {
+    // Time between each task
     private long delay;
+
+    // Repetition or Forever 
     private JobType jobType;
+
+    // The task you want to do
     private JobAction jobAction;
+
+    // The number of time the task is made
     private int repetition;
 
     public Job(JobAction jobAction, long delay) {

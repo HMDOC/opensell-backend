@@ -7,6 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import com.opensell.repository.adaptive.common.SqlError.SqlErrorType;
 
@@ -188,9 +189,9 @@ public class AdaptiveRepositoryImpl implements AdaptiveRepository {
 			System.out.println(query);
 
 			return new UpdateResult(npj.update(query, filteredJson), dividedJson.getErrorKeys(), null);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return new UpdateResult(0, dividedJson.getErrorKeys(), e.getMessage());
+		} catch (DataAccessException e) {
+			e.getLocalizedMessage();
+			return new UpdateResult(0, dividedJson.getErrorKeys(), e.getLocalizedMessage().split(";")[2]);
 		}
 	}
 }
