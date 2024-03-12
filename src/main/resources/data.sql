@@ -1835,11 +1835,10 @@ insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (51, 199);
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (59, 200);
 
 insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 1, 'https://www.instagram.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 2, 'https://www.instagram.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 3, 'https://www.instagram.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 4, 'https://www.instagram.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 5, 'https://www.instagram.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 6, 'https://www.instagram.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 8, 'https://www.in/');
+insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 2, 'https://www.facebook.com/');
+insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 3, 'https://www.twitch.tv/');
+insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 4, 'https://www.instagram.com/ufhawhfawifh');
+insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 5, 'https://www.instagram.com/fwajfnaofnaw');
+
 
 insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (76, 7, 'https://www.facebook.com/');

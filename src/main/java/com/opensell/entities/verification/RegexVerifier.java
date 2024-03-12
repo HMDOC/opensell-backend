@@ -1,5 +1,6 @@
 package com.opensell.entities.verification;
 
+import com.opensell.service.customerModification.CustomerModificationCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -26,6 +27,6 @@ public enum RegexVerifier {
     }
 
     public static ResponseEntity<Integer> wrongFormatResponse() {
-        return new ResponseEntity<>(VerifyCustomerCode.WRONG_FORMAT, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(CustomerModificationCode.WRONG_FORMAT, HttpStatus.BAD_REQUEST);
     }
 }

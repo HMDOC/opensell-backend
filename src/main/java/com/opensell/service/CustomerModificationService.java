@@ -2,11 +2,12 @@ package com.opensell.service;
 
 import com.opensell.entities.verification.RegexVerifier;
 import com.opensell.repository.CustomerModificationRepository;
+import com.opensell.service.customerModification.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import static com.opensell.entities.verification.RegexVerifier.wrongFormatResponse;
+
+import java.sql.SQLException;
+
 
 /**
  * This service allows to modify the customer's personal information using the repository
@@ -15,64 +16,67 @@ import static com.opensell.entities.verification.RegexVerifier.wrongFormatRespon
 @Service
 public class CustomerModificationService {
 
-    //https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses
+
     @Autowired
     private CustomerModificationRepository rep;
 
-    public ResponseEntity<Integer> changePersonalEmail(String email, String link) {
-        if (RegexVerifier.EMAIL.verify(email)) return getResponse(rep.updateCustomerPersonalEmail(email, link));
-        return wrongFormatResponse();
+    public ModificationFeedback changePersonalEmail(String email, String link) {
+        return getFeedback(() -> rep.updateCustomerPersonalEmail(email, link), () -> RegexVerifier.EMAIL.verify(email), email);
     }
 
-    public ResponseEntity<Integer> changeExposedEmail(String email, String link) {
-        if (RegexVerifier.EMAIL.verify(email)) return getResponse(rep.updateCustomerExposedEmail(email, link));
-        return wrongFormatResponse();
+    public ModificationFeedback changeExposedEmail(String email, String link) {
+        return getFeedback(() -> rep.updateCustomerExposedEmail(email, link), () -> RegexVerifier.EMAIL.verify(email), email);
     }
 
-    public ResponseEntity<Integer> changeFirstName(String firstName, String link) {
-        if (RegexVerifier.FIRST_LAST_NAME.verify(firstName)) return getResponse(rep.updateCustomerFirstName(firstName, link));
-        return wrongFormatResponse();
+    public ModificationFeedback changeFirstName(String firstName, String link) {
+        return getFeedback(() -> rep.updateCustomerFirstName(firstName, link), () -> RegexVerifier.FIRST_LAST_NAME.verify(firstName), firstName);
     }
 
-    public ResponseEntity<Integer> changeLastName(String lastName, String link) {
-        if (RegexVerifier.FIRST_LAST_NAME.verify(lastName)) return getResponse(rep.updateCustomerLastName(lastName, link));
-        return wrongFormatResponse();
+    public ModificationFeedback changeLastName(String lastName, String link) {
+        return getFeedback(() -> rep.updateCustomerLastName(lastName, link), () -> RegexVerifier.FIRST_LAST_NAME.verify(lastName), lastName);
     }
 
-    public ResponseEntity<Integer> changePwd(String pwd, String link) {
-        if (RegexVerifier.PWD.verify(pwd)) return getResponse(rep.updateCustomerPwd(pwd, link));
-        return wrongFormatResponse();
+    public ModificationFeedback changePwd(String pwd, String link) {
+        return getFeedback(() -> rep.updateCustomerPwd(pwd, link), () -> RegexVerifier.PWD.verify(pwd), pwd);
     }
 
-    public ResponseEntity<Integer> changeUsername(String username, String link) {
-        if (RegexVerifier.USERNAME.verify(username)) return getResponse(rep.updateCustomerUsername(username, link));
-        return wrongFormatResponse();
+    public ModificationFeedback changeUsername(String username, String link) {
+        return getFeedback(() -> rep.updateCustomerUsername(username, link), () -> RegexVerifier.USERNAME.verify(username), username);
     }
 
-    public ResponseEntity<Integer> changePhoneNumber(String phoneNumber, String link) {
-        if (RegexVerifier.PHONE_NUMBER.verify(phoneNumber)) return getResponse(rep.updateCustomerPhoneNumber(phoneNumber, link));
-        return wrongFormatResponse();
+    public ModificationFeedback changePhoneNumber(String phoneNumber, String link) {
+        return getFeedback(() -> rep.updateCustomerPhoneNumber(phoneNumber, link), () -> RegexVerifier.PHONE_NUMBER.verify(phoneNumber), phoneNumber);
     }
 
-    public ResponseEntity<Integer> changePrimaryAddress(String address, String link) {
-        return getResponse(rep.updateCustomerPrimaryAddress(address, link));
+    public ModificationFeedback changePrimaryAddress(String address, String link) {
+        return getFeedback(() -> rep.updateCustomerPrimaryAddress(address, link), () -> true, address);
     }
 
-    public ResponseEntity<Integer> changeIconPath(String iconPath, String link) {
-        return getResponse(rep.updateCustomerIconPath(iconPath, link));
+    public ModificationFeedback changeIconPath(String iconPath, String link) {
+        return getFeedback(() -> rep.updateCustomerIconPath(iconPath, link), () -> true, iconPath);
     }
 
-    public ResponseEntity<Integer> changeBio(String bio,String link) {
-        return getResponse(rep.updateCustomerBio(bio, link));
+    public ModificationFeedback changeBio(String bio,String link) {
+        return getFeedback(() -> rep.updateCustomerBio(bio, link), () -> true, bio);
     }
 
-    public ResponseEntity<Integer> changeSocialLink(String link, String customer_link, String oldLink) {
-        return getResponse(rep.updateCustomerSocialLink(link, customer_link, oldLink));
+    public ModificationFeedback changeSocialLink(String link, String customer_link, String oldLink) {
+        return getFeedback(() -> rep.updateCustomerSocialLink(link, customer_link, oldLink), () -> true, link);
     }
 
-    private static ResponseEntity<Integer> getResponse(int body) {
-        if (body == 0) return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-        else if (body == 1) return new ResponseEntity<>(body, HttpStatus.OK);
-        else return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
+    private ModificationFeedback getFeedback(UpdateCallable callback, ValueValidationCallable validation, String value) {
+        int result = 0;
+        try {
+            if (!validation.isValid()) throw CustomerModificationException.formattingException();
+            result = callback.updateStatement();
+            if (result == 0) throw new SQLException(); //needs a new custom Exception
+            return new ModificationFeedback(CustomerModificationCode.OK, result, value);
+        } catch (CustomerModificationException cException) {
+            return new ModificationFeedback(CustomerModificationCode.WRONG_FORMAT, result, value);
+        } catch (SQLException sqlException) {
+            return new ModificationFeedback(CustomerModificationCode.SQL_ERROR, result, value);
+        } catch (Exception exception) {
+            return new ModificationFeedback(CustomerModificationCode.OTHER_ERROR, result, value);
+        }
     }
 }

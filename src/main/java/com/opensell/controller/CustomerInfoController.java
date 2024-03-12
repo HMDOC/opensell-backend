@@ -40,9 +40,9 @@ public class CustomerInfoController {
                 double price = ad.getPrice();
                 int shape = ad.getShape();
                 boolean isSold = ad.isSold();
-                String adlink = ad.getLink();
+                String adLink = ad.getLink();
                 String imagesPath = ad.getAdImages().get(0).getPath();
-                safeAdsList.add(new AdSearchPreview(title, price, shape, isSold, adlink, imagesPath));
+                safeAdsList.add(new AdSearchPreview(title, price, shape, isSold, adLink, imagesPath));
             }
             return safeAdsList;
         } else {
