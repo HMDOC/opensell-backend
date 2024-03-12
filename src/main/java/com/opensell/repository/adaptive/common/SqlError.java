@@ -18,7 +18,7 @@ public class SqlError {
     public enum SqlErrorType {
         COL_DOES_NOT_EXIST,
         NOT_UPDATABLE,
-        UNIQUE_FAILED,
+        UNIQUE_FAILED
     }
 
     public static void getErrorFromException(List<SqlError> sqlErrors, String exception) throws Exception {

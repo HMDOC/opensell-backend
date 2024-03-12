@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import static com.opensell.entities.verification.RegexVerifier.wrongFormatResponse;
 
 /**
@@ -76,7 +75,4 @@ public class CustomerModificationService {
         else if (body == 1) return new ResponseEntity<>(body, HttpStatus.OK);
         else return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
-
-
 }

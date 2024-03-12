@@ -34,4 +34,9 @@ public class VerificationCode {
 
     @Column(columnDefinition = "DATETIME DEFAULT NOW()", nullable = false)
     private Date createdAt;
+
+    public enum VerificationCodeType {
+        FIRST_SIGN_UP,
+        CHANGE_PASSWORD
+    }
 }

@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
 import com.opensell.entities.dto.AdBuyerView;
-import com.opensell.entities.verification.ChangeInEntity;
-import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 
 /**
@@ -51,25 +49,5 @@ public class AdService {
 			System.out.println(e.getMessage());
 			return null;
 		}
-	}
-
-	/**
-	 * To change the title of an Ad.
-	 *
-	 * @author Achraf
-	 */
-	public VerifyCode changeTitle(ChangeInEntity<String> changeInEntity, String title, int idCustomer) throws Exception {
-		return ChangeInEntity.checkModifError(changeInEntity, title,
-				() -> title.length() <= 255 && title.length() > 0 && adRepo.checkTitle(idCustomer, title) == 0);
-	}
-
-	/**
-	 * To change the reference of an Ad.
-	 *
-	 * @author Achraf
-	 */
-	public VerifyCode changeReference(ChangeInEntity<String> changeInEntity, String reference, int idCustomer) throws Exception {
-		return ChangeInEntity.checkModifError(changeInEntity, reference,
-				() -> reference.length() <= 255 && reference.length() > 0 && adRepo.checkReference(idCustomer, reference) == 0);
 	}
 }

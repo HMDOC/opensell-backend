@@ -179,17 +179,24 @@ public class AdaptiveRepositoryImpl implements AdaptiveRepository {
 			dividedJson = filterJson(json, tableInfo);
 			var filteredJson = dividedJson.getFilteredJson();
 			
-			var query = createUpdateQuery(
-				tableInfo.getTableName(),
-				createAllAssign(new LinkedHashSet<>(filteredJson.keySet())),
-				createIdAssign(tableInfo.getIdColumnName())
-			);
-			
-			filteredJson.put(tableInfo.getIdColumnName(), idValue);
-			System.out.println(query);
+			if(filteredJson.size() != 0) {
+				var query = createUpdateQuery(
+					tableInfo.getTableName(),
+					createAllAssign(new LinkedHashSet<>(filteredJson.keySet())),
+					createIdAssign(tableInfo.getIdColumnName())
+				);
+				
+				filteredJson.put(tableInfo.getIdColumnName(), idValue);
+				System.out.println(query);
 
-			return new UpdateResult(npj.update(query, filteredJson), dividedJson.getErrorKeys());
-		} catch (DataAccessException e) {
+				return new UpdateResult(npj.update(query, filteredJson), dividedJson.getErrorKeys());
+			}
+			
+			else {
+				System.out.println("Map is empty, cannot make or execute AdaptiveQuery.");
+				return new UpdateResult(0, dividedJson.getErrorKeys());
+			}
+		} catch (Exception e) {
 			try {
 				System.out.println(e.getCause().getMessage());
 				SqlError.getErrorFromException(dividedJson.getErrorKeys(), e.getCause().getMessage());

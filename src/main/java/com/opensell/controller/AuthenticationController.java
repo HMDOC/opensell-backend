@@ -3,17 +3,15 @@ package com.opensell.controller;
 import com.opensell.entities.Customer;
 import com.opensell.entities.customer.CustomerInfo;
 import com.opensell.entities.verification.VerificationCode;
-import com.opensell.entities.verification.VerificationCodeType;
+import com.opensell.entities.verification.VerificationCode.VerificationCodeType;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
-
 import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
 import com.opensell.service.timeservice.CodeCleanup;
-
 import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

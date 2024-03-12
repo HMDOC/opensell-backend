@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,11 +22,8 @@ import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.dto.AdBuyerView;
-import com.opensell.entities.dto.AdImgSave;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
-import com.opensell.entities.verification.VerifyAdModif;
-import com.opensell.entities.verification.VerifyCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.adaptive.common.UpdateResult;
@@ -157,89 +153,6 @@ public class AdController {
 		return null;
 	}
 
-	/**
-	 * To change an Ad.
-	 * 
-	 * CODE : 0 = OK 30 = idCustomer Error 31 = Title Error 32 = Référence Error 33
-	 * = Images Error 34 = Price Error 35 = Tags Error 36 = Type Error 37 =
-	 * Description Error 38 = Visibilité Error 39 = Shape Error
-	 * 
-	 * @author Achraf
-	 */
-	@PatchMapping("/change")
-	public List<Byte> changeAd(@RequestBody AdModifView adModifView, @RequestParam Integer idCustomer,
-			@RequestParam(required = false) AdImgSave adImgSave) {
-		try {
-			List<Byte> errors = new ArrayList<>();
-			if (adModifView != null) {
-				Ad ad = adRepo.getAdByLink(adModifView.link());
-				
-				// Need to check reference
-				if (ad != null && ad.getCustomer().getIdCustomer() == idCustomer) {
-					// Check the title
-					if (VerifyCode.SQL_ERROR == adService.changeTitle((title) -> ad.setTitle(title),
-							adModifView.title(), idCustomer)) {
-						errors.add(VerifyAdModif.TITLE_ERROR);
-					}
-
-					// Check the reference
-					if (VerifyCode.SQL_ERROR == adService.changeReference((reference) -> ad.setReference(reference),
-							adModifView.reference(), idCustomer)) {
-						errors.add(VerifyAdModif.REFERENCE_ERROR);
-					}
-					
-					// Images
-					// if(VerifyCode.SQL_ERROR == adService.)
-					
-					// Check the price
-					if(adModifView.price() >= 0) {
-						ad.setPrice(adModifView.price());
-					}
-					
-					// The new list of tags
-					List<AdTag> adTags = new ArrayList<>();
-					if(adModifView != null) {
-						// Map over the set of string
-						adModifView.tags().forEach(tag -> {
-							// Get the old tag from the database
-							AdTag tagTemp = adTagRepo.findByName(tag);
-							
-							// If the tag already exists
-							if(tagTemp != null) adTags.add(tagTemp);
-
-							// If the tag does exists
-							// I am here, trying to deal when the tag is new
-							else {
-								if(tag.length() <= 255 && tag.length() > 0) {
-									
-								}
-							}
-						});
-					}
-				}
-			}
-			
-			return errors;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-	}
-
-	/**
-	 * To change an Ad.
-	 * 
-	 * CODE : 0 = OK 30 = idCustomer Error 31 = Title Error 32 = Référence Error 33
-	 * = Images Error 34 = Price Error 35 = Tags Error 36 = Type Error 37 =
-	 * Description Error 38 = Visibilité Error 39 = Shape Error
-	 * 
-	 * @author Achraf
-	 */
-	@PatchMapping("/new-change")
-	public UpdateResult changeAd(@RequestBody Map<String, Object> json, @RequestParam Integer idAd) {
-		return adRepo.updateWithId(json, AdRepository.TABLE_INFO, idAd);
-	}
-
 	@PostMapping("/get-images")
 	public boolean test(@RequestParam List<MultipartFile> files) throws Exception {
 		FileUploadService.saveFile(files, root+FileUploadService.AD_IMAGE_PATH);
@@ -254,5 +167,28 @@ public class AdController {
 	@PostMapping("/test-map-json")
 	public UpdateResult testMapJson(@RequestBody Map<String, Object> json, @RequestParam int idValue) {
 		return adRepo.updateWithId(json, AdRepository.TABLE_INFO, idValue);
+		/*
+			OLD code from old way but can be useful to deal with the hibernate part
+
+			List<AdTag> adTags = new ArrayList<>();
+				if(adModifView != null) {
+					// Map over the set of string
+					adModifView.adTags().forEach(tag -> {
+						// Get the old tag from the database
+						AdTag tagTemp = adTagRepo.findByName(tag);
+						
+						// If the tag already exists
+						if(tagTemp != null) adTags.add(tagTemp);
+
+						// If the tag does exists
+						// I am here, trying to deal when the tag is new
+						else {
+							if(tag.length() <= 255 && tag.length() > 0) {
+								
+							}
+						}
+					});
+				} 
+		*/
 	}
 }
