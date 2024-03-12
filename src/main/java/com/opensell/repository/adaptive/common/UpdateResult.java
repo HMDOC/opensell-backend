@@ -14,5 +14,4 @@ import lombok.NoArgsConstructor;
 public class UpdateResult {
     private int updatedRow;
     private List<SqlError> errorKeys;
-    private String exception;
 }

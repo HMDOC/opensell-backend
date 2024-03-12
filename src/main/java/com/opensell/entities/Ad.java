@@ -25,8 +25,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Table(uniqueConstraints = {
-	@UniqueConstraint(columnNames = {"reference", "idAd"}),
-	@UniqueConstraint(columnNames = {"title", "idAd"})
+	@UniqueConstraint(columnNames = {"reference", "customer_id"}, name = "reference_customer"),
+	@UniqueConstraint(columnNames = {"title", "customer_id"}, name = "title_customer")
 })
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
 public class Ad {

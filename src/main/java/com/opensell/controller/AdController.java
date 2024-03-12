@@ -252,7 +252,7 @@ public class AdController {
 	}
 	
 	@PostMapping("/test-map-json")
-	public UpdateResult testMapJson(@RequestBody Map<String, Object> listOfMap, @RequestParam int idValue) {
-		return adRepo.updateWithId(listOfMap, AdRepository.TABLE_INFO, idValue);
+	public UpdateResult testMapJson(@RequestBody Map<String, Object> json, @RequestParam int idValue) {
+		return adRepo.updateWithId(json, AdRepository.TABLE_INFO, idValue);
 	}
 }
