@@ -1,7 +1,5 @@
 package com.opensell.entities.dto;
 
-import java.util.List;
-
 /**
  * Record for data meant to be used has placeholder in the modification page form
  * @author Olivier Mansuy
@@ -14,4 +12,8 @@ public record CustomerModificationView(
         String primaryAddress,
         String bio,
         String iconPath,
-        List<String> socials) {}
+        String social1,
+        String social2,
+        String social3,
+        String social4,
+        String social5) {}

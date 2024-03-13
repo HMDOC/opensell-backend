@@ -67,9 +67,29 @@ public class CustomerModificationController {
         return service.changeExposedEmail(email, link);
     }
 
-    @PutMapping("/change-socials")
-    public ModificationFeedback changeCustomerSocialLink(@RequestParam String link, @RequestParam String cLink, @RequestParam String oldLink) {
-        return service.changeSocialLink(link, cLink, oldLink);
+    @PutMapping("/change-socials-1")
+    public ModificationFeedback changeCustomerSocials1(@RequestParam String link, @RequestParam String cLink) {
+        return service.changeSocials1(link, cLink);
+    }
+
+    @PutMapping("/change-socials-2")
+    public ModificationFeedback changeCustomerSocials2(@RequestParam String link, @RequestParam String cLink) {
+        return service.changeSocials2(link, cLink);
+    }
+
+    @PutMapping("/change-socials-3")
+    public ModificationFeedback changeCustomerSocials3(@RequestParam String link, @RequestParam String cLink) {
+        return service.changeSocials3(link, cLink);
+    }
+
+    @PutMapping("/change-socials-4")
+    public ModificationFeedback changeCustomerSocials4(@RequestParam String link, @RequestParam String cLink) {
+        return service.changeSocials4(link, cLink);
+    }
+
+    @PutMapping("/change-socials-5")
+    public ModificationFeedback changeCustomerSocials5(@RequestParam String link, @RequestParam String cLink) {
+        return service.changeSocials5(link, cLink);
     }
 
 

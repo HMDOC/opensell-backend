@@ -19,12 +19,7 @@ public class CustomerController {
 
     @GetMapping("/get-customer-modification-view/{link}")
     public CustomerModificationView getPlaceHolder(@PathVariable String link) {
-        return service.getPlaceHolder(link);
-    }
-
-    @PostMapping("/add-social-link")
-    public ModificationFeedback addSocialLink(@RequestParam String customerLink, @RequestParam String link) {
-        return service.addSocialLink(customerLink, link);
+        return service.getModificationView(link);
     }
 
     @GetMapping("/check-username")
@@ -45,6 +40,11 @@ public class CustomerController {
     @GetMapping("/check-phone-number")
     public int checkPhoneNumber(@RequestParam String phoneNumber) {
         return service.checkPhoneNumber(phoneNumber);
+    }
+
+    @GetMapping("/check-same-pwd")
+    public int checkSamePwd(@RequestParam String cLink, @RequestParam String pwd) {
+        return service.checkSamePwd(cLink, pwd);
     }
 
 }

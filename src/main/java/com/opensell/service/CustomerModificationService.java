@@ -56,12 +56,28 @@ public class CustomerModificationService {
         return getFeedback(() -> rep.updateCustomerIconPath(iconPath, link), () -> true, iconPath);
     }
 
-    public ModificationFeedback changeBio(String bio,String link) {
+    public ModificationFeedback changeBio(String bio, String link) {
         return getFeedback(() -> rep.updateCustomerBio(bio, link), () -> true, bio);
     }
 
-    public ModificationFeedback changeSocialLink(String link, String customer_link, String oldLink) {
-        return getFeedback(() -> rep.updateCustomerSocialLink(link, customer_link, oldLink), () -> true, link);
+    public ModificationFeedback changeSocials1(String link, String customer_link) {
+        return getFeedback(() -> rep.updateCustomerSocials1(link, customer_link), () -> true, link);
+    }
+
+    public ModificationFeedback changeSocials2(String link, String customer_link) {
+        return getFeedback(() -> rep.updateCustomerSocials2(link, customer_link), () -> true, link);
+    }
+
+    public ModificationFeedback changeSocials3(String link, String customer_link) {
+        return getFeedback(() -> rep.updateCustomerSocials3(link, customer_link), () -> true, link);
+    }
+
+    public ModificationFeedback changeSocials4(String link, String customer_link) {
+        return getFeedback(() -> rep.updateCustomerSocials4(link, customer_link), () -> true, link);
+    }
+
+    public ModificationFeedback changeSocials5(String link, String customer_link) {
+        return getFeedback(() -> rep.updateCustomerSocials5(link, customer_link), () -> true, link);
     }
 
     private ModificationFeedback getFeedback(UpdateCallable callback, ValueValidationCallable validation, String value) {

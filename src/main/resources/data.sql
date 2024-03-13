@@ -1,3 +1,8 @@
+drop trigger if exists ADD_SOCIAL;
+create trigger if not exists ADD_SOCIAL
+    after insert on customer_info
+    for each ROW insert into customer_social_link(customer_info_id, link1, link2, link3, link4, link5) VALUES (NEW.id_customer_info, null, null, null, null, null);
+
 /* CustomerInfo */
 insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number, primary_address) values (1, 'Gallard', 'McEachern', 'http://dummyimage.com/124x100.png/ff4444/ffffff', '720-998-9680', '67 Nelson Hill');
 insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number, primary_address) values (2, 'Phillipp', 'Hankard', 'http://dummyimage.com/216x100.png/cc0000/ffffff', '247-785-2944', '0347 Elka Way');
@@ -1833,12 +1838,3 @@ insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (73, 197);
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (154, 198);
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (51, 199);
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (59, 200);
-
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 1, 'https://www.instagram.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 2, 'https://www.facebook.com/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 3, 'https://www.twitch.tv/');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 4, 'https://www.instagram.com/ufhawhfawifh');
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (2, 5, 'https://www.instagram.com/fwajfnaofnaw');
-
-
-insert into customer_social_link (customer_info_id, id_customer_social_link, link) values (76, 7, 'https://www.facebook.com/');

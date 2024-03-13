@@ -58,7 +58,24 @@ public interface CustomerModificationRepository extends CrudRepository<Customer,
     @Query(value = "update customer_info ci, customer c set ci.exposed_email = ?1 where c.id_customer = ci.id_customer_info and c.link = ?2", nativeQuery = true)
     public abstract int updateCustomerExposedEmail(String email, String link);
 
+    //
     @Modifying
-    @Query(value = "UPDATE customer_social_link cs, customer c SET cs.link = ?1 WHERE cs.customer_info_id = c.id_customer AND c.link = ?2 AND cs.link = ?3 LIMIT 1", nativeQuery = true)
-    public abstract int updateCustomerSocialLink(String link, String customer_link, String oldLink);
+    @Query(value = "UPDATE customer_social_link cs, customer c set cs.link1 = ?1 where c.id_customer = cs.customer_info_id and c.link = ?2", nativeQuery = true)
+    public abstract int updateCustomerSocials1(String link, String customer_link);
+
+    @Modifying
+    @Query(value = "UPDATE customer_social_link cs, customer c set cs.link2 = ?1 where c.id_customer = cs.customer_info_id and c.link = ?2", nativeQuery = true)
+    public abstract int updateCustomerSocials2(String link, String customer_link);
+
+    @Modifying
+    @Query(value = "UPDATE customer_social_link cs, customer c set cs.link3 = ?1 where c.id_customer = cs.customer_info_id and c.link = ?2", nativeQuery = true)
+    public abstract int updateCustomerSocials3(String link, String customer_link);
+
+    @Modifying
+    @Query(value = "UPDATE customer_social_link cs, customer c set cs.link4 = ?1 where c.id_customer = cs.customer_info_id and c.link = ?2", nativeQuery = true)
+    public abstract int updateCustomerSocials4(String link, String customer_link);
+
+    @Modifying
+    @Query(value = "UPDATE customer_social_link cs, customer c set cs.link5 = ?1 where c.id_customer = cs.customer_info_id and c.link = ?2", nativeQuery = true)
+    public abstract int updateCustomerSocials5(String link, String customer_link);
 }

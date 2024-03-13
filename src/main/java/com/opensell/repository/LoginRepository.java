@@ -25,6 +25,9 @@ public interface LoginRepository extends JpaRepository<Customer, Integer> {
     //signup
     public abstract int countByPersonalEmail(String email);
 
+    @Query(value = "SELECT count(c.pwd) from customer c where c.link = ?1 and c.pwd = ?2", nativeQuery = true)
+    public abstract int checkSamePwd(String cLink, String pwd);
+
     @Modifying
     @Query(value = "UPDATE customer c set c.is_verified = 1 where c.personal_email = ?1", nativeQuery = true)
     public int makeVerified(String email);

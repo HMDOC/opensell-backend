@@ -2,6 +2,7 @@ package com.opensell.service;
 
 import com.opensell.entities.Customer;
 import com.opensell.entities.customer.CustomerInfo;
+import com.opensell.entities.customer.CustomerSocials;
 import com.opensell.entities.dto.CustomerModificationView;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.LoginRepository;
@@ -27,26 +28,21 @@ public class CustomerService {
     @Autowired
     private CustomerInfoRepository customerInfoRep;
 
-    public CustomerModificationView getPlaceHolder(@PathVariable String link) {
+    public CustomerModificationView getModificationView(@PathVariable String link) {
         Customer c = rep.findCustomerByLink(link);
         CustomerInfo info = c.getCustomerInfo();
-        List<String> social_links = new ArrayList<>();
-        c.getCustomerInfo().getSocials().forEach(elem -> {
-            social_links.add(elem.getLink());
-        });
+        CustomerSocials cs = customerInfoRep.findCustomerSocialsByLink(link);
         return new CustomerModificationView(c.getUsername(), info.getFirstName(), info.getLastName(),
-                info.getExposedEmail(), info.getPrimaryAddress(), info.getBio(), info.getIconPath(), social_links);
-    }
-
-    public ModificationFeedback addSocialLink(@RequestParam String customer_link, @RequestParam String link) {
-        if (customerInfoRep.countSocialLinkByCustomerLink(customer_link) < 5) {
-            return new ModificationFeedback(CustomerModificationCode.OK, customerInfoRep.addSocialLink(customer_link, link), link);
-        };
-        return new ModificationFeedback(CustomerModificationCode.OTHER_ERROR, 0, link);
+                info.getExposedEmail(), info.getPrimaryAddress(), info.getBio(), info.getIconPath(),
+                cs.getLink1(), cs.getLink2(), cs.getLink3(), cs.getLink4(), cs.getLink5());
     }
 
     public int checkUsername(String username) {
         return rep.countByUsername(username);
+    }
+
+    public int checkSamePwd(String cLink, String pwd) {
+        return rep.checkSamePwd(cLink, pwd);
     }
 
     public int checkPersonalEmail(String email) {

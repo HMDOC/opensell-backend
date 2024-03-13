@@ -39,8 +39,4 @@ public class CustomerInfo {
 
     @Column(nullable = true)
     private String iconPath;
-
-    @OneToMany
-    @JoinColumn(name = "customer_info_id", nullable = false)
-    private List<CustomerSocialLink> socials;
 }
