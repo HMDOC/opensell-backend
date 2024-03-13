@@ -21,11 +21,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
+import com.opensell.entities.ad.AdType;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
+import com.opensell.repository.AdTypeRepository;
 import com.opensell.repository.adaptive.common.UpdateResult;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
@@ -42,6 +44,9 @@ public class AdController {
 
 	@Autowired
 	private AdTagRepository adTagRepo;
+
+	@Autowired
+	private AdTypeRepository adTypeRepo;
 
 	@Autowired
 	private AdService adService;
@@ -166,7 +171,21 @@ public class AdController {
 	
 	@PostMapping("/test-map-json")
 	public UpdateResult testMapJson(@RequestBody Map<String, Object> json, @RequestParam int idValue) {
-		return adRepo.updateWithId(json, AdRepository.TABLE_INFO, idValue);
+		UpdateResult jdbcUpdateResult = adRepo.updateWithId(json, AdRepository.TABLE_INFO, idValue);
+		
+		Map<String, Object> hibernateQuery = jdbcUpdateResult.getHibernateJson();
+		if(hibernateQuery != null) {
+			Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(1);
+			
+			boolean isAdChanged = false;
+			if(ad != null) {
+				isAdChanged = adService.changeAdType((String) hibernateQuery.get("adType"), ad);
+				System.out.println(isAdChanged);
+				if(isAdChanged) adRepo.save(ad);
+			}
+		}
+
+		return jdbcUpdateResult;
 		/*
 			OLD code from old way but can be useful to deal with the hibernate part
 
@@ -190,5 +209,10 @@ public class AdController {
 					});
 				} 
 		*/
+	}
+
+	@GetMapping("/test")
+	public Ad test() {
+		return adRepo.findOneByIdAdAndIsDeletedFalse(1);
 	}
 }

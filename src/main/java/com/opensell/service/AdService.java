@@ -8,17 +8,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
+import com.opensell.entities.ad.AdType;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
+import com.opensell.repository.AdTypeRepository;
 
 /**
- * This service is used to 
+ * This service is used to
  */
 
 @Service
 public class AdService {
 	@Autowired
 	AdRepository adRepo;
+
+	@Autowired
+	private AdTypeRepository adTypeRepo;
 
 	/**
 	 * To get an AdBuyer from a link.
@@ -48,6 +53,33 @@ public class AdService {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return null;
+		}
+	}
+
+	/**
+	 * To change the type of an Ad.
+	 * 
+	 * @author Achraf
+	 * @param adTypeName
+	 * @param ad
+	 */
+	public boolean changeAdType(String adTypeName, Ad ad) {
+		try {
+			if (adTypeName != null && ad != null && !ad.getAdType().getName().equals(adTypeName)) {
+				AdType adType = adTypeRepo.findOneByName(adTypeName);
+
+				if (adType != null) {
+					ad.setAdType(adType);
+				} else {
+					ad.setAdType(adTypeRepo.save(new AdType(adTypeName)));
+				}
+
+				return true;
+			} else
+				return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
 	}
 }

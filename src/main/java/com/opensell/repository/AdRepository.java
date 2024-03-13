@@ -66,6 +66,9 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 	@Query(value = "SELECT * FROM ad a WHERE a.link = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
 	public Ad getAdToModif(String link);
 	
+	
+	public Ad findOneByIdAdAndIsDeletedFalse(Integer idAd);
+	
 	/***
 	 * To see if a this customer already have an ad with this title.
 	 * 
