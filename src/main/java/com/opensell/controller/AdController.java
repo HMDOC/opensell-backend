@@ -173,13 +173,15 @@ public class AdController {
 	public UpdateResult testMapJson(@RequestBody Map<String, Object> json, @RequestParam int idValue) {
 		UpdateResult jdbcUpdateResult = adRepo.updateWithId(json, AdRepository.TABLE_INFO, idValue);
 		
-		Map<String, Object> hibernateQuery = jdbcUpdateResult.getHibernateJson();
-		if(hibernateQuery != null) {
+		Map<String, Object> jpaQuery = jdbcUpdateResult.getJpaJson();
+		if(jpaQuery != null) {
 			Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(1);
 			
 			boolean isAdChanged = false;
 			if(ad != null) {
-				isAdChanged = adService.changeAdType((String) hibernateQuery.get("adType"), ad);
+				isAdChanged = adService.changeAdType((String) jpaQuery.get("adType"), ad);
+				isAdChanged = adService.changeAdTags((List<String>) jpaQuery.get("adTags"), ad);
+				
 				System.out.println(isAdChanged);
 				if(isAdChanged) adRepo.save(ad);
 			}

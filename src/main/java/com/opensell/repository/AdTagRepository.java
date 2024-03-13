@@ -7,5 +7,5 @@ import com.opensell.entities.ad.AdTag;
 
 @Repository
 public interface AdTagRepository extends JpaRepository<AdTag, Integer>{
-	public AdTag findByName(String name);
+	public AdTag findOneByName(String name);
 }

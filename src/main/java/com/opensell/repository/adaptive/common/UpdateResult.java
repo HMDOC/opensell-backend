@@ -16,5 +16,5 @@ import lombok.NoArgsConstructor;
 public class UpdateResult {
     private int updatedRow;
     private List<SqlError> errorKeys;
-    private Map<String, Object> hibernateJson;
+    private Map<String, Object> jpaJson;
 }
