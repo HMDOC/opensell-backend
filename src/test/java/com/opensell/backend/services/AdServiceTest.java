@@ -1,7 +1,8 @@
 package com.opensell.backend.services;
 
-import static org.assertj.core.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
@@ -197,7 +198,24 @@ public class AdServiceTest {
 			}
 		}
 		
-		assertTrue(true);
+	}
+	
+	@Test
+	void adSearchFailTest() {
+		List<AdSearchPreview> adList = adService.adSearch("Rio", null, null,
+				null, null, null, null, null, false, "addedDate");
+		assertNotEquals( 0, adList.get(0).adShape());
+	}
+	
+	void adSearchErrorTest() {
+		try {
+			List<AdSearchPreview> adList = adService.adSearch("Rio", null, null,
+					null, null, null, null, null, false, "addate");
+		}catch(Exception e) {
+			assertTrue( true );
+		}finally {
+			fail("Was meant to crash");
+		}
 	}
 
 }
