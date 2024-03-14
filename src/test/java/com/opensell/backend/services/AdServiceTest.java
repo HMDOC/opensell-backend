@@ -1,5 +1,6 @@
 package com.opensell.backend.services;
 
+import static org.assertj.core.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -178,6 +179,25 @@ public class AdServiceTest {
 				null, null,
 				null, null, null, null, "addedDate");
         assertEquals(3, adList.get(1).adShape());
+	}
+	
+
+	/**
+	 * @author Davide Fuoco
+	 */
+	@Test
+	void adSearchFilterSold() {
+		List<AdSearchPreview> adList = adService.adSearch("Lo", null, null,
+				null, null, null, null, null, true, "addedDate");
+        
+		for(AdSearchPreview ad : adList) {
+			if (!ad.isAdSold()) {
+				fail("Ad " + ad.adLink() + " is not sold.");
+				break;
+			}
+		}
+		
+		assertTrue(true);
 	}
 
 }
