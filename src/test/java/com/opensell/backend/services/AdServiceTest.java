@@ -208,13 +208,18 @@ public class AdServiceTest {
 	}
 	
 	void adSearchErrorTest() {
+		boolean flag = false;
 		try {
 			List<AdSearchPreview> adList = adService.adSearch("Rio", null, null,
 					null, null, null, null, null, false, "addate");
 		}catch(Exception e) {
-			assertTrue( true );
+			flag = true;
 		}finally {
-			fail("Was meant to crash");
+			if (flag) {
+				assertTrue( flag );
+			}else {
+				fail("Program was meant to fail.");
+			}
 		}
 	}
 
