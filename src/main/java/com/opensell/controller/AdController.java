@@ -3,7 +3,6 @@ package com.opensell.controller;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -11,9 +10,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -28,7 +24,6 @@ import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
-import com.opensell.entities.ad.AdVisibility;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
@@ -40,10 +35,6 @@ import com.opensell.service.AdModificationService;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
 import com.opensell.service.FileUploadService.FileType;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @CrossOrigin(value = "http://localhost/")
 @RestController
