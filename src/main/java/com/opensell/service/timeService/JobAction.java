@@ -1,4 +1,4 @@
-package com.opensell.service.timeservice;
+package com.opensell.service.timeService;
 
 /**
  * The task you want to do in a Job.
