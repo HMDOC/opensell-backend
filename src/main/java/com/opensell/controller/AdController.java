@@ -2,6 +2,7 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -9,8 +10,12 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
-import com.opensell.entities.ad.AdType;
+import com.opensell.entities.ad.AdVisibility;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
@@ -29,8 +34,14 @@ import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.AdTypeRepository;
 import com.opensell.repository.adaptive.common.UpdateResult;
+import com.opensell.service.AdModificationService;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
+import com.opensell.service.FileUploadService.FileType;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @CrossOrigin(value = "http://localhost/")
 @RestController
@@ -50,6 +61,9 @@ public class AdController {
 
 	@Autowired
 	private AdService adService;
+
+	@Autowired
+	private AdModificationService adModif;
 
 	/**
 	 * Call function from AdService to get an AdBuyer from a link.
@@ -160,7 +174,7 @@ public class AdController {
 
 	@PostMapping("/get-images")
 	public boolean test(@RequestParam List<MultipartFile> files) throws Exception {
-		FileUploadService.saveFile(files, root+FileUploadService.AD_IMAGE_PATH);
+		FileUploadService.saveFile(files, FileType.AD_IMAGE, root);
 		/*
 		 * Get a result like image/jpeg
 		 * Can pe useful to determinate the extension of the file with 
@@ -168,11 +182,31 @@ public class AdController {
 		 * System.out.println(files.get(0).getContentType());*/
 		return false;
 	}
+
+	/**
+	 * Function to modify element of an ad.
+	 * 
+	 * @param modifType
+	 * @param value
+	 * @param id
+	 * 
+	 * @return ResultCode
+	 * 
+	 * @author Achraf
+	 */
+	@PatchMapping("/modification")
+	public int adModification(@RequestParam int modifType, @RequestParam Object value, @RequestParam int idAd) {
+		switch (modifType) {
+			case 0 -> { return adModif.changeTitle((String) value, idAd); }
+			default -> { return 0; }
+		}
+	}
 	
+
 	@PostMapping("/test-map-json")
 	public UpdateResult testMapJson(@RequestBody Map<String, Object> json, @RequestParam int idValue) {
-		UpdateResult jdbcUpdateResult = adRepo.updateWithId(json, AdRepository.TABLE_INFO, idValue);
-		
+		UpdateResult jdbcUpdateResult = adRepo.updateWithId((Map<String, Object>) json.get("json"), AdRepository.TABLE_INFO, idValue);
+
 		Map<String, Object> jpaQuery = jdbcUpdateResult.getJpaJson();
 		if(jpaQuery != null) {
 			Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(1);
@@ -182,39 +216,24 @@ public class AdController {
 				isAdChanged = adService.changeAdType((String) jpaQuery.get("adType"), ad);
 				isAdChanged = adService.changeAdTags((List<String>) jpaQuery.get("adTags"), ad);
 				
+				Map<String, Object> imageDeal = (Map<String, Object>) json.get("imageDeal");
+				if(imageDeal != null) {
+					List<MultipartFile> test = (List<MultipartFile>) imageDeal.get("multipartFiles");
+					try {
+						//System.out.println(test.get(0).isEmpty());
+						//FileUploadService.saveFile(test, "/home/student/Downloads/upload/ad-image");
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
+
+					System.out.println(test.size());
+				}
+				
 				System.out.println(isAdChanged);
 				if(isAdChanged) adRepo.save(ad);
 			}
 		}
 
 		return jdbcUpdateResult;
-		/*
-			OLD code from old way but can be useful to deal with the hibernate part
-
-			List<AdTag> adTags = new ArrayList<>();
-				if(adModifView != null) {
-					// Map over the set of string
-					adModifView.adTags().forEach(tag -> {
-						// Get the old tag from the database
-						AdTag tagTemp = adTagRepo.findByName(tag);
-						
-						// If the tag already exists
-						if(tagTemp != null) adTags.add(tagTemp);
-
-						// If the tag does exists
-						// I am here, trying to deal when the tag is new
-						else {
-							if(tag.length() <= 255 && tag.length() > 0) {
-								
-							}
-						}
-					});
-				} 
-		*/
-	}
-
-	@GetMapping("/test")
-	public Ad test() {
-		return adRepo.findOneByIdAdAndIsDeletedFalse(1);
 	}
 }

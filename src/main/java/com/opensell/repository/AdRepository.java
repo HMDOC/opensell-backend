@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -16,12 +17,12 @@ import jakarta.transaction.Transactional;
 @Transactional
 @Repository
 public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveRepository {
-	public static final List<String> NO_JDBC_COLS = Arrays.asList("adType", "adTags", "adImages");
+	public static final List<String> JPA_ONLY = Arrays.asList("adType", "adTags", "adImages");
 	public static final List<String> NOT_UPDATABLE = Arrays.asList("idAd", "addedDate", "link", "customer");
 	
 	public static final TableInfo TABLE_INFO = new TableInfo(
 		"idAd",
-		NO_JDBC_COLS,
+		JPA_ONLY,
 		NOT_UPDATABLE,
 		"ad",
 		AdaptiveRepository.getClassField(Ad.class)
@@ -66,7 +67,6 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 	@Query(value = "SELECT * FROM ad a WHERE a.link = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
 	public Ad getAdToModif(String link);
 	
-	
 	public Ad findOneByIdAdAndIsDeletedFalse(Integer idAd);
 	
 	/***
@@ -89,6 +89,38 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 
 	@Query(value = "SELECT ad.* FROM ad, customer c WHERE ad.customer_id = c.id_customer AND c.link = ?1", nativeQuery = true)
 	public List<Ad> getAdsFromUser(String link);
+
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.title = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+	public int updateTitle(String title, int idAd);
+
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.reference = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+	public int updateReference(String reference, int idAd);
+
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.price = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+	public int updatePrice(double price, int idAd);
+
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.address = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+    public int updateAddress(String address, int idAd);
+
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.is_sold = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+    public int updateIsSold(boolean isSold, int idAd);
+    
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.description = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+	public int updateDescription(String description, int idAd);
+    
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.visibility = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+	public int updateVisibility(int visibility, int idAd);
+    
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.shape = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
+	public int updateShape(int shape, int idAd);
 }
 
 /*

@@ -1,20 +1,34 @@
 package com.opensell.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * Methods to create randomized links and save file to the backend
- */
+import lombok.Getter;
 
+/**
+ * Class to create randomized links and save file to the backend.
+ * 
+ * @author Achraf
+ */
 @Service
 public class FileUploadService {
 	
-	public static final String AD_IMAGE_PATH = "/ad-image";
-	
+	public enum FileType {
+		AD_IMAGE("ad-image/"),
+		CUSTOMER_PROFIL("customer-profil/");
+
+		@Getter
+		private String folder;
+
+		private FileType(String folder) {
+			this.folder = folder;
+		}
+	}
+
 	private static Random random = new Random();
 	
 	// POSTION FROM ASCI TABLE
@@ -55,22 +69,46 @@ public class FileUploadService {
 	}
 	
 	
-	public static boolean saveFile(List<MultipartFile> files, String path) throws Exception {
-		files.forEach(file -> {
-			File destFile = new File(path+"/"+randFileName(".png"));
-			
-			while(destFile.exists()) {
-				destFile.renameTo(new File(path+"/"+randFileName(".png")));
-			}
-			
-			try {
-				destFile.createNewFile();
-				file.transferTo(destFile);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		});
+	/**
+	 * Save multiple files to the backend and get the links.
+	 * 
+	 * @author Achraf
+	 * @param files
+	 * @param path
+	 * @return
+	 * @throws Exception
+	*/
+	public static List<String> saveFile(List<MultipartFile> files, FileType fileType, String path) throws Exception {
+		try {
+			if(files != null && path != null && fileType != null) {
+				List<String> filesPath = new ArrayList<>();
+	
+				files.forEach(file -> {
+					try {
+						File destFile = new File(path+fileType.folder+randFileName(".png"));
+						String randomFileName = null;
 
-		return false;
+						while(destFile.exists()) {
+							randomFileName = fileType.folder+randFileName(".png");
+							destFile.renameTo(new File(path+randomFileName));
+						}
+	
+						
+						destFile.getName();
+
+						destFile.createNewFile();
+						file.transferTo(destFile);
+						filesPath.add(randomFileName);
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
+				});
+			}
+
+			throw new Exception("One of you parameter is null and shouldn't be.");
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

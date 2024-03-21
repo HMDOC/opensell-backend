@@ -15,13 +15,9 @@ import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.AdTypeRepository;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-
 /**
  * This service is used to
  */
-
 @Service
 public class AdService {
 	@Autowired
@@ -113,7 +109,6 @@ public class AdService {
 						if (tagTemp != null) adTags.add(tagTemp);
 
 						// If the tag does exists
-						// I am here, trying to deal when the tag is new
 						else adTags.add(adTagRepo.save(new AdTag(tag)));
 					}
 				});

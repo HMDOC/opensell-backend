@@ -30,11 +30,14 @@ import lombok.NoArgsConstructor;
 })
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
 public class Ad {
+    public static final int DESCRIPTION_MAX_LENGTH = 5000;
+    public static final int TITLE_MAX_LENGTH = 80;
+
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int idAd;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = TITLE_MAX_LENGTH)
     private String title;
 
     @Column(nullable = false)
@@ -54,8 +57,8 @@ public class Ad {
 
     @Column(nullable = false)
     private int shape;
-
-    @Column(nullable = false, length = 5000)
+    
+    @Column(nullable = false, length = DESCRIPTION_MAX_LENGTH)
     private String description;
 
     @Column(nullable = false)
@@ -79,7 +82,6 @@ public class Ad {
     )
     private Set<AdTag> adTags;
 
-
 	@OneToMany
 	@JoinColumn(name = "ad_id", nullable = false)
 	private List<AdImage> adImages;
@@ -87,6 +89,4 @@ public class Ad {
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
-
-
 }
