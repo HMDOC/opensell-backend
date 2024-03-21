@@ -70,7 +70,7 @@ public class AdController {
 	@GetMapping("/search")
 	public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
 			@RequestParam(required = false, defaultValue = "0") Double priceMin,
-			@RequestParam(required = false, defaultValue = "9999999d") Double priceMax,
+			@RequestParam(required = false, defaultValue = "99990d") Double priceMax,
 			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
 			@RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
 			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<Integer> tagListId,
