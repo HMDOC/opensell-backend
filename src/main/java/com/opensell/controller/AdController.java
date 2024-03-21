@@ -27,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
+import com.opensell.entities.ad.AdType;
 import com.opensell.entities.ad.AdVisibility;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdModifView;
