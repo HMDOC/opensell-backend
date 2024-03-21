@@ -1,6 +1,8 @@
 package com.opensell.backend.services;
 
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
@@ -57,8 +59,8 @@ public class AdServiceTest {
 	@Test
 	void adSearchWithPrice() {
 		List<AdSearchPreview> adList = adService.adSearch("", 100.0, 1000.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, null, "addedDate");
+				null, null,
+				null, null, null, null, "addedDate", false);
         assertEquals(6, adList.size());
 	}
 
@@ -67,9 +69,9 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchWithQuery() {
-		List<AdSearchPreview> adList = adService.adSearch("Lorem", 0.0, 9999999.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, null, "addedDate");
+		List<AdSearchPreview> adList = adService.adSearch("Lorem", null, null,
+				null, null,
+				null, null, null, null, "addedDate", false);
         assertEquals(3, adList.size());
 	}
 
@@ -78,9 +80,9 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchWithDate() {
-		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
-				Date.valueOf("2024-01-01"), Date.valueOf("2024-01-12"),
-				null, null, null, null, "addedDate");
+		List<AdSearchPreview> adList = adService.adSearch("", null, null,
+				Date.valueOf("2024-01-01"), Date.valueOf("2024-01-15"),
+				null, null, null, null, "addedDate", false);
         assertEquals(4, adList.size());
 	}
 	
@@ -89,9 +91,9 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchWithImpossibleDate() {
-		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
+		List<AdSearchPreview> adList = adService.adSearch("", null, null,
 				Date.valueOf("2020-01-01"), Date.valueOf("2022-12-31"),
-				null, null, null, null, "addedDate");
+				null, null, null, null, "addedDate", false);
         assertEquals(0, adList.size());
 	}
 
@@ -101,9 +103,9 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchWithType() {
-		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				8, null, null, null, "addedDate");
+		List<AdSearchPreview> adList = adService.adSearch("", null, null,
+				null, null,
+				8, null, null, null, "addedDate", false);
         assertEquals(2, adList.size());
 	}
 
@@ -113,9 +115,9 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchWithShape() {
-		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, 2, null, "addedDate");
+		List<AdSearchPreview> adList = adService.adSearch("", null, null,
+				null, null,
+				null, null, 2, null, "addedDate", false);
         assertEquals(15, adList.size());
 	}
 
@@ -125,9 +127,9 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchWithShapeAndType() {
-		List<AdSearchPreview> adList = adService.adSearch("", 0.0, 9999999.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				3, null, 2, null, "addedDate");
+		List<AdSearchPreview> adList = adService.adSearch("", null, null,
+				null, null,
+				3, null, 2, null, "addedDate", false);
         assertEquals(1, adList.size());
 	}
 
@@ -139,8 +141,8 @@ public class AdServiceTest {
 	void adSearchWithPriceAndDate() {
 		List<AdSearchPreview> adList = adService.adSearch("", 1500.0, 5000.0,
 				Date.valueOf("2023-10-01"), Date.valueOf("2024-01-12"),
-				null, null, null, null, "addedDate");
-        assertEquals(7, adList.size());
+				null, null, null, null, "addedDate", false);
+        assertEquals(8, adList.size());
 	}
 
 
@@ -149,9 +151,9 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchOrderByTitle() {
-		List<AdSearchPreview> adList = adService.adSearch("Lorem", 0.0, 9999999.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, null, "title");
+		List<AdSearchPreview> adList = adService.adSearch("Lorem", null, null,
+				null, null,
+				null, null, null, null, "title", false);
 		assertTrue(adList.get(0).adTitle().equalsIgnoreCase("NSX"));
 	}
 
@@ -161,9 +163,10 @@ public class AdServiceTest {
 	 */
 	@Test
 	void adSearchOrderByPrice() {
-		List<AdSearchPreview> adList = adService.adSearch("Ipsum", 0.0, 9999999.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, null, "price");
+		List<AdSearchPreview> adList = adService.adSearch("Ipsum", null, null,
+				null, null,
+				null, null, null, null, "price", false);
+		// 0 is false
         assertEquals(0, adList.get(0).isAdSold());
 	}
 
@@ -174,9 +177,50 @@ public class AdServiceTest {
 	@Test
 	void adSearchOrderByDate() {
 		List<AdSearchPreview> adList = adService.adSearch("Dolor", 1000.0, 6000.0,
-				Date.valueOf("2020-01-01"), Date.valueOf("3000-01-01"),
-				null, null, null, null, "addedDate");
-        assertEquals(0, adList.get(0).adShape());
+				null, null,
+				null, null, null, null, "addedDate", false);
+        assertEquals(3, adList.get(1).adShape());
+	}
+	
+
+	/**
+	 * @author Davide Fuoco
+	 */
+	@Test
+	void adSearchFilterSold() {
+		List<AdSearchPreview> adList = adService.adSearch("Lo", null, null,
+				null, null, null, null, null, true, "addedDate", false);
+        
+		for(AdSearchPreview ad : adList) {
+			if (!ad.isAdSold()) {
+				fail("Ad " + ad.adLink() + " is not sold.");
+				break;
+			}
+		}
+		
+	}
+	
+	@Test
+	void adSearchFailTest() {
+		List<AdSearchPreview> adList = adService.adSearch("Rio", null, null,
+				null, null, null, null, null, false, "addedDate", false);
+		assertNotEquals( 0, adList.get(0).adShape());
+	}
+	
+	void adSearchErrorTest() {
+		boolean flag = false;
+		try {
+			List<AdSearchPreview> adList = adService.adSearch("Rio", null, null,
+					null, null, null, null, null, false, "addate", false);
+		}catch(Exception e) {
+			flag = true;
+		}finally {
+			if (flag) {
+				assertTrue( flag );
+			}else {
+				fail("Program was meant to fail.");
+			}
+		}
 	}
 
 }

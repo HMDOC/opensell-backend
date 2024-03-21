@@ -2,6 +2,7 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -74,6 +75,11 @@ public class AdController {
 	public AdBuyerView adBuyerView(@PathVariable String link) {
 		return adService.getAdBuyerView(link);
 	}
+	
+	@GetMapping("/get-all-ad-type")
+	public List<AdType> getAllTypes(){
+		return adTypeRepo.findAll();
+	}
 
 	/**
 	 * The http request that gets the entire list of ads, filtered by the provided
@@ -84,12 +90,13 @@ public class AdController {
 	@GetMapping("/search")
 	public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
 			@RequestParam(required = false, defaultValue = "0") Double priceMin,
-			@RequestParam(required = false, defaultValue = "9999999d") Double priceMax,
+			@RequestParam(required = false, defaultValue = "99990d") Double priceMax,
 			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
 			@RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
 			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<Integer> tagListId,
 			@RequestParam(required = false) Integer shapeId,@RequestParam(required = false) Boolean filterSold,
-			@RequestParam(required = false, defaultValue = "addedDate") String sortBy) {
+			@RequestParam(required = false, defaultValue = "addedDate") String sortBy, 
+			@RequestParam(required = false, defaultValue = "false") boolean reverseSort) {
 
 		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId,
 				typeId, filterSold, Sort.by(sortBy));
@@ -113,8 +120,7 @@ public class AdController {
 							if (adTag.getIdAdTag() == tagId) {
 								hasTag = true;
 								break;
-							}
-							;
+							};
 						}
 						if (hasTag) {
 							break;
@@ -142,6 +148,9 @@ public class AdController {
 				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), ad.getLink(), imagePath));
 			}
 			System.out.println(resultList.size());
+			if (reverseSort) {
+				Collections.reverse(resultList);
+			}
 			return resultList;
 		} else {
 			return null;

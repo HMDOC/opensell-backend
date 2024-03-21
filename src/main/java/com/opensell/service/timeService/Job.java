@@ -1,4 +1,4 @@
-package com.opensell.service.timeservice;
+package com.opensell.service.timeService;
 
 /**
  * To do a task forever or for a number of repetition.
