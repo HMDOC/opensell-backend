@@ -3,6 +3,9 @@ package com.opensell.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdShape;
 import com.opensell.entities.ad.AdVisibility;
@@ -27,6 +30,20 @@ public class AdModificationService {
 
 	@Autowired
 	private AdTypeRepository adTypeRepo;
+
+    public class ModifType {
+        public static final int TITLE = 0;
+        public static final int REFERENCE = 1;
+        public static final int PRICE = 2;
+        public static final int AD_TYPE = 3;
+        public static final int ADDRESS = 4;
+        public static final int IS_SOLD = 5;
+        public static final int DESCRIPTION = 6;
+        public static final int AD_IMAGES = 7;
+        public static final int AD_TAGS = 8;
+        public static final int VISIBILITY = 9;
+        public static final int SHAPE = 10;
+    }
 
     public int changeTitle(String title, int idAd) {
         if(title == null) return HtmlCode.NULL_VALUE;
@@ -80,6 +97,15 @@ public class AdModificationService {
             return adRepo.updateAddress(address, idAd) == 1 ? HtmlCode.SUCCESS : HtmlCode.ID_NOT_FOUND;
         } catch(Exception e) {
             return HtmlCode.SERVER_ERROR;
+        }
+    }
+
+    public <T> List<T> readListFromJson(Class<T> type, Object value) {
+        try {
+            return new ObjectMapper().readValue(value.toString(), new TypeReference<List<T>>() {});
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

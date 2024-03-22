@@ -12,4 +12,6 @@ public class HtmlCode {
     public static final int SERVER_ERROR = 5542;
     public static final int ID_NOT_FOUND = 404;
     public static final int WRONG_VALUE = 8117;
+    public static final int VALUE_AS_NOT_CHANGE = 2190;
+    public static final int BAD_REQUEST = 400;
 }

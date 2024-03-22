@@ -2,6 +2,7 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -20,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
@@ -27,6 +32,7 @@ import com.opensell.entities.ad.AdType;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
+import com.opensell.entities.verification.HtmlCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.AdTypeRepository;
@@ -34,6 +40,7 @@ import com.opensell.repository.adaptive.common.UpdateResult;
 import com.opensell.service.AdModificationService;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
+import com.opensell.service.AdModificationService.ModifType;
 import com.opensell.service.FileUploadService.FileType;
 
 @CrossOrigin(value = "http://localhost/")
@@ -187,19 +194,49 @@ public class AdController {
 	/**
 	 * Function to modify element of an ad.
 	 * 
-	 * @param modifType
-	 * @param value
-	 * @param id
+	 * @param modifType What is the field you want to modify.
+	 * @param value The new value of the field.
+	 * @param id The id of the row.
 	 * 
 	 * @return ResultCode
-	 * 
 	 * @author Achraf
 	 */
 	@PatchMapping("/modification")
 	public int adModification(@RequestParam int modifType, @RequestParam Object value, @RequestParam int idAd) {
 		switch (modifType) {
-			case 0 -> { return adModif.changeTitle((String) value, idAd); }
-			default -> { return 0; }
+			case ModifType.TITLE -> { return adModif.changeTitle(value.toString(), idAd); }
+			case ModifType.REFERENCE -> { return adModif.changeReference(value.toString(), idAd); }
+			case ModifType.PRICE -> { return adModif.changePrice(Double.valueOf(value.toString()), idAd); }
+			case ModifType.AD_TYPE -> { 
+				// NOT FINISHED
+				return adModif.changeAdType(value.toString(), idAd);
+			}
+			case ModifType.ADDRESS -> { return adModif.changeAddress(value.toString(), idAd); }
+			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(value.toString())); return adModif.changeIsSold(Boolean.valueOf(value.toString()), idAd); }
+			case ModifType.DESCRIPTION -> { return adModif.changeDescription(value.toString(), idAd); }
+			case ModifType.AD_IMAGES -> { 
+				try {
+					// NOT FINISHED
+					return adModif.changeAdImages(adModif.readListFromJson(String.class, value), idAd); 
+				} catch (Exception e) {
+					e.printStackTrace();
+					return HtmlCode.SERVER_ERROR;
+				}
+
+			}
+			case ModifType.AD_TAGS -> { 
+				try {
+				// NOT FINISHED
+					return adModif.changeAdTags(adModif.readListFromJson(String.class, value), idAd); 
+			
+				} catch(Exception e) {
+					e.printStackTrace();
+					return HtmlCode.SERVER_ERROR;
+				}
+			}
+			case ModifType.VISIBILITY -> { return adModif.changeVisibility(Integer.valueOf(value.toString()), idAd); }
+			case ModifType.SHAPE -> { return adModif.changeShape(Integer.valueOf(value.toString()), idAd); }
+			default -> { return HtmlCode.BAD_REQUEST; }
 		}
 	}
 	
