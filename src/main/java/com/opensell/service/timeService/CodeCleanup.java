@@ -1,4 +1,4 @@
-package com.opensell.service.timeservice;
+package com.opensell.service.timeService;
 
 import org.quartz.Job;
 import org.quartz.JobBuilder;

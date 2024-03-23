@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
-import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import com.opensell.repository.adaptive.common.SqlError.SqlErrorType;
 
@@ -18,9 +16,6 @@ import com.opensell.repository.adaptive.common.SqlError.SqlErrorType;
  * @author Achraf
 */
 public class AdaptiveRepositoryImpl implements AdaptiveRepository {
-	@Autowired
-	protected DataSource dataSource;
-
 	@Autowired
 	protected NamedParameterJdbcTemplate npj;
 
