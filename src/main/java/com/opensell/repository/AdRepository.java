@@ -10,6 +10,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.opensell.entities.Ad;
+import com.opensell.entities.Customer;
+import com.opensell.entities.dto.DisplayAdView;
 import com.opensell.repository.adaptive.common.AdaptiveRepository;
 import com.opensell.repository.adaptive.common.TableInfo;
 import jakarta.transaction.Transactional;
@@ -121,6 +123,9 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 	@Modifying
 	@Query(value = "UPDATE ad a SET a.shape = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
 	public int updateShape(int shape, int idAd);
+
+	@Query("SELECT new com.opensell.entities.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1")
+	public List<DisplayAdView> getCustomerAds(Customer customer);
 }
 
 /*
