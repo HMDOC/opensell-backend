@@ -6,14 +6,9 @@ import com.opensell.entities.customer.CustomerSocials;
 import com.opensell.entities.dto.CustomerModificationView;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.LoginRepository;
-import com.opensell.service.customerModification.CustomerModificationCode;
-import com.opensell.service.customerModification.ModificationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This repository allows to get infos from a customer by a provided unique user link by querying the database

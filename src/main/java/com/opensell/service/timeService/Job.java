@@ -40,14 +40,14 @@ public final class Job implements Runnable {
     public void run() {
         try {
             switch (jobType) {
-                case JobType.FOREVER -> {
+                case FOREVER -> {
                     while (true) {
                         jobAction.task();
                         Thread.sleep(delay);
                     }
                 }
 
-                case JobType.REPETITION -> {
+                case REPETITION -> {
                     for(int i = 0; i < repetition; i++) {
                         jobAction.task();
                         Thread.sleep(delay);

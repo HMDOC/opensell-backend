@@ -61,7 +61,8 @@ public class Ad {
     @Column(nullable = false, length = DESCRIPTION_MAX_LENGTH)
     private String description;
 
-    @Column(nullable = false)
+    //api
+    @Column(nullable = true)
     private String reference;
 
     @Column(nullable = false)

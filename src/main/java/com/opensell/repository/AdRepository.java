@@ -124,8 +124,24 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 	@Query(value = "UPDATE ad a SET a.shape = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
 	public int updateShape(int shape, int idAd);
 
+
 	@Query("SELECT new com.opensell.entities.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1")
 	public List<DisplayAdView> getCustomerAds(Customer customer);
+
+	@Modifying
+	@Query(value = "insert into ad(ad_type_id, customer_id, price, shape, visibility, title, description, address, link, reference) value(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)", nativeQuery = true)
+	public int createAd(int adTypeId, int customerId, double price, int shape, int visibility, String title, String description, String address, String link, String reference);
+
+	@Modifying
+	@Query(value = "insert into ad_image(ad_id, spot, path) value (?1, ?2, ?3)", nativeQuery = true)
+	public int saveAdImage(int adId, int spot, String path);
+
+	@Modifying
+	@Query(value = "insert into ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (?1, ?2)", nativeQuery = true)
+	public int saveRelAdTag(int adId, int adTagId);
+
+	public int countByLink(String link);
+
 }
 
 /*
