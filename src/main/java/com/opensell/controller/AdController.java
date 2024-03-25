@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-
-import com.opensell.entities.dto.*;
 import com.opensell.entities.dto.adCreation.AdCreationData;
 import com.opensell.entities.dto.adCreation.AdCreationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,24 +21,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
-
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
 import com.opensell.entities.dto.DisplayAdView;
-
 import com.opensell.entities.verification.HtmlCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.AdTypeRepository;
 import com.opensell.repository.CustomerRepository;
-import com.opensell.repository.adaptive.common.UpdateResult;
 import com.opensell.service.AdModificationService;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
@@ -204,8 +197,7 @@ public class AdController {
 	 * 
 	 * @param modifType What is the field you want to modify.
 	 * @param value The new value of the field.
-	 * @param id The id of the row.
-	 * 
+	 * @param idAd The id of the row.
 	 * @return ResultCode
 	 * @author Achraf
 	 */
@@ -214,13 +206,13 @@ public class AdController {
 		switch (modifType) {
 			case ModifType.TITLE -> { return adModif.changeTitle(value.toString(), idAd); }
 			case ModifType.REFERENCE -> { return adModif.changeReference(value.toString(), idAd); }
-			case ModifType.PRICE -> { return adModif.changePrice(Double.valueOf(value.toString()), idAd); }
+			case ModifType.PRICE -> { return adModif.changePrice(Double.parseDouble(value.toString()), idAd); }
 			case ModifType.AD_TYPE -> { 
 				// NOT FINISHED
 				return adModif.changeAdType(value.toString(), idAd);
 			}
 			case ModifType.ADDRESS -> { return adModif.changeAddress(value.toString(), idAd); }
-			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(value.toString())); return adModif.changeIsSold(Boolean.valueOf(value.toString()), idAd); }
+			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(value.toString())); return adModif.changeIsSold(Boolean.parseBoolean(value.toString()), idAd); }
 			case ModifType.DESCRIPTION -> { return adModif.changeDescription(value.toString(), idAd); }
 			case ModifType.AD_IMAGES -> { 
 				try {
@@ -242,8 +234,8 @@ public class AdController {
 					return HtmlCode.SERVER_ERROR;
 				}
 			}
-			case ModifType.VISIBILITY -> { return adModif.changeVisibility(Integer.valueOf(value.toString()), idAd); }
-			case ModifType.SHAPE -> { return adModif.changeShape(Integer.valueOf(value.toString()), idAd); }
+			case ModifType.VISIBILITY -> { return adModif.changeVisibility(Integer.parseInt(value.toString()), idAd); }
+			case ModifType.SHAPE -> { return adModif.changeShape(Integer.parseInt(value.toString()), idAd); }
 			default -> { return HtmlCode.BAD_REQUEST; }
 		}
 	}
@@ -254,41 +246,6 @@ public class AdController {
 		if(customer != null) {
 			return adRepo.getCustomerAds(customer);
 		} else return null;
-	}
-
-	// TO DELETE
-	@PostMapping("/test-map-json")
-	public UpdateResult testMapJson(@RequestBody Map<String, Object> json, @RequestParam int idValue) {
-		UpdateResult jdbcUpdateResult = adRepo.updateWithId((Map<String, Object>) json.get("json"), AdRepository.TABLE_INFO, idValue);
-
-		Map<String, Object> jpaQuery = jdbcUpdateResult.getJpaJson();
-		if(jpaQuery != null) {
-			Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(1);
-			
-			boolean isAdChanged = false;
-			if(ad != null) {
-				isAdChanged = adService.changeAdType((String) jpaQuery.get("adType"), ad);
-				isAdChanged = adService.changeAdTags((List<String>) jpaQuery.get("adTags"), ad);
-				
-				Map<String, Object> imageDeal = (Map<String, Object>) json.get("imageDeal");
-				if(imageDeal != null) {
-					List<MultipartFile> test = (List<MultipartFile>) imageDeal.get("multipartFiles");
-					try {
-						//System.out.println(test.get(0).isEmpty());
-						//FileUploadService.saveFile(test, "/home/student/Downloads/upload/ad-image");
-					} catch(Exception e) {
-						e.printStackTrace();
-					}
-
-					System.out.println(test.size());
-				}
-				
-				System.out.println(isAdChanged);
-				if(isAdChanged) adRepo.save(ad);
-			}
-		}
-
-		return jdbcUpdateResult;
 	}
 
 	@PostMapping("/create-ad")

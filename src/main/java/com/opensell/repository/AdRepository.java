@@ -1,7 +1,6 @@
 package com.opensell.repository;
 
 import java.sql.Date;
-import java.util.Arrays;
 import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,24 +11,11 @@ import org.springframework.stereotype.Repository;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
 import com.opensell.entities.dto.DisplayAdView;
-import com.opensell.repository.adaptive.common.AdaptiveRepository;
-import com.opensell.repository.adaptive.common.TableInfo;
 import jakarta.transaction.Transactional;
 
 @Transactional
 @Repository
-public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveRepository {
-	public static final List<String> JPA_ONLY = Arrays.asList("adType", "adTags", "adImages");
-	public static final List<String> NOT_UPDATABLE = Arrays.asList("idAd", "addedDate", "link", "customer");
-	
-	public static final TableInfo TABLE_INFO = new TableInfo(
-		"idAd",
-		JPA_ONLY,
-		NOT_UPDATABLE,
-		"ad",
-		AdaptiveRepository.getClassField(Ad.class)
-	);
-
+public interface AdRepository extends JpaRepository<Ad, Integer> {
 	/**
 	 * Return a ad by the link if it is not deleted and not private.
 	 * 
