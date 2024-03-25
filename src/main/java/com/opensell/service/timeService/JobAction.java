@@ -6,5 +6,5 @@ package com.opensell.service.timeService;
  * @author Achraf
  */
 public interface JobAction {
-    public void task();
+    public void execute();
 }
