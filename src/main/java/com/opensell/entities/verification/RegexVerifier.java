@@ -1,9 +1,5 @@
 package com.opensell.entities.verification;
 
-import com.opensell.service.customerModification.CustomerModificationCode;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import java.util.regex.Pattern;
 
 public enum RegexVerifier {

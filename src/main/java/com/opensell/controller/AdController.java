@@ -2,12 +2,15 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import com.opensell.entities.dto.*;
+import com.opensell.entities.dto.adCreation.AdCreationData;
+import com.opensell.entities.dto.adCreation.AdCreationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
@@ -22,20 +25,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.entities.Ad;
+import com.opensell.entities.Customer;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
+
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
+import com.opensell.entities.dto.DisplayAdView;
+
 import com.opensell.entities.verification.HtmlCode;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.AdTypeRepository;
+import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.adaptive.common.UpdateResult;
 import com.opensell.service.AdModificationService;
 import com.opensell.service.AdService;
@@ -64,6 +69,9 @@ public class AdController {
 
 	@Autowired
 	private AdModificationService adModif;
+
+	@Autowired
+	private CustomerRepository customerRepo;
 
 	/**
 	 * Call function from AdService to get an AdBuyer from a link.
@@ -240,7 +248,15 @@ public class AdController {
 		}
 	}
 	
+	@GetMapping("/get-customer-ads/{customerId}")
+	public List<DisplayAdView> getCustomerAds(@PathVariable Integer customerId) {
+		Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalse(customerId);
+		if(customer != null) {
+			return adRepo.getCustomerAds(customer);
+		} else return null;
+	}
 
+	// TO DELETE
 	@PostMapping("/test-map-json")
 	public UpdateResult testMapJson(@RequestBody Map<String, Object> json, @RequestParam int idValue) {
 		UpdateResult jdbcUpdateResult = adRepo.updateWithId((Map<String, Object>) json.get("json"), AdRepository.TABLE_INFO, idValue);
@@ -273,5 +289,10 @@ public class AdController {
 		}
 
 		return jdbcUpdateResult;
+	}
+
+	@PostMapping("/create-ad")
+	public AdCreationFeedback createAd(@RequestBody(required = true) AdCreationData data) {
+		return adService.saveAd(data);
 	}
 }

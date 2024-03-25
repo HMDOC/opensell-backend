@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.opensell.entities.dto.adCreation.AdCreationData;
+import com.opensell.entities.dto.adCreation.AdCreationFeedback;
+import com.opensell.entities.dto.adCreation.AdCreationImageData;
+import com.opensell.entities.verification.HtmlCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.opensell.entities.Ad;
@@ -122,5 +127,43 @@ public class AdService {
 			return false;
 		}
 
+	}
+
+	/**
+	 *
+	 * @author Olivier Mansuy
+	 */
+	public AdCreationFeedback saveAd(AdCreationData data) {
+		try {
+			int adInsertResult = 0;
+			int adImageInsertResult = 0;
+			int adTagInsertResult = 0;
+			int currentAdId = 0;
+
+			if (adRepo.checkTitle(data.customerId(), data.title()) == 0) {
+				adInsertResult = adRepo.createAd(data.adTypeId(),
+						data.customerId(), data.price(),
+						data.shape(), data.visibility(),
+						data.title(), data.description(),
+						data.address(),
+						"fwianmfawnfawonfoawfnawf",
+						data.reference());
+
+				for (AdCreationImageData recordData : data.imageData()) {
+//					adRepo.saveAdImage(currentAdId, recordData.spot(), recordData.path());
+				}
+
+				for (Integer tagId : data.tagIds()) {
+//					adRepo.saveRelAdTag(currentAdId, tagId);
+				}
+			} else throw new Exception("titre existe déjà...");
+
+
+			//method pour get l'adId de l'Ad qu'on vient de créer
+
+			return new AdCreationFeedback(HtmlCode.SUCCESS, adInsertResult, null);
+		} catch (Exception e) {
+			return new AdCreationFeedback(HtmlCode.UNIQUE_FAILED, 0, e.getMessage());
+		}
 	}
 }
