@@ -11,15 +11,7 @@ import com.opensell.entities.dto.adCreation.AdCreationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
@@ -246,6 +238,11 @@ public class AdController {
 		if(customer != null) {
 			return adRepo.getCustomerAds(customer);
 		} else return null;
+	}
+
+	@PatchMapping("/delete-ad/{idAd}")
+	public boolean deleteAd(@PathVariable int idAd) {
+		return adRepo.hideAd(idAd) > 0;
 	}
 
 	@PostMapping("/create-ad")

@@ -18,7 +18,6 @@ import jakarta.transaction.Transactional;
 public interface AdRepository extends JpaRepository<Ad, Integer> {
 	/**
 	 * Return a ad by the link if it is not deleted and not private.
-	 * 
 	 * Purpose : For AdBuyerView
 	 * @author Achraf
 	 */
@@ -110,8 +109,11 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	@Query(value = "UPDATE ad a SET a.shape = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
 	public int updateShape(int shape, int idAd);
 
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id_ad = ?1 LIMIT 1", nativeQuery = true)
+	public int hideAd(Integer idAd);
 
-	@Query("SELECT new com.opensell.entities.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1")
+	@Query("SELECT new com.opensell.entities.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
 	public List<DisplayAdView> getCustomerAds(Customer customer);
 
 	@Modifying
