@@ -1,9 +1,6 @@
 package com.opensell.service;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.opensell.entities.dto.adCreation.AdCreationData;
 import com.opensell.entities.dto.adCreation.AdCreationFeedback;
@@ -33,6 +30,9 @@ public class AdService {
 
 	@Autowired
 	private AdTypeRepository adTypeRepo;
+
+	@Autowired
+	private LinkGenerator linkGenerator;
 
 	/**
 	 * To get an AdBuyer from a link.
@@ -135,33 +135,24 @@ public class AdService {
 	 */
 	public AdCreationFeedback saveAd(AdCreationData data) {
 		try {
-			int adInsertResult = 0;
-			int adImageInsertResult = 0;
-			int adTagInsertResult = 0;
-			int currentAdId = 0;
+			int result = 0;
+			int currentAdId;
+			LinkedHashSet<Integer> tagSet = new LinkedHashSet<>(data.tagIds().length);
+			for (int elem : data.tagIds()) tagSet.add(elem);
 
 			if (adRepo.checkTitle(data.customerId(), data.title()) == 0) {
-				adInsertResult = adRepo.createAd(data.adTypeId(),
+				result = result + adRepo.createAd(data.adTypeId(),
 						data.customerId(), data.price(),
 						data.shape(), data.visibility(),
 						data.title(), data.description(),
 						data.address(),
-						"fwianmfawnfawonfoawfnawf",
+						linkGenerator.generateAdLink(),
 						data.reference());
-
-				for (AdCreationImageData recordData : data.imageData()) {
-//					adRepo.saveAdImage(currentAdId, recordData.spot(), recordData.path());
-				}
-
-				for (Integer tagId : data.tagIds()) {
-//					adRepo.saveRelAdTag(currentAdId, tagId);
-				}
+				currentAdId = adRepo.getAdIdFromTitleAndCustomerID(data.customerId(), data.title());
+				for (AdCreationImageData recordData : data.imageData()) result = result + adRepo.saveAdImage(currentAdId, recordData.spot(), recordData.path());
+				for (Integer tagId : tagSet) result = result + adRepo.saveRelAdTag(currentAdId, tagId);
 			} else throw new Exception("titre existe déjà...");
-
-
-			//method pour get l'adId de l'Ad qu'on vient de créer
-
-			return new AdCreationFeedback(HtmlCode.SUCCESS, adInsertResult, null);
+			return new AdCreationFeedback(HtmlCode.SUCCESS, result, null);
 		} catch (Exception e) {
 			return new AdCreationFeedback(HtmlCode.UNIQUE_FAILED, 0, e.getMessage());
 		}

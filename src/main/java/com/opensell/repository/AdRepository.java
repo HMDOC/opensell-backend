@@ -128,7 +128,12 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	@Query(value = "insert into ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (?1, ?2)", nativeQuery = true)
 	public int saveRelAdTag(int adId, int adTagId);
 
-	public int countByLink(String link);
+	public boolean existsByLink(String link);
+
+	@Query(value = "select a.id_ad from ad a where a.customer_id = ?1 and a.title = ?2", nativeQuery = true)
+	public int getAdIdFromTitleAndCustomerID(int customerId, String title);
+
+
 
 }
 
