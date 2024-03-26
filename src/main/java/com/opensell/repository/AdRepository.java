@@ -1,7 +1,6 @@
 package com.opensell.repository;
 
 import java.sql.Date;
-import java.util.Arrays;
 import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,27 +9,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.opensell.entities.Ad;
-import com.opensell.repository.adaptive.common.AdaptiveRepository;
-import com.opensell.repository.adaptive.common.TableInfo;
+import com.opensell.entities.Customer;
+import com.opensell.entities.dto.DisplayAdView;
 import jakarta.transaction.Transactional;
 
 @Transactional
 @Repository
-public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveRepository {
-	public static final List<String> JPA_ONLY = Arrays.asList("adType", "adTags", "adImages");
-	public static final List<String> NOT_UPDATABLE = Arrays.asList("idAd", "addedDate", "link", "customer");
-	
-	public static final TableInfo TABLE_INFO = new TableInfo(
-		"idAd",
-		JPA_ONLY,
-		NOT_UPDATABLE,
-		"ad",
-		AdaptiveRepository.getClassField(Ad.class)
-	);
-
+public interface AdRepository extends JpaRepository<Ad, Integer> {
 	/**
 	 * Return a ad by the link if it is not deleted and not private.
-	 * 
 	 * Purpose : For AdBuyerView
 	 * @author Achraf
 	 */
@@ -121,6 +108,33 @@ public interface AdRepository extends JpaRepository<Ad, Integer>, AdaptiveReposi
 	@Modifying
 	@Query(value = "UPDATE ad a SET a.shape = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
 	public int updateShape(int shape, int idAd);
+
+	@Modifying
+	@Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id_ad = ?1 LIMIT 1", nativeQuery = true)
+	public int hideAd(Integer idAd);
+
+	@Query("SELECT new com.opensell.entities.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
+	public List<DisplayAdView> getCustomerAds(Customer customer);
+
+	@Modifying
+	@Query(value = "insert into ad(ad_type_id, customer_id, price, shape, visibility, title, description, address, link, reference) value(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)", nativeQuery = true)
+	public int createAd(int adTypeId, int customerId, double price, int shape, int visibility, String title, String description, String address, String link, String reference);
+
+	@Modifying
+	@Query(value = "insert into ad_image(ad_id, spot, path) value (?1, ?2, ?3)", nativeQuery = true)
+	public int saveAdImage(int adId, int spot, String path);
+
+	@Modifying
+	@Query(value = "insert into ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (?1, ?2)", nativeQuery = true)
+	public int saveRelAdTag(int adId, int adTagId);
+
+	public boolean existsByLink(String link);
+
+	@Query(value = "select a.id_ad from ad a where a.customer_id = ?1 and a.title = ?2", nativeQuery = true)
+	public int getAdIdFromTitleAndCustomerID(int customerId, String title);
+
+
+
 }
 
 /*

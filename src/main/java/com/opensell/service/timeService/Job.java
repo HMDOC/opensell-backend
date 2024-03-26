@@ -5,7 +5,8 @@ package com.opensell.service.timeService;
  * 
  * @author Achraf
 */
-public final class Job implements Runnable {
+
+public final class Job extends Thread {
     // Time between each task
     private long delay;
 
@@ -40,16 +41,16 @@ public final class Job implements Runnable {
     public void run() {
         try {
             switch (jobType) {
-                case JobType.FOREVER -> {
+                case FOREVER -> {
                     while (true) {
-                        jobAction.task();
+                        jobAction.execute();
                         Thread.sleep(delay);
                     }
                 }
 
-                case JobType.REPETITION -> {
+                case REPETITION -> {
                     for(int i = 0; i < repetition; i++) {
-                        jobAction.task();
+                        jobAction.execute();
                         Thread.sleep(delay);
                     }
                 }

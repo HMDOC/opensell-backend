@@ -19,7 +19,7 @@ import com.opensell.entities.dto.AdSearchPreview;
 import java.sql.Date;
 import java.util.List;
 
-@SpringBootTest
+@SpringBootTest(classes = {com.opensell.backend.services.LoginTest.class})
 @TestInstance(Lifecycle.PER_CLASS)
 public class AdServiceTest {
 	public static AdController adService;

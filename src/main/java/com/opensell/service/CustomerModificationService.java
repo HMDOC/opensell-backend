@@ -1,5 +1,6 @@
 package com.opensell.service;
 
+import com.opensell.entities.verification.HtmlCode;
 import com.opensell.entities.verification.RegexVerifier;
 import com.opensell.repository.CustomerModificationRepository;
 import com.opensell.service.customerModification.*;
@@ -86,13 +87,13 @@ public class CustomerModificationService {
             if (!validation.isValid()) throw CustomerModificationException.formattingException();
             result = callback.updateStatement();
             if (result == 0) throw new SQLException(); //needs a new custom Exception
-            return new ModificationFeedback(CustomerModificationCode.OK, result, value);
+            return new ModificationFeedback(HtmlCode.SUCCESS, result, value);
         } catch (CustomerModificationException cException) {
-            return new ModificationFeedback(CustomerModificationCode.WRONG_FORMAT, result, value);
+            return new ModificationFeedback(HtmlCode.WRONG_FORMAT, result, value);
         } catch (SQLException sqlException) {
-            return new ModificationFeedback(CustomerModificationCode.SQL_ERROR, result, value);
+            return new ModificationFeedback(HtmlCode.SQL_ERROR, result, value);
         } catch (Exception exception) {
-            return new ModificationFeedback(CustomerModificationCode.OTHER_ERROR, result, value);
+            return new ModificationFeedback(HtmlCode.OTHER_ERROR, result, value);
         }
     }
 }

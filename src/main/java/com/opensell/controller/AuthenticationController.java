@@ -36,8 +36,7 @@ public class AuthenticationController {
     private CustomerInfoRepository infosrep;
 
     @Autowired
-    private CodeCleanup codeCleanup;
-
+    private CleanupCode cleanupCode;
 
     @GetMapping("/login")
     public int login(@RequestParam String username, @RequestParam String pwd) {
@@ -95,9 +94,9 @@ public class AuthenticationController {
         return 1; // Wrong code
     }
 
-    @PostConstruct // Exécute le job de nettoyage de la base de données au moment que le serveur démarre
-    public void runDatabaseCleanup() throws Exception {
-        codeCleanup.scheduleJob();
-    }
-    
+    @PostConstruct
+    public void runCodeCleanup() throws Exception {
+        Job job = new Job(cleanupCode, 60000);
+        job.start();
+    }   
 }
