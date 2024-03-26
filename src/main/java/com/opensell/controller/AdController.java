@@ -67,7 +67,7 @@ public class AdController {
 	public AdBuyerView adBuyerView(@PathVariable String link) {
 		return adService.getAdBuyerView(link);
 	}
-	
+
 	@GetMapping("/get-all-ad-type")
 	public List<AdType> getAllTypes(){
 		return adTypeRepo.findAll();
