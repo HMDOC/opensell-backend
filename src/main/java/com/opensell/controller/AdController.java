@@ -199,7 +199,7 @@ public class AdController {
 	public int adModification(@RequestParam int modifType, @RequestParam Object value, @RequestParam int idAd) {
 		switch (modifType) {
 			case 0 -> { return adModif.changeTitle((String) value, idAd); }
-			default -> { return 0; }
+			default ->N { return 0; }
 		}
 	}
 	
