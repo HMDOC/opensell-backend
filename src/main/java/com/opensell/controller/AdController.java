@@ -184,6 +184,16 @@ public class AdController {
 		return false;
 	}
 
+	@PatchMapping("/modification/image-or-tags")
+	public int adChangeTags(@RequestBody List<String> tags, @RequestParam int idAd, @RequestParam boolean isImage) {
+		if(isImage) {
+			System.out.println("1");
+			return HtmlCode.SUCCESS;
+		} else  {
+			return adModif.changeAdTags(tags, idAd);
+		}
+	}
+
 	/**
 	 * Function to modify element of an ad.
 	 * 
@@ -194,42 +204,25 @@ public class AdController {
 	 * @author Achraf
 	 */
 	@PatchMapping("/modification")
-	public int adModification(@RequestParam int modifType, @RequestParam Object value, @RequestParam int idAd) {
+	public int adModification(@RequestBody AdModificationService.ModifBody modifBody, @RequestParam int idAd, @RequestParam int modifType) {
 		switch (modifType) {
-			case ModifType.TITLE -> { return adModif.changeTitle(value.toString(), idAd); }
-			case ModifType.REFERENCE -> { return adModif.changeReference(value.toString(), idAd); }
-			case ModifType.PRICE -> { return adModif.changePrice(Double.parseDouble(value.toString()), idAd); }
-			case ModifType.AD_TYPE -> { 
-				// NOT FINISHED
-				return adModif.changeAdType(value.toString(), idAd);
-			}
-			case ModifType.ADDRESS -> { return adModif.changeAddress(value.toString(), idAd); }
-			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(value.toString())); return adModif.changeIsSold(Boolean.parseBoolean(value.toString()), idAd); }
-			case ModifType.DESCRIPTION -> { return adModif.changeDescription(value.toString(), idAd); }
-			case ModifType.AD_IMAGES -> { 
-				try {
-					// NOT FINISHED
-					return adModif.changeAdImages(adModif.readListFromJson(String.class, value), idAd); 
-				} catch (Exception e) {
-					e.printStackTrace();
-					return HtmlCode.SERVER_ERROR;
-				}
-
-			}
-			case ModifType.AD_TAGS -> { 
-				try {
-				// NOT FINISHED
-					return adModif.changeAdTags(adModif.readListFromJson(String.class, value), idAd); 
-			
-				} catch(Exception e) {
-					e.printStackTrace();
-					return HtmlCode.SERVER_ERROR;
-				}
-			}
-			case ModifType.VISIBILITY -> { return adModif.changeVisibility(Integer.parseInt(value.toString()), idAd); }
-			case ModifType.SHAPE -> { return adModif.changeShape(Integer.parseInt(value.toString()), idAd); }
+			case ModifType.TITLE -> { return adModif.changeTitle(modifBody.value.toString(), idAd); }
+			case ModifType.REFERENCE -> { return adModif.changeReference(modifBody.value.toString(), idAd); }
+			case ModifType.PRICE -> { return adModif.changePrice(Double.parseDouble(modifBody.value.toString()), idAd); }
+			case ModifType.AD_TYPE -> { return adModif.changeAdType(modifBody.value.toString(), idAd); }
+			case ModifType.ADDRESS -> { return adModif.changeAddress(modifBody.value.toString(), idAd); }
+			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(modifBody.value.toString())); return adModif.changeIsSold(Boolean.parseBoolean(modifBody.value.toString()), idAd); }
+			case ModifType.DESCRIPTION -> { return adModif.changeDescription(modifBody.value.toString(), idAd); }
+			case ModifType.VISIBILITY -> { return adModif.changeVisibility(Integer.parseInt(modifBody.value.toString()), idAd); }
+			case ModifType.SHAPE -> { return adModif.changeShape(Integer.parseInt(modifBody.value.toString()), idAd); }
 			default -> { return HtmlCode.BAD_REQUEST; }
 		}
+	}
+
+	// ONLY FOR THE AD OWNER NOT FOR THE NORMAL USER
+	@GetMapping("/get-ad-preview-for-customer/{idAd}")
+	public AdBuyerView getUserPreviewAd(@PathVariable int idAd) {
+		return AdBuyerView.createFromAd(adRepo.findOneByIdAdAndIsDeletedFalse(idAd));
 	}
 	
 	@GetMapping("/get-customer-ads/{customerId}")
