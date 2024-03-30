@@ -73,6 +73,11 @@ public class AdController {
 		return adTypeRepo.findAll();
 	}
 
+	@GetMapping("/get-all-ad-tag")
+	public List<AdTag> getAllTags(){
+		return adTagRepo.findAll();
+	}
+
 	/**
 	 * The http request that gets the entire list of ads, filtered by the provided
 	 * parameters
