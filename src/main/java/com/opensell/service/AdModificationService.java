@@ -1,17 +1,12 @@
 package com.opensell.service;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdShape;
 import com.opensell.entities.ad.AdVisibility;
@@ -127,15 +122,6 @@ public class AdModificationService {
             return adRepo.updateAddress(address, idAd) == 1 ? HtmlCode.SUCCESS : HtmlCode.ID_NOT_FOUND;
         } catch(Exception e) {
             return HtmlCode.SERVER_ERROR;
-        }
-    }
-
-    public <T> List<T> readListFromJson(Class<T> type, Object value) {
-        try {
-            return new ObjectMapper().readValue(value.toString(), new TypeReference<List<T>>() {});
-        } catch(Exception e) {
-            e.printStackTrace();
-            return null;
         }
     }
 
