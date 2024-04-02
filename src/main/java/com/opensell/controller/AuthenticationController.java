@@ -14,6 +14,8 @@ import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
 import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -40,7 +42,7 @@ public class AuthenticationController {
 
     @GetMapping("/login")
     public int login(@RequestParam String username, @RequestParam String pwd) {
-        if (rep.checkLogin(username, pwd) ==  1) return 1; // Correct password
+        if (rep.checkLogin(username, new BCryptPasswordEncoder().encode(pwd)) ==  1) return 1; // Correct password
         return 2;
     }
 
@@ -64,7 +66,7 @@ public class AuthenticationController {
             customer.setJoinedDate(now);
             customer.setUsername(username);
             customer.setPersonalEmail(email);
-            customer.setPwd(pwd);
+            customer.setPwd(new BCryptPasswordEncoder().encode(pwd));
             customer.setIsDeleted(false);
             customer.setIsVerified(false);
             customer.setIsActivated(false);
