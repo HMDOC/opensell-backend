@@ -1,6 +1,10 @@
 package com.opensell.entities.dto;
 
+import com.opensell.entities.Ad;
+
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,4 +27,30 @@ public record AdBuyerView(String adTitle,
 						  List<String> adImagesPath,
 						  String username,
 						  String userLink,
-						  String userIcon) {}
+						  String userIcon) {
+	public static AdBuyerView createFromAd(Ad ad) {
+		Set<String> tags = new LinkedHashSet<>();
+		List<String> imagesPath = new ArrayList<>();
+		var customer = ad.getCustomer();
+
+		ad.getAdTags1().forEach(adTag -> tags.add(adTag.getName()));
+		ad.getAdImages().forEach(adImage-> imagesPath.add(adImage.getPath()));
+
+		return new AdBuyerView(
+			ad.getTitle(),
+			ad.getPrice(),
+			ad.getAddedDate(),
+			ad.getShape(),
+			ad.isSold(),
+			ad.getVisibility(),
+			ad.getDescription(),
+			ad.getAddress(),
+			ad.getAdType().getName(),
+			tags,
+			imagesPath,
+			customer.getUsername(),
+			customer.getLink(),
+			customer.getCustomerInfo().getIconPath()
+		);
+	}
+}

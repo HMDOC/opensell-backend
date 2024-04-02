@@ -1,6 +1,12 @@
 package com.opensell.service;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+
+import com.opensell.entities.ad.AdTag;
+import com.opensell.entities.ad.AdType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,10 +45,12 @@ public class AdModificationService {
         public static final int ADDRESS = 4;
         public static final int IS_SOLD = 5;
         public static final int DESCRIPTION = 6;
-        public static final int AD_IMAGES = 7;
-        public static final int AD_TAGS = 8;
-        public static final int VISIBILITY = 9;
-        public static final int SHAPE = 10;
+        public static final int VISIBILITY = 7;
+        public static final int SHAPE = 8;
+    }
+
+    public static class ModifBody {
+        public Object value;
     }
 
     public int changeTitle(String title, int idAd) {
@@ -85,7 +93,29 @@ public class AdModificationService {
 
     // JPA
     public int changeAdType(String adTypeName, int idAd) {
-        return 0;
+        try {
+            // IF the new tag name is valid.
+            if(adTypeName == null) return HtmlCode.NULL_VALUE;
+            if(adTypeName.length() > AdType.MAX_LENGTH) return HtmlCode.WRONG_VALUE;
+
+            var ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
+            if(ad == null) return HtmlCode.ID_NOT_FOUND;
+
+            // IF a tag already exists
+            var tag = adTypeRepo.findOneByName(adTypeName);
+            if(tag != null) {
+                ad.setAdType(tag);
+            } else {
+                var registerTag = adTypeRepo.save(new AdType(adTypeName));
+                ad.setAdType(registerTag);
+            }
+
+            adRepo.save(ad);
+            return HtmlCode.SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return HtmlCode.SERVER_ERROR;
+        }
     }
 
     public int changeAddress(String address, int idAd) {
@@ -134,9 +164,43 @@ public class AdModificationService {
         return 0;
     }
 
-    // JPA
-    public int changeAdTags(List<String> adTags, int idAd) {
-        return 0;
+    /**
+     * To change the tags of an Ad.
+     *
+     * @author Achraf
+     * @param frontendTags
+     * @param ad
+     */
+    public int changeAdTags(List<String> frontendTags, int idAd) {
+        try {
+            if (frontendTags == null) return HtmlCode.NULL_VALUE;
+            Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
+
+            if (ad == null) return HtmlCode.ID_NOT_FOUND;
+            Set<AdTag> adTags = new LinkedHashSet<>();
+
+            // Map over the set of string
+            frontendTags.forEach(tag -> {
+                if (AdTag.isNameValid(tag)) {
+                    // Get the old tag from the database
+                    AdTag tagTemp = adTagRepo.findOneByName(tag);
+
+                    // If the tag already exists
+                    if (tagTemp != null) adTags.add(tagTemp);
+
+                    // If the tag does exists
+                    else adTags.add(adTagRepo.save(new AdTag(tag)));
+                }
+            });
+
+            ad.setAdTags(adTags);
+            adRepo.save(ad);
+            return HtmlCode.SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return HtmlCode.SERVER_ERROR;
+        }
+
     }
 
     public int changeVisibility(int visibility, int idAd) {

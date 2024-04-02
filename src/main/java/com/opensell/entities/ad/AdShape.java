@@ -6,5 +6,5 @@ public enum AdShape {
 	GOOD,
 	USABLE,
     BAD,
-    UNKNOW
+    UNKNOWN
 }
