@@ -78,7 +78,7 @@ public class FileUploadService {
 	 * @return
 	 * @throws Exception
 	*/
-	public static List<String> saveFile(List<MultipartFile> files, FileType fileType, String path) throws Exception {
+	public static List<String> saveFiles(List<MultipartFile> files, FileType fileType, String path) throws Exception {
 		try {
 			if(files != null && path != null && fileType != null) {
 				List<String> filesPath = new ArrayList<>();
@@ -93,9 +93,6 @@ public class FileUploadService {
 							destFile.renameTo(new File(path+randomFileName));
 						}
 	
-						
-						destFile.getName();
-
 						destFile.createNewFile();
 						file.transferTo(destFile);
 						filesPath.add(randomFileName);

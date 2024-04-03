@@ -1,11 +1,7 @@
 package com.opensell.controller;
-
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 import com.opensell.entities.dto.adCreation.AdCreationData;
 import com.opensell.entities.dto.adCreation.AdCreationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -178,17 +174,6 @@ public class AdController {
 		return null;
 	}
 
-	@PostMapping("/get-images")
-	public boolean test(@RequestParam List<MultipartFile> files) throws Exception {
-		FileUploadService.saveFile(files, FileType.AD_IMAGE, root);
-		/*
-		 * Get a result like image/jpeg
-		 * Can pe useful to determinate the extension of the file with 
-		 * a enum that have 2 value one like image/jpeg and the other like .jpeg
-		 * System.out.println(files.get(0).getContentType());*/
-		return false;
-	}
-
 	@PatchMapping("/modification/image-or-tags")
 	public int adChangeTags(@RequestBody List<String> tags, @RequestParam int idAd, @RequestParam boolean isImage) {
 		if(isImage) {
@@ -244,7 +229,38 @@ public class AdController {
 	}
 
 	@PostMapping("/create-ad")
-	public AdCreationFeedback createAd(@RequestBody(required = true) AdCreationData data) {
+	public AdCreationFeedback createAd(@RequestBody AdCreationData data) {
 		return adService.saveAd(data);
+	}
+
+	@PostMapping("/save-ad-images")
+	public boolean saveAdImages(@RequestParam List<MultipartFile> adImages, @RequestParam int idAd, @RequestParam boolean isModif) throws Exception {
+		// Verify that the adImages are good.
+		if(adImages == null) return false;
+		if(adImages.isEmpty()) return false;
+
+		// Get the ad.
+		Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
+		if(ad == null) return false;
+
+		// Save Files
+		List<String> filePaths;
+		if((filePaths = FileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root)) == null) return false;
+
+		int spot = 0;
+		List<AdImage> adPictures = new ArrayList<>();
+		if(isModif) {
+			// Spot is equal to the last spot + 1
+			spot = ad.getAdImages().getLast().getSpot() + 1;
+		}
+
+		for(String path : filePaths) {
+			adPictures.add(new AdImage(path, spot, true));
+			spot++;
+		}
+
+		ad.setAdImages(adPictures);
+		adRepo.save(ad);
+		return true;
 	}
 }

@@ -25,4 +25,13 @@ public class AdImage {
 	
     @Column(nullable = false)
 	private int spot;
+
+	@Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
+	public boolean isLocal;
+
+	public AdImage(String path, int spot, boolean isLocal) {
+		this.spot = spot;
+		this.path = path;
+		this.isLocal = isLocal;
+	}
 }

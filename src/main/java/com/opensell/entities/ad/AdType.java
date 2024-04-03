@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 public class AdType {
     public static final int MAX_LENGTH = 60;
 
-
     @Id 
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int idAdType;
