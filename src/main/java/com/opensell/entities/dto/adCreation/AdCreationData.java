@@ -9,7 +9,7 @@ public record AdCreationData(int adTypeId,
                              String description,
                              String address,
                              String reference,
-                             int[] tagIds,
+                             String[] tags,
                              AdCreationImageData[] imageData) {
 
 }
