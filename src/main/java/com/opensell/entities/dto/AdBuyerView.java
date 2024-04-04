@@ -1,9 +1,12 @@
 package com.opensell.entities.dto;
 
 import com.opensell.entities.Ad;
+import com.opensell.entities.ad.AdImage;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,43 +17,43 @@ import java.util.Set;
  *
  * @author Achraf
  */
-public record AdBuyerView(String adTitle,
-						  double adPrice,
-						  Date adAddedDate,
-						  int adShape,
-						  boolean isAdSold,
-						  int adVisibility,
-						  String adDescription,
-						  String adAddress,
-						  String adTypeName,
-						  Set<String> adTagsName,
-						  List<String> adImagesPath,
-						  String username,
-						  String userLink,
-						  String userIcon) {
-	public static AdBuyerView createFromAd(Ad ad) {
-		Set<String> tags = new LinkedHashSet<>();
-		List<String> imagesPath = new ArrayList<>();
-		var customer = ad.getCustomer();
+@Data @NoArgsConstructor
+public class AdBuyerView {
+	public String adTitle;
+	public double adPrice;
+	public Date adAddedDate;
+	public int adShape;
+	public boolean isAdSold;
+	public int adVisibility;
+	public String adDescription;
+	public String adAddress;
+	public String adTypeName;
+	public Set<String> adTagsName;
+	public List<AdImage> adImages;
+	public String username;
+	public String userLink;
+	public String userIcon;
 
-		ad.getAdTags1().forEach(adTag -> tags.add(adTag.getName()));
-		ad.getAdImages().forEach(adImage-> imagesPath.add(adImage.getPath()));
+	public AdBuyerView(Ad ad) {
+		if(ad != null) {
+			Set<String> tags = new LinkedHashSet<>();
+			var customer = ad.getCustomer();
 
-		return new AdBuyerView(
-			ad.getTitle(),
-			ad.getPrice(),
-			ad.getAddedDate(),
-			ad.getShape(),
-			ad.isSold(),
-			ad.getVisibility(),
-			ad.getDescription(),
-			ad.getAddress(),
-			ad.getAdType().getName(),
-			tags,
-			imagesPath,
-			customer.getUsername(),
-			customer.getLink(),
-			customer.getCustomerInfo().getIconPath()
-		);
+			ad.getAdTags().forEach(adTag -> tags.add(adTag.getName()));
+			this.adTitle = ad.getTitle();
+			this.adPrice = ad.getPrice();
+			this.adAddedDate = ad.getAddedDate();
+			this.adShape = ad.getShape();
+			this.isAdSold = ad.isSold();
+			this.adVisibility = ad.getVisibility();
+			this.adDescription = ad.getDescription();
+			this.adAddress = ad.getAddress();
+			this.adTypeName = ad.getAdType().getName();
+			this.adTagsName = tags;
+			this.adImages = ad.getAdImages();
+			this.username = customer.getUsername();
+			this.userLink = customer.getLink();
+			this.userIcon =customer.getCustomerInfo().getIconPath();
+		}
 	}
 }

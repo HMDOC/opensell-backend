@@ -160,28 +160,15 @@ public class AdController {
 		Ad ad = adRepo.getAdToModif(link);
 
 		if (ad != null) {
-			Set<String> adTagsName = new LinkedHashSet<>();
-			ad.getAdTags().forEach(tag -> adTagsName.add(tag.getName()));
-
-			List<String> adImagesPath = new ArrayList<>();
-			ad.getAdImages().forEach(image -> adImagesPath.add(image.getPath()));
-
-			return new AdModifView(ad.getIdAd(), ad.getTitle(), ad.getPrice(), ad.getShape(), ad.isSold(), ad.getVisibility(),
-					ad.getDescription(), ad.getReference(), ad.getAddress(), ad.getLink(), ad.getAdType().getName(),
-					adTagsName, adImagesPath);
+			return new AdModifView(ad);
 		}
 
 		return null;
 	}
 
-	@PatchMapping("/modification/image-or-tags")
-	public int adChangeTags(@RequestBody List<String> tags, @RequestParam int idAd, @RequestParam boolean isImage) {
-		if(isImage) {
-			System.out.println("1");
-			return HtmlCode.SUCCESS;
-		} else  {
-			return adModif.changeAdTags(tags, idAd);
-		}
+	@PatchMapping("/modification/tags")
+	public int adChangeTags(@RequestBody List<String> tags, @RequestParam int idAd) {
+		return adModif.changeAdTags(tags, idAd);
 	}
 
 	/**
@@ -212,7 +199,7 @@ public class AdController {
 	// ONLY FOR THE AD OWNER NOT FOR THE NORMAL USER
 	@GetMapping("/get-ad-preview-for-customer/{idAd}")
 	public AdBuyerView getUserPreviewAd(@PathVariable int idAd) {
-		return AdBuyerView.createFromAd(adRepo.findOneByIdAdAndIsDeletedFalse(idAd));
+		return new AdBuyerView(adRepo.findOneByIdAdAndIsDeletedFalse(idAd));
 	}
 	
 	@GetMapping("/get-customer-ads/{customerId}")
@@ -234,7 +221,10 @@ public class AdController {
 	}
 
 	@PostMapping("/save-ad-images")
-	public boolean saveAdImages(@RequestParam List<MultipartFile> adImages, @RequestParam int idAd, @RequestParam boolean isModif) throws Exception {
+	public boolean saveAdImages(@RequestParam List<MultipartFile> adImages,
+								@RequestParam int idAd,
+								@RequestParam boolean isModif,
+								@RequestParam(required = false) String idsToDelete) throws Exception {
 		// Verify that the adImages are good.
 		if(adImages == null) return false;
 		if(adImages.isEmpty()) return false;
@@ -252,6 +242,15 @@ public class AdController {
 		if(isModif) {
 			// Spot is equal to the last spot + 1
 			spot = ad.getAdImages().getLast().getSpot() + 1;
+
+			// Add back all the old images
+			adPictures.addAll(ad.getAdImages());
+
+			// Remove the image that the user removed in frontend
+			String[] imgToDelete = idsToDelete.split(",");
+			for (String id : imgToDelete) {
+				adPictures.removeIf(img -> img.getIdAdImage() == Integer.parseInt(id));
+			}
 		}
 
 		for(String path : filePaths) {

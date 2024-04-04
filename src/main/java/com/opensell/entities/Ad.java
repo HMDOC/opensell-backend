@@ -82,10 +82,6 @@ public class Ad {
         inverseJoinColumns = @JoinColumn(name = "ad_tag_id")
     )
     private Set<AdTag> adTags;
-    public Set<AdTag> getAdTags1() {
-        System.out.println("Yes it is first!");
-        return adTags;
-    }
 
 	@OneToMany
 	@JoinColumn(name = "ad_id", nullable = false)

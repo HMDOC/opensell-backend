@@ -44,17 +44,7 @@ public class AdService {
 			Ad ad = adRepo.getAdByLink(link);
 
 			if (ad != null) {
-				Customer customer = ad.getCustomer();
-				List<String> adImagesPath = new ArrayList<>();
-				Set<String> adTagsName = new LinkedHashSet<>();
-
-				ad.getAdImages().forEach(image -> adImagesPath.add(image.getPath()));
-				ad.getAdTags().forEach(tags -> adTagsName.add(tags.getName()));
-
-				return new AdBuyerView(ad.getTitle(), ad.getPrice(), ad.getAddedDate(), ad.getShape(), ad.isSold(),
-						ad.getVisibility(), ad.getDescription(), ad.getAddress(), ad.getAdType().getName(), adTagsName,
-						adImagesPath, customer.getUsername(), customer.getLink(),
-						customer.getCustomerInfo().getIconPath());
+				return new AdBuyerView(ad);
 			} else {
 				return null;
 			}
