@@ -60,12 +60,9 @@ public class AdService {
 	 * @author Olivier Mansuy
 	 */
 	public AdCreationFeedback saveAd(AdCreationData data) {
+		int result = 0;
+		int currentAdId;
 		try {
-			int result = 0;
-			int currentAdId;
-			LinkedHashSet<Integer> tagSet = new LinkedHashSet<>(data.tagIds().length);
-			for (int elem : data.tagIds()) tagSet.add(elem);
-
 			if (adRepo.checkTitle(data.customerId(), data.title()) == 0) {
 				result = result + adRepo.createAd(data.adTypeId(),
 						data.customerId(), data.price(),
@@ -74,13 +71,35 @@ public class AdService {
 						data.address(),
 						linkGenerator.generateAdLink(),
 						data.reference());
+				//could be replaced by .save ...
 				currentAdId = adRepo.getAdIdFromTitleAndCustomerID(data.customerId(), data.title());
-				for (AdCreationImageData recordData : data.imageData()) result = result + adRepo.saveAdImage(currentAdId, recordData.spot(), recordData.path());
-				for (Integer tagId : tagSet) result = result + adRepo.saveRelAdTag(currentAdId, tagId);
-			} else throw new Exception("titre existe déjà...");
+				result+=insertTags(data.tags(), currentAdId);
+				//insertImages(data.imageData(), currentAdId);
+			} else throw new Exception("title already exists...");
 			return new AdCreationFeedback(HtmlCode.SUCCESS, result, null);
 		} catch (Exception e) {
-			return new AdCreationFeedback(HtmlCode.UNIQUE_FAILED, 0, e.getMessage());
+			return new AdCreationFeedback(HtmlCode.FAILURE, result, e.getMessage());
 		}
+	}
+
+	private int insertImages(AdCreationImageData[] data, int currentAdId) {
+		//		int res = 0;
+		//		for (AdCreationImageData recordData : data) res = res + adRepo.saveAdImage(currentAdId, recordData.spot(), recordData.path());
+		return 0;
+	}
+
+	private int insertTags(String[] tagsAsNames, int currentAdId) {
+		int res = 0;
+		if (tagsAsNames.length > 0) {
+			LinkedHashSet<AdTag> tagsAsObjects = new LinkedHashSet<>();
+			AdTag tempTag;
+			for (String name : tagsAsNames) {
+				tempTag = adTagRepo.findOneByName(name);
+				if (tempTag != null) tagsAsObjects.add(tempTag);
+				else tagsAsObjects.add(adTagRepo.save(new AdTag(name)));
+			}
+			for (AdTag tag : tagsAsObjects) res = res + adRepo.saveRelAdTag(currentAdId, tag.getIdAdTag());
+		}
+		return res;
 	}
 }
