@@ -81,13 +81,13 @@ public class AdController {
 	 * 
 	 * @author Davide
 	 */
-	@GetMapping("/search")
-	public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
+	@PostMapping("/search")
+	public List<AdSearchPreview> adSearch(@RequestBody(required = false) List<String> searchTags, @RequestParam(required = true) String query,
 			@RequestParam(required = false, defaultValue = "0") Double priceMin,
 			@RequestParam(required = false, defaultValue = "99990d") Double priceMax,
 			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
 			@RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
-			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<Integer> tagListId,
+			@RequestParam(required = false) Integer typeId,
 			@RequestParam(required = false) Integer shapeId,@RequestParam(required = false) Boolean filterSold,
 			@RequestParam(required = false, defaultValue = "addedDate") String sortBy, 
 			@RequestParam(required = false, defaultValue = "false") boolean reverseSort) {
@@ -104,14 +104,13 @@ public class AdController {
 				int shape = ad.getShape();
 				Date date = ad.getAddedDate();
 				int type = ad.getAdType().getIdAdType();
-
 				boolean hasTag = true;
 
-				if (tagListId != null) {
+				if (searchTags != null && !searchTags.isEmpty()) {
 					hasTag = false;
-					for (Integer tagId : tagListId) {
+					for (String tag : searchTags) {
 						for (AdTag adTag : ad.getAdTags()) {
-							if (adTag.getIdAdTag() == tagId) {
+							if (adTag.getName().equals(tag)) {
 								hasTag = true;
 								break;
 							};
