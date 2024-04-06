@@ -85,14 +85,13 @@ public class AdModificationService {
         }
     }
 
-    public int changeAdType(Object object, int idAd) {
+    public int changeAdType(Map<String, Object> adTypeMap, int idAd) {
         try {
-            if(object == null) return HtmlCode.NULL_VALUE;
+            if(adTypeMap == null) return HtmlCode.NULL_VALUE;
             var ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
             if(ad == null) return HtmlCode.ID_NOT_FOUND;
-            Map<String, Object> adType = (Map<String, Object>) object;
 
-            ad.setAdType(new AdType(Integer.parseInt(adType.get("idAdType").toString()), adType.get("name").toString()));
+            ad.setAdType(new AdType(Integer.parseInt(adTypeMap.get("idAdType").toString()), adTypeMap.get("name").toString()));
             adRepo.save(ad);
             return HtmlCode.SUCCESS;
         } catch (Exception e) {

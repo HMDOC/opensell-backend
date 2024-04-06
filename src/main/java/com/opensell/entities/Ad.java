@@ -1,8 +1,11 @@
 package com.opensell.entities;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
@@ -90,4 +93,27 @@ public class Ad {
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
+
+    public Set<String> getTagsName() {
+        return this.adTags
+                .stream()
+                .map(AdTag::getName)
+                .collect(Collectors.toSet());
+    }
+
+    public List<String> getImagesPath() {
+        return this.adImages
+                .stream()
+                .map(AdImage::getPath)
+                .toList();
+    }
+
+    public AdImage getFirstImage() {
+        Optional<AdImage> image = this.adImages
+                .stream()
+                .filter(img -> img.getSpot() == 0)
+                .findFirst();
+
+        return image.orElse(null);
+    }
 }

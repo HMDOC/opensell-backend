@@ -36,13 +36,7 @@ public class CustomerInfoController {
         if (adList != null) {
             List<AdSearchPreview> safeAdsList = new ArrayList<>(adList.size());
             for (Ad ad : adList) {
-                String title = ad.getTitle();
-                double price = ad.getPrice();
-                int shape = ad.getShape();
-                boolean isSold = ad.isSold();
-                String adLink = ad.getLink();
-                String imagesPath = ad.getAdImages().get(0).getPath();
-                safeAdsList.add(new AdSearchPreview(title, price, shape, isSold, adLink, imagesPath));
+                safeAdsList.add(new AdSearchPreview(ad));
             }
             return safeAdsList;
         } else {

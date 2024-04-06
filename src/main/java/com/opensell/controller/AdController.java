@@ -82,7 +82,7 @@ public class AdController {
 	 * @author Davide
 	 */
 	@PostMapping("/search")
-	public List<AdSearchPreview> adSearch(@RequestBody(required = false) List<String> searchTags, @RequestParam(required = true) String query,
+	public List<AdSearchPreview> adSearch(@RequestBody(required = false) ArrayList<String> searchTags, @RequestParam(required = true) String query,
 			@RequestParam(required = false, defaultValue = "0") Double priceMin,
 			@RequestParam(required = false, defaultValue = "99990d") Double priceMax,
 			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
@@ -99,55 +99,22 @@ public class AdController {
 			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
 
 			for (Ad ad : adList) {
-				// Shortcuts for variables
-				double price = ad.getPrice();
-				int shape = ad.getShape();
-				Date date = ad.getAddedDate();
-				int type = ad.getAdType().getIdAdType();
-				boolean hasTag = true;
-
 				if (searchTags != null && !searchTags.isEmpty()) {
-					hasTag = false;
-					for (String tag : searchTags) {
-						for (AdTag adTag : ad.getAdTags()) {
-							if (adTag.getName().equals(tag)) {
-								hasTag = true;
-								break;
-							};
-						}
-						if (hasTag) {
-							break;
-						}
-					}
-				}
-
-				// Filter results
-				if (!hasTag) {
-					System.out.println("Failed");
-					continue;
-				} else {
-					System.out.println("Passed");
-				}
-				
-				String imagePath = "";
-				
-				for(AdImage image : ad.getAdImages()) {
-					if (image.getSpot()==0) {
-						imagePath = image.getPath();
-						break;
+					if(!ad.getTagsName().containsAll(searchTags)) {
+						continue;
 					}
 				}
 				
-				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), ad.getLink(), imagePath));
+				resultList.add(new AdSearchPreview(ad));
 			}
+
 			System.out.println(resultList.size());
 			if (reverseSort) {
 				Collections.reverse(resultList);
 			}
+
 			return resultList;
-		} else {
-			return null;
-		}
+		} else return null;
 	}
 
 	/**
@@ -186,7 +153,7 @@ public class AdController {
 			case ModifType.TITLE -> { return adModif.changeTitle(modifBody.value.toString(), idAd); }
 			case ModifType.REFERENCE -> { return adModif.changeReference(modifBody.value.toString(), idAd); }
 			case ModifType.PRICE -> { return adModif.changePrice(Double.parseDouble(modifBody.value.toString()), idAd); }
-			case ModifType.AD_TYPE -> { return adModif.changeAdType(modifBody.value, idAd); }
+			case ModifType.AD_TYPE -> { return adModif.changeAdType((Map<String, Object>) modifBody.value, idAd); }
 			case ModifType.ADDRESS -> { return adModif.changeAddress(modifBody.value.toString(), idAd); }
 			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(modifBody.value.toString())); return adModif.changeIsSold(Boolean.parseBoolean(modifBody.value.toString()), idAd); }
 			case ModifType.DESCRIPTION -> { return adModif.changeDescription(modifBody.value.toString(), idAd); }
