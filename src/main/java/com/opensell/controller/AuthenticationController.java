@@ -14,8 +14,7 @@ import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
 import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -40,10 +39,26 @@ public class AuthenticationController {
     @Autowired
     private CleanupCode cleanupCode;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private CustomerInfoRepository customerInfoRepository;
+
     @GetMapping("/login")
-    public int login(@RequestParam String username, @RequestParam String pwd) {
-        if (rep.checkLogin(username, new BCryptPasswordEncoder().encode(pwd)) ==  1) return 1; // Correct password
-        return 2;
+    public CustomerInfo login(@RequestParam String username, @RequestParam String pwd) {
+        Customer customer = rep.getUser(username);
+        if (customer == null) {
+            return null; // Utilisateur non trouvé
+        }
+        else {
+            String encodedPass = customer.getPwd();
+            if (passwordEncoder.matches(pwd, encodedPass)) {
+                System.out.println(customerInfoRepository.findById(customer.getIdCustomer()));
+                return customerInfoRepository.findById(customer.getIdCustomer()); // Authentifié
+            }
+            return null; // Mauvais mot de passe
+        }
     }
 
     @PostMapping("/signup")
@@ -61,12 +76,13 @@ public class AuthenticationController {
             Customer customer = new Customer();
             CustomerInfo infos = new CustomerInfo();
 
+            infos.setFirstName(username);
             infosrep.save(infos);
 
             customer.setJoinedDate(now);
             customer.setUsername(username);
             customer.setPersonalEmail(email);
-            customer.setPwd(new BCryptPasswordEncoder().encode(pwd));
+            customer.setPwd(passwordEncoder.encode(pwd));
             customer.setIsDeleted(false);
             customer.setIsVerified(false);
             customer.setIsActivated(false);
@@ -80,12 +96,15 @@ public class AuthenticationController {
 
             rep.save(customer);
             codeRep.save(newCode);
-            if (emailService.sendEmail(email, "Welcome to OpenSell", "Thank you for signing up with OpenSell! Here's your verification code:\n" + code)) {
+            if (emailService.sendEmail(email, "Welcome to OpenSell",
+                    "Thank you for signing up with OpenSell! Here's your verification code:\n" + code)) {
                 return 3; // Email sent
-            };
+            }
+            ;
             return 4; // Email not send
         }
     }
+
     @GetMapping("/verify-code")
     public int verifyCode(@RequestParam String email, @RequestParam String inputCode) {
         if (codeRep.getCodeByEmail(email).equals(inputCode)) {
@@ -100,5 +119,5 @@ public class AuthenticationController {
     public void runCodeCleanup() throws Exception {
         Job job = new Job(cleanupCode, 60000);
         job.start();
-    }   
+    }
 }

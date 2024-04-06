@@ -16,8 +16,8 @@ public interface LoginRepository extends JpaRepository<Customer, Integer> {
     public abstract Customer findCustomerByLink(String link);
 
     //login
-    @Query(value= "SELECT COUNT(*) FROM customer c WHERE c.username = ?1 AND c.pwd = ?2 OR c.personal_email = ?1 AND c.pwd = ?2", nativeQuery = true)
-    public abstract int checkLogin(String usernameOrEmail, String pwd);
+    @Query(value= "SELECT * FROM customer c WHERE c.personal_email = ?1 OR c.username = ?1", nativeQuery = true)
+    public abstract Customer getUser(String usernameOrEmail);
 
     //signup
     public abstract int countByUsername(String username);

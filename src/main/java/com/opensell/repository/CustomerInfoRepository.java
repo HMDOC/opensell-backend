@@ -1,13 +1,12 @@
 package com.opensell.repository;
 
 import com.opensell.entities.customer.CustomerSocials;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.opensell.entities.customer.CustomerInfo;
+
 
 @Repository
 public interface CustomerInfoRepository extends JpaRepository<CustomerInfo, Integer> {
@@ -20,4 +19,5 @@ public interface CustomerInfoRepository extends JpaRepository<CustomerInfo, Inte
 
     public int countByExposedEmail(String email);
     public int countByPhoneNumber(String phoneNumber);
+    public abstract CustomerInfo findById(int id);
 }
