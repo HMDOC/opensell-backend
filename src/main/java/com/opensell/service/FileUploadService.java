@@ -80,29 +80,31 @@ public class FileUploadService {
 	*/
 	public static List<String> saveFiles(List<MultipartFile> files, FileType fileType, String path) throws Exception {
 		try {
-			if(files != null && path != null && fileType != null) {
-				List<String> filesPath = new ArrayList<>();
-	
-				files.forEach(file -> {
-					try {
-						File destFile = new File(path+fileType.folder+randFileName(".png"));
-						String randomFileName = null;
+			if(files == null) throw new Exception("files cannot be null");
+			if(fileType == null) throw new Exception("fileType cannot be null");
+			if(path == null) throw new Exception("path cannot be null");
 
-						while(destFile.exists()) {
-							randomFileName = fileType.folder+randFileName(".png");
-							destFile.renameTo(new File(path+randomFileName));
-						}
-	
-						destFile.createNewFile();
-						file.transferTo(destFile);
-						filesPath.add(randomFileName);
-					} catch (Exception e) {
-						System.out.println(e.getMessage());
+			List<String> filesPath = new ArrayList<>();
+
+			files.forEach(file -> {
+				try {
+					String randomFileName = fileType.folder+randFileName(".png");
+					File destFile = new File(path+randomFileName);
+
+					while(destFile.exists()) {
+						randomFileName = fileType.folder+randFileName(".png");
+						destFile.renameTo(new File(path+randomFileName));
 					}
-				});
-			}
 
-			throw new Exception("One of you parameter is null and shouldn't be.");
+					destFile.createNewFile();
+					file.transferTo(destFile);
+					filesPath.add(randomFileName);
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			});
+
+			return filesPath;
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;

@@ -2,6 +2,7 @@ package com.opensell.entities.dto;
 
 import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdImage;
+import com.opensell.entities.ad.AdType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,7 @@ public class AdBuyerView {
 	public int adVisibility;
 	public String adDescription;
 	public String adAddress;
-	public String adTypeName;
+	public AdType adType;
 	public Set<String> adTagsName;
 	public List<AdImage> adImages;
 	public String username;
@@ -48,12 +49,12 @@ public class AdBuyerView {
 			this.adVisibility = ad.getVisibility();
 			this.adDescription = ad.getDescription();
 			this.adAddress = ad.getAddress();
-			this.adTypeName = ad.getAdType().getName();
+			this.adType = ad.getAdType();
 			this.adTagsName = tags;
 			this.adImages = ad.getAdImages();
 			this.username = customer.getUsername();
 			this.userLink = customer.getLink();
-			this.userIcon =customer.getCustomerInfo().getIconPath();
+			this.userIcon = customer.getCustomerInfo().getIconPath();
 		}
 	}
 }

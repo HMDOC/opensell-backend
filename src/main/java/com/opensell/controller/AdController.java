@@ -1,9 +1,11 @@
 package com.opensell.controller;
+import java.sql.Array;
 import java.sql.Date;
 import java.util.*;
 
 import com.opensell.entities.dto.adCreation.AdCreationData;
 import com.opensell.entities.dto.adCreation.AdCreationFeedback;
+import com.opensell.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
@@ -19,10 +21,6 @@ import com.opensell.entities.dto.AdModifView;
 import com.opensell.entities.dto.AdSearchPreview;
 import com.opensell.entities.dto.DisplayAdView;
 import com.opensell.entities.verification.HtmlCode;
-import com.opensell.repository.AdRepository;
-import com.opensell.repository.AdTagRepository;
-import com.opensell.repository.AdTypeRepository;
-import com.opensell.repository.CustomerRepository;
 import com.opensell.service.AdModificationService;
 import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
@@ -38,6 +36,9 @@ public class AdController {
 	
 	@Autowired
 	private AdRepository adRepo;
+
+	@Autowired
+	private AdImageRepository adImageRepo;
 
 	@Autowired
 	private AdTagRepository adTagRepo;
@@ -221,45 +222,54 @@ public class AdController {
 	}
 
 	@PostMapping("/save-ad-images")
-	public boolean saveAdImages(@RequestParam List<MultipartFile> adImages,
+	public boolean saveAdImages(@RequestBody List<MultipartFile> adImages,
 								@RequestParam int idAd,
 								@RequestParam boolean isModif,
-								@RequestParam(required = false) String idsToDelete) throws Exception {
-		// Verify that the adImages are good.
-		if(adImages == null) return false;
-		if(adImages.isEmpty()) return false;
+								@RequestParam(required = false) String idsToDelete) {
+		try {
+			// Verify that the adImages are good.
+			if(adImages == null) throw new Exception("adImages cannot be null");
+			if(adImages.isEmpty()) throw new Exception("adImages need to contain at least one images");
 
-		// Get the ad.
-		Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
-		if(ad == null) return false;
+			// Get the ad.
+			Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
+			if(ad == null) throw new Exception("idAd not found");
 
-		// Save Files
-		List<String> filePaths;
-		if((filePaths = FileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root)) == null) return false;
+			// Save Files
+			List<String> filePaths = FileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root);
+			if(filePaths == null) throw new Exception("No files was saved.");
+			System.out.println(filePaths);
 
-		int spot = 0;
-		List<AdImage> adPictures = new ArrayList<>();
-		if(isModif) {
-			// Spot is equal to the last spot + 1
-			spot = ad.getAdImages().getLast().getSpot() + 1;
+			int spot = 0;
+			List<AdImage> adPictures = new ArrayList<>();
+			if(isModif) {
+				// NEED TO REDO SPOT FOR MODIF BECAUSE WHEN DELETE THIS IS INVALID
+				// Spot is equal to the last spot + 1
+				spot = ad.getAdImages().getLast().getSpot() + 1;
 
-			// Add back all the old images
-			adPictures.addAll(ad.getAdImages());
+				// Add back all the old images
+				adPictures.addAll(ad.getAdImages());
 
-			// Remove the image that the user removed in frontend
-			String[] imgToDelete = idsToDelete.split(",");
-			for (String id : imgToDelete) {
-				adPictures.removeIf(img -> img.getIdAdImage() == Integer.parseInt(id));
+				// Remove the image that the user removed in frontend
+				String[] imgToDelete = idsToDelete.split(",");
+				System.out.println(Arrays.asList(imgToDelete));
+				System.out.println("Before : "+adPictures);
+
+				for (String idAdImage : imgToDelete) {
+					adPictures.removeIf(img -> img.getIdAdImage() == Integer.parseInt(idAdImage));
+				}
 			}
-		}
 
-		for(String path : filePaths) {
-			adPictures.add(new AdImage(path, spot, true));
-			spot++;
-		}
+			for(String path : filePaths) {
+				adPictures.add(adImageRepo.save(new AdImage(path, spot, true, ad)));
+				spot++;
+			}
 
-		ad.setAdImages(adPictures);
-		adRepo.save(ad);
-		return true;
+			ad.setAdImages(adPictures);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

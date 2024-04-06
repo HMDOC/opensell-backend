@@ -1,12 +1,7 @@
 package com.opensell.entities.ad;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import com.opensell.entities.Ad;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +24,7 @@ public class AdImage {
 	@Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
 	public boolean isLocal;
 
-	public AdImage(String path, int spot, boolean isLocal) {
+	public AdImage(String path, int spot, boolean isLocal, Ad ad) {
 		this.spot = spot;
 		this.path = path;
 		this.isLocal = isLocal;
