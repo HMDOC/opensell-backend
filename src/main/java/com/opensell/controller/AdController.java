@@ -186,7 +186,7 @@ public class AdController {
 			case ModifType.TITLE -> { return adModif.changeTitle(modifBody.value.toString(), idAd); }
 			case ModifType.REFERENCE -> { return adModif.changeReference(modifBody.value.toString(), idAd); }
 			case ModifType.PRICE -> { return adModif.changePrice(Double.parseDouble(modifBody.value.toString()), idAd); }
-			case ModifType.AD_TYPE -> { return adModif.changeAdType(modifBody.value.toString(), idAd); }
+			case ModifType.AD_TYPE -> { return adModif.changeAdType(modifBody.value, idAd); }
 			case ModifType.ADDRESS -> { return adModif.changeAddress(modifBody.value.toString(), idAd); }
 			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(modifBody.value.toString())); return adModif.changeIsSold(Boolean.parseBoolean(modifBody.value.toString()), idAd); }
 			case ModifType.DESCRIPTION -> { return adModif.changeDescription(modifBody.value.toString(), idAd); }
