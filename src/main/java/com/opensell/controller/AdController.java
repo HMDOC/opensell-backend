@@ -221,10 +221,7 @@ public class AdController {
             if (ad == null) throw new Exception("idAd not found");
             List<AdImage> adPictures = ad.getAdImages();
 
-            if(adPictures == null || !isModif) {
-                adPictures = new ArrayList<>();
-            }
-
+            if(adPictures == null || !isModif) adPictures = new ArrayList<>();
             else if(idsToDelete != null && !idsToDelete.isEmpty()) {
                 List<String> imgToDelete = Arrays.asList(idsToDelete.split(","));
 
@@ -245,7 +242,6 @@ public class AdController {
             if (adImages != null && !adImages.isEmpty()) {
                 List<String> filePaths = FileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root);
                 if (filePaths == null) throw new Exception("No files was saved.");
-                System.out.println(filePaths);
 
                 int spot = 0;
                 if (isModif) {

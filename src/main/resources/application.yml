@@ -2,6 +2,10 @@ server:
   port: ${port}
   
 spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 500MB
   datasource:
     url: ${url}
     username: ${user}
@@ -38,4 +42,5 @@ spring:
             required: true
       verify:
         host: http://localhost:${port}
+
 

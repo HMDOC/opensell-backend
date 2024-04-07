@@ -4,14 +4,10 @@ import java.util.*;
 
 import com.opensell.entities.dto.adCreation.AdCreationData;
 import com.opensell.entities.dto.adCreation.AdCreationFeedback;
-import com.opensell.entities.dto.adCreation.AdCreationImageData;
 import com.opensell.entities.verification.HtmlCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.opensell.entities.Ad;
-import com.opensell.entities.Customer;
 import com.opensell.entities.ad.AdTag;
-import com.opensell.entities.ad.AdType;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
@@ -67,18 +63,11 @@ public class AdService {
 				//could be replaced by .save ...
 				currentAdId = adRepo.getAdIdFromTitleAndCustomerID(data.customerId(), data.title());
 				result+=insertTags(data.tags(), currentAdId);
-				//insertImages(data.imageData(), currentAdId);
 			} else throw new Exception("title already exists...");
-			return new AdCreationFeedback(HtmlCode.SUCCESS, result, null);
+			return new AdCreationFeedback(HtmlCode.SUCCESS, result, null, currentAdId);
 		} catch (Exception e) {
-			return new AdCreationFeedback(HtmlCode.FAILURE, result, e.getMessage());
+			return new AdCreationFeedback(HtmlCode.FAILURE, result, e.getMessage(), null);
 		}
-	}
-
-	private int insertImages(AdCreationImageData[] data, int currentAdId) {
-		//		int res = 0;
-		//		for (AdCreationImageData recordData : data) res = res + adRepo.saveAdImage(currentAdId, recordData.spot(), recordData.path());
-		return 0;
 	}
 
 	private int insertTags(String[] tagsAsNames, int currentAdId) {
