@@ -209,7 +209,7 @@ public class AdController {
     }
 
     @PostMapping("/save-ad-images")
-    public boolean saveAdImages(@RequestBody(required = false) List<MultipartFile> adImages,
+    public List<AdImage> saveAdImages(@RequestBody(required = false) List<MultipartFile> adImages,
                                 @RequestParam int idAd,
                                 @RequestParam boolean isModif,
                                 @RequestParam(required = false) String idsToDelete) {
@@ -262,16 +262,14 @@ public class AdController {
                 isAdChanged = true;
             }
 
-            if(isAdChanged) {
+            if(isAdChanged && isModif) {
                 ad.setAdImages(adPictures);
-                System.out.println(adRepo.save(ad).getAdImages());;
-                return true;
+                return adRepo.save(ad).getAdImages();
             }
-
-            else return false;
+            else return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 }
