@@ -21,7 +21,7 @@ public class AdSearchPreview {
 	public String adLink;
 	public String adFirstImagePath;
 
-	public  AdSearchPreview(Ad ad) {
+	public AdSearchPreview(Ad ad) {
 		this.adTitle = ad.getTitle();
 		this.adPrice = ad.getPrice();
 		this.adShape = ad.getShape();
