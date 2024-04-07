@@ -1,5 +1,5 @@
 package com.opensell.controller;
-import java.sql.Array;
+
 import java.sql.Date;
 import java.util.*;
 
@@ -31,245 +31,245 @@ import com.opensell.service.FileUploadService.FileType;
 @RestController
 @RequestMapping("/ad")
 public class AdController {
-	@Value("${uploadPath}")
-	public String root;
-	
-	@Autowired
-	private AdRepository adRepo;
+    @Value("${uploadPath}")
+    public String root;
 
-	@Autowired
-	private AdImageRepository adImageRepo;
+    @Autowired
+    private AdRepository adRepo;
 
-	@Autowired
-	private AdTagRepository adTagRepo;
+    @Autowired
+    private AdImageRepository adImageRepo;
 
-	@Autowired
-	private AdTypeRepository adTypeRepo;
+    @Autowired
+    private AdTagRepository adTagRepo;
 
-	@Autowired
-	private AdService adService;
+    @Autowired
+    private AdTypeRepository adTypeRepo;
 
-	@Autowired
-	private AdModificationService adModif;
+    @Autowired
+    private AdService adService;
 
-	@Autowired
-	private CustomerRepository customerRepo;
+    @Autowired
+    private AdModificationService adModif;
 
-	/**
-	 * Call function from AdService to get an AdBuyer from a link.
-	 *
-	 * @author Achraf
-	 */
-	@GetMapping("/get-ad-buyer-view/{link}")
-	public AdBuyerView adBuyerView(@PathVariable String link) {
-		return adService.getAdBuyerView(link);
-	}
+    @Autowired
+    private CustomerRepository customerRepo;
 
-	@GetMapping("/get-all-ad-type")
-	public List<AdType> getAllTypes(){
-		return adTypeRepo.findAll();
-	}
+    /**
+     * Call function from AdService to get an AdBuyer from a link.
+     *
+     * @author Achraf
+     */
+    @GetMapping("/get-ad-buyer-view/{link}")
+    public AdBuyerView adBuyerView(@PathVariable String link) {
+        return adService.getAdBuyerView(link);
+    }
 
-	@GetMapping("/get-all-ad-tag")
-	public List<AdTag> getAllTags(){
-		return adTagRepo.findAll();
-	}
+    @GetMapping("/get-all-ad-type")
+    public List<AdType> getAllTypes() {
+        return adTypeRepo.findAll();
+    }
 
-	/**
-	 * The http request that gets the entire list of ads, filtered by the provided
-	 * parameters
-	 * 
-	 * @author Davide
-	 */
-	@GetMapping("/search")
-	public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
-			@RequestParam(required = false, defaultValue = "0") Double priceMin,
-			@RequestParam(required = false, defaultValue = "99990d") Double priceMax,
-			@RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
-			@RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
-			@RequestParam(required = false) Integer typeId, @RequestParam(required = false) Set<Integer> tagListId,
-			@RequestParam(required = false) Integer shapeId,@RequestParam(required = false) Boolean filterSold,
-			@RequestParam(required = false, defaultValue = "addedDate") String sortBy, 
-			@RequestParam(required = false, defaultValue = "false") boolean reverseSort) {
+    @GetMapping("/get-all-ad-tag")
+    public List<AdTag> getAllTags() {
+        return adTagRepo.findAll();
+    }
 
-		List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId,
-				typeId, filterSold, Sort.by(sortBy));
+    /**
+     * The http request that gets the entire list of ads, filtered by the provided
+     * parameters
+     *
+     * @author Davide
+     */
+    @PostMapping("/search")
+    public List<AdSearchPreview> adSearch(@RequestBody(required = false) ArrayList<String> searchTags, @RequestParam(required = true) String query,
+                                          @RequestParam(required = false, defaultValue = "0") Double priceMin,
+                                          @RequestParam(required = false, defaultValue = "99990d") Double priceMax,
+                                          @RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
+                                          @RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
+                                          @RequestParam(required = false) Integer typeId,
+                                          @RequestParam(required = false) Integer shapeId, @RequestParam(required = false) Boolean filterSold,
+                                          @RequestParam(required = false, defaultValue = "addedDate") String sortBy,
+                                          @RequestParam(required = false, defaultValue = "false") boolean reverseSort) {
 
-		if (adList != null) {
-			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
+        List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId,
+                typeId, filterSold, Sort.by(sortBy));
 
-			for (Ad ad : adList) {
-				// Shortcuts for variables
-				double price = ad.getPrice();
-				int shape = ad.getShape();
-				Date date = ad.getAddedDate();
-				int type = ad.getAdType().getIdAdType();
+        if (adList != null) {
+            List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
 
-				boolean hasTag = true;
+            for (Ad ad : adList) {
+                if (searchTags != null && !searchTags.isEmpty()) {
+                    if (!ad.getTagsName().containsAll(searchTags)) {
+                        continue;
+                    }
+                }
 
-				if (tagListId != null) {
-					hasTag = false;
-					for (Integer tagId : tagListId) {
-						for (AdTag adTag : ad.getAdTags()) {
-							if (adTag.getIdAdTag() == tagId) {
-								hasTag = true;
-								break;
-							};
-						}
-						if (hasTag) {
-							break;
-						}
-					}
-				}
+                resultList.add(new AdSearchPreview(ad));
+            }
 
-				// Filter results
-				if (!hasTag) {
-					System.out.println("Failed");
-					continue;
-				} else {
-					System.out.println("Passed");
-				}
-				
-				String imagePath = "";
-				
-				for(AdImage image : ad.getAdImages()) {
-					if (image.getSpot()==0) {
-						imagePath = image.getPath();
-						break;
-					}
-				}
-				
-				resultList.add(new AdSearchPreview(ad.getTitle(), price, shape, ad.isSold(), ad.getLink(), imagePath));
-			}
-			System.out.println(resultList.size());
-			if (reverseSort) {
-				Collections.reverse(resultList);
-			}
-			return resultList;
-		} else {
-			return null;
-		}
-	}
+            System.out.println(resultList.size());
+            if (reverseSort) {
+                Collections.reverse(resultList);
+            }
 
-	/**
-	 * To get an adView when a user want to modify an ad.
-	 * 
-	 * @author Achraf
-	 */
-	@GetMapping("/to-modify/{link}")
-	public AdModifView getAdModifView(@PathVariable String link) {
-		Ad ad = adRepo.getAdToModif(link);
+            return resultList;
+        } else return null;
+    }
 
-		if (ad != null) {
-			return new AdModifView(ad);
-		}
+    /**
+     * To get an adView when a user want to modify an ad.
+     *
+     * @author Achraf
+     */
+    @GetMapping("/to-modify/{link}")
+    public AdModifView getAdModifView(@PathVariable String link) {
+        Ad ad = adRepo.getAdToModif(link);
 
-		return null;
-	}
+        if (ad != null) {
+            return new AdModifView(ad);
+        }
 
-	@PatchMapping("/modification/tags")
-	public int adChangeTags(@RequestBody List<String> tags, @RequestParam int idAd) {
-		return adModif.changeAdTags(tags, idAd);
-	}
+        return null;
+    }
 
-	/**
-	 * Function to modify element of an ad.
-	 * 
-	 * @param modifType What is the field you want to modify.
-	 * @param value The new value of the field.
-	 * @param idAd The id of the row.
-	 * @return ResultCode
-	 * @author Achraf
-	 */
-	@PatchMapping("/modification")
-	public int adModification(@RequestBody AdModificationService.ModifBody modifBody, @RequestParam int idAd, @RequestParam int modifType) {
-		switch (modifType) {
-			case ModifType.TITLE -> { return adModif.changeTitle(modifBody.value.toString(), idAd); }
-			case ModifType.REFERENCE -> { return adModif.changeReference(modifBody.value.toString(), idAd); }
-			case ModifType.PRICE -> { return adModif.changePrice(Double.parseDouble(modifBody.value.toString()), idAd); }
-			case ModifType.AD_TYPE -> { return adModif.changeAdType(modifBody.value.toString(), idAd); }
-			case ModifType.ADDRESS -> { return adModif.changeAddress(modifBody.value.toString(), idAd); }
-			case ModifType.IS_SOLD -> { System.out.println(Boolean.valueOf(modifBody.value.toString())); return adModif.changeIsSold(Boolean.parseBoolean(modifBody.value.toString()), idAd); }
-			case ModifType.DESCRIPTION -> { return adModif.changeDescription(modifBody.value.toString(), idAd); }
-			case ModifType.VISIBILITY -> { return adModif.changeVisibility(Integer.parseInt(modifBody.value.toString()), idAd); }
-			case ModifType.SHAPE -> { return adModif.changeShape(Integer.parseInt(modifBody.value.toString()), idAd); }
-			default -> { return HtmlCode.BAD_REQUEST; }
-		}
-	}
+    @PatchMapping("/modification/tags")
+    public int adChangeTags(@RequestBody List<String> tags, @RequestParam int idAd) {
+        return adModif.changeAdTags(tags, idAd);
+    }
 
-	// ONLY FOR THE AD OWNER NOT FOR THE NORMAL USER
-	@GetMapping("/get-ad-preview-for-customer/{idAd}")
-	public AdBuyerView getUserPreviewAd(@PathVariable int idAd) {
-		return new AdBuyerView(adRepo.findOneByIdAdAndIsDeletedFalse(idAd));
-	}
-	
-	@GetMapping("/get-customer-ads/{customerId}")
-	public List<DisplayAdView> getCustomerAds(@PathVariable Integer customerId) {
-		Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalse(customerId);
-		if(customer != null) {
-			return adRepo.getCustomerAds(customer);
-		} else return null;
-	}
+    /**
+     * Function to modify element of an ad.
+     *
+     * @param modifType What is the field you want to modify.
+     * @param value     The new value of the field.
+     * @param idAd      The id of the row.
+     * @return ResultCode
+     * @author Achraf
+     */
+    @PatchMapping("/modification")
+    public int adModification(@RequestBody AdModificationService.ModifBody modifBody, @RequestParam int idAd, @RequestParam int modifType) {
+        switch (modifType) {
+            case ModifType.TITLE -> {
+                return adModif.changeTitle(modifBody.value.toString(), idAd);
+            }
+            case ModifType.REFERENCE -> {
+                return adModif.changeReference(modifBody.value.toString(), idAd);
+            }
+            case ModifType.PRICE -> {
+                return adModif.changePrice(Double.parseDouble(modifBody.value.toString()), idAd);
+            }
+            case ModifType.AD_TYPE -> {
+                return adModif.changeAdType((Map<String, Object>) modifBody.value, idAd);
+            }
+            case ModifType.ADDRESS -> {
+                return adModif.changeAddress(modifBody.value.toString(), idAd);
+            }
+            case ModifType.IS_SOLD -> {
+                System.out.println(Boolean.valueOf(modifBody.value.toString()));
+                return adModif.changeIsSold(Boolean.parseBoolean(modifBody.value.toString()), idAd);
+            }
+            case ModifType.DESCRIPTION -> {
+                return adModif.changeDescription(modifBody.value.toString(), idAd);
+            }
+            case ModifType.VISIBILITY -> {
+                return adModif.changeVisibility(Integer.parseInt(modifBody.value.toString()), idAd);
+            }
+            case ModifType.SHAPE -> {
+                return adModif.changeShape(Integer.parseInt(modifBody.value.toString()), idAd);
+            }
+            default -> {
+                return HtmlCode.BAD_REQUEST;
+            }
+        }
+    }
 
-	@PatchMapping("/delete-ad/{idAd}")
-	public boolean deleteAd(@PathVariable int idAd) {
-		return adRepo.hideAd(idAd) > 0;
-	}
+    // ONLY FOR THE AD OWNER NOT FOR THE NORMAL USER
+    @GetMapping("/get-ad-preview-for-customer/{idAd}")
+    public AdBuyerView getUserPreviewAd(@PathVariable int idAd) {
+        return new AdBuyerView(adRepo.findOneByIdAdAndIsDeletedFalse(idAd));
+    }
 
-	@PostMapping("/create-ad")
-	public AdCreationFeedback createAd(@RequestBody AdCreationData data) {
-		return adService.saveAd(data);
-	}
+    @GetMapping("/get-customer-ads/{customerId}")
+    public List<DisplayAdView> getCustomerAds(@PathVariable Integer customerId) {
+        Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalse(customerId);
+        if (customer != null) {
+            return adRepo.getCustomerAds(customer);
+        } else return null;
+    }
 
-	@PostMapping("/save-ad-images")
-	public boolean saveAdImages(@RequestBody List<MultipartFile> adImages,
-								@RequestParam int idAd,
-								@RequestParam boolean isModif,
-								@RequestParam(required = false) String idsToDelete) {
-		try {
-			// Verify that the adImages are good.
-			if(adImages == null) throw new Exception("adImages cannot be null");
-			if(adImages.isEmpty()) throw new Exception("adImages need to contain at least one images");
+    @PatchMapping("/delete-ad/{idAd}")
+    public boolean deleteAd(@PathVariable int idAd) {
+        return adRepo.hideAd(idAd) > 0;
+    }
 
-			// Get the ad.
-			Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
-			if(ad == null) throw new Exception("idAd not found");
+    @PostMapping("/create-ad")
+    public AdCreationFeedback createAd(@RequestBody AdCreationData data) {
+        return adService.saveAd(data);
+    }
 
-			// Save Files
-			List<String> filePaths = FileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root);
-			if(filePaths == null) throw new Exception("No files was saved.");
-			System.out.println(filePaths);
+    @PostMapping("/save-ad-images")
+    public List<AdImage> saveAdImages(@RequestBody(required = false) List<MultipartFile> adImages,
+                                @RequestParam int idAd,
+                                @RequestParam boolean isModif,
+                                @RequestParam(required = false) String idsToDelete) {
+        try {
+            boolean isAdChanged = false;
 
-			int spot = 0;
-			List<AdImage> adPictures = new ArrayList<>();
-			if(isModif) {
-				// NEED TO REDO SPOT FOR MODIF BECAUSE WHEN DELETE THIS IS INVALID
-				// Spot is equal to the last spot + 1
-				spot = ad.getAdImages().getLast().getSpot() + 1;
+            // Get the ad.
+            Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
+            if (ad == null) throw new Exception("idAd not found");
+            List<AdImage> adPictures = ad.getAdImages();
 
-				// Add back all the old images
-				adPictures.addAll(ad.getAdImages());
+            if(adPictures == null || !isModif) {
+                adPictures = new ArrayList<>();
+            }
 
-				// Remove the image that the user removed in frontend
-				String[] imgToDelete = idsToDelete.split(",");
-				System.out.println(Arrays.asList(imgToDelete));
-				System.out.println("Before : "+adPictures);
+            else if(idsToDelete != null && !idsToDelete.isEmpty()) {
+                List<String> imgToDelete = Arrays.asList(idsToDelete.split(","));
 
-				for (String idAdImage : imgToDelete) {
-					adPictures.removeIf(img -> img.getIdAdImage() == Integer.parseInt(idAdImage));
-				}
-			}
+                adPictures.removeIf(img -> {
+                    if(imgToDelete.contains(String.valueOf(img.getIdAdImage()))) {
+                        adImageRepo.delete(img);
+                        return true;
+                    }
 
-			for(String path : filePaths) {
-				adPictures.add(adImageRepo.save(new AdImage(path, spot, true, ad)));
-				spot++;
-			}
+                    else return false;
+                });
 
-			ad.setAdImages(adPictures);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+                System.out.println(adPictures);
+                isAdChanged = true;
+            }
+
+            // Save Files
+            if (adImages != null && !adImages.isEmpty()) {
+                List<String> filePaths = FileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root);
+                if (filePaths == null) throw new Exception("No files was saved.");
+                System.out.println(filePaths);
+
+                int spot = 0;
+                if (isModif) {
+                    // NEED TO REDO SPOT FOR MODIF BECAUSE WHEN DELETE THIS IS INVALID
+                    // Spot is equal to the last spot + 1
+                    if(!adPictures.isEmpty()) spot = adPictures.getLast().getSpot() + 1;
+                }
+
+                for (String path : filePaths) {
+                    adPictures.add(adImageRepo.save(new AdImage(path, spot, true, ad)));
+                    spot++;
+                }
+
+                isAdChanged = true;
+            }
+
+            if(isAdChanged && isModif) {
+                ad.setAdImages(adPictures);
+                return adRepo.save(ad).getAdImages();
+            }
+            else return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

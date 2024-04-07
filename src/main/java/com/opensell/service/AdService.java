@@ -41,14 +41,7 @@ public class AdService {
 	 */
 	public AdBuyerView getAdBuyerView(String link) {
 		try {
-			Ad ad = adRepo.getAdByLink(link);
-
-			if (ad != null) {
-				return new AdBuyerView(ad);
-			} else {
-				return null;
-			}
-
+			return new AdBuyerView(adRepo.getAdByLink(link));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return null;

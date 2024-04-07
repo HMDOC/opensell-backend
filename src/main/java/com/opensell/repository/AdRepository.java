@@ -2,6 +2,8 @@ package com.opensell.repository;
 
 import java.sql.Date;
 import java.util.List;
+
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -21,9 +23,9 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	 * Purpose : For AdBuyerView
 	 * @author Achraf
 	 */
-	@Query(value = "SELECT * FROM ad a WHERE a.link = ?1 AND a.is_deleted = false AND a.visibility != 1 LIMIT 1", nativeQuery = true)
+	@Query("SELECT a FROM Ad a WHERE a.link = ?1 AND a.isDeleted = false AND a.visibility != 1")
 	public Ad getAdByLink(String link);
-	
+
 	/**
 	 * 
 	 * @author Davide
@@ -53,7 +55,7 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	 */
 	@Query(value = "SELECT * FROM ad a WHERE a.link = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
 	public Ad getAdToModif(String link);
-	
+
 	public Ad findOneByIdAdAndIsDeletedFalse(Integer idAd);
 	
 	/***

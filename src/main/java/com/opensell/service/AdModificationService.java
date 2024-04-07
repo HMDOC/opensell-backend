@@ -1,8 +1,7 @@
 package com.opensell.service;
 
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,25 +85,13 @@ public class AdModificationService {
         }
     }
 
-    // JPA
-    public int changeAdType(String adTypeName, int idAd) {
+    public int changeAdType(Map<String, Object> adTypeMap, int idAd) {
         try {
-            // IF the new tag name is valid.
-            if(adTypeName == null) return HtmlCode.NULL_VALUE;
-            if(adTypeName.length() > AdType.MAX_LENGTH) return HtmlCode.WRONG_VALUE;
-
+            if(adTypeMap == null) return HtmlCode.NULL_VALUE;
             var ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
             if(ad == null) return HtmlCode.ID_NOT_FOUND;
 
-            // IF a tag already exists
-            var tag = adTypeRepo.findOneByName(adTypeName);
-            if(tag != null) {
-                ad.setAdType(tag);
-            } else {
-                var registerTag = adTypeRepo.save(new AdType(adTypeName));
-                ad.setAdType(registerTag);
-            }
-
+            ad.setAdType(new AdType(Integer.parseInt(adTypeMap.get("idAdType").toString()), adTypeMap.get("name").toString()));
             adRepo.save(ad);
             return HtmlCode.SUCCESS;
         } catch (Exception e) {

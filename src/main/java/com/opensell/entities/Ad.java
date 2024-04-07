@@ -1,9 +1,13 @@
 package com.opensell.entities;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
@@ -83,11 +87,38 @@ public class Ad {
     )
     private Set<AdTag> adTags;
 
-	@OneToMany
-	@JoinColumn(name = "ad_id", nullable = false)
+    @JsonIgnore
+	@OneToMany(mappedBy = "ad")
 	private List<AdImage> adImages;
 
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
+
+    @JsonIgnore
+    public Set<String> getTagsName() {
+        return this.adTags
+                .stream()
+                .map(AdTag::getName)
+                .collect(Collectors.toSet());
+    }
+
+    @JsonIgnore
+    public List<String> getImagesPath() {
+        return this.adImages
+                .stream()
+                .map(AdImage::getPath)
+                .toList();
+    }
+
+    @JsonIgnore
+    public String getFirstImagePath() {
+        Optional<String> imagePath = this.adImages
+                .stream()
+                .filter(img -> img.getSpot() == 0)
+                .findFirst()
+                .map(AdImage::getPath);
+
+        return imagePath.orElse(null);
+    }
 }
