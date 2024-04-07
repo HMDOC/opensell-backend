@@ -47,7 +47,7 @@ public class Customer {
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
     private Boolean isActivated;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length=12)
     private String link;
 
     @OneToOne

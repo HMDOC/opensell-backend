@@ -72,7 +72,7 @@ public class Ad {
     @Column(nullable = false)
     private String address;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length=12)
     private String link;
 
     @ManyToOne
