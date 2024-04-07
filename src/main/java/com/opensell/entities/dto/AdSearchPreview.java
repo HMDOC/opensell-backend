@@ -2,6 +2,7 @@ package com.opensell.entities.dto;
 
 
 import com.opensell.entities.Ad;
+import lombok.Data;
 
 /**
  * Record used for when the customer will see an Ad while searching.
@@ -11,6 +12,7 @@ import com.opensell.entities.Ad;
  */
 
 // Maybe the order
+@Data
 public class AdSearchPreview {
 	public String adTitle;
 	public double adPrice;
@@ -25,6 +27,6 @@ public class AdSearchPreview {
 		this.adShape = ad.getShape();
 		this.isAdSold = ad.isSold();
 		this.adLink = ad.getLink();
-		this.adFirstImagePath = ad.getFirstImage().getPath();
+		this.adFirstImagePath = ad.getFirstImagePath();
 	}
 }

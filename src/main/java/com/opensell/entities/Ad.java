@@ -108,12 +108,13 @@ public class Ad {
                 .toList();
     }
 
-    public AdImage getFirstImage() {
-        Optional<AdImage> image = this.adImages
+    public String getFirstImagePath() {
+        Optional<String> imagePath = this.adImages
                 .stream()
                 .filter(img -> img.getSpot() == 0)
-                .findFirst();
+                .findFirst()
+                .map(AdImage::getPath);
 
-        return image.orElse(null);
+        return imagePath.orElse(null);
     }
 }
