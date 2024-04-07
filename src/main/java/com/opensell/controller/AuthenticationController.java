@@ -2,9 +2,11 @@ package com.opensell.controller;
 
 import com.opensell.entities.Customer;
 import com.opensell.entities.customer.CustomerInfo;
+import com.opensell.entities.dto.CustomerDto;
 import com.opensell.entities.verification.VerificationCode;
 import com.opensell.entities.verification.VerificationCode.VerificationCodeType;
 import com.opensell.repository.CustomerInfoRepository;
+import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
@@ -12,6 +14,8 @@ import com.opensell.service.timeService.*;
 import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
+import com.opensell.service.FileUploadService.RandName;
+
 import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,10 +47,10 @@ public class AuthenticationController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private CustomerInfoRepository customerInfoRepository;
+    private CustomerRepository customerRepo;
 
     @GetMapping("/login")
-    public CustomerInfo login(@RequestParam String username, @RequestParam String pwd) {
+    public Integer login(@RequestParam String username, @RequestParam String pwd) {
         Customer customer = rep.getUser(username);
         if (customer == null) {
             return null; // Utilisateur non trouvé
@@ -54,11 +58,15 @@ public class AuthenticationController {
         else {
             String encodedPass = customer.getPwd();
             if (passwordEncoder.matches(pwd, encodedPass)) {
-                System.out.println(customerInfoRepository.findById(customer.getIdCustomer()));
-                return customerInfoRepository.findById(customer.getIdCustomer()); // Authentifié
+                return customer.getIdCustomer();
             }
             return null; // Mauvais mot de passe
         }
+    }
+
+    @GetMapping("/getDto")
+    public CustomerDto getCustomerDto(@RequestParam int idCustomer) {
+        return new CustomerDto(customerRepo.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(idCustomer));
     }
 
     @PostMapping("/signup")
@@ -70,13 +78,12 @@ public class AuthenticationController {
         } else {
             String code = codeService.generateCode();
             Date now = new Date(System.currentTimeMillis());
-            String link = FileUploadService.randFileName("");
+            String link = FileUploadService.randFileName("", RandName.URL);
 
             VerificationCode newCode = new VerificationCode();
             Customer customer = new Customer();
             CustomerInfo infos = new CustomerInfo();
 
-            infos.setFirstName(username);
             infosrep.save(infos);
 
             customer.setJoinedDate(now);
@@ -108,7 +115,7 @@ public class AuthenticationController {
     @GetMapping("/verify-code")
     public int verifyCode(@RequestParam String email, @RequestParam String inputCode) {
         if (codeRep.getCodeByEmail(email).equals(inputCode)) {
-            if (rep.makeVerified(email) == 1) {
+            if (rep.makeActivated(email) == 1) {
                 return 0; // Email verified
             }
         }

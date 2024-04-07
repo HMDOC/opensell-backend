@@ -17,6 +17,18 @@ import lombok.Getter;
 @Service
 public class FileUploadService {
 	
+	public static enum RandName {
+		URL(12),
+		FILE_NAME(30);
+
+		@Getter
+		private int length;
+
+		private RandName(int length) {
+			this.length = length;
+		}
+	}
+
 	public enum FileType {
 		AD_IMAGE("ad-image/"),
 		CUSTOMER_PROFIL("customer-profil/");
@@ -57,10 +69,10 @@ public class FileUploadService {
 	 * 
 	 * @author Achraf
 	 */
-	public static String randFileName(String extension) {
+	public static String randFileName(String extension, RandName randName) {
 		StringBuilder fileNameBuilder = new StringBuilder();
 
-		for(int i = 0; i < 30; i++) {
+		for(int i = 0; i < randName.length; i++) {
 			fileNameBuilder.append(randAsciiLetter());
 		}
 		fileNameBuilder.append(extension);
@@ -88,11 +100,11 @@ public class FileUploadService {
 
 			files.forEach(file -> {
 				try {
-					String randomFileName = fileType.folder+randFileName(".png");
+					String randomFileName = fileType.folder+randFileName(".png", RandName.URL);
 					File destFile = new File(path+randomFileName);
 
 					while(destFile.exists()) {
-						randomFileName = fileType.folder+randFileName(".png");
+						randomFileName = fileType.folder+randFileName(".png", RandName.URL);
 						destFile.renameTo(new File(path+randomFileName));
 					}
 

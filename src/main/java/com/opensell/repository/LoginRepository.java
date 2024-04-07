@@ -16,7 +16,7 @@ public interface LoginRepository extends JpaRepository<Customer, Integer> {
     public abstract Customer findCustomerByLink(String link);
 
     //login
-    @Query(value= "SELECT * FROM customer c WHERE c.personal_email = ?1 OR c.username = ?1", nativeQuery = true)
+    @Query(value= "SELECT * FROM customer c WHERE c.personal_email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)
     public abstract Customer getUser(String usernameOrEmail);
 
     //signup
@@ -29,8 +29,8 @@ public interface LoginRepository extends JpaRepository<Customer, Integer> {
     public abstract int checkSamePwd(String cLink, String pwd);
 
     @Modifying
-    @Query(value = "UPDATE customer c set c.is_verified = 1 where c.personal_email = ?1", nativeQuery = true)
-    public int makeVerified(String email);
+    @Query(value = "UPDATE customer c set c.is_activated = 1 where c.personal_email = ?1", nativeQuery = true)
+    public int makeActivated(String email);
 
 
 }

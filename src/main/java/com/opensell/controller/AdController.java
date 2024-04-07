@@ -192,7 +192,7 @@ public class AdController {
 
     @GetMapping("/get-customer-ads/{customerId}")
     public List<DisplayAdView> getCustomerAds(@PathVariable Integer customerId) {
-        Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalse(customerId);
+        Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(customerId);
         if (customer != null) {
             return adRepo.getCustomerAds(customer);
         } else return null;
