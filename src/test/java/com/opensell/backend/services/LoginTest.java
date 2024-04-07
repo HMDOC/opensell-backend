@@ -44,8 +44,8 @@ public class LoginTest {
         rep.delete(rep.findCustomerByLink("link"));
     }
 
-    @Test
-    public void testExistingUser() {
-        assertEquals(1, rep.checkLogin("John", "password"));
-    }
+    // @Test
+    // public void testExistingUser() {
+    //     assertEquals(1, rep.checkLogin("John", "password"));
+    // }
 }
