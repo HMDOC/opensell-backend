@@ -88,7 +88,7 @@ public class AdController {
                                           @RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
                                           @RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
                                           @RequestParam(required = false) Integer typeId,
-										  @RequestParam(required = false) List<String> adTags,
+										  @RequestParam(required = false, defaultValue="") List<String> adTags,
                                           @RequestParam(required = false) Integer shapeId, 
                                           @RequestParam(required = false) Boolean filterSold,
                                           @RequestParam(required = false, defaultValue = "addedDate") String sortBy,
@@ -103,7 +103,6 @@ public class AdController {
             List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
 
             for (Ad ad : adList) {
-                
                 if (searchTags != null && !searchTags.isEmpty()) {
                     if (!ad.getTagsName().containsAll(searchTags)) {
                         continue;
