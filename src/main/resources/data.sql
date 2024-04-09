@@ -207,7 +207,7 @@ insert into customer_info (id_customer_info, first_name, last_name, icon_path, p
 
 /* Customer */
 INSERT INTO `customer` (`customer_info_id`, `id_customer`, `is_activated`, `is_deleted`, `is_verified`, `joined_date`, `link`, `personal_email`, `pwd`, `username`) VALUES
-	(1, 1, 1, 0, 1, '2020-08-07 00:00:00', '918033eb4e58', 'mjouhandeau0@photobucket.com', 'bM647j)', 'lcordel0'),
+	(1, 1, 1, 0, 1, '2020-08-07 00:00:00', '918033eb4e58', 'mjouhandeau0@photobucket.com', '$2a$10$guThIuIP0neYouX.sYkWO.Q5mXn1RfcRkcXTJ8/xrbGKKGxEezpgC', 'lcordel0'),
 	(2, 2, 1, 0, 1, '2015-01-26 00:00:00', 'c14325400bf4', 'parondel1@dropbox.com', 'gI3I!QS', 'jfiloniere1'),
 	(3, 3, 1, 1, 1, '2021-12-20 00:00:00', '50c839d125ea', 'cnaisbit2@angelfire.com', 'pL0iI$&', 'tjelfs2'),
 	(4, 4, 1, 0, 1, '2014-08-14 00:00:00', '9161e270f17c', 'gducket3@lycos.com', 'aG74R8)I', 'vgeeson3'),
