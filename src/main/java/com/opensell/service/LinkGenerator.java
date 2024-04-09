@@ -43,7 +43,7 @@ public class LinkGenerator {
     }
 
     public LinkGenerator() {
-        this.linkLength = 30;
+        this.linkLength = 12;
         this.charArray = getCharArray(true);
     }
 
