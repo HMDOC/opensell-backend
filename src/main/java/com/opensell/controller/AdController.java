@@ -82,13 +82,15 @@ public class AdController {
      * @author Davide
      */
     @PostMapping("/search")
-    public List<AdSearchPreview> adSearch(@RequestBody(required = false) ArrayList<String> searchTags, @RequestParam(required = true) String query,
+    public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
                                           @RequestParam(required = false, defaultValue = "0") Double priceMin,
                                           @RequestParam(required = false, defaultValue = "99990d") Double priceMax,
                                           @RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
                                           @RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
                                           @RequestParam(required = false) Integer typeId,
-                                          @RequestParam(required = false) Integer shapeId, @RequestParam(required = false) Boolean filterSold,
+                                          @RequestParam(required = false) Integer shapeId,
+										  @RequestBody(required = false) ArrayList<String> searchTags, 
+										  @RequestParam(required = false) Boolean filterSold,
                                           @RequestParam(required = false, defaultValue = "addedDate") String sortBy,
                                           @RequestParam(required = false, defaultValue = "false") boolean reverseSort) {
 
