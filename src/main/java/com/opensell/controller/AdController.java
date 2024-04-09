@@ -81,14 +81,16 @@ public class AdController {
      *
      * @author Davide
      */
-    @PostMapping("/search")
-    public List<AdSearchPreview> adSearch(@RequestBody(required = false) ArrayList<String> searchTags, @RequestParam(required = true) String query,
+    @GetMapping("/search")
+    public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
                                           @RequestParam(required = false, defaultValue = "0") Double priceMin,
                                           @RequestParam(required = false, defaultValue = "99990d") Double priceMax,
                                           @RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
                                           @RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
                                           @RequestParam(required = false) Integer typeId,
-                                          @RequestParam(required = false) Integer shapeId, @RequestParam(required = false) Boolean filterSold,
+										  @RequestParam(required = false) List<String> adTags,
+                                          @RequestParam(required = false) Integer shapeId, 
+                                          @RequestParam(required = false) Boolean filterSold,
                                           @RequestParam(required = false, defaultValue = "addedDate") String sortBy,
                                           @RequestParam(required = false, defaultValue = "false") boolean reverseSort) {
 
@@ -96,9 +98,12 @@ public class AdController {
                 typeId, filterSold, Sort.by(sortBy));
 
         if (adList != null) {
+			ArrayList searchTags = new ArrayList<String>( (adTags==null) ? null : adTags);
+			
             List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
 
             for (Ad ad : adList) {
+                
                 if (searchTags != null && !searchTags.isEmpty()) {
                     if (!ad.getTagsName().containsAll(searchTags)) {
                         continue;
@@ -109,6 +114,8 @@ public class AdController {
             }
 
             System.out.println(resultList.size());
+            System.out.println(adTags);
+            //System.out.println(searchTags);
             if (reverseSort) {
                 Collections.reverse(resultList);
             }
