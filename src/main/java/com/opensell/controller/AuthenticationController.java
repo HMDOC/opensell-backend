@@ -66,7 +66,10 @@ public class AuthenticationController {
 
     @GetMapping("/getDto")
     public CustomerDto getCustomerDto(@RequestParam int idCustomer) {
-        return new CustomerDto(customerRepo.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(idCustomer));
+        Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(idCustomer);
+        if(customer != null) {
+            return new CustomerDto(customer);
+        } else return null;
     }
 
     @PostMapping("/signup")
