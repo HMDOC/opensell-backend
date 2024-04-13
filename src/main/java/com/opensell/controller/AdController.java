@@ -159,9 +159,6 @@ public class AdController {
             case ModifType.TITLE -> {
                 return adModif.changeTitle(modifBody.value.toString(), idAd);
             }
-            case ModifType.REFERENCE -> {
-                return adModif.changeReference(modifBody.value.toString(), idAd);
-            }
             case ModifType.PRICE -> {
                 return adModif.changePrice(Double.parseDouble(modifBody.value.toString()), idAd);
             }

@@ -84,10 +84,6 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 	public int updateTitle(String title, int idAd);
 
 	@Modifying
-	@Query(value = "UPDATE ad a SET a.reference = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
-	public int updateReference(String reference, int idAd);
-
-	@Modifying
 	@Query(value = "UPDATE ad a SET a.price = ?1 WHERE a.id_ad = ?2 LIMIT 1", nativeQuery = true)
 	public int updatePrice(double price, int idAd);
 

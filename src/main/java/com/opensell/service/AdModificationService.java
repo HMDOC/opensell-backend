@@ -31,16 +31,15 @@ public class AdModificationService {
 	@Autowired
 	private AdTypeRepository adTypeRepo;
 
-    public class ModifType {
+    public static class ModifType {
         public static final int TITLE = 0;
-        public static final int REFERENCE = 1;
-        public static final int PRICE = 2;
-        public static final int AD_TYPE = 3;
-        public static final int ADDRESS = 4;
-        public static final int IS_SOLD = 5;
-        public static final int DESCRIPTION = 6;
-        public static final int VISIBILITY = 7;
-        public static final int SHAPE = 8;
+        public static final int PRICE = 1;
+        public static final int AD_TYPE = 2;
+        public static final int ADDRESS = 3;
+        public static final int IS_SOLD = 4;
+        public static final int DESCRIPTION = 5;
+        public static final int VISIBILITY = 6;
+        public static final int SHAPE = 7;
     }
 
     public static class ModifBody {
@@ -58,19 +57,6 @@ public class AdModificationService {
         } catch(Exception e) {
             e.printStackTrace();
             System.out.println("ERREUR UNIQUE");
-            return HtmlCode.UNIQUE_FAILED;
-        }
-    }
-
-    public int changeReference(String reference, int idAd) {
-        if(reference == null) return HtmlCode.NULL_VALUE;
-        if(reference.length() == 0) return HtmlCode.LENGTH_EMPTY;
-        if(reference.length() > 255) return HtmlCode.LENGTH_OVERFLOW;
-
-        try {
-            return adRepo.updateReference(reference, idAd) == 1 ? HtmlCode.SUCCESS : HtmlCode.ID_NOT_FOUND;
-        } catch(Exception e) {
-            e.printStackTrace();
             return HtmlCode.UNIQUE_FAILED;
         }
     }
