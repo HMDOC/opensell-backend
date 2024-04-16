@@ -59,7 +59,7 @@ public class AdService {
 						data.title(), data.description(),
 						data.address(),
 						linkGenerator.generateAdLink(),
-						data.reference());
+						linkGenerator.generateAdLink());
 				//could be replaced by .save ...
 				currentAdId = adRepo.getAdIdFromTitleAndCustomerID(data.customerId(), data.title());
 				result+=insertTags(data.tags(), currentAdId);
