@@ -215,7 +215,7 @@ public class AdController {
     public List<AdImage> saveAdImages(@RequestBody(required = false) List<MultipartFile> adImages,
                                 @RequestParam int idAd,
                                 @RequestParam boolean isModif,
-                                @RequestParam(required = false) String idsToDelete) {
+                                @RequestParam(required = false) List<Integer> idsToDelete) {
         try {
             boolean isAdChanged = false;
 
@@ -226,10 +226,8 @@ public class AdController {
 
             if(adPictures == null || !isModif) adPictures = new ArrayList<>();
             else if(idsToDelete != null && !idsToDelete.isEmpty()) {
-                List<String> imgToDelete = Arrays.asList(idsToDelete.split(","));
-
                 adPictures.removeIf(img -> {
-                    if(imgToDelete.contains(String.valueOf(img.getIdAdImage()))) {
+                    if(idsToDelete.contains(img.getIdAdImage())) {
                         adImageRepo.delete(img);
                         return true;
                     }
