@@ -16,7 +16,7 @@ import com.opensell.repository.AdRepository;
 import com.opensell.repository.CustomerInfoRepository;
 
 @RestController
-@CrossOrigin(value = "http://localhost/")
+@CrossOrigin("${allowedUrl}")
 @RequestMapping("/user")
 public class CustomerInfoController {
     

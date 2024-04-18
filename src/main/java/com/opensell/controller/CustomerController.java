@@ -8,7 +8,7 @@ import com.opensell.entities.dto.CustomerModificationView;
 
 
 @RestController
-@CrossOrigin(value = "http://localhost/")
+@CrossOrigin("${allowedUrl}")
 @RequestMapping("/c")
 public class CustomerController {
 

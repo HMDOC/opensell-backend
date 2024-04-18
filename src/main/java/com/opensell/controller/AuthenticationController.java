@@ -22,7 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(value = "http://localhost/")
+@CrossOrigin("${allowedUrl}")
 public class AuthenticationController {
 
     @Autowired

@@ -27,7 +27,7 @@ import com.opensell.service.FileUploadService;
 import com.opensell.service.AdModificationService.ModifType;
 import com.opensell.service.FileUploadService.FileType;
 
-@CrossOrigin(value = "http://localhost/")
+@CrossOrigin("${allowedUrl}")
 @RestController
 @RequestMapping("/ad")
 public class AdController {

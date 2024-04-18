@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * @author Olivier
  */
 @RestController //extends @RequestBody, which enables automatic serialization of returned values of controllers
-@CrossOrigin("http://localhost")
+@CrossOrigin("${allowedUrl}")
 @RequestMapping("/change")
 public class CustomerModificationController {
 
