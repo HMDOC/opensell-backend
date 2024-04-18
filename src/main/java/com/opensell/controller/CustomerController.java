@@ -1,9 +1,7 @@
 package com.opensell.controller;
 
 import com.opensell.service.CustomerService;
-import com.opensell.service.customerModification.ModificationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.opensell.entities.dto.CustomerModificationView;
@@ -17,9 +15,9 @@ public class CustomerController {
     @Autowired
     private CustomerService service;
 
-    @GetMapping("/get-customer-modification-view/{link}")
-    public CustomerModificationView getPlaceHolder(@PathVariable String link) {
-        return service.getModificationView(link);
+    @GetMapping("/get-customer-modification-view")
+    public CustomerModificationView getPlaceHolder(@RequestParam int id) {
+        return service.getModificationView(id);
     }
 
     @GetMapping("/check-username")
@@ -43,8 +41,8 @@ public class CustomerController {
     }
 
     @GetMapping("/check-same-pwd")
-    public int checkSamePwd(@RequestParam String cLink, @RequestParam String pwd) {
-        return service.checkSamePwd(cLink, pwd);
+    public int checkSamePwd(@RequestParam int id, @RequestParam String pwd) {
+        return service.checkSamePwd(id, pwd);
     }
 
 }

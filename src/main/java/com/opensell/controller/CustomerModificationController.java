@@ -1,5 +1,6 @@
 package com.opensell.controller;
 
+import com.opensell.entities.dto.CustomerModificationData;
 import com.opensell.service.CustomerModificationService;
 import com.opensell.service.customerModification.ModificationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,78 +19,78 @@ public class CustomerModificationController {
     private CustomerModificationService service;
 
     @PutMapping("/change-private-email")
-    public ModificationFeedback changeCustomerPersonalEmail(@RequestParam String email, @RequestParam String link) {
-        return service.changePersonalEmail(email, link);
+    public ModificationFeedback changeCustomerPersonalEmail(@RequestBody CustomerModificationData data) {
+        return service.changePersonalEmail(data);
     }
 
     @PutMapping("/change-username")
-    public ModificationFeedback changeCustomerUsername(@RequestParam String username, @RequestParam String link) {
-        return service.changeUsername(username, link);
+    public ModificationFeedback changeCustomerUsername(@RequestBody CustomerModificationData data) {
+        return service.changeUsername(data);
     }
 
     @PutMapping("/change-pwd")
-    public ModificationFeedback changeCustomerPwd(@RequestParam String pwd, @RequestParam String link) {
-        return service.changePwd(pwd, link);
+    public ModificationFeedback changeCustomerPwd(@RequestBody CustomerModificationData data) {
+        return service.changePwd(data);
     }
 
     @PutMapping("/change-first-name")
-    public ModificationFeedback changeCustomerFirstName(@RequestParam String firstName, @RequestParam String link) {
-        return service.changeFirstName(firstName, link);
+    public ModificationFeedback changeCustomerFirstName(@RequestBody CustomerModificationData data) {
+        return service.changeFirstName(data);
     }
 
     @PutMapping("/change-last-name")
-    public ModificationFeedback changeCustomerLastName(@RequestParam String lastName, @RequestParam String link) {
-        return service.changeLastName(lastName, link);
+    public ModificationFeedback changeCustomerLastName(@RequestBody CustomerModificationData data) {
+        return service.changeLastName(data);
     }
 
     @PutMapping("/change-phone-number")
-    public ModificationFeedback changeCustomerPhoneNumber(@RequestParam String phoneNumber, @RequestParam String link) {
-        return service.changePhoneNumber(phoneNumber, link);
+    public ModificationFeedback changeCustomerPhoneNumber(@RequestBody CustomerModificationData data) {
+        return service.changePhoneNumber(data);
     }
 
     @PutMapping("/change-primary-address")
-    public ModificationFeedback changeCustomerPrimaryAddress(@RequestParam String address, @RequestParam String link) {
-        return service.changePrimaryAddress(address, link);
+    public ModificationFeedback changeCustomerPrimaryAddress(@RequestBody CustomerModificationData data) {
+        return service.changePrimaryAddress(data);
     }
 
     @PutMapping("/change-icon-path")
-    public ModificationFeedback changeCustomerIconPath(@RequestParam String iconPath, @RequestParam String link) {
-        return service.changeIconPath(iconPath, link);
+    public ModificationFeedback changeCustomerIconPath(@RequestBody CustomerModificationData data) {
+        return service.changeIconPath(data);
     }
 
     @PutMapping("/change-bio")
-    public ModificationFeedback changeCustomerBio(@RequestParam String bio, @RequestParam String link) {
-        return service.changeBio(bio, link);
+    public ModificationFeedback changeCustomerBio(@RequestBody CustomerModificationData data) {
+        return service.changeBio(data);
     }
 
     @PutMapping( "/change-public-email")
-    public ModificationFeedback changeCustomerExposedEmail(@RequestParam String email, @RequestParam String link) {
-        return service.changeExposedEmail(email, link);
+    public ModificationFeedback changeCustomerExposedEmail(@RequestBody CustomerModificationData data) {
+        return service.changeExposedEmail(data);
     }
 
     @PutMapping("/change-socials-1")
-    public ModificationFeedback changeCustomerSocials1(@RequestParam String link, @RequestParam String cLink) {
-        return service.changeSocials1(link, cLink);
+    public ModificationFeedback changeCustomerSocials1(@RequestBody CustomerModificationData data) {
+        return service.changeSocials1(data);
     }
 
     @PutMapping("/change-socials-2")
-    public ModificationFeedback changeCustomerSocials2(@RequestParam String link, @RequestParam String cLink) {
-        return service.changeSocials2(link, cLink);
+    public ModificationFeedback changeCustomerSocials2(@RequestBody CustomerModificationData data) {
+        return service.changeSocials2(data);
     }
 
     @PutMapping("/change-socials-3")
-    public ModificationFeedback changeCustomerSocials3(@RequestParam String link, @RequestParam String cLink) {
-        return service.changeSocials3(link, cLink);
+    public ModificationFeedback changeCustomerSocials3(@RequestBody CustomerModificationData data) {
+        return service.changeSocials3(data);
     }
 
     @PutMapping("/change-socials-4")
-    public ModificationFeedback changeCustomerSocials4(@RequestParam String link, @RequestParam String cLink) {
-        return service.changeSocials4(link, cLink);
+    public ModificationFeedback changeCustomerSocials4(@RequestBody CustomerModificationData data) {
+        return service.changeSocials4(data);
     }
 
     @PutMapping("/change-socials-5")
-    public ModificationFeedback changeCustomerSocials5(@RequestParam String link, @RequestParam String cLink) {
-        return service.changeSocials5(link, cLink);
+    public ModificationFeedback changeCustomerSocials5(@RequestBody CustomerModificationData data) {
+        return service.changeSocials5(data);
     }
 
 

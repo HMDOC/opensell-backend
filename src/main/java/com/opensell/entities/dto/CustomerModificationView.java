@@ -12,8 +12,8 @@ public record CustomerModificationView(
         String primaryAddress,
         String bio,
         String iconPath,
-        String social1,
-        String social2,
-        String social3,
-        String social4,
-        String social5) {}
+        String link1,
+        String link2,
+        String link3,
+        String link4,
+        String link5) {}

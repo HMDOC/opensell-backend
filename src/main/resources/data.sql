@@ -1,7 +1,3 @@
-drop trigger if exists ADD_SOCIAL;
-create trigger if not exists ADD_SOCIAL
-    after insert on customer_info
-    for each ROW insert into social_link(customer_info_id, link1, link2, link3, link4, link5) VALUES (NEW.id_customer_info, null, null, null, null, null);
 
 /* CustomerInfo */
 insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number, primary_address) values (1, 'Gallard', 'McEachern', 'http://dummyimage.com/124x100.png/ff4444/ffffff', '720-998-9680', '67 Nelson Hill');

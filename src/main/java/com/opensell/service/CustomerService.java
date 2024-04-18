@@ -2,7 +2,6 @@ package com.opensell.service;
 
 import com.opensell.entities.Customer;
 import com.opensell.entities.customer.CustomerInfo;
-import com.opensell.entities.customer.CustomerSocials;
 import com.opensell.entities.dto.CustomerModificationView;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.LoginRepository;
@@ -23,21 +22,20 @@ public class CustomerService {
     @Autowired
     private CustomerInfoRepository customerInfoRep;
 
-    public CustomerModificationView getModificationView(@PathVariable String link) {
-        Customer c = rep.findCustomerByLink(link);
+    public CustomerModificationView getModificationView(int id) {
+        Customer c = rep.findCustomerByIdCustomer(id);
         CustomerInfo info = c.getCustomerInfo();
-        CustomerSocials cs = customerInfoRep.findCustomerSocialsByLink(link);
         return new CustomerModificationView(c.getUsername(), info.getFirstName(), info.getLastName(),
                 info.getExposedEmail(), info.getPrimaryAddress(), info.getBio(), info.getIconPath(),
-                cs.getLink1(), cs.getLink2(), cs.getLink3(), cs.getLink4(), cs.getLink5());
+                info.getLink1(), info.getLink2(), info.getLink3(), info.getLink4(), info.getLink5());
     }
 
     public int checkUsername(String username) {
         return rep.countByUsername(username);
     }
 
-    public int checkSamePwd(String cLink, String pwd) {
-        return rep.checkSamePwd(cLink, pwd);
+    public int checkSamePwd(int customerId, String pwd) {
+        return rep.checkSamePwd(customerId, pwd);
     }
 
     public int checkPersonalEmail(String email) {

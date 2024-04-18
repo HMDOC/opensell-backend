@@ -1,6 +1,4 @@
 package com.opensell.entities.customer;
-
-import java.util.List;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,4 +37,19 @@ public class CustomerInfo {
 
     @Column(nullable = true)
     private String iconPath;
+
+    @Column(nullable = true)
+    public String link1;
+
+    @Column(nullable = true)
+    public String link2;
+
+    @Column(nullable = true)
+    public String link3;
+
+    @Column(nullable = true)
+    public String link4;
+
+    @Column(nullable = true)
+    public String link5;
 }
