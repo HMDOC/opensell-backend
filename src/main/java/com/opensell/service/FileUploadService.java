@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,7 +18,9 @@ import lombok.Getter;
  */
 @Service
 public class FileUploadService {
-	
+	@Value("${serverUrl}")
+	public String serverUrl;
+
 	public static enum RandName {
 		URL(12),
 		FILE_NAME(30);
@@ -90,7 +94,7 @@ public class FileUploadService {
 	 * @return
 	 * @throws Exception
 	*/
-	public static List<String> saveFiles(List<MultipartFile> files, FileType fileType, String path) throws Exception {
+	public List<String> saveFiles(List<MultipartFile> files, FileType fileType, String path) throws Exception {
 		try {
 			if(files == null) throw new Exception("files cannot be null");
 			if(fileType == null) throw new Exception("fileType cannot be null");
@@ -110,7 +114,7 @@ public class FileUploadService {
 
 					destFile.createNewFile();
 					file.transferTo(destFile);
-					filesPath.add(randomFileName);
+					filesPath.add(serverUrl+randomFileName);
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}

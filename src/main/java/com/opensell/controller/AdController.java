@@ -55,6 +55,9 @@ public class AdController {
     @Autowired
     private CustomerRepository customerRepo;
 
+    @Autowired
+    private FileUploadService fileUploadService;
+
     /**
      * Call function from AdService to get an AdBuyer from a link.
      *
@@ -241,7 +244,7 @@ public class AdController {
 
             // Save Files
             if (adImages != null && !adImages.isEmpty()) {
-                List<String> filePaths = FileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root);
+                List<String> filePaths = fileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root);
                 if (filePaths == null) throw new Exception("No files was saved.");
 
                 int spot = 0;
