@@ -27,20 +27,21 @@ sslKey="SSL_KEY";
 
 # Get tous les arguments du projet
 getArguments() {
-    echo --port=$port --url="$url" --user="$user" --pwd="$pwd" --mailPort="$mailPort" --email="$email" --mailPassword="$mailPassword" --uploadPath="$uploadPath" --allowedUrl="$allowedUrl" --serverUrl="$serverUrl";
+	echo --port=$port --url="$url" --user="$user" --pwd="$pwd" --mailPort="$mailPort" --email="$email" --mailPassword="$mailPassword" --uploadPath="$uploadPath" --allowedUrl="$allowedUrl" --serverUrl="$serverUrl" --sslKey="$sslKey";
 }
 
 # Run le projet normal
 run() {
-    cd $1;
-    sudo ./mvnw spring-boot:run -Dspring-boot.run.arguments="$(getArguments)";
+	cd $1;
+	sudo ./mvnw spring-boot:run -Dspring-boot.run.arguments="$(getArguments)";
 }
 
 # Run la jar du projet
 jar() {
-    sudo java -jar $1 $(getArguments);
+	sudo java -jar $1 $(getArguments);
 }
 
 $*
+
 
 ```
