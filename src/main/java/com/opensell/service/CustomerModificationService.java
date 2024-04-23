@@ -51,36 +51,12 @@ public class CustomerModificationService {
         return getFeedback(() -> rep.updateCustomerPhoneNumber(data.value(), data.id()), () -> RegexVerifier.PHONE_NUMBER.verify(data.value()), data.value());
     }
 
-    public ModificationFeedback changePrimaryAddress(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerPrimaryAddress(data.value(), data.id()), () -> true, data.value());
-    }
-
     public ModificationFeedback changeIconPath(CustomerModificationData data) {
         return getFeedback(() -> rep.updateCustomerIconPath(data.value(), data.id()), () -> true, data.value());
     }
 
     public ModificationFeedback changeBio(CustomerModificationData data) {
         return getFeedback(() -> rep.updateCustomerBio(data.value(), data.id()), () -> true, data.value());
-    }
-    //
-    public ModificationFeedback changeSocials1(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerSocials1(data.value(), data.id()), () -> true, data.value());
-    }
-    //
-    public ModificationFeedback changeSocials2(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerSocials2(data.value(), data.id()), () -> true, data.value());
-    }
-    //
-    public ModificationFeedback changeSocials3(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerSocials3(data.value(), data.id()), () -> true, data.value());
-    }
-    //
-    public ModificationFeedback changeSocials4(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerSocials4(data.value(), data.id()), () -> true, data.value());
-    }
-    //
-    public ModificationFeedback changeSocials5(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerSocials5(data.value(), data.id()), () -> true, data.value());
     }
 
     private ModificationFeedback getFeedback(UpdateCallable callback, ValueValidationCallable validation, String value) {

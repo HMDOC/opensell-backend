@@ -48,11 +48,6 @@ public class CustomerModificationController {
         return service.changePhoneNumber(data);
     }
 
-    @PutMapping("/change-primary-address")
-    public ModificationFeedback changeCustomerPrimaryAddress(@RequestBody CustomerModificationData data) {
-        return service.changePrimaryAddress(data);
-    }
-
     @PutMapping("/change-icon-path")
     public ModificationFeedback changeCustomerIconPath(@RequestBody CustomerModificationData data) {
         return service.changeIconPath(data);
@@ -67,31 +62,4 @@ public class CustomerModificationController {
     public ModificationFeedback changeCustomerExposedEmail(@RequestBody CustomerModificationData data) {
         return service.changeExposedEmail(data);
     }
-
-    @PutMapping("/change-socials-1")
-    public ModificationFeedback changeCustomerSocials1(@RequestBody CustomerModificationData data) {
-        return service.changeSocials1(data);
-    }
-
-    @PutMapping("/change-socials-2")
-    public ModificationFeedback changeCustomerSocials2(@RequestBody CustomerModificationData data) {
-        return service.changeSocials2(data);
-    }
-
-    @PutMapping("/change-socials-3")
-    public ModificationFeedback changeCustomerSocials3(@RequestBody CustomerModificationData data) {
-        return service.changeSocials3(data);
-    }
-
-    @PutMapping("/change-socials-4")
-    public ModificationFeedback changeCustomerSocials4(@RequestBody CustomerModificationData data) {
-        return service.changeSocials4(data);
-    }
-
-    @PutMapping("/change-socials-5")
-    public ModificationFeedback changeCustomerSocials5(@RequestBody CustomerModificationData data) {
-        return service.changeSocials5(data);
-    }
-
-
 }

@@ -8,8 +8,4 @@ public class CustomerModificationException extends Exception {
     public static CustomerModificationException formattingException() {
         return new CustomerModificationException("WRONG FORMAT");
     }
-
-//    public static CustomerModificationException updateUnsuccessfulException() {
-//        return new CustomerModificationException("NOTHING CHANGED");
-//    }
 }

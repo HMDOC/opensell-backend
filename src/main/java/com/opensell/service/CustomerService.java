@@ -26,8 +26,7 @@ public class CustomerService {
         Customer c = rep.findCustomerByIdCustomer(id);
         CustomerInfo info = c.getCustomerInfo();
         return new CustomerModificationView(c.getUsername(), info.getFirstName(), info.getLastName(),
-                info.getExposedEmail(), info.getPrimaryAddress(), info.getBio(), info.getIconPath(),
-                info.getLink1(), info.getLink2(), info.getLink3(), info.getLink4(), info.getLink5());
+                info.getExposedEmail(), info.getBio(), info.getIconPath());
     }
 
     public int checkUsername(String username) {
