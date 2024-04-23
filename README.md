@@ -46,6 +46,6 @@ $*
 
 ```
 4. Générer un certificat SSL dans le dossier du projet avec cette command :
-   ```java
-   sudo keytool -genkey -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12  -validity 3650
-   ```
+```java
+sudo keytool -genkey -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12  -validity 3650
+```
