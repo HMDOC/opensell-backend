@@ -21,7 +21,9 @@ uploadPath="PATH_OF_UPLOAD";
 allowedUrl="URL";
 
 # SERVEUR URL
-serverUrl="SERVEUR_URL"
+serverUrl="SERVEUR_URL";
+
+sslKey="SSL_KEY";
 
 # Get tous les arguments du projet
 getArguments() {
