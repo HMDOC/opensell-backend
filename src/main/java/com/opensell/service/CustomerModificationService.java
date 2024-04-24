@@ -6,6 +6,7 @@ import com.opensell.entities.verification.RegexVerifier;
 import com.opensell.repository.CustomerModificationRepository;
 import com.opensell.service.customerModification.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -22,6 +23,9 @@ public class CustomerModificationService {
 
     @Autowired
     private CustomerModificationRepository rep;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public ModificationFeedback changePersonalEmail(CustomerModificationData data) {
         return getFeedback(() -> rep.updateCustomerPersonalEmail(data.value(), data.id()), () -> RegexVerifier.EMAIL.verify(data.value()), data.value());
@@ -40,7 +44,7 @@ public class CustomerModificationService {
     }
 
     public ModificationFeedback changePwd(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerPwd(data.value(), data.id()), () -> RegexVerifier.PWD.verify(data.value()), data.value());
+        return getFeedback(() -> rep.updateCustomerPwd(passwordEncoder.encode(data.value()), data.id()), () -> RegexVerifier.PWD.verify(data.value()), data.value());
     }
 
     public ModificationFeedback changeUsername(CustomerModificationData data) {
@@ -64,7 +68,7 @@ public class CustomerModificationService {
         try {
             if (!validation.isValid()) throw CustomerModificationException.formattingException();
             result = callback.updateStatement();
-            if (result == 0) throw new SQLException(); //needs a new custom Exception
+            if (result == 0) throw new SQLException();
             return new ModificationFeedback(HtmlCode.SUCCESS, result, value);
         } catch (CustomerModificationException cException) {
             return new ModificationFeedback(HtmlCode.WRONG_FORMAT, result, value);

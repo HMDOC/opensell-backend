@@ -4,8 +4,6 @@ import com.opensell.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.opensell.entities.dto.CustomerModificationView;
-
 
 @RestController
 @CrossOrigin("${allowedUrl}")
@@ -14,11 +12,6 @@ public class CustomerController {
 
     @Autowired
     private CustomerService service;
-
-    @GetMapping("/get-customer-modification-view")
-    public CustomerModificationView getPlaceHolder(@RequestParam int id) {
-        return service.getModificationView(id);
-    }
 
     @GetMapping("/check-username")
     public int checkUsername(@RequestParam String username) {
