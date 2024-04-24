@@ -7,6 +7,8 @@ import com.opensell.entities.dto.adCreation.AdCreationFeedback;
 import com.opensell.entities.verification.HtmlCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.opensell.entities.Ad;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
@@ -37,7 +39,12 @@ public class AdService {
 	 */
 	public AdBuyerView getAdBuyerView(String link) {
 		try {
-			return new AdBuyerView(adRepo.getAdByLink(link));
+			Ad ad = adRepo.getAdByLink(link);
+			if(ad != null) {
+				return new AdBuyerView(ad);
+			} 
+			
+			else return null;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return null;

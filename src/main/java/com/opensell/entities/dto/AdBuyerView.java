@@ -31,6 +31,7 @@ public class AdBuyerView {
 	public AdType adType;
 	public Set<String> adTagsName;
 	public List<AdImage> adImages;
+	public String userPhone;
 	public String username;
 	public String userLink;
 	public String userIcon;
@@ -52,6 +53,7 @@ public class AdBuyerView {
 			this.adType = ad.getAdType();
 			this.adTagsName = tags;
 			this.adImages = ad.getAdImages();
+			this.userPhone = customer.getCustomerInfo().getPhoneNumber();
 			this.username = customer.getUsername();
 			this.userLink = customer.getLink();
 			this.userIcon = customer.getCustomerInfo().getIconPath();
