@@ -1,8 +1,10 @@
 package com.opensell.service;
 
+import com.opensell.entities.Customer;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,12 +20,17 @@ public class CustomerService {
     @Autowired
     private CustomerInfoRepository customerInfoRep;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public int checkUsername(String username) {
         return rep.countByUsername(username);
     }
 
     public int checkSamePwd(int customerId, String pwd) {
-        return rep.checkSamePwd(customerId, pwd);
+        Customer c = rep.findCustomerByIdCustomer(customerId);
+        if (passwordEncoder.matches(pwd, c.getPwd())) return 1;
+        return 0;
     }
 
     public int checkPersonalEmail(String email) {
