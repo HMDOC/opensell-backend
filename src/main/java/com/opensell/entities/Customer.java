@@ -23,9 +23,6 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCustomer;
 
-    @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
-    private Date joinedDate;
-
     @Column(nullable = false, unique = true)
     private String username;
 
@@ -54,4 +51,6 @@ public class Customer {
     @JoinColumn(name = "customer_info_id")
     private CustomerInfo customerInfo;
 
+    @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
+    private Date joinedDate;
 }

@@ -1,4 +1,6 @@
 package com.opensell.entities.customer;
+import java.sql.Date;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

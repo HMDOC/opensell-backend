@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
+import com.opensell.entities.dto.AdSearchPreview;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -120,5 +121,10 @@ public class Ad {
                 .map(AdImage::getPath);
 
         return imagePath.orElse(null);
+    }
+
+    @JsonIgnore
+    public AdSearchPreview toAdSearchPreview() {
+        return new AdSearchPreview(this);
     }
 }

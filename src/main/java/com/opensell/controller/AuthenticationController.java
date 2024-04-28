@@ -89,7 +89,6 @@ public class AuthenticationController {
 
             infosrep.save(infos);
 
-            customer.setJoinedDate(now);
             customer.setUsername(username);
             customer.setPersonalEmail(email);
             customer.setPwd(passwordEncoder.encode(pwd));
