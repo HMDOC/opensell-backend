@@ -27,6 +27,7 @@ public class CustomerDto {
     public int customerId;
 	public String username;
     public String link;
+	public Date joinedDate;
 
 	public CustomerDto(Customer customer) {
 		if(customer != null) {
@@ -34,6 +35,7 @@ public class CustomerDto {
 			this.customerId = customer.getIdCustomer();
 			this.username = customer.getUsername();
 			this.link = customer.getLink();
+			this.joinedDate = customer.getJoinedDate();
 		}
 	}
 }
