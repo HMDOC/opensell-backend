@@ -97,6 +97,7 @@ public class AuthenticationController {
             customer.setIsActivated(false);
             customer.setLink(link);
             customer.setCustomerInfo(infos);
+            customer.setJoinedDate(now);
 
             newCode.setCustomer(customer);
             newCode.setCode(code);
