@@ -36,6 +36,12 @@ run() {
 	sudo ./mvnw spring-boot:run -Dspring-boot.run.arguments="$(getArguments)";
 }
 
+# Créer le jar
+package() {
+        cd $1;
+        sudo ./mvnw package -Dspring-boot.run.arguments="$(getArguments)";
+}
+
 # Run la jar du projet
 jar() {
 	sudo java -jar $1 $(getArguments);
