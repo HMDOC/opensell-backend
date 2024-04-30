@@ -259,16 +259,16 @@ public class AdController {
                     spot++;
                 }
 
+                isAdChanged = true;
+            }
+
+            if(isAdChanged && isModif) {
                 int currentSpot = 0;
                 for(AdImage adImage : adPictures) {
                     adImage.setSpot(currentSpot);
                     currentSpot++;
                 }
-
-                isAdChanged = true;
-            }
-
-            if(isAdChanged && isModif) {
+                
                 ad.setAdImages(adPictures);
                 return adRepo.save(ad).getAdImages();
             }
