@@ -2,10 +2,16 @@ package com.opensell.controller;
 
 import com.opensell.entities.dto.CustomerModificationData;
 import com.opensell.service.CustomerModificationService;
+import com.opensell.service.FileUploadService;
 import com.opensell.service.customerModification.ModificationFeedback;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.util.List;
 
 /**
  * @author Olivier
@@ -15,8 +21,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/change")
 public class CustomerModificationController {
 
+    @Value("${serverUrl}")
+    private String serverUrl;
+
     @Autowired
     private CustomerModificationService service;
+
+    @Autowired
+    private FileUploadService fileUploadService;
 
     @PutMapping("/change-private-email")
     public ModificationFeedback changeCustomerPersonalEmail(@RequestBody CustomerModificationData data) {
@@ -61,5 +73,15 @@ public class CustomerModificationController {
     @PutMapping( "/change-public-email")
     public ModificationFeedback changeCustomerExposedEmail(@RequestBody CustomerModificationData data) {
         return service.changeExposedEmail(data);
+    }
+
+    //@RequestBody List<MultipartFile> multipartFiles
+    @PostMapping("/get-image-icon-path")
+    public String getImageIconPath(@RequestBody List<MultipartFile> multipartFiles)  {
+        try {
+            return fileUploadService.saveFiles(multipartFiles, FileUploadService.FileType.CUSTOMER_PROFIL, serverUrl).get(0);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
