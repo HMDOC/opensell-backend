@@ -50,4 +50,3 @@ $*
 
 ```
 4. Pour run le projet, faire `./launch.sh run PATH_DU_PROJET_BACKEND`
-```
