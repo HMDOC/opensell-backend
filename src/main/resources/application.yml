@@ -2,14 +2,46 @@ server:
   port: ${port}
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 500MB
+      enabled: true
   datasource:
     url: ${url}
     username: ${user}
     password: ${pwd}
   jpa:
-    hibernate.ddl-auto: update
+    hibernate:
+      ddl-auto: create
     show-sql: true
     defer-datasource-initialization: true
-  sql.init.mode: always
-  
-  output.ansi.enabled: always
+  sql:
+    init:
+      mode: always
+      
+  output:
+    ansi:
+      enabled: always
+  mail:
+    host: smtp-mail.outlook.com
+    port: ${mailPort}
+    username: ${email}
+    password: ${mailPassword}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        mime:
+          charset: UTF
+        smtp:
+          write-timeout: 10000
+          connectiontimeout: 10000
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+      verify:
+        host: http://localhost:${port}
+
+
