@@ -1,5 +1,9 @@
 server:
   port: ${port}
+  ssl:
+    key-store: keystore.p12
+    key-store-password: Jacques GPT
+    keyStoreType: PKCS12
 
 spring:
   servlet:
