@@ -10,6 +10,7 @@ spring:
     multipart:
       max-file-size: 50MB
       max-request-size: 500MB
+      enabled: true
   datasource:
     url: ${url}
     username: ${user}

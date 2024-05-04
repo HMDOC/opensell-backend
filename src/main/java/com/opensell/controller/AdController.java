@@ -31,9 +31,6 @@ import com.opensell.service.FileUploadService.FileType;
 @RestController
 @RequestMapping("/ad")
 public class AdController {
-    @Value("${uploadPath}")
-    public String root;
-
     @Autowired
     private AdRepository adRepo;
 
@@ -244,7 +241,7 @@ public class AdController {
 
             // Save Files
             if (adImages != null && !adImages.isEmpty()) {
-                List<String> filePaths = fileUploadService.saveFiles(adImages, FileType.AD_IMAGE, root);
+                List<String> filePaths = fileUploadService.saveFiles(adImages, FileType.AD_IMAGE);
                 if (filePaths == null) throw new Exception("No files was saved.");
 
                 int spot = 0;
@@ -263,6 +260,12 @@ public class AdController {
             }
 
             if(isAdChanged && isModif) {
+                int currentSpot = 0;
+                for(AdImage adImage : adPictures) {
+                    adImage.setSpot(currentSpot);
+                    currentSpot++;
+                }
+                
                 ad.setAdImages(adPictures);
                 return adRepo.save(ad).getAdImages();
             }

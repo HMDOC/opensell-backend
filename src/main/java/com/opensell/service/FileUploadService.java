@@ -21,6 +21,9 @@ public class FileUploadService {
 	@Value("${serverUrl}")
 	public String serverUrl;
 
+	@Value("${uploadPath}")
+    public String uploadPath;
+
 	public static enum RandName {
 		URL(12),
 		FILE_NAME(30);
@@ -94,29 +97,28 @@ public class FileUploadService {
 	 * @return
 	 * @throws Exception
 	*/
-	public List<String> saveFiles(List<MultipartFile> files, FileType fileType, String path) throws Exception {
+	public List<String> saveFiles(List<MultipartFile> files, FileType fileType) throws Exception {
 		try {
 			if(files == null) throw new Exception("files cannot be null");
 			if(fileType == null) throw new Exception("fileType cannot be null");
-			if(path == null) throw new Exception("path cannot be null");
 
 			List<String> filesPath = new ArrayList<>();
 
 			files.forEach(file -> {
 				try {
 					String randomFileName = fileType.folder+randFileName(".png", RandName.URL);
-					File destFile = new File(path+randomFileName);
+					File destFile = new File(uploadPath+randomFileName);
 
 					while(destFile.exists()) {
 						randomFileName = fileType.folder+randFileName(".png", RandName.URL);
-						destFile.renameTo(new File(path+randomFileName));
+						destFile.renameTo(new File(uploadPath+randomFileName));
 					}
 
 					destFile.createNewFile();
 					file.transferTo(destFile);
 					filesPath.add(serverUrl+randomFileName);
 				} catch (Exception e) {
-					System.out.println(e.getMessage());
+					e.printStackTrace();
 				}
 			});
 
