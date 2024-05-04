@@ -23,11 +23,9 @@ allowedUrl="URL";
 # SERVEUR URL
 serverUrl="SERVEUR_URL";
 
-sslKey="SSL_KEY";
-
 # Get tous les arguments du projet
 getArguments() {
-	echo --port=$port --url="$url" --user="$user" --pwd="$pwd" --mailPort="$mailPort" --email="$email" --mailPassword="$mailPassword" --uploadPath="$uploadPath" --allowedUrl="$allowedUrl" --serverUrl="$serverUrl" --sslKey="$sslKey";
+	echo --port=$port --url="$url" --user="$user" --pwd="$pwd" --mailPort="$mailPort" --email="$email" --mailPassword="$mailPassword" --uploadPath="$uploadPath" --allowedUrl="$allowedUrl" --serverUrl="$serverUrl";
 }
 
 # Run le projet normal
@@ -51,7 +49,5 @@ $*
 
 
 ```
-4. Générer un certificat SSL dans le dossier du projet avec cette command :
-```java
-sudo keytool -genkey -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12  -validity 3650
+4. Pour run le projet, faire `./launch.sh run PATH_DU_PROJET_BACKEND`
 ```
