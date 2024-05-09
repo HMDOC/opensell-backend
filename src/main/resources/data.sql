@@ -200,6 +200,7 @@ insert into customer_info (id_customer_info, first_name, last_name, icon_path, p
 insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (198, 'Loree', 'Clemente', 'http://dummyimage.com/161x100.png/ff4444/ffffff', '681-704-3571');
 insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (199, 'Bobby', 'Spata', 'http://dummyimage.com/106x100.png/dddddd/000000', '462-868-6274');
 insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (200, 'George', 'Lecount', 'http://dummyimage.com/233x100.png/ff4444/ffffff', '413-811-6783');
+insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (201, 'LaGrimashe', 'Michie', 'https://media.assettype.com/bloombergquint%2F2023-06%2F1ff74842-ac21-4db2-90a2-8b5dc2b9dad9%2Fgrimace_shake.jpg?auto=format%2Ccompress&w=576', '514-325-0150');
 
 /* Customer */
 INSERT INTO `customer` (`customer_info_id`, `id_customer`, `is_activated`, `is_deleted`, `is_verified`, `joined_date`, `link`, `personal_email`, `pwd`, `username`) VALUES
@@ -402,7 +403,8 @@ INSERT INTO `customer` (`customer_info_id`, `id_customer`, `is_activated`, `is_d
 	(197, 197, 1, 1, 1, '2020-02-27 00:00:00', 'aa9437f424c6', 'tmacentee5g@mapy.cz', 'aY1D?qd<"ka', 'ielfleet5g'),
 	(198, 198, 1, 1, 1, '2019-03-29 00:00:00', 'eb82eb71724b', 'mcolquyte5h@kickstarter.com', 'aX0*Hy})', 'csteeples5h'),
 	(199, 199, 1, 0, 1, '2003-11-23 00:00:00', 'c1e4f8182efa', 'jmasey5i@artisteer.com', 'jE0POhx|', 'rclogg5i'),
-	(200, 200, 1, 1, 0, '2016-12-18 00:00:00', 'ae02cb59df2b', 'akaret5j@pbs.org', 'xW6@l)|rNZI', 'rdonke5j');
+	(200, 200, 1, 1, 0, '2016-12-18 00:00:00', 'ae02cb59df2b', 'akaret5j@pbs.org', 'xW6@l)|rNZI', 'rdonke5j'),
+	(201, 201, 1, 0, 0, '2024-05-08 00:00:00', 'jitwoeUOflSg', 'gafic12884@facais.com', '$2a$10$YPoGDxvCCTCJC1zci2H9mea8Lrk3EOi9JddoKNRA41MG./oUtV5ui', 'Grimashake');
 
 /* AdTag */
 insert into ad_tag (id_ad_tag, name) values (1, 'SDH');
@@ -605,6 +607,8 @@ insert into ad_tag (id_ad_tag, name) values (197, 'BZZT');
 insert into ad_tag (id_ad_tag, name) values (198, 'YRF');
 insert into ad_tag (id_ad_tag, name) values (199, 'ANS');
 insert into ad_tag (id_ad_tag, name) values (200, 'LNB');
+insert into ad_tag (id_ad_tag, name) values (201, 'purple');
+insert into ad_tag (id_ad_tag, name) values (202, 'shake');
 
 /* AdType */
 insert into ad_type (id_ad_type, name) values (1, 'Car');
@@ -829,7 +833,9 @@ INSERT INTO `ad` (`ad_type_id`, `added_date`, `customer_id`, `id_ad`, `is_delete
 	(17, '2023-02-16 00:00:00', 197, 197, 0, 1, 2553.57, 3, 2, 'Metro', 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.', '20th Floor', '126QtYx55zr8', 'Operative'),
 	(18, '2023-03-10 00:00:00', 198, 198, 0, 1, 6588.75, 1, 2, 'Miata MX-5', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', '7th Floor', '1D1iyjxHR5fq', 'software'),
 	(19, '2024-01-26 00:00:00', 199, 199, 0, 0, 3677.82, 1, 1, 'S-Class', 'In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.', 'Room 614', '1JV4wmxdkR89', 'encompassing'),
-	(20, '2023-09-04 00:00:00', 200, 200, 0, 0, 3432.77, 1, 2, 'Navigator', 'Nulla ut erat id mauris vulputate elementum. Nullam varius.', 'PO Box 71467', '1EvDieZutcWp', 'web-enabled');
+	(20, '2023-09-04 00:00:00', 200, 200, 0, 0, 3432.77, 1, 2, 'Navigator', 'Nulla ut erat id mauris vulputate elementum. Nullam varius.', 'PO Box 71467', '1EvDieZutcWp', 'web-enabled'),
+	(2, '2024-05-08 18:11:36', 201, 201, 0, 0, 15.99, 0, 0, 'Purple Milkshake', ' ASDF ASDF ASDF ASDF ASDF ASDF ', '7000 Rue Marie-Victorin, Montréal, QC H1G 2J6', 'the-grimache', 'web-enabled');
+
 
 /* AdImage */
 insert into ad_image (ad_id, id_ad_image, path, spot) values (1, 4, 'http://dummyimage.com/1249x1340.png/5fa2dd/ffffff', 0);
@@ -1631,9 +1637,11 @@ insert into ad_image (ad_id, id_ad_image, path, spot) values (199, 797, 'http://
 insert into ad_image (ad_id, id_ad_image, path, spot) values (199, 798, 'http://dummyimage.com/1795x658.png/cc0000/ffffff', 2);
 insert into ad_image (ad_id, id_ad_image, path, spot) values (199, 799, 'http://dummyimage.com/1722x904.png/5fa2dd/ffffff', 3);
 insert into ad_image (ad_id, id_ad_image, path, spot) values (200, 800, 'http://dummyimage.com/1660x913.png/cc0000/ffffff', 0);
-
-
-
+insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 801, 'https://www.masslive.com/resizer/v2/3GGRYPT3A5GXHCGHPXVSOMLR2Q.jpg?auth=4d94c79d3ba42f79aa344b58e16c57ed3993c6e0edadd53993eff3921e52c4e1&width=1280&quality=90', 0);
+insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 802, 'https://i0.wp.com/www.theimpulsivebuy.com/wordpress/wp-content/uploads/2023/06/mcdgrimace1.jpeg?resize=600%2C450&ssl=1', 1);
+insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 803, 'https://www.americamagazine.org/sites/default/files/main_image/2023/06/26/Screen%20Shot%202023-06-26%20at%202.50.42%20PM.png.png', 2);
+insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 804, 'https://www.thedailymeal.com/img/gallery/mcdonalds-customers-cant-agree-on-the-new-grimace-shakes-flavor/intro-1686935261.jpg', 3);
+insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 805, 'https://media.discordapp.net/attachments/1202766371193360447/1237899637852078131/IMG_3072.png?ex=663d5360&is=663c01e0&hm=5c2a3a9501a490a44a0cbbb8d4e1ccf9ff78d7a0c6f8e2fa20b0569435b1caa8&=&format=webp&quality=lossless&width=1035&height=670', 4);
 
 /* ad_ad_tag_rel */
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (89, 1);
@@ -1836,3 +1844,5 @@ insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (73, 197);
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (154, 198);
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (51, 199);
 insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (59, 200);
+insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (201, 201);
+insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (201, 202);
