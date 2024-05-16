@@ -37,8 +37,8 @@ public class FileUploadService {
 	}
 
 	public enum FileType {
-		AD_IMAGE("ad-image/"),
-		CUSTOMER_PROFIL("customer-profil/");
+		AD_IMAGE("/ad-image/"),
+		CUSTOMER_PROFIL("/customer-profil/");
 
 		@Getter
 		private String folder;
