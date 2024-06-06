@@ -14,8 +14,6 @@ Opensell is a website that let user create and search ads. The website use React
 - [MariaDB](https://mariadb.org/download/)
 - [JDK 21](https://www.oracle.com/ca-en/java/technologies/downloads/#java21)
 
-<button onclick="alert(10)">hi there</button>
-
 </details>
 
 <!-- Frontend section -->
