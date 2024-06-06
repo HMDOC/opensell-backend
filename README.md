@@ -3,7 +3,7 @@
 Opensell is a website that let user create and search ads. The website use React in the frontend and Spring Boot in the backend.
 
 <!-- Nee to put the some icon that give info -->
-![Home ](src/home.png)
+![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home.png)
 
 ## Installation
 <!-- Dependencies -->
@@ -70,12 +70,12 @@ npm start
 
 ## Preview
 
-![About us](./src/login.png)
+![Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/login.png)
 
-![About us](./src/connected_option_in_main_page.png)
+![Home Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/connected_option_in_main_page.png)
 
-![About us](./src/my-ads.png)
+![My Ads](https://raw.githubusercontent.com/HMDOC/readme-src/main/my-ads.png)
 
-![About us](./src/profil.png)
+![Profil](https://raw.githubusercontent.com/HMDOC/readme-src/main/profil.png)
 
-![About us](./src/settings.png)
+![Settings](https://raw.githubusercontent.com/HMDOC/readme-src/main/settings.png)
