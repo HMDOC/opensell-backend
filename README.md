@@ -45,7 +45,7 @@ git clone https://github.com/HMDOC/opensell-backend
 # Import the project in your IDE.
 ```
 
-In your IDE, you need to add this in the `run configurations` of your project section `VM options` :
+In your IDE, go to `run configurations` for the project and add this in section `VM options` :
 ```sh
 -Dport=9108 -Durl="jdbc:mariadb://localhost:3306/mydatabase" -Duser="john" -Dpwd="THIS_IS_NOT_MY_PASSWORD" -DmailPort=587 -Demail="nothankyou@github.com" -DmailPassword="THIS_IS_NOT_MY_PASSWORD" -DuploadPath="<PATH_OF_THE_IMAGES>" -DallowedUrl="http://localhost/" -DserverUrl="<BACKEND_URL>"
 ```
