@@ -1,52 +1,81 @@
-# Étapes requise
-1. Avoir Java 21 ou supérieur.
-2. Cloner le projet `git clone https://github.com/HMDOC/opensell-backend/`.
-3. À l'extérieur du folder du projet, créer un fichier nommé launch.sh avec le contenu suivant:
-```sh
-# DEFAULT
-port=PORT_NUMBER;
-url="URL_OF_DATABASE";
-user="USERNAME";
-pwd="PASSWORD";
+# Opensell
 
-# MAIL
-mailPort=587;
-email="EMAIL";
-mailPassword="EMAIL_PASSWORD";
+Opensell is a website that let user create and search ads. The website use React in the frontend and Spring Boot in the backend.
 
-# UPLOAD
-uploadPath="PATH_OF_UPLOAD";
+<!-- Nee to put the some icon that give info -->
+![Home ](src/home.png)
 
-# WEBSITE URL
-allowedUrl="URL";
+## Installation
+<!-- Dependencies -->
+<details open><summary><b>External dependencies</b></summary>
+<br />
 
-# SERVEUR URL
-serverUrl="SERVEUR_URL";
+- [nodejs](https://nodejs.org/en/download/prebuilt-installer)
+- [MariaDB](https://mariadb.org/download/)
+- [JDK 21](https://www.oracle.com/ca-en/java/technologies/downloads/#java21)
 
-# Get tous les arguments du projet
-getArguments() {
-	echo --port=$port --url="$url" --user="$user" --pwd="$pwd" --mailPort="$mailPort" --email="$email" --mailPassword="$mailPassword" --uploadPath="$uploadPath" --allowedUrl="$allowedUrl" --serverUrl="$serverUrl";
-}
+<button onclick="alert(10)">hi there</button>
 
-# Run le projet normal
-run() {
-	cd $1;
-	sudo ./mvnw spring-boot:run -Dspring-boot.run.arguments="$(getArguments)";
-}
+</details>
 
-# Créer le jar
-package() {
-        cd $1;
-        sudo ./mvnw package -Dspring-boot.run.arguments="$(getArguments)";
-}
+<!-- Frontend section -->
+<details open><summary><b>Frontend</b></summary>
+<br />
 
-# Run la jar du projet
-jar() {
-	sudo java -jar $1 $(getArguments);
-}
-
-$*
-
-
+Setup :
 ```
-4. Pour run le projet, faire `./launch.sh run PATH_DU_PROJET_BACKEND`
+git clone https://github.com/HMDOC/opensell-frontend
+cd opensell-frontend/
+npm install
+```
+
+Create a file named `data.json` in the `src` folder with this content :
+```json
+{
+    "url": "<BACKEND_URL>"
+}
+```
+</details>
+
+<!-- Backend section -->
+<details open><summary><b>Backend</b></summary>
+<br />
+
+Setup :
+```
+git clone https://github.com/HMDOC/opensell-backend
+# Import the project in your IDE.
+```
+
+In your IDE, you need to add this in the `run configurations` of your project section `VM options` :
+```sh
+-Dport=9108 -Durl="jdbc:mariadb://localhost:3306/mydatabase" -Duser="john" -Dpwd="THIS_IS_NOT_MY_PASSWORD" -DmailPort=587 -Demail="nothankyou@github.com" -DmailPassword="THIS_IS_NOT_MY_PASSWORD" -DuploadPath="<PATH_OF_THE_IMAGES>" -DallowedUrl="http://localhost/" -DserverUrl="<BACKEND_URL>"
+```
+
+To enable images :
+```
+You need to create two folders one named "/ad-image" that will contain the images for the ads and the other "/customer-profil" will contain the profil pictures of the users. They need to be accessible by http like this : http://<BACKEND_URL>/ad-image/.
+```
+
+</details>
+
+## Run the project
+
+```sh
+# Frontend
+npm start
+
+# Backend : run with your IDE.
+```
+
+## Preview
+
+![About us](./src/login.png)
+
+![About us](./src/connected_option_in_main_page.png)
+
+![About us](./src/my-ads.png)
+
+![About us](./src/profil.png)
+
+![About us](./src/settings.png)
