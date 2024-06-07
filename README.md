@@ -3,7 +3,7 @@
 Opensell is a website for buying and selling ads that we made in the course 420-412-MV(project - development of a web application) at Cegep Marie-Victorin.
 
 <!-- Need to put some icon that give info -->
-![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home.png)
+![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home3.png)
 
 ## Features
 
