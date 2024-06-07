@@ -1,9 +1,32 @@
 # Opensell
 
-Opensell is a website that let user create and search ads. The website use React in the frontend and Spring Boot in the backend.
+Opensell is a website for buying and selling ads that we made in the course 420-412-MV(project - development of a web application) at Cegep Marie-Victorin.
 
-<!-- Nee to put the some icon that give info -->
+<!-- Need to put some icon that give info -->
 ![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home.png)
+
+## Features
+
+- Login and sign up.
+- Creating and modifying ads.
+- Searching ads with multiples filter like price range, category, tags, shape and many more.
+- Changing information about our account like our phone number, bio, picture, etc.
+
+## Technologies
+
+### Frontend
+
+- Typescript
+- React
+- Axios
+- react-bootstrap
+- react-modal
+
+### Backend
+
+- Java
+- Spring Boot
+- Lombok
 
 ## Installation
 <!-- Dependencies -->
