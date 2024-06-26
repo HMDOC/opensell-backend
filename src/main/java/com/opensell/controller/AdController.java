@@ -2,6 +2,8 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.*;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.opensell.entities.dto.*;
 import com.opensell.entities.dto.adCreation.AdCreationData;
 import com.opensell.entities.dto.adCreation.AdCreationFeedback;
@@ -146,7 +148,6 @@ public class AdController {
      * Function to modify element of an ad.
      *
      * @param modifType What is the field you want to modify.
-     * @param value     The new value of the field.
      * @param idAd      The id of the row.
      * @return ResultCode
      * @author Achraf
@@ -209,8 +210,13 @@ public class AdController {
         return adService.saveAd(data);
     }
 
+    public static record ImagesBody(List<MultipartFile> adImages, String test, int id) {
+
+    }
+
     @PostMapping("/save-ad-images")
-    public List<AdImage> saveAdImages(@RequestBody(required = false) List<MultipartFile> adImages,
+    public List<AdImage> saveAdImages(
+                                @RequestBody(required = false) List<MultipartFile> adImages,
                                 @RequestParam int idAd,
                                 @RequestParam boolean isModif,
                                 @RequestParam(required = false) List<Integer> idsToDelete) {
@@ -274,9 +280,8 @@ public class AdController {
         }
     }
 
-    // Met le @Valid et @Validated dans le service.
-    @GetMapping("/v2/update")
-    public ResponseEntity<DisplayAdView> updateV2(@RequestBody List<MultipartFile> files, @RequestParam List<Integer> imagePositions, AdCreator adCreator) {
-        return adService.createOrUpdateAd(files, imagePositions, adCreator);
+    @PostMapping("/v2/update")
+    public ResponseEntity<DisplayAdView> updateV2(@RequestBody(required = false) List<MultipartFile> images, @RequestParam(required = false) List<Integer> imagePositions, AdCreator adCreator) throws JsonProcessingException {
+        return adService.createOrUpdateAd(images, imagePositions, adCreator);
     }
 }

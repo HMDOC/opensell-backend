@@ -6,7 +6,6 @@ import com.opensell.entities.ad.AdVisibility;
 import jakarta.validation.constraints.*;
 
 import java.util.List;
-import java.util.Map;
 
 public record AdCreator(
     Integer adId,
@@ -43,5 +42,5 @@ public record AdCreator(
     @Min(0)
     int visibility,
 
-    List<String> adImages
+    String adImagesJson
 ) {}

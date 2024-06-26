@@ -2,10 +2,12 @@ package com.opensell.service;
 
 import java.sql.Date;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.entities.ad.AdImage;
-import com.opensell.entities.ad.AdShape;
 import com.opensell.entities.dto.AdCreator;
 import com.opensell.entities.dto.DisplayAdView;
 import com.opensell.entities.dto.adCreation.AdCreationData;
@@ -16,7 +18,6 @@ import com.opensell.repository.CustomerRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -27,11 +28,7 @@ import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.AdTypeRepository;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.function.EntityResponse;
 
 /**
  * This service is used to
@@ -138,8 +135,9 @@ public class AdService {
 	}
 
 	public ResponseEntity<DisplayAdView> createOrUpdateAd(List<MultipartFile> images, List<Integer> imagePositions, @Valid AdCreator adCreator
-	) throws RuntimeException {
-		Ad ad = (adCreator.adId() == null ? new Ad() : adRepo.findOneByIdAdAndIsDeletedFalse(adCreator.adId()));
+	) throws RuntimeException, JsonProcessingException {
+		boolean isUpdate = adCreator.adId() != null;
+		Ad ad = (isUpdate ? adRepo.findOneByIdAdAndIsDeletedFalse(adCreator.adId()) : new Ad());
 
 		if(adRepo.checkTitle(adCreator.customerId(), adCreator.title()) == 1) {
 			throw new AdTitleUniqueException();
@@ -147,22 +145,31 @@ public class AdService {
 
 		setFromAdCreator(adCreator, ad);
 
-		List<AdImage> adImages = new ArrayList<>();
+        // Create the list by getting the oldAdImages if it is an update, else new ArrayList.
+        List<AdImage> adImages = (
+			isUpdate ? new ObjectMapper().readValue(adCreator.adImagesJson(), new TypeReference<>() {}) : new ArrayList<>()
+		);
+
 		if(images != null && !images.isEmpty()) {
+			if(isUpdate && imagePositions.size() != images.size()) throw new RuntimeException("imagePosition need to be the same size as images.");
+
 			List<String> filePaths = fileUploadService.saveFiles(images, FileUploadService.FileType.AD_IMAGE);
 			if (filePaths == null) throw new RuntimeException("No files was saved.");
-			if(filePaths.size() != imagePositions.size()) throw new RuntimeException("All images were not saved.");
+			if(filePaths.size() != images.size()) throw new RuntimeException("All images were not saved.");
 
-			for (int i = 0; i < imagePositions.size(); i++) {
-				adImages.add(new AdImage(filePaths.get(i), imagePositions.get(i), true, ad));
+			if(isUpdate) {
+				for (int i = 0; i < imagePositions.size(); i++) {
+					adImages.add(new AdImage(filePaths.get(i), imagePositions.get(i), true, ad));
+				}
+			} else {
+				for(int i = 0; i < filePaths.size(); i++) {
+					new AdImage(filePaths.get(i), i, true, ad);
+				}
 			}
+
 		}
 
-		// Il reste à gérer les anciennes images.
-		// Tout ce qu'il faut faire, c'est de convertir les String images en AdImages et directement les rajouter dans la liste
-		
-
-		adRepo.save(ad);
-		return new ResponseEntity<>(new DisplayAdView(ad), HttpStatus.OK);
+		ad.setAdImages(adImages);
+		return new ResponseEntity<>(new DisplayAdView(adRepo.save(ad)), HttpStatus.OK);
 	}
 }
