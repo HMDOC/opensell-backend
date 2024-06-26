@@ -2,13 +2,14 @@ package com.opensell.controller;
 
 import java.sql.Date;
 import java.util.*;
-
+import com.opensell.entities.dto.*;
 import com.opensell.entities.dto.adCreation.AdCreationData;
 import com.opensell.entities.dto.adCreation.AdCreationFeedback;
 import com.opensell.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.opensell.entities.Ad;
@@ -16,19 +17,16 @@ import com.opensell.entities.Customer;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
-import com.opensell.entities.dto.AdBuyerView;
-import com.opensell.entities.dto.AdModifView;
-import com.opensell.entities.dto.AdSearchPreview;
-import com.opensell.entities.dto.DisplayAdView;
 import com.opensell.entities.verification.HtmlCode;
 import com.opensell.service.AdModificationService;
-import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService;
 import com.opensell.service.AdModificationService.ModifType;
+import com.opensell.service.AdService;
 import com.opensell.service.FileUploadService.FileType;
 
 @CrossOrigin("${allowedUrl}")
 @RestController
+@Validated
 @RequestMapping("/ad")
 public class AdController {
     @Autowired
@@ -274,5 +272,11 @@ public class AdController {
             e.printStackTrace();
             return null;
         }
+    }
+
+    // Met le @Valid et @Validated dans le service.
+    @GetMapping("/v2/update")
+    public ResponseEntity<DisplayAdView> updateV2(@RequestBody List<MultipartFile> files, @RequestParam List<Integer> imagePositions, AdCreator adCreator) {
+        return adService.createOrUpdateAd(files, imagePositions, adCreator);
     }
 }

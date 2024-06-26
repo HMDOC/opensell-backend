@@ -97,7 +97,7 @@ public class FileUploadService {
 	 * @return
 	 * @throws Exception
 	*/
-	public List<String> saveFiles(List<MultipartFile> files, FileType fileType) throws Exception {
+	public List<String> saveFiles(List<MultipartFile> files, FileType fileType) {
 		try {
 			if(files == null) throw new Exception("files cannot be null");
 			if(fileType == null) throw new Exception("fileType cannot be null");

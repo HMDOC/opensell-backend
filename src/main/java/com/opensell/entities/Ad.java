@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
+import com.opensell.entities.dto.AdCreator;
 import com.opensell.entities.dto.AdSearchPreview;
 
 import jakarta.persistence.Column;
@@ -26,9 +27,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Table(uniqueConstraints = {
 	@UniqueConstraint(columnNames = {"reference", "customer_id"}, name = "reference_customer"),
 	@UniqueConstraint(columnNames = {"title", "customer_id"}, name = "title_customer")
@@ -114,13 +117,17 @@ public class Ad {
 
     @JsonIgnore
     public String getFirstImagePath() {
-        Optional<String> imagePath = this.adImages
+        if(this.adImages != null) {
+            Optional<String> imagePath = this.adImages
                 .stream()
                 .filter(img -> img.getSpot() == 0)
                 .findFirst()
                 .map(AdImage::getPath);
 
-        return imagePath.orElse(null);
+            return imagePath.orElse(null);
+        }
+
+        return null;
     }
 
     @JsonIgnore

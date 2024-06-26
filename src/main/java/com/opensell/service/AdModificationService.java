@@ -1,7 +1,6 @@
 package com.opensell.service;
 
 import java.util.*;
-
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,9 +117,24 @@ public class AdModificationService {
         }
     }
 
-    // JPA
-    public int changeAdImages(List<String> adImages, int idAd) {
-        return 0;
+    public Set<AdTag> getAdTagsFromStringList(List<String> tags) {
+        Set<AdTag> adTags = new LinkedHashSet<>();
+
+        // Map over the set of string
+        tags.forEach(tag -> {
+            if (AdTag.isNameValid(tag)) {
+                // Get the old tag from the database
+                AdTag tagTemp = adTagRepo.findOneByName(tag);
+
+                // If the tag already exists
+                if (tagTemp != null) adTags.add(tagTemp);
+
+                    // If the tag does exists
+                else adTags.add(adTagRepo.save(new AdTag(tag)));
+            }
+        });
+
+        return adTags;
     }
 
     /**
@@ -136,21 +150,7 @@ public class AdModificationService {
             Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
 
             if (ad == null) return HtmlCode.ID_NOT_FOUND;
-            Set<AdTag> adTags = new LinkedHashSet<>();
-
-            // Map over the set of string
-            frontendTags.forEach(tag -> {
-                if (AdTag.isNameValid(tag)) {
-                    // Get the old tag from the database
-                    AdTag tagTemp = adTagRepo.findOneByName(tag);
-
-                    // If the tag already exists
-                    if (tagTemp != null) adTags.add(tagTemp);
-
-                    // If the tag does exists
-                    else adTags.add(adTagRepo.save(new AdTag(tag)));
-                }
-            });
+            Set<AdTag> adTags = getAdTagsFromStringList(frontendTags);
 
             ad.setAdTags(adTags);
             adRepo.save(ad);
