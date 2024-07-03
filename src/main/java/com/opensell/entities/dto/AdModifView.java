@@ -16,6 +16,7 @@ import java.util.Set;
  *
  * @author Achraf
  */
+@Deprecated(forRemoval = true)
 @ToString
 public class AdModifView extends AdBuyerView {
 	public int idAd;

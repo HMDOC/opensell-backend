@@ -2,7 +2,6 @@ package com.opensell.service;
 
 import java.sql.Date;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -131,7 +130,7 @@ public class AdService {
 		ad.setAddress(adCreator.address());
 		ad.setSold(adCreator.isSold());
 		ad.setDescription(adCreator.description());
-		ad.setAdTags(adModificationService.getAdTagsFromStringList(adCreator.tags()));
+		ad.setAdTags(adModificationService.getAdTagsFromStringSet(adCreator.tags()));
 		ad.setAdType(adTypeRepo.findOneByIdAdType(adCreator.adTypeId()));
 		ad.setShape(adCreator.shape());
 		ad.setVisibility(adCreator.visibility());

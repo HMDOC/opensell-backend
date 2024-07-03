@@ -30,6 +30,7 @@ public class AdModificationService {
 	@Autowired
 	private AdTypeRepository adTypeRepo;
 
+    @Deprecated(forRemoval = true)
     public static class ModifType {
         public static final int TITLE = 0;
         public static final int PRICE = 1;
@@ -41,10 +42,12 @@ public class AdModificationService {
         public static final int SHAPE = 7;
     }
 
+    @Deprecated(forRemoval = true)
     public static class ModifBody {
         public Object value;
     }
 
+    @Deprecated(forRemoval = true)
     public int changeTitle(String title, int idAd) {
         if(title == null) return HtmlCode.NULL_VALUE;
         if(title.length() == 0) return HtmlCode.LENGTH_EMPTY;
@@ -60,6 +63,7 @@ public class AdModificationService {
         }
     }
 
+    @Deprecated(forRemoval = true)
     public int changePrice(double price, int idAd) {
         if(price < 0) return HtmlCode.LESS_THAN_ZERO;
         adRepo.updatePrice(price, idAd);
@@ -70,6 +74,7 @@ public class AdModificationService {
         }
     }
 
+    @Deprecated(forRemoval = true)
     public int changeAdType(Map<String, Object> adTypeMap, int idAd) {
         try {
             if(adTypeMap == null) return HtmlCode.NULL_VALUE;
@@ -85,6 +90,7 @@ public class AdModificationService {
         }
     }
 
+    @Deprecated(forRemoval = true)
     public int changeAddress(String address, int idAd) {
         if(address == null) return HtmlCode.NULL_VALUE;
         if(address.length() == 0) return HtmlCode.LENGTH_EMPTY;
@@ -97,6 +103,7 @@ public class AdModificationService {
         }
     }
 
+    @Deprecated(forRemoval = true)
     public int changeIsSold(boolean isSold, int idAd) {
         try {
             return adRepo.updateIsSold(isSold, idAd) == 1 ? HtmlCode.SUCCESS : HtmlCode.ID_NOT_FOUND;
@@ -105,6 +112,7 @@ public class AdModificationService {
         }
     }
 
+    @Deprecated(forRemoval = true)
     public int changeDescription(String description, int idAd) {
         if(description == null) return HtmlCode.NULL_VALUE;
         if(description.length() == 0) return HtmlCode.LENGTH_EMPTY;
@@ -117,7 +125,7 @@ public class AdModificationService {
         }
     }
 
-    public Set<AdTag> getAdTagsFromStringList(List<String> tags) {
+    public Set<AdTag> getAdTagsFromStringSet(Set<String> tags) {
         Set<AdTag> adTags = new LinkedHashSet<>();
 
         // Map over the set of string
@@ -144,13 +152,14 @@ public class AdModificationService {
      * @param frontendTags
      * @param ad
      */
+    @Deprecated(forRemoval = true)
     public int changeAdTags(List<String> frontendTags, int idAd) {
         try {
             if (frontendTags == null) return HtmlCode.NULL_VALUE;
             Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
 
             if (ad == null) return HtmlCode.ID_NOT_FOUND;
-            Set<AdTag> adTags = getAdTagsFromStringList(frontendTags);
+            Set<AdTag> adTags = getAdTagsFromStringSet((Set<String>) frontendTags);
 
             ad.setAdTags(adTags);
             adRepo.save(ad);

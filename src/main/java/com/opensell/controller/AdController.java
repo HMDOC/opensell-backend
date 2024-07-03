@@ -129,16 +129,12 @@ public class AdController {
      * @author Achraf
      */
     @GetMapping("/to-modify/{link}")
-    public AdModifView getAdModifView(@PathVariable String link) {
+    public AdCreator getAdModifyView(@PathVariable String link) throws JsonProcessingException {
         Ad ad = adRepo.getAdToModif(link);
-
-        if (ad != null) {
-            return new AdModifView(ad);
-        }
-
-        return null;
+        return ad != null ? AdCreator.fromAd(ad) : null ;
     }
 
+    @Deprecated(forRemoval = true)
     @PatchMapping("/modification/tags")
     public int adChangeTags(@RequestBody List<String> tags, @RequestParam int idAd) {
         return adModif.changeAdTags(tags, idAd);
@@ -152,6 +148,7 @@ public class AdController {
      * @return ResultCode
      * @author Achraf
      */
+    @Deprecated(forRemoval = true)
     @PatchMapping("/modification")
     public int adModification(@RequestBody AdModificationService.ModifBody modifBody, @RequestParam int idAd, @RequestParam int modifType) {
         switch (modifType) {
