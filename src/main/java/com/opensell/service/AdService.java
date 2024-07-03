@@ -75,10 +75,13 @@ public class AdService {
 		}
 	}
 
+
+
 	/**
 	 *
 	 * @author Olivier Mansuy
 	 */
+	@Deprecated(forRemoval = true)
 	public AdCreationFeedback saveAd(AdCreationData data) {
 		int result = 0;
 		int currentAdId;

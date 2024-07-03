@@ -205,15 +205,13 @@ public class AdController {
         return adRepo.hideAd(idAd) > 0;
     }
 
+    @Deprecated(forRemoval = true)
     @PostMapping("/create-ad")
     public AdCreationFeedback createAd(@RequestBody AdCreationData data) {
         return adService.saveAd(data);
     }
 
-    public static record ImagesBody(List<MultipartFile> adImages, String test, int id) {
-
-    }
-
+    @Deprecated(forRemoval = true)
     @PostMapping("/save-ad-images")
     public List<AdImage> saveAdImages(
                                 @RequestBody(required = false) List<MultipartFile> adImages,
@@ -281,7 +279,9 @@ public class AdController {
     }
 
     @PostMapping("/v2/update")
-    public ResponseEntity<DisplayAdView> updateV2(@RequestBody(required = false) List<MultipartFile> images, @RequestParam(required = false) List<Integer> imagePositions, AdCreator adCreator) throws JsonProcessingException {
+    public ResponseEntity<DisplayAdView> updateV2(@RequestBody(required = false) List<MultipartFile> images,
+                                                  @RequestParam(required = false) List<Integer> imagePositions,
+                                                  AdCreator adCreator) throws JsonProcessingException {
         return adService.createOrUpdateAd(images, imagePositions, adCreator);
     }
 }
