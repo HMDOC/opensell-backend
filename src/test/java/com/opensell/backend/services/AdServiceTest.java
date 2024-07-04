@@ -23,7 +23,7 @@ public class AdServiceTest {
 		goodLink = "113j4sh992z9VTQKDh6xjPmmdjDq52gLeE";
 		wrongLink = "asdf89123412341234";
 		errorLink = "%$-*!~`}[{@+\"''/";
-		adService = new AdController();
+		//adService = new AdController();
 	}
 
 	@AfterEach

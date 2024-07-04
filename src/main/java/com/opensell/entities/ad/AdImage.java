@@ -15,7 +15,7 @@ import lombok.ToString;
 public class AdImage {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idAdImage;
+	private Integer id;
 	
     @Column(nullable = false)
 	private String path;
@@ -29,7 +29,7 @@ public class AdImage {
 	@JsonIgnore
 	@ToString.Exclude
 	@ManyToOne
-	@JoinColumn(name = "ad_id", nullable = false)
+	@JoinColumn(name = "ad_id")
 	public Ad ad;
 
 	public AdImage(String path, int spot, boolean isLocal, Ad ad) {

@@ -1,31 +1,17 @@
 package com.opensell.entities;
 
 import java.sql.Date;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.ad.AdType;
-import com.opensell.entities.dto.AdCreator;
 import com.opensell.entities.dto.AdSearchPreview;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -69,10 +55,6 @@ public class Ad {
     @Column(nullable = false, length = DESCRIPTION_MAX_LENGTH)
     private String description;
 
-    //api
-    @Column(nullable = true)
-    private String reference;
-
     @Column(nullable = false)
     private String address;
 
@@ -93,7 +75,7 @@ public class Ad {
 
     @JsonIgnore
 	@OneToMany(mappedBy = "ad")
-	private List<AdImage> adImages;
+	private List<AdImage> adImages = new ArrayList<>();
 
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)

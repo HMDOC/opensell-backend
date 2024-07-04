@@ -2,6 +2,7 @@ package com.opensell.service;
 
 import java.sql.Date;
 import java.util.*;
+import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -9,51 +10,40 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.entities.ad.AdImage;
 import com.opensell.entities.dto.AdCreator;
 import com.opensell.entities.dto.DisplayAdView;
-import com.opensell.entities.dto.adCreation.AdCreationData;
-import com.opensell.entities.dto.adCreation.AdCreationFeedback;
-import com.opensell.entities.verification.HtmlCode;
 import com.opensell.exception.AdTitleUniqueException;
+import com.opensell.repository.AdImageRepository;
 import com.opensell.repository.CustomerRepository;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.opensell.entities.Ad;
-import com.opensell.entities.ad.AdTag;
 import com.opensell.entities.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
-import com.opensell.repository.AdTagRepository;
 import com.opensell.repository.AdTypeRepository;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * This service is used to
- */
 @Service
 @Validated
+@RequiredArgsConstructor
 public class AdService {
-	@Autowired
-	private AdRepository adRepo;
+	private final AdRepository adRepo;
+	private final AdTypeRepository adTypeRepo;
+	private final LinkGenerator linkGenerator;
+	private final AdModificationService adModificationService;
+    private final CustomerRepository customerRepository;
+	private final FileUploadService fileUploadService;
+	private final AdImageRepository adImageRepository;
 
-	@Autowired
-	private AdTagRepository adTagRepo;
+	public boolean isTitleConstraintOk(String title, int userId) {
+		return adRepo.findOneByTitleAndCustomerIdCustomerAndIsDeletedFalse(title, userId).isEmpty();
+	}
 
-	@Autowired
-	private AdTypeRepository adTypeRepo;
-
-	@Autowired
-	private LinkGenerator linkGenerator;
-
-	@Autowired
-	private AdModificationService adModificationService;
-    @Autowired
-    private CustomerRepository customerRepository;
-
-	@Autowired
-	private FileUploadService fileUploadService;
+	public void deleteAllImages(int idAd) {
+		adImageRepository.deleteAllByAdIdAd(idAd);
+	}
 
 	/**
 	 * To get an AdBuyer from a link.
@@ -74,50 +64,6 @@ public class AdService {
 		}
 	}
 
-
-
-	/**
-	 *
-	 * @author Olivier Mansuy
-	 */
-	@Deprecated(forRemoval = true)
-	public AdCreationFeedback saveAd(AdCreationData data) {
-		int result = 0;
-		int currentAdId;
-		try {
-			if (adRepo.checkTitle(data.customerId(), data.title()) == 0) {
-				result = result + adRepo.createAd(data.adTypeId(),
-						data.customerId(), data.price(),
-						data.shape(), data.visibility(),
-						data.title(), data.description(),
-						data.address(),
-						linkGenerator.generateAdLink(),
-						linkGenerator.generateAdLink());
-				//could be replaced by .save ...
-				currentAdId = adRepo.getAdIdFromTitleAndCustomerID(data.customerId(), data.title());
-				result+=insertTags(data.tags(), currentAdId);
-			} else throw new Exception("title already exists...");
-			return new AdCreationFeedback(HtmlCode.SUCCESS, result, null, currentAdId);
-		} catch (Exception e) {
-			return new AdCreationFeedback(HtmlCode.FAILURE, result, e.getMessage(), null);
-		}
-	}
-
-	private int insertTags(String[] tagsAsNames, int currentAdId) {
-		int res = 0;
-		if (tagsAsNames.length > 0) {
-			LinkedHashSet<AdTag> tagsAsObjects = new LinkedHashSet<>();
-			AdTag tempTag;
-			for (String name : tagsAsNames) {
-				tempTag = adTagRepo.findOneByName(name);
-				if (tempTag != null) tagsAsObjects.add(tempTag);
-				else tagsAsObjects.add(adTagRepo.save(new AdTag(name)));
-			}
-			for (AdTag tag : tagsAsObjects) res = res + adRepo.saveRelAdTag(currentAdId, tag.getIdAdTag());
-		}
-		return res;
-	}
-
 	public void setFromAdCreator(AdCreator adCreator, Ad ad) {
 		if(adCreator.adId() == null) {
 			ad.setLink(linkGenerator.generateAdLink());
@@ -136,12 +82,33 @@ public class AdService {
 		ad.setVisibility(adCreator.visibility());
 	}
 
+	public Ad saveImages(Ad ad, List<MultipartFile> images, List<Integer> imagePositions, List<AdImage> adImages) {
+		if(images != null && !images.isEmpty()) {
+			if(imagePositions.size() != images.size()) throw new RuntimeException("imagePosition need to be the same size as images.");
+
+			List<String> filePaths = fileUploadService.saveFiles(images, FileUploadService.FileType.AD_IMAGE);
+			if (filePaths == null) throw new RuntimeException("No files was saved.");
+			if(filePaths.size() != images.size()) throw new RuntimeException("All images were not saved.");
+
+			for (int i = 0; i < imagePositions.size(); i++) {
+				adImages.add(adImageRepository.save(new AdImage(filePaths.get(i), imagePositions.get(i), true, ad)));
+			}
+		}
+
+		return ad;
+	}
+
 	public ResponseEntity<DisplayAdView> createOrUpdateAd(List<MultipartFile> images, List<Integer> imagePositions, @Valid AdCreator adCreator
 	) throws RuntimeException, JsonProcessingException {
 		boolean isUpdate = adCreator.adId() != null;
 		Ad ad = (isUpdate ? adRepo.findOneByIdAdAndIsDeletedFalse(adCreator.adId()) : new Ad());
 
-		if(adRepo.checkTitle(adCreator.customerId(), adCreator.title()) == 1) {
+		if(
+			// if create or title as changed.
+			(!isUpdate || !ad.getTitle().equals(adCreator.title())) &&
+			// check constraint
+			!isTitleConstraintOk(adCreator.title(), adCreator.customerId())
+		) {
 			throw new AdTitleUniqueException();
 		}
 
@@ -152,26 +119,15 @@ public class AdService {
 			isUpdate ? new ObjectMapper().readValue(adCreator.adImagesJson(), new TypeReference<>() {}) : new ArrayList<>()
 		);
 
-		if(images != null && !images.isEmpty()) {
-			if(isUpdate && imagePositions.size() != images.size()) throw new RuntimeException("imagePosition need to be the same size as images.");
-
-			List<String> filePaths = fileUploadService.saveFiles(images, FileUploadService.FileType.AD_IMAGE);
-			if (filePaths == null) throw new RuntimeException("No files was saved.");
-			if(filePaths.size() != images.size()) throw new RuntimeException("All images were not saved.");
-
-			if(isUpdate) {
-				for (int i = 0; i < imagePositions.size(); i++) {
-					adImages.add(new AdImage(filePaths.get(i), imagePositions.get(i), true, ad));
-				}
-			} else {
-				for(int i = 0; i < filePaths.size(); i++) {
-					new AdImage(filePaths.get(i), i, true, ad);
-				}
-			}
-
+		// To set the ad to each old image
+		if(isUpdate) {
+			deleteAllImages(ad.getIdAd());
+			adImages.forEach(img -> {img.setAd(ad); img.setId(adImageRepository.save(img).getId());});
 		}
 
-		ad.setAdImages(adImages);
-		return new ResponseEntity<>(new DisplayAdView(adRepo.save(ad)), HttpStatus.OK);
+		return new ResponseEntity<>(
+			new DisplayAdView(saveImages(adRepo.save(ad), images, imagePositions, adImages)),
+			HttpStatus.OK
+		);
 	}
 }

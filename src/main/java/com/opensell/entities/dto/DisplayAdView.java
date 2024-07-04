@@ -11,7 +11,6 @@ public class DisplayAdView {
     public String link;
     public Boolean isSold;
     public Integer visibility;
-    public String reference;
 
     public DisplayAdView(Ad ad) {
         if (ad != null) {
@@ -23,7 +22,6 @@ public class DisplayAdView {
             this.link = ad.getLink();
             this.isSold = ad.isSold();
             this.visibility = ad.getVisibility();
-            this.reference = ad.getReference();
         }
     }
 }
