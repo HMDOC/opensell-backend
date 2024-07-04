@@ -1,19 +1,10 @@
-package com.opensell.entities.dto;
+package com.opensell.model.dto;
 
-import com.opensell.entities.Ad;
-import com.opensell.entities.Customer;
-import com.opensell.entities.ad.AdImage;
-import com.opensell.entities.ad.AdType;
-import com.opensell.entities.customer.CustomerInfo;
+import com.opensell.model.Customer;
+import com.opensell.model.customer.CustomerInfo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.sql.Date;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Record that contain the essential data that a customer need to see

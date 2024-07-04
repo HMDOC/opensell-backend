@@ -1,27 +1,21 @@
 package com.opensell.service;
 
-import com.opensell.entities.Customer;
+import com.opensell.model.Customer;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.LoginRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
  * This repository allows to get infos from a customer by a provided unique user link by querying the database
  */
-
 @Service
+@RequiredArgsConstructor
 public class CustomerService {
-
-    @Autowired
-    private LoginRepository rep;
-
-    @Autowired
-    private CustomerInfoRepository customerInfoRep;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final LoginRepository rep;
+    private final CustomerInfoRepository customerInfoRep;
+    private final PasswordEncoder passwordEncoder;
 
     public int checkUsername(String username) {
         return rep.countByUsername(username);
@@ -44,8 +38,4 @@ public class CustomerService {
     public int checkPhoneNumber(String phoneNumber) {
         return customerInfoRep.countByPhoneNumber(phoneNumber);
     }
-
-
-
-
 }

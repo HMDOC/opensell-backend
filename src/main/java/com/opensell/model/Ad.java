@@ -1,4 +1,4 @@
-package com.opensell.entities;
+package com.opensell.model;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -7,10 +7,10 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.opensell.entities.ad.AdImage;
-import com.opensell.entities.ad.AdTag;
-import com.opensell.entities.ad.AdType;
-import com.opensell.entities.dto.AdSearchPreview;
+import com.opensell.model.ad.AdImage;
+import com.opensell.model.ad.AdTag;
+import com.opensell.model.ad.AdType;
+import com.opensell.model.dto.AdSearchPreview;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

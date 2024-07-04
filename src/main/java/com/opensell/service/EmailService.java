@@ -1,5 +1,6 @@
 package com.opensell.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,10 +12,12 @@ import org.springframework.stereotype.Service;
  * @author Quoc Dung
  */
 @Service
+@RequiredArgsConstructor
 public class EmailService {
-        @Value("${email}") private String senderEmail;
-        @Autowired
-        private JavaMailSender javaMailSender;
+        @Value("${email}")
+        private String senderEmail;
+
+        private final JavaMailSender javaMailSender;
     
         public boolean sendEmail(String email, String subject, String text) {
             try {

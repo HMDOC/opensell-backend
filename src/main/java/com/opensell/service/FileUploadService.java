@@ -24,26 +24,26 @@ public class FileUploadService {
 	@Value("${uploadPath}")
     public String uploadPath;
 
-	public static enum RandName {
+	@Getter
+    public enum RandName {
 		URL(12),
 		FILE_NAME(30);
 
-		@Getter
-		private int length;
+		private final int length;
 
-		private RandName(int length) {
+		RandName(int length) {
 			this.length = length;
 		}
 	}
 
-	public enum FileType {
+	@Getter
+    public enum FileType {
 		AD_IMAGE("/ad-image/"),
 		CUSTOMER_PROFIL("/customer-profil/");
 
-		@Getter
 		private String folder;
 
-		private FileType(String folder) {
+		FileType(String folder) {
 			this.folder = folder;
 		}
 	}
@@ -70,7 +70,6 @@ public class FileUploadService {
 			return (char) random.nextInt(FIRST_LOWER_LETTER, LAST_LOWER_LETTER + 1);
 		}
 	}
-	
 
 	/**
 	 * 
@@ -86,8 +85,7 @@ public class FileUploadService {
 		
 		return fileNameBuilder.toString();
 	}
-	
-	
+
 	/**
 	 * Save multiple files to the backend and get the links.
 	 * 

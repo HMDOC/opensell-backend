@@ -1,6 +1,6 @@
-package com.opensell.entities.dto;
+package com.opensell.model.dto;
 
-import com.opensell.entities.Ad;
+import com.opensell.model.Ad;
 
 public class DisplayAdView {
     public int idAd;

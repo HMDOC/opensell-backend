@@ -1,6 +1,4 @@
-package com.opensell.entities.ad;
-
-import com.opensell.entities.Ad;
+package com.opensell.model.ad;
 
 public enum AdShape {
 	NEW,

@@ -1,7 +1,7 @@
 package com.opensell.service;
 
 import java.util.*;
-import com.opensell.entities.ad.AdTag;
+import com.opensell.model.ad.AdTag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.opensell.repository.AdRepository;

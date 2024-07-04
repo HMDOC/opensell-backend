@@ -1,4 +1,4 @@
-package com.opensell.service.customerModification;
+package com.opensell.exception;
 
 public class CustomerModificationException extends Exception {
     public CustomerModificationException(String message) {

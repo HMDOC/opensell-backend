@@ -1,7 +1,7 @@
-package com.opensell.entities.verification;
+package com.opensell.model.verification;
 
 import java.util.Date;
-import com.opensell.entities.Customer;
+import com.opensell.model.Customer;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

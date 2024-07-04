@@ -1,15 +1,13 @@
-package com.opensell.entities.dto;
+package com.opensell.model.dto;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opensell.entities.Ad;
-import com.opensell.entities.ad.AdImage;
-import com.opensell.entities.ad.AdShape;
-import com.opensell.entities.ad.AdVisibility;
+import com.opensell.model.Ad;
+import com.opensell.model.ad.AdShape;
+import com.opensell.model.ad.AdVisibility;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 
-import java.util.List;
 import java.util.Set;
 
 @Builder

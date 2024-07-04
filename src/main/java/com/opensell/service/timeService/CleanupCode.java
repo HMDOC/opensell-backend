@@ -1,15 +1,13 @@
 package com.opensell.service.timeService;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class CleanupCode implements JobAction {
-
-
-    @Autowired
-    private JdbcTemplate queryExecutor;
+    private final JdbcTemplate queryExecutor;
 
     @Override
     public void execute() {

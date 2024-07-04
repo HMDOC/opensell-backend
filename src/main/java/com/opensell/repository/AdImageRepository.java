@@ -1,6 +1,6 @@
 package com.opensell.repository;
 
-import com.opensell.entities.ad.AdImage;
+import com.opensell.model.ad.AdImage;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

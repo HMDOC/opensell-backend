@@ -1,17 +1,15 @@
 package com.opensell.controller;
 
 import com.opensell.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @CrossOrigin("${allowedUrl}")
 @RequestMapping("/c")
+@RequiredArgsConstructor
 public class CustomerController {
-
-    @Autowired
-    private CustomerService service;
+    private final CustomerService service;
 
     @GetMapping("/check-username")
     public int checkUsername(@RequestParam String username) {
@@ -37,5 +35,4 @@ public class CustomerController {
     public int checkSamePwd(@RequestParam int id, @RequestParam String pwd) {
         return service.checkSamePwd(id, pwd);
     }
-
 }

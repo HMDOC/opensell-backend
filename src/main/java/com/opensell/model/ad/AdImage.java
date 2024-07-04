@@ -1,7 +1,7 @@
-package com.opensell.entities.ad;
+package com.opensell.model.ad;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.opensell.entities.Ad;
+import com.opensell.model.Ad;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

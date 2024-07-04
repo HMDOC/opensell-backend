@@ -1,4 +1,4 @@
-package com.opensell.entities.ad;
+package com.opensell.model.ad;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

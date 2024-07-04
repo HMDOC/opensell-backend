@@ -3,7 +3,7 @@ package com.opensell.controller;
 import java.sql.Date;
 import java.util.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.opensell.entities.dto.*;
+import com.opensell.model.dto.*;
 import com.opensell.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -11,10 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import com.opensell.entities.Ad;
-import com.opensell.entities.Customer;
-import com.opensell.entities.ad.AdTag;
-import com.opensell.entities.ad.AdType;
+import com.opensell.model.Ad;
+import com.opensell.model.Customer;
+import com.opensell.model.ad.AdTag;
+import com.opensell.model.ad.AdType;
 import com.opensell.service.AdService;
 
 @CrossOrigin("${allowedUrl}")
@@ -129,7 +129,7 @@ public class AdController {
 
     @PostMapping("/v2/create-or-update-ad")
     public ResponseEntity<DisplayAdView> createOrUpdateAd(@RequestBody(required = false) List<MultipartFile> images,
-                                                          @RequestParam List<Integer> imagePositions,
+                                                          @RequestParam(required = false) List<Integer> imagePositions,
                                                           AdCreator adCreator) throws JsonProcessingException {
         return adService.createOrUpdateAd(images, imagePositions, adCreator);
     }

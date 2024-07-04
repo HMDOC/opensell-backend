@@ -1,14 +1,14 @@
 package com.opensell.service;
 
-import com.opensell.entities.dto.CustomerModificationData;
-import com.opensell.entities.verification.HtmlCode;
-import com.opensell.entities.verification.RegexVerifier;
+import com.opensell.model.dto.CustomerModificationData;
+import com.opensell.model.verification.HtmlCode;
+import com.opensell.model.verification.RegexVerifier;
+import com.opensell.exception.CustomerModificationException;
 import com.opensell.repository.CustomerModificationRepository;
 import com.opensell.service.customerModification.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.sql.SQLException;
 
@@ -18,14 +18,10 @@ import java.sql.SQLException;
  * @author Oliver Mansuy
  */
 @Service
+@RequiredArgsConstructor
 public class CustomerModificationService {
-
-
-    @Autowired
-    private CustomerModificationRepository rep;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final CustomerModificationRepository rep;
+    private final PasswordEncoder passwordEncoder;
 
     public ModificationFeedback changePersonalEmail(CustomerModificationData data) {
         return getFeedback(() -> rep.updateCustomerPersonalEmail(data.value(), data.id()), () -> RegexVerifier.EMAIL.verify(data.value()), data.value());

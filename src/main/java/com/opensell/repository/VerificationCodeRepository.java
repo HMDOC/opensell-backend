@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.opensell.entities.verification.VerificationCode;
+import com.opensell.model.verification.VerificationCode;
 
 @Repository
 public interface VerificationCodeRepository extends JpaRepository<VerificationCode, Integer> {

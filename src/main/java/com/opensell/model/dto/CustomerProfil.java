@@ -1,9 +1,9 @@
-package com.opensell.entities.dto;
+package com.opensell.model.dto;
 
 import java.sql.Date;
 import java.util.List;
-import com.opensell.entities.Customer;
-import com.opensell.entities.customer.CustomerInfo;
+import com.opensell.model.Customer;
+import com.opensell.model.customer.CustomerInfo;
 
 public class CustomerProfil {
     public String username;

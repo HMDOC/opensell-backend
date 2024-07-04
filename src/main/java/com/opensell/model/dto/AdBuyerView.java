@@ -1,9 +1,8 @@
-package com.opensell.entities.dto;
+package com.opensell.model.dto;
 
-import com.opensell.entities.Ad;
-import com.opensell.entities.ad.AdImage;
-import com.opensell.entities.ad.AdType;
-import lombok.AllArgsConstructor;
+import com.opensell.model.Ad;
+import com.opensell.model.ad.AdImage;
+import com.opensell.model.ad.AdType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

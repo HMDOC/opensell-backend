@@ -1,4 +1,4 @@
-package com.opensell.entities.verification;
+package com.opensell.model.verification;
 
 public class HtmlCode {
     public static final int SUCCESS = 200;

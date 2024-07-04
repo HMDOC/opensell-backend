@@ -1,5 +1,7 @@
 package com.opensell.service.customerModification;
 
+import com.opensell.exception.CustomerModificationException;
+
 public interface ValueValidationCallable {
-    public abstract boolean isValid() throws CustomerModificationException;
+    boolean isValid() throws CustomerModificationException;
 }

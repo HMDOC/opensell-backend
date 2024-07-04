@@ -1,10 +1,10 @@
 package com.opensell.controller;
 
-import com.opensell.entities.Customer;
-import com.opensell.entities.customer.CustomerInfo;
-import com.opensell.entities.dto.CustomerDto;
-import com.opensell.entities.verification.VerificationCode;
-import com.opensell.entities.verification.VerificationCode.VerificationCodeType;
+import com.opensell.model.Customer;
+import com.opensell.model.customer.CustomerInfo;
+import com.opensell.model.dto.CustomerDto;
+import com.opensell.model.verification.VerificationCode;
+import com.opensell.model.verification.VerificationCode.VerificationCodeType;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.LoginRepository;
@@ -15,39 +15,23 @@ import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
 import com.opensell.service.FileUploadService;
 import com.opensell.service.FileUploadService.RandName;
-
 import java.sql.Date;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("${allowedUrl}")
+@RequiredArgsConstructor
 public class AuthenticationController {
-
-    @Autowired
-    private LoginRepository rep;
-
-    @Autowired
-    private EmailService emailService;
-
-    @Autowired
-    private CodeService codeService;
-
-    @Autowired
-    private VerificationCodeRepository codeRep;
-
-    @Autowired
-    private CustomerInfoRepository infosrep;
-
-    @Autowired
-    private CleanupCode cleanupCode;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private CustomerRepository customerRepo;
+    private final LoginRepository rep;
+    private final EmailService emailService;
+    private final CodeService codeService;
+    private final VerificationCodeRepository codeRep;
+    private final CustomerInfoRepository customerInfoRepository;
+    private final CleanupCode cleanupCode;
+    private final PasswordEncoder passwordEncoder;
+    private final CustomerRepository customerRepo;
 
     @GetMapping("/login")
     public Integer login(@RequestParam String username, @RequestParam String pwd) {
@@ -87,7 +71,7 @@ public class AuthenticationController {
             Customer customer = new Customer();
             CustomerInfo infos = new CustomerInfo();
 
-            infosrep.save(infos);
+            customerInfoRepository.save(infos);
 
             customer.setUsername(username);
             customer.setPersonalEmail(email);

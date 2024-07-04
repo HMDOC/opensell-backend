@@ -1,4 +1,4 @@
-package com.opensell.entities.verification;
+package com.opensell.model.verification;
 
 import java.util.regex.Pattern;
 

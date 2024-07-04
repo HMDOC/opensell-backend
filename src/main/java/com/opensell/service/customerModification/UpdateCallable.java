@@ -4,5 +4,5 @@ import java.sql.SQLException;
 
 public interface UpdateCallable {
     //updateQuery() abstract method doesn't return an SQLException by default, so we need to add it
-    public abstract int updateStatement() throws Exception, SQLException;
+    int updateStatement() throws Exception, SQLException;
 }
