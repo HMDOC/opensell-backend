@@ -36,8 +36,25 @@ public class AdService {
 	private final FileUploadService fileUploadService;
 	private final AdImageRepository adImageRepository;
 
-	public boolean isTitleConstraintOk(String title, int userId) {
-		return adRepo.findOneByTitleAndCustomerIdCustomerAndIsDeletedFalse(title, userId).isEmpty();
+	/**
+	 * Function to verify that a customer, do not have an ad
+	 * that already have the title in parameter.
+	 *
+	 * @param title The title of the future ad.
+	 * @param userId The user of the future ad.
+	 * @param adId The id of the ad. If it is null, that mean that is being created.
+	 *
+	 * @return If the constraint is OK.
+	 */
+	public boolean isTitleConstraintOk(String title, int userId, Integer adId) {
+		// The first ad with the title.
+		Ad ad = adRepo.findOneByTitleAndCustomerIdCustomerAndIsDeletedFalse(title, userId).orElse(null);
+
+		// No ad as the title.
+		if (ad == null) return true;
+
+		// To verify that the title conflict is not with the same ad(by the id).
+		else return adId != null && ad.getIdAd() == adId;
 	}
 
 	public void deleteAllImages(int idAd) {
@@ -102,12 +119,7 @@ public class AdService {
 		boolean isUpdate = adCreator.adId() != null;
 		Ad ad = (isUpdate ? adRepo.findOneByIdAdAndIsDeletedFalse(adCreator.adId()) : new Ad());
 
-		if(
-			// if create or title as changed.
-			(!isUpdate || !ad.getTitle().equals(adCreator.title())) &&
-			// check constraint
-			!isTitleConstraintOk(adCreator.title(), adCreator.customerId())
-		) {
+		if(!isTitleConstraintOk(adCreator.title(), adCreator.customerId(), ad.getIdAd())) {
 			throw new AdTitleUniqueException();
 		}
 

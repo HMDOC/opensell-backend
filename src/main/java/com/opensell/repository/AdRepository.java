@@ -59,7 +59,7 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 
     public Ad findOneByIdAdAndIsDeletedFalse(Integer idAd);
 
-    Optional<Ad> findOneByTitleAndCustomerIdCustomerAndIsDeletedFalse(String title, int customerId);
+    Optional<Ad> findOneByTitleAndCustomerIdCustomerAndIsDeletedFalse(String title, long customerId);
 
     @Query(value = "SELECT ad.* FROM ad, customer c WHERE ad.customer_id = c.id_customer AND c.link = ?1 AND ad.is_deleted = false AND ad.visibility != 1 AND ad.visibility != 2", nativeQuery = true)
     public List<Ad> getAdsFromUser(String link);

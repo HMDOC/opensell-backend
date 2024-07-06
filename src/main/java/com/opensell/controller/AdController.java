@@ -133,4 +133,9 @@ public class AdController {
                                                           AdCreator adCreator) throws JsonProcessingException {
         return adService.createOrUpdateAd(images, imagePositions, adCreator);
     }
+
+    @GetMapping("/v2/is-title-constraint-ok")
+    public boolean isTitleConstraintOk(@RequestParam String title, @RequestParam int customerId, @RequestParam(required = false) Integer adId) {
+        return adService.isTitleConstraintOk(title, customerId, adId);
+    }
 }
