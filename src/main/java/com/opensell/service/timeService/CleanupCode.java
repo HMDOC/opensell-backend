@@ -11,8 +11,8 @@ public class CleanupCode implements JobAction {
 
     @Override
     public void execute() {
-        String deleteQuery = "DELETE FROM verification_code WHERE TIMESTAMPDIFF(MINUTE, created_at, CURRENT_TIMESTAMP) > 10";
-        queryExecutor.execute(deleteQuery);
+        String deleteCode = "DELETE FROM verification_code WHERE TIMESTAMPDIFF(MINUTE, created_at, CURRENT_TIMESTAMP) > 10";
+        queryExecutor.execute(deleteCode);
         System.out.println("Code cleanup executed");
     }
 

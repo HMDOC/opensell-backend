@@ -29,6 +29,12 @@ public interface LoginRepository extends JpaRepository<Customer, Integer> {
     //signup
     public abstract int countByPersonalEmail(String email);
 
+    @Query(value = "SELECT count(c.personal_email) FROM customer c WHERE c.personal_email = ?1 AND c.is_activated = 1", nativeQuery = true)
+    public abstract int findCustomerByPersonalEmail(String email);
+
+    @Query(value = "SELECT count(c.personal_email) FROM customer c WHERE c.personal_email = ?1 AND c.is_activated = 0", nativeQuery = true)
+    public abstract int findCustomerByPersonalEmailNotActivated(String email);
+
     @Query(value = "SELECT count(c.pwd) from customer c where c.id_customer = ?1 and c.pwd = ?2", nativeQuery = true)
     public abstract int checkSamePwd(int customerId, String pwd);
 

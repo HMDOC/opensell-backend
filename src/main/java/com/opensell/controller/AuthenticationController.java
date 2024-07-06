@@ -30,6 +30,7 @@ public class AuthenticationController {
     private final VerificationCodeRepository codeRep;
     private final CustomerInfoRepository customerInfoRepository;
     private final CleanupCode cleanupCode;
+    private final EmailCleanup emailCleanup;
     private final PasswordEncoder passwordEncoder;
     private final CustomerRepository customerRepo;
 
@@ -38,8 +39,7 @@ public class AuthenticationController {
         Customer customer = rep.getUser(username);
         if (customer == null) {
             return null; // Utilisateur non trouvé
-        }
-        else {
+        } else {
             String encodedPass = customer.getPwd();
             if (passwordEncoder.matches(pwd, encodedPass)) {
                 return customer.getIdCustomer();
@@ -51,15 +51,18 @@ public class AuthenticationController {
     @GetMapping("/getDto")
     public CustomerDto getCustomerDto(@RequestParam int idCustomer) {
         Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(idCustomer);
-        if(customer != null) {
+        if (customer != null) {
             return new CustomerDto(customer);
-        } else return null;
+        } else
+            return null;
     }
 
     @PostMapping("/signup")
     public int signup(@RequestParam String email, @RequestParam String username, @RequestParam String pwd) {
-        if (rep.countByPersonalEmail(email) == 1) {
+        if (rep.findCustomerByPersonalEmail(email) == 1) {
             return 1; // Email already exists
+        } else if (rep.findCustomerByPersonalEmailNotActivated(email) == 1) {
+            return 5; // Email already exists but not activated
         } else if (rep.countByUsername(username) == 1) {
             return 2; // Username already exists
         } else {
@@ -112,6 +115,12 @@ public class AuthenticationController {
     @PostConstruct
     public void runCodeCleanup() throws Exception {
         Job job = new Job(cleanupCode, 60000);
+        job.start();
+    }
+
+    @PostConstruct
+    public void runEmailCleanup() throws Exception {
+        Job job = new Job(emailCleanup, 600000);
         job.start();
     }
 }
