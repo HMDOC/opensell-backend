@@ -5,7 +5,6 @@ import com.opensell.model.Ad;
 public class DisplayAdView {
     public int idAd;
     public String title;
-    public String description;
     public Double price;
     public String firstImage;
     public String link;
@@ -16,7 +15,6 @@ public class DisplayAdView {
         if (ad != null) {
             this.idAd = ad.getIdAd();
             this.title = ad.getTitle();
-            this.description = ad.getDescription();
             this.price = ad.getPrice();
             this.firstImage = ad.getFirstImagePath();
             this.link = ad.getLink();
