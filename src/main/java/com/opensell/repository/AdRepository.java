@@ -46,7 +46,6 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
                                 @Param("dMin") Date dateMin, @Param("dMax") Date dateMax, @Param("shapeId") Integer shapeId,
                                 @Param("typeId") Integer typeId, @Param("filterSold") Boolean filterSold, @Param("sort") Sort sort);
 
-
     /**
      * Return an ad that have the idAd in parameter if it is not deleted.
      * <p>

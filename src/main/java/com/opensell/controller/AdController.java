@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.opensell.model.Ad;
 import com.opensell.model.Customer;
+import com.opensell.model.ad.AdSearchParams;
 import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;
 import com.opensell.service.AdService;
@@ -55,46 +56,11 @@ public class AdController {
      *
      * @author Davide
      */
-    @GetMapping("/search")
-    public List<AdSearchPreview> adSearch(@RequestParam(required = true) String query,
-                                          @RequestParam(required = false, defaultValue = "0") Double priceMin,
-                                          @RequestParam(required = false, defaultValue = "99990d") Double priceMax,
-                                          @RequestParam(required = false, defaultValue = "2020-01-01") Date dateMin,
-                                          @RequestParam(required = false, defaultValue = "3000-01-01") Date dateMax,
-                                          @RequestParam(required = false) Integer typeId,
-										  @RequestParam(required = false, defaultValue="") List<String> adTags,
-                                          @RequestParam(required = false) Integer shapeId, 
-                                          @RequestParam(required = false) Boolean filterSold,
-                                          @RequestParam(required = false, defaultValue = "addedDate") String sortBy,
-                                          @RequestParam(required = false, defaultValue = "false") boolean reverseSort) {
-
-        List<Ad> adList = adRepo.getAdSearch(query.toUpperCase(), priceMin, priceMax, dateMin, dateMax, shapeId,
-                typeId, filterSold, Sort.by(sortBy));
-
-        if (adList != null) {
-			ArrayList searchTags = new ArrayList<String>( (adTags==null) ? null : adTags);
-			
-            List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
-
-            for (Ad ad : adList) {
-                if (searchTags != null && !searchTags.isEmpty()) {
-                    if (!ad.getTagsName().containsAll(searchTags)) {
-                        continue;
-                    }
-                }
-
-                resultList.add(new AdSearchPreview(ad));
-            }
-
-            System.out.println(resultList.size());
-            System.out.println(adTags);
-            //System.out.println(searchTags);
-            if (reverseSort) {
-                Collections.reverse(resultList);
-            }
-
-            return resultList;
-        } else return null;
+    @PostMapping("/search")
+    public List<AdSearchPreview> adSearch(@RequestBody AdSearchParams query) {
+    	System.out.println("============================");
+    	System.out.println(query.toString());
+        return adService.adSearch(query);
     }
 
     /**

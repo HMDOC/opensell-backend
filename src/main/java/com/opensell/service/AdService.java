@@ -2,18 +2,22 @@ package com.opensell.service;
 
 import java.sql.Date;
 import java.util.*;
-import java.util.List;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.model.ad.AdImage;
+import com.opensell.model.ad.AdSearchParams;
 import com.opensell.model.dto.AdCreator;
+import com.opensell.model.dto.AdSearchPreview;
 import com.opensell.model.dto.DisplayAdView;
 import com.opensell.exception.AdTitleUniqueException;
 import com.opensell.repository.AdImageRepository;
 import com.opensell.repository.CustomerRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,6 +26,7 @@ import com.opensell.model.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTypeRepository;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -96,6 +101,38 @@ public class AdService {
 		ad.setAdType(adTypeRepo.findOneByIdAdType(adCreator.adTypeId()));
 		ad.setShape(adCreator.shape());
 		ad.setVisibility(adCreator.visibility());
+	}
+	
+	public List<AdSearchPreview> adSearch(AdSearchParams query) {
+
+		List<Ad> adList = adRepo.getAdSearch(query.getQuery().toUpperCase(), query.getPriceMin(), query.getPriceMax(), 
+				query.getDateMin(), query.getDateMax(), query.getShapeId(), query.getTypeId(), 
+				query.getFilterSold(), Sort.by(query.getSortBy()));
+		
+		if (adList != null) {
+			ArrayList searchTags = new ArrayList<String>( (query.getAdTags()==null) ? null : query.getAdTags());
+			
+			List<AdSearchPreview> resultList = new ArrayList<>(adList.size());
+			
+			for (Ad ad : adList) {
+				if (searchTags != null && !searchTags.isEmpty()) {
+					if (!ad.getTagsName().containsAll(searchTags)) {
+						continue;
+					}
+				}
+				
+				resultList.add(new AdSearchPreview(ad));
+			}
+			
+			System.out.println(resultList.size());
+			System.out.println(query.getAdTags());
+			//System.out.println(searchTags);
+			if (query.isReverseSort()) {
+				Collections.reverse(resultList);
+			}
+			
+			return resultList;
+		} else return null;
 	}
 
 	public Ad saveImages(Ad ad, List<MultipartFile> images, List<Integer> imagePositions, List<AdImage> adImages) {
