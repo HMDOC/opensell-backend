@@ -58,8 +58,6 @@ public class AdController {
      */
     @PostMapping("/search")
     public List<AdSearchPreview> adSearch(@RequestBody AdSearchParams query) {
-    	System.out.println("============================");
-    	System.out.println(query.toString());
         return adService.adSearch(query);
     }
 
