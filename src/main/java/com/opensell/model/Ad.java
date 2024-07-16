@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Table(uniqueConstraints = {
-	@UniqueConstraint(columnNames = {"reference", "customer_id"}, name = "reference_customer"),
 	@UniqueConstraint(columnNames = {"title", "customer_id"}, name = "title_customer")
 })
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
@@ -58,7 +57,8 @@ public class Ad {
     @Column(nullable = false)
     private String address;
 
-    @Column(nullable = false, unique = true, length=12)
+    // length=12
+    @Column(nullable = false, unique = true)
     private String link;
 
     @ManyToOne
