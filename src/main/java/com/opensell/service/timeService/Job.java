@@ -5,7 +5,6 @@ package com.opensell.service.timeService;
  * 
  * @author Achraf
 */
-
 public final class Job extends Thread {
     // Time between each task
     private long delay;

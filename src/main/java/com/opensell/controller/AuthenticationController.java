@@ -37,15 +37,12 @@ public class AuthenticationController {
     @GetMapping("/login")
     public Integer login(@RequestParam String username, @RequestParam String pwd) {
         Customer customer = rep.getUser(username);
-        if (customer == null) {
-            return null; // Utilisateur non trouvé
-        } else {
-            String encodedPass = customer.getPwd();
-            if (passwordEncoder.matches(pwd, encodedPass)) {
-                return customer.getIdCustomer();
-            }
-            return null; // Mauvais mot de passe
+
+        if (customer != null && passwordEncoder.matches(pwd, customer.getPwd())) {
+            return customer.getIdCustomer();
         }
+
+        return null;
     }
 
     @GetMapping("/getDto")

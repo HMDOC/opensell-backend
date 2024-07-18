@@ -1,12 +1,10 @@
 package com.opensell.controller;
 
-import java.sql.Date;
 import java.util.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.opensell.model.dto.*;
 import com.opensell.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
