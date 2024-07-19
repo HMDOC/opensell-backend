@@ -17,7 +17,6 @@ public class CustomerDto {
     public CustomerInfo customerInfo;
     public int customerId;
 	public String username;
-    public String link;
 	public String personalEmail;
 
 	public CustomerDto(Customer customer) {
@@ -25,7 +24,6 @@ public class CustomerDto {
 			this.customerInfo = customer.getCustomerInfo();
 			this.customerId = customer.getIdCustomer();
 			this.username = customer.getUsername();
-			this.link = customer.getLink();
 			this.personalEmail = customer.getPersonalEmail();
 		}
 	}

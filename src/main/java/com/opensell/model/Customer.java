@@ -2,7 +2,6 @@ package com.opensell.model;
 
 import java.sql.Date;
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.customer.CustomerInfo;
 import jakarta.persistence.*;
@@ -40,9 +39,6 @@ public class Customer {
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
     private Boolean isActivated;
-
-    @Column(nullable = false, unique = true, length=12)
-    private String link;
 
     @OneToOne
     @JoinColumn(name = "customer_info_id")

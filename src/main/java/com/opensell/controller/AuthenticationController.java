@@ -65,7 +65,6 @@ public class AuthenticationController {
         } else {
             String code = codeService.generateCode();
             Date now = new Date(System.currentTimeMillis());
-            String link = FileUploadService.randFileName("", RandName.URL);
 
             VerificationCode newCode = new VerificationCode();
             Customer customer = new Customer();
@@ -79,7 +78,6 @@ public class AuthenticationController {
             customer.setIsDeleted(false);
             customer.setIsVerified(false);
             customer.setIsActivated(false);
-            customer.setLink(link);
             customer.setCustomerInfo(infos);
             customer.setJoinedDate(now);
 

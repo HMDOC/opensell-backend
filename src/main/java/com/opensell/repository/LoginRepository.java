@@ -12,35 +12,25 @@ import com.opensell.model.Customer;
 @Repository
 @Transactional
 public interface LoginRepository extends JpaRepository<Customer, Integer> {
-
-    //to remove
-    public abstract Customer findCustomerByLink(String link);
-
-    //
-    public abstract Customer findCustomerByIdCustomer(int id);
+    Customer findCustomerByIdCustomer(int id);
 
     //login
     @Query(value= "SELECT * FROM customer c WHERE c.personal_email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)
-    public abstract Customer getUser(String usernameOrEmail);
+    Customer getUser(String usernameOrEmail);
 
     //signup
-    public abstract int countByUsername(String username);
+    int countByUsername(String username);
 
     //signup
-    public abstract int countByPersonalEmail(String email);
+    int countByPersonalEmail(String email);
 
     @Query(value = "SELECT count(c.personal_email) FROM customer c WHERE c.personal_email = ?1 AND c.is_activated = 1", nativeQuery = true)
-    public abstract int findCustomerByPersonalEmail(String email);
+    int findCustomerByPersonalEmail(String email);
 
     @Query(value = "SELECT count(c.personal_email) FROM customer c WHERE c.personal_email = ?1 AND c.is_activated = 0", nativeQuery = true)
-    public abstract int findCustomerByPersonalEmailNotActivated(String email);
-
-    @Query(value = "SELECT count(c.pwd) from customer c where c.id_customer = ?1 and c.pwd = ?2", nativeQuery = true)
-    public abstract int checkSamePwd(int customerId, String pwd);
+    int findCustomerByPersonalEmailNotActivated(String email);
 
     @Modifying
     @Query(value = "UPDATE customer c set c.is_activated = 1 where c.personal_email = ?1", nativeQuery = true)
-    public int makeActivated(String email);
-
-
+    int makeActivated(String email);
 }

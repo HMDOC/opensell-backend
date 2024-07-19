@@ -32,7 +32,6 @@ public class AdBuyerView {
 	public List<AdImage> adImages;
 	public String userPhone;
 	public String username;
-	public String userLink;
 	public String userIcon;
 
 	public AdBuyerView(Ad ad) {
@@ -54,7 +53,6 @@ public class AdBuyerView {
 			this.adImages = ad.getAdImages();
 			this.userPhone = customer.getCustomerInfo().getPhoneNumber();
 			this.username = customer.getUsername();
-			this.userLink = customer.getLink();
 			this.userIcon = customer.getCustomerInfo().getIconPath();
 		}
 	}

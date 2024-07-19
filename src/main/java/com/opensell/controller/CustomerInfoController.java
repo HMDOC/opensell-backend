@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.opensell.model.dto.CustomerProfile;
 import com.opensell.model.Customer;
-import com.opensell.repository.AdRepository;
 import com.opensell.repository.CustomerRepository;
 
 @RestController

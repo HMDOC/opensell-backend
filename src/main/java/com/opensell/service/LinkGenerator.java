@@ -15,8 +15,7 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class LinkGenerator {
     private final AdRepository adRep;
-    private final CustomerRepository customerRep;
-    
+
     private static final Random random = new Random();
     private static final int LINK_LENGTH = 12;
     private static final Character[] NUMBER_ARRAY = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -38,12 +37,6 @@ public class LinkGenerator {
         StringBuilder result = new StringBuilder();
         for (int elem = 0; elem < LINK_LENGTH; elem++) result.append(charArray.get(random.nextInt(0, charArray.size())));
         return result.toString();
-    }
-
-    public String generateCustomerLink() {
-        String link = generateLink();
-        while (customerRep.existsByLink(link)) link = generateLink();
-        return link;
     }
 
     public String generateAdLink() {
