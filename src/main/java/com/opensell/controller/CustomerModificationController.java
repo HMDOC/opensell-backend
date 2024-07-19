@@ -2,12 +2,8 @@ package com.opensell.controller;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.opensell.model.dto.CustomerModificationData;
 import com.opensell.service.CustomerModificationService;
@@ -25,9 +21,9 @@ public class CustomerModificationController {
     private final CustomerModificationService service;
     private final FileUploadService fileUploadService;
 
-    @PutMapping("/change-private-email")
-    public ModificationFeedback changeCustomerPersonalEmail(@RequestBody CustomerModificationData data) {
-        return service.changePersonalEmail(data);
+    @PatchMapping("/change-private-email")
+    public ResponseEntity<?> changeCustomerPersonalEmail(@RequestParam int id, @RequestParam String email, @RequestParam String confirmEmail) {
+        return service.changePersonalEmail(id, email, confirmEmail);
     }
 
     @PutMapping("/change-username")
@@ -77,5 +73,12 @@ public class CustomerModificationController {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    @GetMapping("/email/exists")
+    public boolean isEmailExists(@RequestParam int id, @RequestParam String email) {
+        System.out.println(id);
+        System.out.println(email);
+        return service.isEmailExists(id, email);
     }
 }

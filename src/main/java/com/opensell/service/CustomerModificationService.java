@@ -1,12 +1,17 @@
 package com.opensell.service;
 
+import com.opensell.model.Customer;
 import com.opensell.model.dto.CustomerModificationData;
 import com.opensell.model.verification.HtmlCode;
 import com.opensell.model.verification.RegexVerifier;
 import com.opensell.exception.CustomerModificationException;
 import com.opensell.repository.CustomerModificationRepository;
+import com.opensell.repository.CustomerRepository;
 import com.opensell.service.customerModification.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +27,29 @@ import java.sql.SQLException;
 public class CustomerModificationService {
     private final CustomerModificationRepository rep;
     private final PasswordEncoder passwordEncoder;
+    private final CustomerModificationRepository customerModificationRepository;
+    private final CustomerRepository customerRepository;
 
-    public ModificationFeedback changePersonalEmail(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerPersonalEmail(data.value(), data.id()), () -> RegexVerifier.EMAIL.verify(data.value()), data.value());
+    public ResponseEntity<?> changePersonalEmail(int id, String email, String confirmEmail) {
+        try {
+            boolean areEmailsEqual = email.equals(confirmEmail);
+
+            if(areEmailsEqual && RegexVerifier.EMAIL.verify(email)) {
+                Customer customer = customerRepository.findById(id).orElse(null);
+
+                if(customer != null) {
+                    customer.setPersonalEmail(email);
+                    customerModificationRepository.save(customer);
+                    return ResponseEntity.ok().build();
+                }
+
+                else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found");
+            }
+
+            return ResponseEntity.badRequest().body(areEmailsEqual ? "The email and confirm email are not equals" : RegexVerifier.EMAIL.verify(email) ? null : "Invalid email format.");
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already exists");
+        }
     }
 
     public ModificationFeedback changeExposedEmail(CustomerModificationData data) {
@@ -74,4 +99,9 @@ public class CustomerModificationService {
             return new ModificationFeedback(HtmlCode.OTHER_ERROR, result, value);
         }
     }
+
+    public boolean isEmailExists(int id, String email) {
+        return customerModificationRepository.isEmailExist(id, email) == 1;
+    }
+
 }

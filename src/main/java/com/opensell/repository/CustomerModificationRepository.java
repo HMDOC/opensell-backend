@@ -4,9 +4,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
 import com.opensell.model.Customer;
-
 import jakarta.transaction.Transactional;
 
 /**
@@ -17,40 +15,42 @@ import jakarta.transaction.Transactional;
 @Repository
 @Transactional
 public interface CustomerModificationRepository extends CrudRepository<Customer, Integer> {
+    @Modifying
+    @Query(value = "UPDATE customer c SET c.personal_email = ?1 WHERE c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerPersonalEmail(String email, int customerId);
 
     @Modifying
-    @Query(value = "update customer c set c.personal_email = ?1 where c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerPersonalEmail(String email, int customerId);
+    @Query(value = "UPDATE customer c SET c.username = ?1 WHERE c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerUsername(String name, int customerId);
 
     @Modifying
-    @Query(value = "update customer c set c.username = ?1 where c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerUsername(String name, int customerId);
+    @Query(value = "UPDATE customer c SET c.pwd = ?1 WHERE c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerPwd(String pwd, int customerId);
 
     @Modifying
-    @Query(value = "update customer c set c.pwd = ?1 where c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerPwd(String pwd, int customerId);
+    @Query(value = "UPDATE customer_info ci, customer c SET ci.first_name = ?1 WHERE c.customer_info_id = ci.id_customer_info AND c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerFirstName(String firstName, int customerId);
 
     @Modifying
-    @Query(value = "update customer_info ci, customer c set ci.first_name = ?1 where c.customer_info_id = ci.id_customer_info and c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerFirstName(String firstName, int customerId);
+    @Query(value = "UPDATE customer_info ci, customer c SET ci.last_name = ?1 WHERE c.customer_info_id = ci.id_customer_info AND c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerLastName(String lastName, int customerId);
 
     @Modifying
-    @Query(value = "update customer_info ci, customer c set ci.last_name = ?1 where c.customer_info_id = ci.id_customer_info and c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerLastName(String lastName, int customerId);
+    @Query(value = "UPDATE customer_info ci, customer c SET ci.phone_number = ?1 WHERE c.customer_info_id = ci.id_customer_info AND c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerPhoneNumber(String phoneNumber, int customerId);
 
     @Modifying
-    @Query(value = "update customer_info ci, customer c set ci.phone_number = ?1 where c.customer_info_id = ci.id_customer_info and c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerPhoneNumber(String phoneNumber, int customerId);
+    @Query(value = "UPDATE customer_info ci, customer c SET ci.bio = ?1 WHERE ci.id_customer_info = c.customer_info_id AND c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerBio(String bio, int customerId);
 
     @Modifying
-    @Query(value = "update customer_info ci, customer c set ci.bio = ?1 where ci.id_customer_info = c.customer_info_id and c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerBio(String bio, int customerId);
+    @Query(value = "UPDATE customer_info ci, customer c SET ci.icon_path = ?1 WHERE ci.id_customer_info = c.customer_info_id AND c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerIconPath(String iconPath, int customerId);
 
     @Modifying
-    @Query(value = "update customer_info ci, customer c set ci.icon_path = ?1 where ci.id_customer_info = c.customer_info_id and c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerIconPath(String iconPath, int customerId);
+    @Query(value = "UPDATE customer_info ci, customer c SET ci.exposed_email = ?1 WHERE ci.id_customer_info = c.customer_info_id AND c.id_customer = ?2 LIMIT 1", nativeQuery = true)
+    int updateCustomerExposedEmail(String email, int customerId);
 
-    @Modifying
-    @Query(value = "update customer_info ci, customer c set ci.exposed_email = ?1 where ci.id_customer_info = c.customer_info_id and c.id_customer = ?2", nativeQuery = true)
-    public abstract int updateCustomerExposedEmail(String email, int customerId);
+    @Query(value = "SELECT EXISTS(SELECT * FROM customer c WHERE c.id_customer != ?1 AND c.personal_email = ?2)", nativeQuery = true)
+    int isEmailExist(int id, String email);
 }

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.opensell.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-    public Customer findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(Integer idCustomer);
-    public Customer findOneByUsernameAndIsDeletedFalseAndIsActivatedTrue(String username);
+    Customer findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(Integer idCustomer);
+    Customer findOneByUsernameAndIsDeletedFalseAndIsActivatedTrue(String username);
 }
