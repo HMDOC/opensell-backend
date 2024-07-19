@@ -1,24 +1,21 @@
 package com.opensell.model;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.customer.CustomerInfo;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCustomer;
@@ -53,4 +50,9 @@ public class Customer {
 
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
     private Date joinedDate;
+
+    @JsonIgnore
+    @ToString.Exclude
+    @OneToMany(mappedBy = "customer")
+    private List<Ad> ads;
 }

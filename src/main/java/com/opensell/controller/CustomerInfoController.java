@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.opensell.model.dto.CustomerProfil;
-import com.opensell.model.Ad;
+import com.opensell.model.dto.CustomerProfile;
 import com.opensell.model.Customer;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.CustomerRepository;
@@ -18,16 +17,15 @@ import com.opensell.repository.CustomerRepository;
 @RequiredArgsConstructor
 public class CustomerInfoController {
     private final CustomerRepository customerRepository;
-    private final AdRepository adRep;
 
-    @GetMapping("/{link}")
-    public CustomerProfil getCustomerInfo(@PathVariable String link) {
-        Customer customer = customerRepository.findOneByLinkAndIsDeletedFalseAndIsActivatedTrue(link);
+    @GetMapping("/{username}")
+    public CustomerProfile getCustomerInfo(@PathVariable String username) {
+        Customer customer = customerRepository.findOneByUsernameAndIsDeletedFalseAndIsActivatedTrue(username);
 
         if(customer != null) {
-            return new CustomerProfil(customer, adRep.getAdsFromUser(link).stream().map(Ad::toAdSearchPreview).toList());
+            return new CustomerProfile(customer);
         }
 
-        else return null;
+        return null;
     }
 }
