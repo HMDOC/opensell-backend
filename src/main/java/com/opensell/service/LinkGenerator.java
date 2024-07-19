@@ -1,7 +1,6 @@
 package com.opensell.service;
 
 import com.opensell.repository.AdRepository;
-import com.opensell.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -11,6 +10,7 @@ import java.util.Random;
 /**
  * @author Olivier Mansuy
  */
+@Deprecated(forRemoval = true)
 @Service
 @RequiredArgsConstructor
 public class LinkGenerator {
