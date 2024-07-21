@@ -104,7 +104,6 @@ Create a file named `data.json` in the `src` folder with this content :
 }
 ```
 </details>
-<br />
 
 ## Run the project
 
