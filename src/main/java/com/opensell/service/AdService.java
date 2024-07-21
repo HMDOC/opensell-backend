@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdSearchParams;
+import com.opensell.model.ad.AdVisibility;
 import com.opensell.model.dto.AdCreator;
 import com.opensell.model.dto.AdSearchPreview;
 import com.opensell.model.dto.DisplayAdView;
@@ -67,18 +68,22 @@ public class AdService {
 	}
 
 	/**
-	 * To get an AdBuyer from a link.
+	 * To get an AdBuyer from an id.
 	 *
 	 * @author Achraf
 	 */
-	public AdBuyerView getAdBuyerView(String link) {
+	public ResponseEntity<?> getAdBuyerView(int idAd) {
 		try {
-			Ad ad = adRepo.getAdByLink(link);
-			if(ad != null) {
-				return new AdBuyerView(ad);
-			} 
-			
-			else return null;
+			Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
+
+			if(ad == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ad not found");
+
+			// need to do vérification for public when implementing Spring security.
+			/*if(ad.getVisibility() == AdVisibility.PRIVATE.ordinal()) {
+				return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You are not allowed to view this ad.");
+			}*/
+
+			return ResponseEntity.ok(new AdBuyerView(ad));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return null;

@@ -23,6 +23,7 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
      *
      * @author Achraf
      */
+    @Deprecated(forRemoval = true)
     @Query("SELECT a FROM Ad a WHERE a.link = ?1 AND a.isDeleted = false AND a.visibility != 1")
     Ad getAdByLink(String link);
 

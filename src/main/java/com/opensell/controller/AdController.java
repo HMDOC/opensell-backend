@@ -33,9 +33,9 @@ public class AdController {
      *
      * @author Achraf
      */
-    @GetMapping("/get-ad-buyer-view/{link}")
-    public AdBuyerView adBuyerView(@PathVariable String link) {
-        return adService.getAdBuyerView(link);
+    @GetMapping("/get-ad-buyer-view/{idAd}")
+    public ResponseEntity<?> adBuyerView(@PathVariable int idAd) {
+        return adService.getAdBuyerView(idAd);
     }
 
     @GetMapping("/get-all-ad-type")

@@ -14,11 +14,11 @@ import lombok.Data;
 // Maybe the order
 @Data
 public class AdSearchPreview {
+	public int id;
 	public String adTitle;
 	public double adPrice;
 	public int adShape;
 	public boolean isAdSold;
-	public String adLink;
 	public String adFirstImagePath;
 
 	public AdSearchPreview(Ad ad) {
@@ -26,7 +26,7 @@ public class AdSearchPreview {
 		this.adPrice = ad.getPrice();
 		this.adShape = ad.getShape();
 		this.isAdSold = ad.isSold();
-		this.adLink = ad.getLink();
+		this.id = ad.getIdAd();
 		this.adFirstImagePath = ad.getFirstImagePath();
 	}
 }
