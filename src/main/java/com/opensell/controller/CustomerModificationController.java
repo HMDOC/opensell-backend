@@ -68,7 +68,7 @@ public class CustomerModificationController {
     @PostMapping("/get-image-icon-path")
     public String getImageIconPath(@RequestBody List<MultipartFile> multipartFiles)  {
         try {
-            return fileUploadService.saveFiles(multipartFiles, FileUploadService.FileType.CUSTOMER_PROFIL).get(0);
+            return fileUploadService.saveFiles(multipartFiles, FileUploadService.FileType.CUSTOMER_PROFILE).get(0);
         } catch (Exception e) {
             return null;
         }

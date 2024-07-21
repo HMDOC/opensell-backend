@@ -18,10 +18,10 @@ import lombok.Getter;
  */
 @Service
 public class FileUploadService {
-	@Value("${SERVER_URL}")
-	public String serverUrl;
+	@Value("${IMAGE_SERVER_URL}")
+	public String imageServerUrl;
 
-	@Value("${UPLOAD_PATH}")
+	@Value("${IMAGE_SERVER_PATH}")
     public String uploadPath;
 
 	@Getter
@@ -39,16 +39,16 @@ public class FileUploadService {
 	@Getter
     public enum FileType {
 		AD_IMAGE("/ad-image/"),
-		CUSTOMER_PROFIL("/customer-profil/");
+		CUSTOMER_PROFILE("/customer-profile/");
 
-		private String folder;
+		private final String folder;
 
 		FileType(String folder) {
 			this.folder = folder;
 		}
 	}
 
-	private static Random random = new Random();
+	private static final Random random = new Random();
 	
 	// POSTION FROM ASCI TABLE
 	public static final byte FIRST_LOWER_LETTER = 97;
@@ -114,7 +114,7 @@ public class FileUploadService {
 
 					destFile.createNewFile();
 					file.transferTo(destFile);
-					filesPath.add(serverUrl+randomFileName);
+					filesPath.add(imageServerUrl+randomFileName);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

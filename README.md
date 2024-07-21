@@ -14,53 +14,44 @@ Opensell is a website for buying and selling ads that we made in the course 420-
 
 ## Technologies
 
-### Frontend
-
-- Typescript
-- React
-- Axios
-- react-bootstrap
-- react-modal
-
 ### Backend
 
 - Java
 - Spring Boot
 - Lombok
 
+### Frontend
+
+- Typescript
+- React
+- Axios
+- MUI
+
 ## Installation
 <!-- Dependencies -->
 <details open><summary><b>External dependencies</b></summary>
-<br />
 
 - [nodejs](https://nodejs.org/en/download/prebuilt-installer)
 - [MariaDB](https://mariadb.org/download/)
 - [JDK 21](https://www.oracle.com/ca-en/java/technologies/downloads/#java21)
 
 </details>
-
-<!-- Frontend section -->
-<details open><summary><b>Frontend</b></summary>
 <br />
 
+<!-- Images section -->
+<details open><summary><b>Images Server</b></summary>
+
 Setup :
-```
-git clone https://github.com/HMDOC/opensell-frontend
-cd opensell-frontend/
+```shell
+git clone https://github.com/HMDOC/opensell-images
 npm install
 ```
 
-Create a file named `data.json` in the `src` folder with this content :
-```json
-{
-    "url": "<BACKEND_URL>"
-}
-```
 </details>
+<br />
 
 <!-- Backend section -->
 <details open><summary><b>Backend</b></summary>
-<br />
 
 Setup :
 ```
@@ -84,21 +75,36 @@ SMTP_PORT=
 SMTP_EMAIL=
 SMTP_PASSWORD=
 
-# The path where the image are going to be stored. This path should not end with /
-UPLOAD_PATH=
-
 # The url that can make request to the backend. The only one you need is the one of the frontend
 ALLOWED_URLS=
 
-SERVER_URL=
-```
+# The path where the image are going to be stored. This path should end with /public if you are using the image server.
+IMAGE_SERVER_PATH=
 
-To enable images :
+# The url of the server that contain the image. Ex: http://localhost:$PORT
+IMAGE_SERVER_URL=
 ```
-You need to create two folders one named "/ad-image" that will contain the images for the ads and the other "/customer-profil" will contain the profil pictures of the users. They need to be accessible by http like this : http://<BACKEND_URL>/ad-image/.
-```
-
 </details>
+<br />
+
+<!-- Frontend section -->
+<details open><summary><b>Frontend</b></summary>
+
+Setup :
+```
+git clone https://github.com/HMDOC/opensell-frontend
+cd opensell-frontend/
+npm install
+```
+
+Create a file named `data.json` in the `src` folder with this content :
+```json
+{
+    "url": "<BACKEND_URL>"
+}
+```
+</details>
+<br />
 
 ## Run the project
 
@@ -106,7 +112,11 @@ You need to create two folders one named "/ad-image" that will contain the image
 # Frontend
 npm start
 
-# Backend : run with your IDE.
+# Backend: run with your IDE or :
+./mvnw spring-boot:run
+
+# Images
+npm start
 ```
 
 ## Preview
@@ -117,6 +127,6 @@ npm start
 
 ![My Ads](https://raw.githubusercontent.com/HMDOC/readme-src/main/my-ads.png)
 
-![Profil](https://raw.githubusercontent.com/HMDOC/readme-src/main/profil.png)
+![Profile](https://raw.githubusercontent.com/HMDOC/readme-src/main/profil.png)
 
 ![Settings](https://raw.githubusercontent.com/HMDOC/readme-src/main/settings.png)
