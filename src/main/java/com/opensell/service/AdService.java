@@ -33,7 +33,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class AdService {
 	private final AdRepository adRepo;
 	private final AdTypeRepository adTypeRepo;
-	private final LinkGenerator linkGenerator;
 	private final AdModificationService adModificationService;
     private final CustomerRepository customerRepository;
 	private final FileUploadService fileUploadService;

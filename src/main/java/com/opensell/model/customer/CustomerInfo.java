@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerInfo {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCustomerInfo;
