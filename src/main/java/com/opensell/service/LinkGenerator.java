@@ -39,9 +39,10 @@ public class LinkGenerator {
         return result.toString();
     }
 
+    @Deprecated(forRemoval = true)
     public String generateAdLink() {
         String link = generateLink();
-        while (adRep.existsByLink(link)) link = generateLink();
+        //while (adRep.existsByLink(link)) link = generateLink();
         return link;
     }
 }

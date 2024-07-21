@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdSearchParams;
-import com.opensell.model.ad.AdVisibility;
 import com.opensell.model.dto.AdCreator;
 import com.opensell.model.dto.AdSearchPreview;
 import com.opensell.model.dto.DisplayAdView;
@@ -17,7 +16,6 @@ import com.opensell.repository.AdImageRepository;
 import com.opensell.repository.CustomerRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +25,6 @@ import com.opensell.model.dto.AdBuyerView;
 import com.opensell.repository.AdRepository;
 import com.opensell.repository.AdTypeRepository;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -92,7 +89,6 @@ public class AdService {
 
 	public void setFromAdCreator(AdCreator adCreator, Ad ad) {
 		if(adCreator.adId() == null) {
-			ad.setLink(linkGenerator.generateAdLink());
 			ad.setAddedDate(new Date(System.currentTimeMillis()));
 			ad.setCustomer(customerRepository.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(adCreator.customerId()));
 		}

@@ -18,16 +18,6 @@ import java.util.Optional;
 @Repository
 public interface AdRepository extends JpaRepository<Ad, Integer> {
     /**
-     * Return a ad by the link if it is not deleted and not private.
-     * Purpose : For AdBuyerView
-     *
-     * @author Achraf
-     */
-    @Deprecated(forRemoval = true)
-    @Query("SELECT a FROM Ad a WHERE a.link = ?1 AND a.isDeleted = false AND a.visibility != 1")
-    Ad getAdByLink(String link);
-
-    /**
      * @author Davide
      */
     // https://www.baeldung.com/spring-jpa-like-queries
@@ -53,8 +43,8 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
      *
      * @author Achraf
      */
-    @Query(value = "SELECT * FROM ad a WHERE a.link = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
-    Ad getAdToModif(String link);
+    @Query(value = "SELECT * FROM ad a WHERE a.id_ad = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
+    Ad getAdToModify(int idAd);
 
     Ad findOneByIdAdAndIsDeletedFalse(Integer idAd);
 
@@ -66,8 +56,6 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 
     @Query("SELECT new com.opensell.model.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
     List<DisplayAdView> getCustomerAds(Customer customer);
-
-    boolean existsByLink(String link);
 
     @Query(value = "select a.id_ad from ad a where a.customer_id = ?1 and a.title = ?2", nativeQuery = true)
     int getAdIdFromTitleAndCustomerID(int customerId, String title);

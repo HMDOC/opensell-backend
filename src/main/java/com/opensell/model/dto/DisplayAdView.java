@@ -7,7 +7,6 @@ public class DisplayAdView {
     public String title;
     public Double price;
     public String firstImage;
-    public String link;
     public Boolean isSold;
     public Integer visibility;
 
@@ -17,7 +16,6 @@ public class DisplayAdView {
             this.title = ad.getTitle();
             this.price = ad.getPrice();
             this.firstImage = ad.getFirstImagePath();
-            this.link = ad.getLink();
             this.isSold = ad.isSold();
             this.visibility = ad.getVisibility();
         }

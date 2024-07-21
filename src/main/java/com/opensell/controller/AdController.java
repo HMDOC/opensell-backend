@@ -64,9 +64,9 @@ public class AdController {
      *
      * @author Achraf
      */
-    @GetMapping("/to-modify/{link}")
-    public AdCreator getAdModifyView(@PathVariable String link) throws JsonProcessingException {
-        Ad ad = adRepo.getAdToModif(link);
+    @GetMapping("/to-modify/{idAd}")
+    public AdCreator getAdModifyView(@PathVariable int idAd) throws JsonProcessingException {
+        Ad ad = adRepo.getAdToModify(idAd);
         return ad != null ? AdCreator.fromAd(ad) : null ;
     }
 

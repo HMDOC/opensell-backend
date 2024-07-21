@@ -57,10 +57,6 @@ public class Ad {
     @Column(nullable = false)
     private String address;
 
-    // length=12
-    @Column(nullable = false, unique = true)
-    private String link;
-
     @ManyToOne
     @JoinColumn(name = "ad_type_id", nullable = false)
     private AdType adType;
