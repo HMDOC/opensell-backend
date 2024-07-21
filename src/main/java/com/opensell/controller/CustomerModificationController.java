@@ -14,7 +14,6 @@ import com.opensell.service.customerModification.ModificationFeedback;
  * @author Olivier
  */
 @RestController //extends @RequestBody, which enables automatic serialization of returned values of controllers
-@CrossOrigin("${allowedUrl}")
 @RequestMapping("/change")
 @RequiredArgsConstructor
 public class CustomerModificationController {

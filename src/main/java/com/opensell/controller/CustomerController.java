@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin("${allowedUrl}")
 @RequestMapping("/c")
 @RequiredArgsConstructor
 public class CustomerController {

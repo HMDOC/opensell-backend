@@ -13,15 +13,12 @@ import com.opensell.service.CodeService;
 import com.opensell.service.timeService.*;
 import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
-import com.opensell.service.FileUploadService;
-import com.opensell.service.FileUploadService.RandName;
 import java.sql.Date;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin("${allowedUrl}")
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final LoginRepository rep;

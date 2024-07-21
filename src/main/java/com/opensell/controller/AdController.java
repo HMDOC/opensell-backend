@@ -16,7 +16,6 @@ import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;
 import com.opensell.service.AdService;
 
-@CrossOrigin("${allowedUrl}")
 @RestController
 @Validated
 @RequestMapping("/ad")

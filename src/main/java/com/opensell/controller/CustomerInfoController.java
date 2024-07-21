@@ -11,7 +11,6 @@ import com.opensell.model.Customer;
 import com.opensell.repository.CustomerRepository;
 
 @RestController
-@CrossOrigin("${allowedUrl}")
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class CustomerInfoController {

@@ -1,15 +1,19 @@
+app:
+  allowed-urls: ${ALLOWED_URLS}
 server:
-  port: ${port}
+  port: ${SERVER_PORT}
 spring:
+  config:
+    import: file:env.properties
   servlet:
     multipart:
       max-file-size: 50MB
       max-request-size: 500MB
       enabled: true
   datasource:
-    url: ${url}
-    username: ${user}
-    password: ${pwd}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -23,10 +27,10 @@ spring:
     ansi:
       enabled: always
   mail:
-    host: smtp-mail.outlook.com
-    port: ${mailPort}
-    username: ${email}
-    password: ${mailPassword}
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    username: ${SMTP_EMAIL}
+    password: ${SMTP_PASSWORD}
     default-encoding: UTF-8
     properties:
       mail:

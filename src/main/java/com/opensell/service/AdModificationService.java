@@ -9,7 +9,7 @@ import com.opensell.repository.AdTagRepository;
 
 /**
  * Service that contain the functions to update each value of an ad 
- * that are updable in the frontend.
+ * that are updatable in the frontend.
  * 
  * @author Achraf
  */
@@ -32,7 +32,7 @@ public class AdModificationService {
                 // If the tag already exists
                 if (tagTemp != null) adTags.add(tagTemp);
 
-                    // If the tag does exists
+                // If the tag does exists
                 else adTags.add(adTagRepo.save(new AdTag(tag)));
             }
         });

@@ -17,21 +17,17 @@ public class CustomerInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCustomerInfo;
 
-    @Column(nullable = true)
     private String firstName;
 
-    @Column(nullable = true)
     private String lastName;
 
-    @Column(nullable = true, unique = true)
+    @Column(unique = true)
     private String exposedEmail;
 
-    @Column(nullable = true, unique = true)
+    @Column(unique = true)
     private String phoneNumber;
 
-    @Column(nullable = true)
     private String bio;
 
-    @Column(nullable = true)
     private String iconPath;
 }

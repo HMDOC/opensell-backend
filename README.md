@@ -65,12 +65,32 @@ Create a file named `data.json` in the `src` folder with this content :
 Setup :
 ```
 git clone https://github.com/HMDOC/opensell-backend
-# Import the project in your IDE.
 ```
 
-In your IDE, go to `run configurations` for the project and add this in section `VM options` :
-```sh
--Dport=9108 -Durl="jdbc:mariadb://localhost:3306/mydatabase" -Duser="john" -Dpwd="THIS_IS_NOT_MY_PASSWORD" -DmailPort=587 -Demail="nothankyou@github.com" -DmailPassword="THIS_IS_NOT_MY_PASSWORD" -DuploadPath="<PATH_OF_THE_IMAGES>" -DallowedUrl="http://localhost/" -DserverUrl="<BACKEND_URL>"
+Create the file `env.properties` in the root folder that contains this :
+```properties
+# The port of the backend.
+SERVER_PORT=
+
+DB_USERNAME=
+DB_PASSWORD=
+DB_URL=
+
+# The url of the SMTP server. Ex: smtp-mail.outlook.com
+SMTP_HOST=
+
+# The port of the SMTP server. Ex: 587
+SMTP_PORT=
+SMTP_EMAIL=
+SMTP_PASSWORD=
+
+# The path where the image are going to be stored. This path should not end with /
+UPLOAD_PATH=
+
+# The url that can make request to the backend. The only one you need is the one of the frontend
+ALLOWED_URLS=
+
+SERVER_URL=
 ```
 
 To enable images :

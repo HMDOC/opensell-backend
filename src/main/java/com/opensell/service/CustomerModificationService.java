@@ -14,9 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.sql.SQLException;
-
 
 /**
  * This service allows to modify the customer's personal information using the repository
@@ -51,6 +49,17 @@ public class CustomerModificationService {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already exists");
         }
     }
+
+    /**
+    public record OtherInformations(String username,
+                                    String firstName,
+                                    String lastName,
+                                    String publicEmail,
+                                    String bio) {
+    }
+
+    public void changeOtherInformations(int id, OtherInformations otherInformations) {
+    }*/
 
     public ModificationFeedback changeExposedEmail(CustomerModificationData data) {
         return getFeedback(() -> rep.updateCustomerExposedEmail(data.value(), data.id()), () -> RegexVerifier.EMAIL.verify(data.value()), data.value());
