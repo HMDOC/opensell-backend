@@ -3,11 +3,11 @@ package com.opensell.ad.modification;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opensell.ad.modification.dto.AdCreatorDto;
 import com.opensell.exception.AdTitleUniqueException;
 import com.opensell.model.Ad;
 import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdTag;
-import com.opensell.model.dto.AdCreator;
 import com.opensell.model.dto.DisplayAdView;
 import com.opensell.repository.*;
 import com.opensell.service.FileUploadService;
@@ -17,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -33,6 +32,15 @@ public class AdModificationService {
     private final CustomerRepository customerRepository;
     private final AdTypeRepository adTypeRepository;
     private final AdTagRepository adTagRepo;
+
+    public AdCreatorDto getAdModificationDto(int idAd) throws JsonProcessingException {
+        Ad ad = adRepo.getAdToModify(idAd);
+        return ad != null ? AdCreatorDto.fromAd(ad) : null;
+    }
+
+    public boolean deleteAd(int idAd) {
+        return adRepo.hideAd(idAd) > 0;
+    }
 
     public Set<AdTag> getAdTagsFromStringSet(Set<String> tags) {
         Set<AdTag> adTags = new LinkedHashSet<>();
@@ -91,39 +99,39 @@ public class AdModificationService {
         return ad;
     }
 
-    public void setFromAdCreator(AdCreator adCreator, Ad ad) {
-        if (adCreator.adId() == null) {
+    public void setFromAdCreator(AdCreatorDto adCreatorDto, Ad ad) {
+        if (adCreatorDto.adId() == null) {
             ad.setAddedDate(new Date(System.currentTimeMillis()));
-            ad.setCustomer(customerRepository.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(adCreator.customerId()));
+            ad.setCustomer(customerRepository.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(adCreatorDto.customerId()));
         }
 
-        ad.setTitle(adCreator.title());
-        ad.setPrice(adCreator.price());
-        ad.setAddress(adCreator.address());
-        ad.setSold(adCreator.isSold());
-        ad.setDescription(adCreator.description());
-        ad.setAdTags(this.getAdTagsFromStringSet(adCreator.tags()));
-        ad.setAdType(adTypeRepository.findOneByIdAdType(adCreator.adTypeId()));
-        ad.setShape(adCreator.shape());
-        ad.setVisibility(adCreator.visibility());
+        ad.setTitle(adCreatorDto.title());
+        ad.setPrice(adCreatorDto.price());
+        ad.setAddress(adCreatorDto.address());
+        ad.setSold(adCreatorDto.isSold());
+        ad.setDescription(adCreatorDto.description());
+        ad.setAdTags(this.getAdTagsFromStringSet(adCreatorDto.tags()));
+        ad.setAdType(adTypeRepository.findOneByIdAdType(adCreatorDto.adTypeId()));
+        ad.setShape(adCreatorDto.shape());
+        ad.setVisibility(adCreatorDto.visibility());
     }
 
     public void deleteAllImages(int idAd) {
         adImageRepository.deleteAllByAdIdAd(idAd);
     }
 
-    public ResponseEntity<DisplayAdView> createOrUpdateAd(List<MultipartFile> images, List<Integer> imagePositions, @Valid AdCreator adCreator, boolean isUpdate) throws RuntimeException, JsonProcessingException {
-        Ad ad = (isUpdate ? adRepo.findOneByIdAdAndIsDeletedFalse(adCreator.adId()) : new Ad());
+    public ResponseEntity<DisplayAdView> createOrUpdateAd(List<MultipartFile> images, List<Integer> imagePositions, @Valid AdCreatorDto adCreatorDto, boolean isUpdate) throws RuntimeException, JsonProcessingException {
+        Ad ad = (isUpdate ? adRepo.findOneByIdAdAndIsDeletedFalse(adCreatorDto.adId()) : new Ad());
 
-        if (!this.isTitleConstraintOk(adCreator.title(), adCreator.customerId(), ad.getIdAd())) {
+        if (!this.isTitleConstraintOk(adCreatorDto.title(), adCreatorDto.customerId(), ad.getIdAd())) {
             throw new AdTitleUniqueException();
         }
 
-        this.setFromAdCreator(adCreator, ad);
+        this.setFromAdCreator(adCreatorDto, ad);
 
         // Create the list by getting the oldAdImages if it is an update, else new ArrayList.
         List<AdImage> adImages = (
-            isUpdate ? new ObjectMapper().readValue(adCreator.adImagesJson(), new TypeReference<>() {
+            isUpdate ? new ObjectMapper().readValue(adCreatorDto.adImagesJson(), new TypeReference<>() {
             }) : new ArrayList<>()
         );
 

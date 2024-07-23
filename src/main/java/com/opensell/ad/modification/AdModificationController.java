@@ -1,10 +1,8 @@
 package com.opensell.ad.modification;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.opensell.model.Ad;
-import com.opensell.model.dto.AdCreator;
+import com.opensell.ad.modification.dto.AdCreatorDto;
 import com.opensell.model.dto.DisplayAdView;
-import com.opensell.repository.AdRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,35 +13,33 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class AdModificationController {
-    private final AdRepository adRepo;
     private final AdModificationService adModificationService;
 
     /**
      * To get an adView when a user want to modify an ad.
      */
     @GetMapping("/{idAd}")
-    public AdCreator getAdModifyView(@PathVariable int idAd) throws JsonProcessingException {
-        Ad ad = adRepo.getAdToModify(idAd);
-        return ad != null ? AdCreator.fromAd(ad) : null ;
+    public AdCreatorDto getAdModificationDto(@PathVariable int idAd) throws JsonProcessingException {
+        return adModificationService.getAdModificationDto(idAd);
     }
 
     @DeleteMapping("/{idAd}")
     public boolean deleteAd(@PathVariable int idAd) {
-        return adRepo.hideAd(idAd) > 0;
+        return adModificationService.deleteAd(idAd);
     }
 
     @PostMapping
     public ResponseEntity<DisplayAdView> createAd(@RequestBody(required = false) List<MultipartFile> images,
                                                   @RequestParam(required = false) List<Integer> imagePositions,
-                                                  AdCreator adCreator) throws JsonProcessingException {
-        return adModificationService.createOrUpdateAd(images, imagePositions, adCreator, false);
+                                                  AdCreatorDto adCreatorDto) throws JsonProcessingException {
+        return adModificationService.createOrUpdateAd(images, imagePositions, adCreatorDto, false);
     }
 
     @PatchMapping
     public ResponseEntity<DisplayAdView> updateAd(@RequestBody(required = false) List<MultipartFile> images,
                                                   @RequestParam(required = false) List<Integer> imagePositions,
-                                                  AdCreator adCreator) throws JsonProcessingException {
-        return adModificationService.createOrUpdateAd(images, imagePositions, adCreator, true);
+                                                  AdCreatorDto adCreatorDto) throws JsonProcessingException {
+        return adModificationService.createOrUpdateAd(images, imagePositions, adCreatorDto, true);
     }
 
     @GetMapping("/is-title-constraint-ok")

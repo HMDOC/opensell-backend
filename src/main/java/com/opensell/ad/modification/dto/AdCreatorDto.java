@@ -1,4 +1,4 @@
-package com.opensell.model.dto;
+package com.opensell.ad.modification.dto;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,11 +7,10 @@ import com.opensell.model.ad.AdShape;
 import com.opensell.model.ad.AdVisibility;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
-
 import java.util.Set;
 
 @Builder
-public record AdCreator(
+public record AdCreatorDto(
     Integer adId,
 
     @NotNull
@@ -48,8 +47,8 @@ public record AdCreator(
 
     String adImagesJson
 ) {
-    public static AdCreator fromAd(Ad ad) throws JsonProcessingException {
-        return AdCreator.builder()
+    public static AdCreatorDto fromAd(Ad ad) throws JsonProcessingException {
+        return AdCreatorDto.builder()
             .adId(ad.getIdAd())
             .customerId(ad.getCustomer().getIdCustomer())
             .title(ad.getTitle())
