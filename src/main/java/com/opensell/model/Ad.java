@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;
-import com.opensell.model.dto.AdSearchPreview;
+import com.opensell.ad.catalog.AdSearchPreview;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

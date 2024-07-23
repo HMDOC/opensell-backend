@@ -1,4 +1,4 @@
-package com.opensell.model.dto;
+package com.opensell.ad.catalog;
 
 
 import com.opensell.model.Ad;

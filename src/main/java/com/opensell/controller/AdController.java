@@ -1,15 +1,13 @@
 package com.opensell.controller;
 
 import java.util.*;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.opensell.ad.catalog.AdSearchPreview;
 import com.opensell.model.dto.*;
 import com.opensell.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import com.opensell.model.Ad;
 import com.opensell.model.Customer;
 import com.opensell.model.ad.AdSearchParams;
 import com.opensell.model.ad.AdTag;
@@ -58,45 +56,11 @@ public class AdController {
         return adService.adSearch(query);
     }
 
-    /**
-     * To get an adView when a user want to modify an ad.
-     *
-     * @author Achraf
-     */
-    @GetMapping("/to-modify/{idAd}")
-    public AdCreator getAdModifyView(@PathVariable int idAd) throws JsonProcessingException {
-        Ad ad = adRepo.getAdToModify(idAd);
-        return ad != null ? AdCreator.fromAd(ad) : null ;
-    }
-
-    // ONLY FOR THE AD OWNER NOT FOR THE NORMAL USER
-    @GetMapping("/get-ad-preview-for-customer/{idAd}")
-    public AdBuyerView getUserPreviewAd(@PathVariable int idAd) {
-        return new AdBuyerView(adRepo.findOneByIdAdAndIsDeletedFalse(idAd));
-    }
-
     @GetMapping("/get-customer-ads/{customerId}")
     public List<DisplayAdView> getCustomerAds(@PathVariable Integer customerId) {
         Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(customerId);
         if (customer != null) {
             return adRepo.getCustomerAds(customer);
         } else return null;
-    }
-
-    @PatchMapping("/delete-ad/{idAd}")
-    public boolean deleteAd(@PathVariable int idAd) {
-        return adRepo.hideAd(idAd) > 0;
-    }
-
-    @PostMapping("/v2/create-or-update-ad")
-    public ResponseEntity<DisplayAdView> createOrUpdateAd(@RequestBody(required = false) List<MultipartFile> images,
-                                                          @RequestParam(required = false) List<Integer> imagePositions,
-                                                          AdCreator adCreator) throws JsonProcessingException {
-        return adService.createOrUpdateAd(images, imagePositions, adCreator);
-    }
-
-    @GetMapping("/v2/is-title-constraint-ok")
-    public boolean isTitleConstraintOk(@RequestParam String title, @RequestParam int customerId, @RequestParam(required = false) Integer adId) {
-        return adService.isTitleConstraintOk(title, customerId, adId);
     }
 }
