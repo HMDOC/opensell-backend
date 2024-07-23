@@ -1,5 +1,4 @@
-package com.opensell.ad.catalog;
-
+package com.opensell.ad.catalog.dto;
 
 import com.opensell.model.Ad;
 import lombok.Data;
@@ -10,10 +9,8 @@ import lombok.Data;
  *
  * @author Davide
  */
-
-// Maybe the order
 @Data
-public class AdSearchPreview {
+public class AdPreviewDto {
 	public int id;
 	public String adTitle;
 	public double adPrice;
@@ -21,7 +18,7 @@ public class AdSearchPreview {
 	public boolean isAdSold;
 	public String adFirstImagePath;
 
-	public AdSearchPreview(Ad ad) {
+	public AdPreviewDto(Ad ad) {
 		this.adTitle = ad.getTitle();
 		this.adPrice = ad.getPrice();
 		this.adShape = ad.getShape();

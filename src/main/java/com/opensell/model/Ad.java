@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;
-import com.opensell.ad.catalog.AdSearchPreview;
+import com.opensell.ad.catalog.dto.AdPreviewDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -109,7 +109,7 @@ public class Ad {
     }
 
     @JsonIgnore
-    public AdSearchPreview toAdSearchPreview() {
-        return new AdSearchPreview(this);
+    public AdPreviewDto toAdSearchPreview() {
+        return new AdPreviewDto(this);
     }
 }

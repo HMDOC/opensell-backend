@@ -56,7 +56,4 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
 
     @Query("SELECT new com.opensell.model.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
     List<DisplayAdView> getCustomerAds(Customer customer);
-
-    @Query(value = "select a.id_ad from ad a where a.customer_id = ?1 and a.title = ?2", nativeQuery = true)
-    int getAdIdFromTitleAndCustomerID(int customerId, String title);
 }

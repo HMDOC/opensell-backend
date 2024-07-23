@@ -1,11 +1,10 @@
-package com.opensell.model.dto;
+package com.opensell.ad.catalog.dto;
 
 import com.opensell.model.Ad;
 import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -18,7 +17,7 @@ import java.util.Set;
  * @author Achraf
  */
 @Data @NoArgsConstructor
-public class AdBuyerView {
+public class AdViewDto {
 	public String adTitle;
 	public double adPrice;
 	public Date adAddedDate;
@@ -34,7 +33,7 @@ public class AdBuyerView {
 	public String username;
 	public String userIcon;
 
-	public AdBuyerView(Ad ad) {
+	public AdViewDto(Ad ad) {
 		if(ad != null) {
 			Set<String> tags = new LinkedHashSet<>();
 			var customer = ad.getCustomer();

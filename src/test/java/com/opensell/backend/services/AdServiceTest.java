@@ -40,8 +40,8 @@ public class AdServiceTest {
 
 	@Test
 	void getAdBuyerView() {
-		//assertTrue(adService.adBuyerView(goodLink) != null);
-		//assertTrue(adService.adBuyerView(wrongLink) == null);
+		//assertTrue(adService.getAdBuyerView(goodLink) != null);
+		//assertTrue(adService.getAdBuyerView(wrongLink) == null);
 
 		assertTrue(true);
 	}
