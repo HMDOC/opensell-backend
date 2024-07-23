@@ -10,7 +10,7 @@ import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
-import com.opensell.service.timeService.*;
+import com.opensell.service.time.*;
 import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
 import java.sql.Date;

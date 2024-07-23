@@ -158,7 +158,7 @@ public class AdServiceTest {
 		/*List<AdSearchPreview> adList = adService.adSearch(new ArrayList<>(), null, null,
 				null, null,
 				null, null, null, null, "title", false);
-		assertTrue(adList.get(0).adTitle().equalsIgnoreCase("NSX"));*/
+		assertTrue(adList.get(0).title().equalsIgnoreCase("NSX"));*/
 
 		assertTrue(true);
 	}
@@ -173,7 +173,7 @@ public class AdServiceTest {
 				null, null,
 				null, null, null, null, "price", false);
 		// 0 is false
-        assertEquals(0, adList.get(0).isAdSold());*/
+        assertEquals(0, adList.get(0).isSold());*/
 
 		assertTrue(true);
 	}
@@ -187,7 +187,7 @@ public class AdServiceTest {
 		/*List<AdSearchPreview> adList = adService.adSearch(new ArrayList<>(), 1000.0, 6000.0,
 				null, null,
 				null, null, null, null, "addedDate", false);
-        assertEquals(3, adList.get(1).adShape());*/
+        assertEquals(3, adList.get(1).shape());*/
 
 		assertTrue(true);
 	}
@@ -202,7 +202,7 @@ public class AdServiceTest {
 				null, null, null, null, null, true, "addedDate", false);
         
 		for(AdSearchPreview ad : adList) {
-			if (!ad.isAdSold()) {
+			if (!ad.isSold()) {
 				fail("Ad " + ad.adLink() + " is not sold.");
 				break;
 			}
@@ -216,7 +216,7 @@ public class AdServiceTest {
 	void adSearchFailTest() {
 		/*List<AdSearchPreview> adList = adService.adSearch(new ArrayList<>(), null, null,
 				null, null, null, null, null, false, "addedDate", false);
-		assertNotEquals( 0, adList.get(0).adShape());*/
+		assertNotEquals( 0, adList.get(0).shape());*/
 
 		assertTrue(true);
 	}

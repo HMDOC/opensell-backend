@@ -1,8 +1,8 @@
 package com.opensell.repository;
 
+import com.opensell.ad.catalog.dto.AdPreviewDto;
 import com.opensell.model.Ad;
 import com.opensell.model.Customer;
-import com.opensell.model.dto.DisplayAdView;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -54,6 +54,6 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
     @Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id_ad = ?1 LIMIT 1", nativeQuery = true)
     int hideAd(Integer idAd);
 
-    @Query("SELECT new com.opensell.model.dto.DisplayAdView(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
-    List<DisplayAdView> getCustomerAds(Customer customer);
+    @Query("SELECT new com.opensell.ad.catalog.dto.AdPreviewDto(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
+    List<AdPreviewDto> getCustomerAds(Customer customer);
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/ad/catalog")
 @RequiredArgsConstructor
-public class CatalogueController {
+public class CatalogController {
     private final CatalogService catalogService;
 
     /**

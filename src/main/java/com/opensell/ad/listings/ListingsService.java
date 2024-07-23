@@ -1,14 +1,15 @@
-package com.opensell.ad.modification;
+package com.opensell.ad.listings;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opensell.ad.modification.dto.AdCreatorDto;
+import com.opensell.ad.catalog.dto.AdPreviewDto;
+import com.opensell.ad.listings.dto.AdCreatorDto;
 import com.opensell.exception.AdTitleUniqueException;
 import com.opensell.model.Ad;
+import com.opensell.model.Customer;
 import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdTag;
-import com.opensell.model.dto.DisplayAdView;
 import com.opensell.repository.*;
 import com.opensell.service.FileUploadService;
 import jakarta.validation.Valid;
@@ -17,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -25,7 +27,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class AdModificationService {
+public class ListingsService {
     private final AdRepository adRepo;
     private final FileUploadService fileUploadService;
     private final AdImageRepository adImageRepository;
@@ -120,7 +122,7 @@ public class AdModificationService {
         adImageRepository.deleteAllByAdIdAd(idAd);
     }
 
-    public ResponseEntity<DisplayAdView> createOrUpdateAd(List<MultipartFile> images, List<Integer> imagePositions, @Valid AdCreatorDto adCreatorDto, boolean isUpdate) throws RuntimeException, JsonProcessingException {
+    public ResponseEntity<AdPreviewDto> createOrUpdateAd(List<MultipartFile> images, List<Integer> imagePositions, @Valid AdCreatorDto adCreatorDto, boolean isUpdate) throws RuntimeException, JsonProcessingException {
         Ad ad = (isUpdate ? adRepo.findOneByIdAdAndIsDeletedFalse(adCreatorDto.adId()) : new Ad());
 
         if (!this.isTitleConstraintOk(adCreatorDto.title(), adCreatorDto.customerId(), ad.getIdAd())) {
@@ -145,8 +147,13 @@ public class AdModificationService {
         }
 
         return new ResponseEntity<>(
-            new DisplayAdView(this.saveImages(adRepo.save(ad), images, imagePositions, adImages)),
+            new AdPreviewDto(this.saveImages(adRepo.save(ad), images, imagePositions, adImages)),
             HttpStatus.OK
         );
+    }
+
+    public List<AdPreviewDto> getCustomerAds(Integer customerId) {
+        Customer customer = customerRepository.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(customerId);
+        return customer != null ? adRepo.getCustomerAds(customer) : null;
     }
 }

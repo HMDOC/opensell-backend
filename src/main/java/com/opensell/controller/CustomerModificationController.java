@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.opensell.model.dto.CustomerModificationData;
 import com.opensell.service.CustomerModificationService;
 import com.opensell.service.FileUploadService;
-import com.opensell.service.customerModification.ModificationFeedback;
+import com.opensell.service.customermodification.ModificationFeedback;
 
 /**
  * @author Olivier

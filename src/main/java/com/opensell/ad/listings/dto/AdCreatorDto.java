@@ -1,4 +1,4 @@
-package com.opensell.ad.modification.dto;
+package com.opensell.ad.listings.dto;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

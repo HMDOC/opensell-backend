@@ -7,7 +7,7 @@ import com.opensell.model.verification.RegexVerifier;
 import com.opensell.exception.CustomerModificationException;
 import com.opensell.repository.CustomerModificationRepository;
 import com.opensell.repository.CustomerRepository;
-import com.opensell.service.customerModification.*;
+import com.opensell.service.customermodification.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

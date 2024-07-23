@@ -1,4 +1,4 @@
-package com.opensell.service.timeService;
+package com.opensell.service.time;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;

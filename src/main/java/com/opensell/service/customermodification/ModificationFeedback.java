@@ -1,4 +1,4 @@
-package com.opensell.service.customerModification;
+package com.opensell.service.customermodification;
 
 public record ModificationFeedback (
         Integer code,
