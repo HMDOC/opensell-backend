@@ -22,7 +22,7 @@ public class CustomerService {
     }
 
     public int checkSamePwd(int customerId, String pwd) {
-        Customer c = rep.findCustomerByIdCustomer(customerId);
+        Customer c = rep.findCustomerById(customerId);
         if (passwordEncoder.matches(pwd, c.getPwd())) return 1;
         return 0;
     }

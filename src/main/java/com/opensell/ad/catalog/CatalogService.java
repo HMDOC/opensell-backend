@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,12 +22,13 @@ public class CatalogService {
     private final AdRepository adRepo;
 
     public List<AdPreviewDto> adSearch(AdSearchParams query) {
-        List<Ad> adList = adRepo.getAdSearch(query.getQuery().toUpperCase(), query.getPriceMin(), query.getPriceMax(),
-            query.getDateMin(), query.getDateMax(), query.getShapeId(), query.getTypeId(),
-            query.getFilterSold(), Sort.by(query.getSortBy()));
+        System.out.println(query);
+        List<Ad> adList = adRepo.getAdSearch(query.query().toUpperCase(), query.priceMin(), query.priceMax(),
+            query.dateMin(), query.dateMax(), query.shapeId(), query.typeId(),
+            query.filterSold(), Sort.by(query.sortBy()));
 
         if (adList != null) {
-            ArrayList<String> searchTags = new ArrayList<>((query.getAdTags() == null) ? null : query.getAdTags());
+            ArrayList<String> searchTags = new ArrayList<>((query.adTags() == null) ? null : query.adTags());
 
             List<AdPreviewDto> resultList = new ArrayList<>(adList.size());
 
@@ -43,9 +43,9 @@ public class CatalogService {
             }
 
             System.out.println(resultList.size());
-            System.out.println(query.getAdTags());
+            System.out.println(query.adTags());
             //System.out.println(searchTags);
-            if (query.isReverseSort()) {
+            if (query.reverseSort()) {
                 Collections.reverse(resultList);
             }
 
@@ -60,7 +60,7 @@ public class CatalogService {
      */
     public ResponseEntity<?> getAdBuyerView(int idAd) {
         try {
-            Ad ad = adRepo.findOneByIdAdAndIsDeletedFalse(idAd);
+            Ad ad = adRepo.findOneByIdAndIsDeletedFalse(idAd);
 
             if (ad == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ad not found");
 

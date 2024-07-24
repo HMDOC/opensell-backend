@@ -6,6 +6,7 @@ import com.opensell.model.ad.AdType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,7 +21,7 @@ import java.util.Set;
 public class AdViewDto {
 	public String adTitle;
 	public double adPrice;
-	public Date adAddedDate;
+	public LocalDateTime adAddedDate;
 	public int adShape;
 	public boolean isAdSold;
 	public int adVisibility;

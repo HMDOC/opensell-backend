@@ -11,7 +11,7 @@ public class EmailCleanup implements JobAction {
 
     @Override
     public void execute() {
-        String deleteCode = "DELETE FROM verification_code WHERE customer_id IN (SELECT c.id_customer FROM customer c WHERE c.is_activated = 0)";
+        String deleteCode = "DELETE FROM verification_code WHERE customer_id IN (SELECT c.id FROM customer c WHERE c.is_activated = 0)";
         String deleteEmail = "DELETE c FROM customer c WHERE c.is_activated = 0";
         queryExecutor.execute(deleteCode);
         queryExecutor.execute(deleteEmail);

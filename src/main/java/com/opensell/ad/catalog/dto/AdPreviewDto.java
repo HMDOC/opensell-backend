@@ -18,7 +18,7 @@ public record AdPreviewDto(
 ) {
 	public AdPreviewDto(Ad ad) {
 		this(
-			ad.getIdAd(),
+			ad.getId(),
 			ad.getTitle(),
 			ad.getPrice(),
 			ad.getFirstImagePath(),

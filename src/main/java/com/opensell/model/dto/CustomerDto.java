@@ -22,7 +22,7 @@ public class CustomerDto {
 	public CustomerDto(Customer customer) {
 		if(customer != null) {
 			this.customerInfo = customer.getCustomerInfo();
-			this.customerId = customer.getIdCustomer();
+			this.customerId = customer.getId();
 			this.username = customer.getUsername();
 			this.personalEmail = customer.getPersonalEmail();
 		}

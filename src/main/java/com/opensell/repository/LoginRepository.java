@@ -12,7 +12,7 @@ import com.opensell.model.Customer;
 @Repository
 @Transactional
 public interface LoginRepository extends JpaRepository<Customer, Integer> {
-    Customer findCustomerByIdCustomer(int id);
+    Customer findCustomerById(int id);
 
     //login
     @Query(value= "SELECT * FROM customer c WHERE c.personal_email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)

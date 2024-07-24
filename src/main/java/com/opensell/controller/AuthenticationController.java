@@ -36,7 +36,7 @@ public class AuthenticationController {
         Customer customer = rep.getUser(username);
 
         if (customer != null && passwordEncoder.matches(pwd, customer.getPwd())) {
-            return customer.getIdCustomer();
+            return customer.getId();
         }
 
         return null;
@@ -44,7 +44,7 @@ public class AuthenticationController {
 
     @GetMapping("/getDto")
     public CustomerDto getCustomerDto(@RequestParam int idCustomer) {
-        Customer customer = customerRepo.findOneByIdCustomerAndIsDeletedFalseAndIsActivatedTrue(idCustomer);
+        Customer customer = customerRepo.findOneByIdAndIsDeletedFalseAndIsActivatedTrue(idCustomer);
         if (customer != null) {
             return new CustomerDto(customer);
         } else

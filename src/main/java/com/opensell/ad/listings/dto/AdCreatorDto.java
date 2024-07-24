@@ -49,15 +49,15 @@ public record AdCreatorDto(
 ) {
     public static AdCreatorDto fromAd(Ad ad) throws JsonProcessingException {
         return AdCreatorDto.builder()
-            .adId(ad.getIdAd())
-            .customerId(ad.getCustomer().getIdCustomer())
+            .adId(ad.getId())
+            .customerId(ad.getCustomer().getId())
             .title(ad.getTitle())
             .price(ad.getPrice())
             .address(ad.getAddress())
             .isSold(ad.isSold())
             .description(ad.getDescription())
             .tags(ad.getTagsName())
-            .adTypeId(ad.getAdType().getIdAdType())
+            .adTypeId(ad.getAdType().getId())
             .shape(ad.getShape())
             .visibility(ad.getVisibility())
             .adImagesJson(new ObjectMapper().writeValueAsString(ad.getAdImages()))

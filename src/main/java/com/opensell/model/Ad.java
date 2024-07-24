@@ -1,6 +1,6 @@
 package com.opensell.model;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +12,10 @@ import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;
 import com.opensell.ad.catalog.dto.AdPreviewDto;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,33 +32,39 @@ public class Ad {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private int idAd;
+    private int id;
 
-    @Column(nullable = false, length = TITLE_MAX_LENGTH)
+    @Size(max = TITLE_MAX_LENGTH)
+    @NotBlank
     private String title;
 
-    @Column(nullable = false)
+    @NotNull
+    @PositiveOrZero
     private double price;
 
-    @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
-    private Date addedDate;
+    @NotNull
+    @Column(columnDefinition = "DATETIME DEFAULT NOW()")
+    private LocalDateTime addedDate = LocalDateTime.now();
 
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT 0")
-    private boolean isSold;
+    @NotNull
+    @Column(columnDefinition = "BOOLEAN DEFAULT 0")
+    private boolean isSold = false;
 
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT 0")
-    private boolean isDeleted;
+    @NotNull
+    @Column(columnDefinition = "BOOLEAN DEFAULT 0")
+    private boolean isDeleted = false;
 
-    @Column(nullable = false)
+    @NotNull
     private int visibility;
 
-    @Column(nullable = false)
+    @NotNull
     private int shape;
-    
-    @Column(nullable = false, length = DESCRIPTION_MAX_LENGTH)
+
+    @Size(max = DESCRIPTION_MAX_LENGTH)
+    @NotBlank
     private String description;
 
-    @Column(nullable = false)
+    @NotBlank
     private String address;
 
     @ManyToOne
