@@ -1,8 +1,9 @@
 package com.opensell.model.verification;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import com.opensell.model.Customer;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,20 +15,19 @@ import lombok.NoArgsConstructor;
 public class VerificationCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idVerificationCode;    
+    private int id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
     Customer customer;
 
-    @Column
+    @NotBlank
     private String code;
 
     @Enumerated(EnumType.STRING)
     private VerificationCodeType type;
 
     @Column(columnDefinition = "DATETIME DEFAULT NOW()", nullable = false)
-    private Date createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     public enum VerificationCodeType {
         FIRST_SIGN_UP,

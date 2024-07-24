@@ -14,6 +14,7 @@ import com.opensell.service.time.*;
 import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -81,7 +82,7 @@ public class AuthenticationController {
             newCode.setCustomer(customer);
             newCode.setCode(code);
             newCode.setType(VerificationCodeType.FIRST_SIGN_UP);
-            newCode.setCreatedAt(now);
+            newCode.setCreatedAt(LocalDateTime.now());
 
             rep.save(customer);
             codeRep.save(newCode);
