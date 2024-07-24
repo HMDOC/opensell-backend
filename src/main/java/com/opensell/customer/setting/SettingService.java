@@ -1,4 +1,4 @@
-package com.opensell.service;
+package com.opensell.customer.setting;
 
 import com.opensell.model.Customer;
 import com.opensell.model.dto.CustomerModificationData;
@@ -7,6 +7,7 @@ import com.opensell.model.verification.RegexVerifier;
 import com.opensell.exception.CustomerModificationException;
 import com.opensell.repository.CustomerModificationRepository;
 import com.opensell.repository.CustomerRepository;
+import com.opensell.service.FileUploadService;
 import com.opensell.service.customermodification.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,7 +15,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * This service allows to modify the customer's personal information using the repository
@@ -22,11 +29,12 @@ import java.sql.SQLException;
  */
 @Service
 @RequiredArgsConstructor
-public class CustomerModificationService {
+public class SettingService {
     private final CustomerModificationRepository rep;
     private final PasswordEncoder passwordEncoder;
     private final CustomerModificationRepository customerModificationRepository;
     private final CustomerRepository customerRepository;
+    private final FileUploadService fileUploadService;
 
     public ResponseEntity<?> changePersonalEmail(int id, String email, String confirmEmail) {
         try {
@@ -85,8 +93,9 @@ public class CustomerModificationService {
         return getFeedback(() -> rep.updateCustomerPhoneNumber(data.value(), data.id()), () -> RegexVerifier.PHONE_NUMBER.verify(data.value()), data.value());
     }
 
-    public ModificationFeedback changeIconPath(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerIconPath(data.value(), data.id()), () -> true, data.value());
+    public boolean changeIconPath(int id, MultipartFile iconFile) {
+        String iconPath = fileUploadService.saveFiles(List.of(iconFile), FileUploadService.FileType.CUSTOMER_PROFILE).getFirst();
+        return rep.updateCustomerIconPath(iconPath, id) > 0;
     }
 
     public ModificationFeedback changeBio(CustomerModificationData data) {
@@ -112,5 +121,4 @@ public class CustomerModificationService {
     public boolean isEmailExists(int id, String email) {
         return customerModificationRepository.isEmailExist(id, email) == 1;
     }
-
 }
