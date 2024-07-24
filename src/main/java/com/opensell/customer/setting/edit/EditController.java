@@ -1,7 +1,5 @@
-package com.opensell.customer.setting;
+package com.opensell.customer.setting.edit;
 
-import java.util.List;
-import com.opensell.service.FileUploadService;
 import com.opensell.service.customermodification.ModificationFeedback;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,62 +10,61 @@ import com.opensell.model.dto.CustomerModificationData;
 /**
  * @author Olivier
  */
-@RestController()
-@RequestMapping("/api/customer/setting")
+@RestController
+@RequestMapping("/api/customer/setting/edit")
 @RequiredArgsConstructor
-public class SettingController {
-    private final SettingService settingService;
-    private final FileUploadService fileUploadService;
+public class EditController {
+    private final EditService editService;
 
-    @PatchMapping("/change-private-email")
+    @PatchMapping("/private-email")
     public ResponseEntity<?> changeCustomerPersonalEmail(@RequestParam int id, @RequestParam String email, @RequestParam String confirmEmail) {
-        return settingService.changePersonalEmail(id, email, confirmEmail);
+        return editService.changePersonalEmail(id, email, confirmEmail);
     }
 
-    @PatchMapping("/change-username")
+    @PatchMapping("/username")
     public ModificationFeedback changeCustomerUsername(@RequestBody CustomerModificationData data) {
-        return settingService.changeUsername(data);
+        return editService.changeUsername(data);
     }
 
-    @PatchMapping("/change-pwd")
+    @PatchMapping("/pwd")
     public ModificationFeedback changeCustomerPwd(@RequestBody CustomerModificationData data) {
-        return settingService.changePwd(data);
+        return editService.changePwd(data);
     }
 
-    @PatchMapping("/change-first-name")
+    @PatchMapping("/first-name")
     public ModificationFeedback changeCustomerFirstName(@RequestBody CustomerModificationData data) {
-        return settingService.changeFirstName(data);
+        return editService.changeFirstName(data);
     }
 
-    @PatchMapping("/change-last-name")
+    @PatchMapping("/last-name")
     public ModificationFeedback changeCustomerLastName(@RequestBody CustomerModificationData data) {
-        return settingService.changeLastName(data);
+        return editService.changeLastName(data);
     }
 
-    @PatchMapping("/change-phone-number")
+    @PatchMapping("/phone-number")
     public ModificationFeedback changeCustomerPhoneNumber(@RequestBody CustomerModificationData data) {
-        return settingService.changePhoneNumber(data);
+        return editService.changePhoneNumber(data);
     }
 
-    @PatchMapping("/change-bio")
+    @PatchMapping("/bio")
     public ModificationFeedback changeCustomerBio(@RequestBody CustomerModificationData data) {
-        return settingService.changeBio(data);
+        return editService.changeBio(data);
     }
 
-    @PatchMapping( "/change-public-email")
+    @PatchMapping( "/public-email")
     public ModificationFeedback changeCustomerExposedEmail(@RequestBody CustomerModificationData data) {
-        return settingService.changeExposedEmail(data);
+        return editService.changeExposedEmail(data);
     }
 
     @PatchMapping("/{id}/icon")
     public ResponseEntity<?> changeCustomerIconPath(@PathVariable int id, @RequestBody MultipartFile iconFile) {
-        return settingService.changeIconPath(id, iconFile) ? ResponseEntity.ok("Icon successfully updated.") : ResponseEntity.badRequest().body("Enable to update your icon.");
+        return editService.changeIconPath(id, iconFile) ? ResponseEntity.ok("Icon successfully updated.") : ResponseEntity.badRequest().body("Enable to update your icon.");
     }
 
     @GetMapping("/email/exists")
     public boolean isEmailExists(@RequestParam int id, @RequestParam String email) {
         System.out.println(id);
         System.out.println(email);
-        return settingService.isEmailExists(id, email);
+        return editService.isEmailExists(id, email);
     }
 }

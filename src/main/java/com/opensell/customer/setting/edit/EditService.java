@@ -1,4 +1,4 @@
-package com.opensell.customer.setting;
+package com.opensell.customer.setting.edit;
 
 import com.opensell.model.Customer;
 import com.opensell.model.dto.CustomerModificationData;
@@ -15,11 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -29,7 +25,7 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
-public class SettingService {
+public class EditService {
     private final CustomerModificationRepository rep;
     private final PasswordEncoder passwordEncoder;
     private final CustomerModificationRepository customerModificationRepository;
@@ -118,6 +114,9 @@ public class SettingService {
         }
     }
 
+    /**
+     * Need to put this method inside of Verification.
+     */
     public boolean isEmailExists(int id, String email) {
         return customerModificationRepository.isEmailExist(id, email) == 1;
     }

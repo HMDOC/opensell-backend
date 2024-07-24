@@ -15,5 +15,4 @@ public class CleanupCode implements JobAction {
         queryExecutor.execute(deleteCode);
         System.out.println("Code cleanup executed");
     }
-
 }
