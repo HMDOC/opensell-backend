@@ -6,6 +6,5 @@ import com.opensell.model.customer.CustomerInfo;
 
 @Repository
 public interface CustomerInfoRepository extends JpaRepository<CustomerInfo, Integer> {
-    int countByExposedEmail(String email);
     int countByPhoneNumber(String phoneNumber);
 }

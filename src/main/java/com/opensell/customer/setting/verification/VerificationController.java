@@ -22,13 +22,13 @@ public class VerificationController {
         return verificationService.checkPersonalEmail(email);
     }
 
-    @GetMapping("/public-email")
-    public int checkExposedEmail(@RequestParam String email) {
-        return verificationService.checkExposedEmail(email);
-    }
-
     @GetMapping("/phone-number")
     public int checkPhoneNumber(@RequestParam String phoneNumber) {
         return verificationService.checkPhoneNumber(phoneNumber);
+    }
+
+    @GetMapping("/same-pwd")
+    public int checkSamePwd(@RequestParam int id, @RequestParam String pwd) {
+        return verificationService.checkSamePwd(id, pwd);
     }
 }

@@ -22,9 +22,6 @@ public class CustomerInfo {
     private String lastName;
 
     @Column(unique = true)
-    private String exposedEmail;
-
-    @Column(unique = true)
     private String phoneNumber;
 
     private String bio;

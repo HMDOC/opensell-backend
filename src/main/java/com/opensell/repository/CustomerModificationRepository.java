@@ -16,10 +16,6 @@ import jakarta.transaction.Transactional;
 @Transactional
 public interface CustomerModificationRepository extends CrudRepository<Customer, Integer> {
     @Modifying
-    @Query(value = "UPDATE customer c SET c.personal_email = ?1 WHERE c.id = ?2 LIMIT 1", nativeQuery = true)
-    int updateCustomerPersonalEmail(String email, int customerId);
-
-    @Modifying
     @Query(value = "UPDATE customer c SET c.username = ?1 WHERE c.id = ?2 LIMIT 1", nativeQuery = true)
     int updateCustomerUsername(String name, int customerId);
 
@@ -47,10 +43,6 @@ public interface CustomerModificationRepository extends CrudRepository<Customer,
     @Query(value = "UPDATE customer_info ci, customer c SET ci.icon_path = ?1 WHERE ci.id = c.customer_info_id AND c.id = ?2 LIMIT 1", nativeQuery = true)
     int updateCustomerIconPath(String iconPath, int customerId);
 
-    @Modifying
-    @Query(value = "UPDATE customer_info ci, customer c SET ci.exposed_email = ?1 WHERE ci.id = c.customer_info_id AND c.id = ?2 LIMIT 1", nativeQuery = true)
-    int updateCustomerExposedEmail(String email, int customerId);
-
-    @Query(value = "SELECT EXISTS(SELECT * FROM customer c WHERE c.id != ?1 AND c.personal_email = ?2)", nativeQuery = true)
+    @Query(value = "SELECT EXISTS(SELECT * FROM customer c WHERE c.id != ?1 AND c.email = ?2)", nativeQuery = true)
     int isEmailExist(int id, String email);
 }

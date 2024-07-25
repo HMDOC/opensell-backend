@@ -26,7 +26,7 @@ public class Customer {
 
     @NotBlank
     @Column(unique = true)
-    private String personalEmail;
+    private String email;
 
     @NotBlank
     private String pwd;

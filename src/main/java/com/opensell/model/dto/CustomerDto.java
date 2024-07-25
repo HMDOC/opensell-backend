@@ -17,14 +17,14 @@ public class CustomerDto {
     public CustomerInfo customerInfo;
     public int customerId;
 	public String username;
-	public String personalEmail;
+	public String email;
 
 	public CustomerDto(Customer customer) {
 		if(customer != null) {
 			this.customerInfo = customer.getCustomerInfo();
 			this.customerId = customer.getId();
 			this.username = customer.getUsername();
-			this.personalEmail = customer.getPersonalEmail();
+			this.email = customer.getEmail();
 		}
 	}
 }

@@ -71,7 +71,7 @@ public class AuthenticationController {
             customerInfoRepository.save(infos);
 
             customer.setUsername(username);
-            customer.setPersonalEmail(email);
+            customer.setEmail(email);
             customer.setPwd(passwordEncoder.encode(pwd));
             customer.setIsDeleted(false);
             customer.setIsVerified(false);

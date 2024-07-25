@@ -32,7 +32,7 @@ public class EditService {
     private final CustomerRepository customerRepository;
     private final FileUploadService fileUploadService;
 
-    public ResponseEntity<?> changePersonalEmail(int id, String email, String confirmEmail) {
+    public ResponseEntity<?> changeEmail(int id, String email, String confirmEmail) {
         try {
             boolean areEmailsEqual = email.equals(confirmEmail);
 
@@ -40,7 +40,7 @@ public class EditService {
                 Customer customer = customerRepository.findById(id).orElse(null);
 
                 if(customer != null) {
-                    customer.setPersonalEmail(email);
+                    customer.setEmail(email);
                     customerModificationRepository.save(customer);
                     return ResponseEntity.ok().build();
                 }
@@ -64,10 +64,6 @@ public class EditService {
 
     public void changeOtherInformations(int id, OtherInformations otherInformations) {
     }*/
-
-    public ModificationFeedback changeExposedEmail(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerExposedEmail(data.value(), data.id()), () -> RegexVerifier.EMAIL.verify(data.value()), data.value());
-    }
 
     public ModificationFeedback changeFirstName(CustomerModificationData data) {
         return getFeedback(() -> rep.updateCustomerFirstName(data.value(), data.id()), () -> RegexVerifier.FIRST_LAST_NAME.verify(data.value()), data.value());

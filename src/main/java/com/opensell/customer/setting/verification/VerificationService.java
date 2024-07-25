@@ -25,11 +25,7 @@ public class VerificationService {
     }
 
     public int checkPersonalEmail(String email) {
-        return loginRepository.countByPersonalEmail(email);
-    }
-
-    public int checkExposedEmail(String email) {
-        return customerInfoRepository.countByExposedEmail(email);
+        return loginRepository.countByEmail(email);
     }
 
     public int checkPhoneNumber(String phoneNumber) {

@@ -15,22 +15,22 @@ public interface LoginRepository extends JpaRepository<Customer, Integer> {
     Customer findCustomerById(int id);
 
     //login
-    @Query(value= "SELECT * FROM customer c WHERE c.personal_email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)
+    @Query(value= "SELECT * FROM customer c WHERE c.email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)
     Customer getUser(String usernameOrEmail);
 
     //signup
     int countByUsername(String username);
 
     //signup
-    int countByPersonalEmail(String email);
+    int countByEmail(String email);
 
-    @Query(value = "SELECT count(c.personal_email) FROM customer c WHERE c.personal_email = ?1 AND c.is_activated = 1", nativeQuery = true)
+    @Query(value = "SELECT count(c.email) FROM customer c WHERE c.email = ?1 AND c.is_activated = 1", nativeQuery = true)
     int findCustomerByPersonalEmail(String email);
 
-    @Query(value = "SELECT count(c.personal_email) FROM customer c WHERE c.personal_email = ?1 AND c.is_activated = 0", nativeQuery = true)
+    @Query(value = "SELECT count(c.email) FROM customer c WHERE c.email = ?1 AND c.is_activated = 0", nativeQuery = true)
     int findCustomerByPersonalEmailNotActivated(String email);
 
     @Modifying
-    @Query(value = "UPDATE customer c set c.is_activated = 1 where c.personal_email = ?1", nativeQuery = true)
+    @Query(value = "UPDATE customer c set c.is_activated = 1 where c.email = ?1", nativeQuery = true)
     int makeActivated(String email);
 }
