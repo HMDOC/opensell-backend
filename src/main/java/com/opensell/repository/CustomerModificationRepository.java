@@ -16,10 +16,6 @@ import jakarta.transaction.Transactional;
 @Transactional
 public interface CustomerModificationRepository extends CrudRepository<Customer, Integer> {
     @Modifying
-    @Query(value = "UPDATE customer c SET c.pwd = ?1 WHERE c.id = ?2 LIMIT 1", nativeQuery = true)
-    int updateCustomerPwd(String pwd, int customerId);
-
-    @Modifying
     @Query(value = "UPDATE customer_info ci, customer c SET ci.icon_path = ?1 WHERE ci.id = c.customer_info_id AND c.id = ?2 LIMIT 1", nativeQuery = true)
     int updateCustomerIconPath(String iconPath, int customerId);
 

@@ -16,16 +16,13 @@ public interface LoginRepository extends JpaRepository<Customer, Integer> {
     @Query(value= "SELECT * FROM customer c WHERE c.email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)
     Customer getUser(String usernameOrEmail);
 
-    //signup
-    int countByUsername(String username);
+    @Query(value = "SELECT count(c.email) FROM customer c WHERE c.email = ?1 AND c.is_activated = 1 LIMIT 1", nativeQuery = true)
+    int findOneByEmail(String email);
 
-    @Query(value = "SELECT count(c.email) FROM customer c WHERE c.email = ?1 AND c.is_activated = 1", nativeQuery = true)
-    int findCustomerByPersonalEmail(String email);
-
-    @Query(value = "SELECT count(c.email) FROM customer c WHERE c.email = ?1 AND c.is_activated = 0", nativeQuery = true)
-    int findCustomerByPersonalEmailNotActivated(String email);
+    @Query(value = "SELECT count(c.email) FROM customer c WHERE c.username = ?1 AND c.is_activated = 1 LIMIT 1", nativeQuery = true)
+    int findOneByUsername(String email);
 
     @Modifying
-    @Query(value = "UPDATE customer c set c.is_activated = 1 where c.email = ?1", nativeQuery = true)
-    int makeActivated(String email);
+    @Query(value = "UPDATE customer c SET c.is_activated = 1 where c.email = ?1 LIMIT 1", nativeQuery = true)
+    int activateAccount(String email);
 }

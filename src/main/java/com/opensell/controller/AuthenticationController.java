@@ -10,8 +10,6 @@ import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.CodeService;
-import com.opensell.service.time.*;
-import jakarta.annotation.PostConstruct;
 import com.opensell.service.EmailService;
 import java.sql.Date;
 import java.time.LocalDateTime;
@@ -22,19 +20,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 public class AuthenticationController {
-    private final LoginRepository rep;
+    private final LoginRepository loginRepository;
     private final EmailService emailService;
     private final CodeService codeService;
-    private final VerificationCodeRepository codeRep;
+    private final VerificationCodeRepository codeRepository;
     private final CustomerInfoRepository customerInfoRepository;
-    private final CleanupCode cleanupCode;
-    private final EmailCleanup emailCleanup;
     private final PasswordEncoder passwordEncoder;
     private final CustomerRepository customerRepo;
 
     @GetMapping("/login")
     public Integer login(@RequestParam String username, @RequestParam String pwd) {
-        Customer customer = rep.getUser(username);
+        Customer customer = loginRepository.getUser(username);
 
         if (customer != null && passwordEncoder.matches(pwd, customer.getPwd())) {
             return customer.getId();
@@ -54,11 +50,9 @@ public class AuthenticationController {
 
     @PostMapping("/signup")
     public int signup(@RequestParam String email, @RequestParam String username, @RequestParam String pwd) {
-        if (rep.findCustomerByPersonalEmail(email) == 1) {
+        if (loginRepository.findOneByEmail(email) == 1) {
             return 1; // Email already exists
-        } else if (rep.findCustomerByPersonalEmailNotActivated(email) == 1) {
-            return 5; // Email already exists but not activated
-        } else if (rep.countByUsername(username) == 1) {
+        } else if (loginRepository.findOneByUsername(username) > 0) {
             return 2; // Username already exists
         } else {
             String code = codeService.generateCode();
@@ -84,8 +78,8 @@ public class AuthenticationController {
             newCode.setType(VerificationCodeType.FIRST_SIGN_UP);
             newCode.setCreatedAt(LocalDateTime.now());
 
-            rep.save(customer);
-            codeRep.save(newCode);
+            loginRepository.save(customer);
+            codeRepository.save(newCode);
             if (emailService.sendEmail(email, "Welcome to OpenSell",
                     "Thank you for signing up with OpenSell! Here's your verification code:\n" + code)) {
                 return 3; // Email sent
@@ -97,23 +91,11 @@ public class AuthenticationController {
 
     @GetMapping("/verify-code")
     public int verifyCode(@RequestParam String email, @RequestParam String inputCode) {
-        if (codeRep.getCodeByEmail(email).equals(inputCode)) {
-            if (rep.makeActivated(email) == 1) {
+        if (codeRepository.getCodeByEmail(email).equals(inputCode)) {
+            if (loginRepository.activateAccount(email) > 0) {
                 return 0; // Email verified
             }
         }
         return 1; // Wrong code
-    }
-
-    @PostConstruct
-    public void runCodeCleanup() throws Exception {
-        Job job = new Job(cleanupCode, 60000);
-        job.start();
-    }
-
-    @PostConstruct
-    public void runEmailCleanup() throws Exception {
-        Job job = new Job(emailCleanup, 600000);
-        job.start();
     }
 }

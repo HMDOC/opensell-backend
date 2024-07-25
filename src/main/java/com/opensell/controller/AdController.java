@@ -1,12 +1,15 @@
 package com.opensell.controller;
 
-import java.util.*;
-import com.opensell.repository.*;
-import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
 import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;
+import com.opensell.repository.AdTagRepository;
+import com.opensell.repository.AdTypeRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
 @Validated
