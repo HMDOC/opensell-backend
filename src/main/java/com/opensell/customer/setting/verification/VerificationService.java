@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class VerificationService {
     private final PasswordEncoder passwordEncoder;
     private final LoginRepository loginRepository;
-    private final CustomerInfoRepository customerInfoRepository;
 
     public int checkUsername(String username) {
         return loginRepository.countByUsername(username);
@@ -26,9 +25,5 @@ public class VerificationService {
 
     public int checkPersonalEmail(String email) {
         return loginRepository.countByEmail(email);
-    }
-
-    public int checkPhoneNumber(String phoneNumber) {
-        return customerInfoRepository.countByPhoneNumber(phoneNumber);
     }
 }

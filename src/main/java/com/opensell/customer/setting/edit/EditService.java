@@ -81,10 +81,6 @@ public class EditService {
         return getFeedback(() -> rep.updateCustomerUsername(data.value(), data.id()), () -> RegexVerifier.USERNAME.verify(data.value()), data.value());
     }
 
-    public ModificationFeedback changePhoneNumber(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerPhoneNumber(data.value(), data.id()), () -> RegexVerifier.PHONE_NUMBER.verify(data.value()), data.value());
-    }
-
     public boolean changeIconPath(int id, MultipartFile iconFile) {
         String iconPath = fileUploadService.saveFiles(List.of(iconFile), FileUploadService.FileType.CUSTOMER_PROFILE).getFirst();
         return rep.updateCustomerIconPath(iconPath, id) > 0;

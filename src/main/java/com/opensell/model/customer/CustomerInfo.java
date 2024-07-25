@@ -21,9 +21,6 @@ public class CustomerInfo {
 
     private String lastName;
 
-    @Column(unique = true)
-    private String phoneNumber;
-
     private String bio;
 
     private String iconPath;

@@ -32,10 +32,6 @@ public interface CustomerModificationRepository extends CrudRepository<Customer,
     int updateCustomerLastName(String lastName, int customerId);
 
     @Modifying
-    @Query(value = "UPDATE customer_info ci, customer c SET ci.phone_number = ?1 WHERE c.customer_info_id = ci.id AND c.id = ?2 LIMIT 1", nativeQuery = true)
-    int updateCustomerPhoneNumber(String phoneNumber, int customerId);
-
-    @Modifying
     @Query(value = "UPDATE customer_info ci, customer c SET ci.bio = ?1 WHERE ci.id = c.customer_info_id AND c.id = ?2 LIMIT 1", nativeQuery = true)
     int updateCustomerBio(String bio, int customerId);
 

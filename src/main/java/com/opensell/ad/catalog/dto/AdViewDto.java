@@ -5,7 +5,6 @@ import com.opensell.model.ad.AdImage;
 import com.opensell.model.ad.AdType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -30,7 +29,6 @@ public class AdViewDto {
 	public AdType adType;
 	public Set<String> adTagsName;
 	public List<AdImage> adImages;
-	public String userPhone;
 	public String username;
 	public String userIcon;
 
@@ -51,7 +49,6 @@ public class AdViewDto {
 			this.adType = ad.getAdType();
 			this.adTagsName = tags;
 			this.adImages = ad.getAdImages();
-			this.userPhone = customer.getCustomerInfo().getPhoneNumber();
 			this.username = customer.getUsername();
 			this.userIcon = customer.getCustomerInfo().getIconPath();
 		}

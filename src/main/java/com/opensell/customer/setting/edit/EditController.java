@@ -41,11 +41,6 @@ public class EditController {
         return editService.changeLastName(data);
     }
 
-    @PatchMapping("/phone-number")
-    public ModificationFeedback changePhoneNumber(@RequestBody CustomerModificationData data) {
-        return editService.changePhoneNumber(data);
-    }
-
     @PatchMapping("/bio")
     public ModificationFeedback changeBio(@RequestBody CustomerModificationData data) {
         return editService.changeBio(data);
