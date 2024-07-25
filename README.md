@@ -97,11 +97,10 @@ cd opensell-frontend/
 npm install
 ```
 
-Create a file named `data.json` in the `src` folder with this content :
-```json
-{
-    "url": "<BACKEND_URL>"
-}
+Create a file named `.env.local` in the root folder with this content :
+```properties
+VITE_PORT=
+VITE_BACKEND_URL=
 ```
 </details>
 
@@ -109,7 +108,7 @@ Create a file named `data.json` in the `src` folder with this content :
 
 ```sh
 # Frontend
-npm start
+npm run dev
 
 # Backend: run with your IDE or :
 ./mvnw spring-boot:run
