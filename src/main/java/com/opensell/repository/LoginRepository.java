@@ -12,17 +12,12 @@ import com.opensell.model.Customer;
 @Repository
 @Transactional
 public interface LoginRepository extends JpaRepository<Customer, Integer> {
-    Customer findCustomerById(int id);
-
     //login
     @Query(value= "SELECT * FROM customer c WHERE c.email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)
     Customer getUser(String usernameOrEmail);
 
     //signup
     int countByUsername(String username);
-
-    //signup
-    int countByEmail(String email);
 
     @Query(value = "SELECT count(c.email) FROM customer c WHERE c.email = ?1 AND c.is_activated = 1", nativeQuery = true)
     int findCustomerByPersonalEmail(String email);
