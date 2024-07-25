@@ -1,11 +1,11 @@
-package com.opensell.model.ad;
+package com.opensell.ad.catalog.dto;
 
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-public record AdSearchParams(
+public record AdSearchParamsDto(
 	String query,
 	Double priceMin,
 	Double priceMax,
@@ -18,8 +18,8 @@ public record AdSearchParams(
 	String sortBy,
 	boolean reverseSort
 ) {
-	public AdSearchParams(String query, Double priceMin, Double priceMax, LocalDateTime dateMin, LocalDateTime dateMax, Integer typeId,
-						  List<String> adTags, Integer shapeId, Boolean filterSold, String sortBy, boolean reverseSort) {
+	public AdSearchParamsDto(String query, Double priceMin, Double priceMax, LocalDateTime dateMin, LocalDateTime dateMax, Integer typeId,
+							 List<String> adTags, Integer shapeId, Boolean filterSold, String sortBy, boolean reverseSort) {
 		this.query = query;
 		this.priceMin = (priceMin != null) ? priceMin : 0.0d;
 		this.priceMax = (priceMax != null) ? priceMax : 99990.0d;

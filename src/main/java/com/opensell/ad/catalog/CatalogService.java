@@ -2,7 +2,7 @@ package com.opensell.ad.catalog;
 
 import com.opensell.ad.catalog.dto.AdPreviewDto;
 import com.opensell.model.Ad;
-import com.opensell.model.ad.AdSearchParams;
+import com.opensell.ad.catalog.dto.AdSearchParamsDto;
 import com.opensell.ad.catalog.dto.AdViewDto;
 import com.opensell.repository.AdRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import java.util.List;
 public class CatalogService {
     private final AdRepository adRepo;
 
-    public List<AdPreviewDto> adSearch(AdSearchParams query) {
+    public List<AdPreviewDto> adSearch(AdSearchParamsDto query) {
         System.out.println(query);
         List<Ad> adList = adRepo.getAdSearch(query.query().toUpperCase(), query.priceMin(), query.priceMax(),
             query.dateMin(), query.dateMax(), query.shapeId(), query.typeId(),

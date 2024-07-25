@@ -1,7 +1,7 @@
 package com.opensell.ad.catalog;
 
 import com.opensell.ad.catalog.dto.AdPreviewDto;
-import com.opensell.model.ad.AdSearchParams;
+import com.opensell.ad.catalog.dto.AdSearchParamsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +30,7 @@ public class CatalogController {
      * @author Davide
      */
     @PostMapping("/search")
-    public List<AdPreviewDto> adSearch(@RequestBody AdSearchParams query) {
+    public List<AdPreviewDto> adSearch(@RequestBody AdSearchParamsDto query) {
         return catalogService.adSearch(query);
     }
 }
