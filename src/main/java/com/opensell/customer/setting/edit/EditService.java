@@ -4,14 +4,10 @@ import com.opensell.customer.setting.edit.dto.OtherInformationDto;
 import com.opensell.customer.setting.edit.dto.PasswordDto;
 import com.opensell.exception.CustomerNotFound;
 import com.opensell.model.Customer;
-import com.opensell.model.dto.CustomerModificationData;
-import com.opensell.model.verification.HtmlCode;
 import com.opensell.model.verification.RegexVerifier;
-import com.opensell.exception.CustomerModificationException;
 import com.opensell.repository.CustomerModificationRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.service.FileUploadService;
-import com.opensell.service.customermodification.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
@@ -19,9 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -117,23 +111,6 @@ public class EditService {
             } else {
                 return ResponseEntity.internalServerError().body("Server error");
             }
-        }
-    }
-
-    @Deprecated(forRemoval = true)
-    private ModificationFeedback getFeedback(UpdateCallable callback, ValueValidationCallable validation, String value) {
-        int result = 0;
-        try {
-            if (!validation.isValid()) throw CustomerModificationException.formattingException();
-            result = callback.updateStatement();
-            if (result == 0) throw new SQLException();
-            return new ModificationFeedback(HtmlCode.SUCCESS, result, value);
-        } catch (CustomerModificationException cException) {
-            return new ModificationFeedback(HtmlCode.WRONG_FORMAT, result, value);
-        } catch (SQLException sqlException) {
-            return new ModificationFeedback(HtmlCode.SQL_ERROR, result, value);
-        } catch (Exception exception) {
-            return new ModificationFeedback(HtmlCode.OTHER_ERROR, result, value);
         }
     }
 }
