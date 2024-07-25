@@ -1,5 +1,6 @@
 package com.opensell.customer.setting.edit;
 
+import com.opensell.customer.setting.edit.dto.OtherInformationDto;
 import com.opensell.service.customermodification.ModificationFeedback;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,40 +22,18 @@ public class EditController {
         return editService.changeEmail(id, email, confirmEmail);
     }
 
-    @PatchMapping("/username")
-    public ModificationFeedback changeUsername(@RequestBody CustomerModificationData data) {
-        return editService.changeUsername(data);
-    }
-
     @PatchMapping("/pwd")
     public ModificationFeedback changePwd(@RequestBody CustomerModificationData data) {
         return editService.changePwd(data);
     }
 
-    @PatchMapping("/first-name")
-    public ModificationFeedback changeFirstName(@RequestBody CustomerModificationData data) {
-        return editService.changeFirstName(data);
-    }
-
-    @PatchMapping("/last-name")
-    public ModificationFeedback changeLastName(@RequestBody CustomerModificationData data) {
-        return editService.changeLastName(data);
-    }
-
-    @PatchMapping("/bio")
-    public ModificationFeedback changeBio(@RequestBody CustomerModificationData data) {
-        return editService.changeBio(data);
+    @PatchMapping("/{id}/other-information")
+    public ResponseEntity<?> changeOtherInformation(@PathVariable int id, OtherInformationDto otherInformationDto) {
+        return editService.changeOtherInformation(id, otherInformationDto);
     }
 
     @PatchMapping("/{id}/icon")
     public ResponseEntity<?> changeIconPath(@PathVariable int id, @RequestBody MultipartFile iconFile) {
         return editService.changeIconPath(id, iconFile) ? ResponseEntity.ok("Icon successfully updated.") : ResponseEntity.badRequest().body("Enable to update your icon.");
-    }
-
-    @GetMapping("/email/exists")
-    public boolean isEmailExists(@RequestParam int id, @RequestParam String email) {
-        System.out.println(id);
-        System.out.println(email);
-        return editService.isEmailExists(id, email);
     }
 }

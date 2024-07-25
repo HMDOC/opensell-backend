@@ -44,7 +44,7 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
      *
      * @author Achraf
      */
-    @Query(value = "SELECT * FROM ad a WHERE a.id_ad = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM ad a WHERE a.id = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
     Ad getAdToModify(int idAd);
 
     Ad findOneByIdAndIsDeletedFalse(Integer idAd);
@@ -52,7 +52,7 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
     Optional<Ad> findOneByTitleAndCustomerIdAndIsDeletedFalse(String title, long customerId);
 
     @Modifying
-    @Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id_ad = ?1 LIMIT 1", nativeQuery = true)
+    @Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id = ?1 LIMIT 1", nativeQuery = true)
     int hideAd(Integer idAd);
 
     @Query("SELECT new com.opensell.ad.catalog.dto.AdPreviewDto(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")

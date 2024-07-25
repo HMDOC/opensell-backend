@@ -1,5 +1,7 @@
 package com.opensell.customer.setting.edit;
 
+import com.opensell.customer.setting.edit.dto.OtherInformationDto;
+import com.opensell.exception.CustomerNotFound;
 import com.opensell.model.Customer;
 import com.opensell.model.dto.CustomerModificationData;
 import com.opensell.model.verification.HtmlCode;
@@ -11,6 +13,7 @@ import com.opensell.service.FileUploadService;
 import com.opensell.service.customermodification.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -54,40 +57,35 @@ public class EditService {
         }
     }
 
-    /**
-    public record OtherInformations(String username,
-                                    String firstName,
-                                    String lastName,
-                                    String publicEmail,
-                                    String bio) {
-    }
-
-    public void changeOtherInformations(int id, OtherInformations otherInformations) {
-    }*/
-
-    public ModificationFeedback changeFirstName(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerFirstName(data.value(), data.id()), () -> RegexVerifier.FIRST_LAST_NAME.verify(data.value()), data.value());
-    }
-
-    public ModificationFeedback changeLastName(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerLastName(data.value(), data.id()), () -> RegexVerifier.FIRST_LAST_NAME.verify(data.value()), data.value());
-    }
-
     public ModificationFeedback changePwd(CustomerModificationData data) {
         return getFeedback(() -> rep.updateCustomerPwd(passwordEncoder.encode(data.value()), data.id()), () -> RegexVerifier.PWD.verify(data.value()), data.value());
     }
 
-    public ModificationFeedback changeUsername(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerUsername(data.value(), data.id()), () -> RegexVerifier.USERNAME.verify(data.value()), data.value());
-    }
 
     public boolean changeIconPath(int id, MultipartFile iconFile) {
         String iconPath = fileUploadService.saveFiles(List.of(iconFile), FileUploadService.FileType.CUSTOMER_PROFILE).getFirst();
         return rep.updateCustomerIconPath(iconPath, id) > 0;
     }
 
-    public ModificationFeedback changeBio(CustomerModificationData data) {
-        return getFeedback(() -> rep.updateCustomerBio(data.value(), data.id()), () -> true, data.value());
+    public ResponseEntity<?> changeOtherInformation(int id, OtherInformationDto otherInformationDto) {
+        try {
+            Customer customer = customerModificationRepository.findById(id).orElseThrow(CustomerNotFound::new);
+
+            customer.getCustomerInfo().setBio(otherInformationDto.bio());
+            customer.getCustomerInfo().setFirstName(otherInformationDto.firstName());
+            customer.getCustomerInfo().setLastName(otherInformationDto.lastName());
+            customer.getCustomerInfo().setLastName(otherInformationDto.lastName());
+            customer.setUsername(otherInformationDto.username());
+
+            customerModificationRepository.save(customer);
+            return ResponseEntity.ok("Customer has been updated.");
+        } catch (Exception e) {
+            if(e instanceof DuplicateKeyException) {
+                return ResponseEntity.badRequest().body("Username already exists");
+            } else {
+                return ResponseEntity.internalServerError().body("Server error");
+            }
+        }
     }
 
     private ModificationFeedback getFeedback(UpdateCallable callback, ValueValidationCallable validation, String value) {
@@ -104,12 +102,5 @@ public class EditService {
         } catch (Exception exception) {
             return new ModificationFeedback(HtmlCode.OTHER_ERROR, result, value);
         }
-    }
-
-    /**
-     * Need to put this method inside of Verification.
-     */
-    public boolean isEmailExists(int id, String email) {
-        return customerModificationRepository.isEmailExist(id, email) == 1;
     }
 }

@@ -12,18 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class VerificationController {
     private final VerificationService verificationService;
 
-    @GetMapping("/username")
-    public int checkUsername(@RequestParam String username) {
-        return verificationService.checkUsername(username);
+    @GetMapping("/username/exists")
+    public boolean isUsernameExists(@RequestParam int id, @RequestParam String username) {
+        return verificationService.isUsernameExists(id, username);
     }
 
-    @GetMapping("/private-email")
-    public int checkPersonalEmail(@RequestParam String email) {
-        return verificationService.checkPersonalEmail(email);
-    }
-
-    @GetMapping("/same-pwd")
-    public int checkSamePwd(@RequestParam int id, @RequestParam String pwd) {
-        return verificationService.checkSamePwd(id, pwd);
+    @GetMapping("/email/exists")
+    public boolean isEmailExists(@RequestParam int id, @RequestParam String email) {
+        return verificationService.isEmailExists(id, email);
     }
 }
