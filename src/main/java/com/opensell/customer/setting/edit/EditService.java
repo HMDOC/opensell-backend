@@ -90,15 +90,21 @@ public class EditService {
         return rep.updateCustomerIconPath(iconPath, id) > 0;
     }
 
+    /**
+     * To return null if the content is blank.
+     */
+    public String getContentOrNull(String content) {
+        return content == null ? null : (content.isBlank() ? null : content);
+    }
+
     public ResponseEntity<?> changeOtherInformation(int id, OtherInformationDto otherInformationDto) {
         try {
             Customer customer = customerModificationRepository.findById(id).orElseThrow(CustomerNotFound::new);
 
-            customer.getCustomerInfo().setBio(otherInformationDto.bio());
-            customer.getCustomerInfo().setFirstName(otherInformationDto.firstName());
-            customer.getCustomerInfo().setLastName(otherInformationDto.lastName());
-            customer.getCustomerInfo().setLastName(otherInformationDto.lastName());
             customer.setUsername(otherInformationDto.username());
+            customer.getCustomerInfo().setFirstName(getContentOrNull(otherInformationDto.firstName()));
+            customer.getCustomerInfo().setLastName(getContentOrNull(otherInformationDto.lastName()));
+            customer.getCustomerInfo().setBio(getContentOrNull(otherInformationDto.bio()));
 
             customerModificationRepository.save(customer);
             return ResponseEntity.ok("Customer has been updated.");
