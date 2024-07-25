@@ -1,12 +1,11 @@
 package com.opensell.customer.setting.edit;
 
 import com.opensell.customer.setting.edit.dto.OtherInformationDto;
-import com.opensell.service.customermodification.ModificationFeedback;
+import com.opensell.customer.setting.edit.dto.PasswordDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import com.opensell.model.dto.CustomerModificationData;
 
 /**
  * @author Olivier
@@ -17,14 +16,14 @@ import com.opensell.model.dto.CustomerModificationData;
 public class EditController {
     private final EditService editService;
 
-    @PatchMapping("/email")
-    public ResponseEntity<?> changeEmail(@RequestParam int id, @RequestParam String email, @RequestParam String confirmEmail) {
+    @PatchMapping("/{id}/email")
+    public ResponseEntity<?> changeEmail(@PathVariable int id, @RequestParam String email, @RequestParam String confirmEmail) {
         return editService.changeEmail(id, email, confirmEmail);
     }
 
-    @PatchMapping("/pwd")
-    public ModificationFeedback changePwd(@RequestBody CustomerModificationData data) {
-        return editService.changePwd(data);
+    @PatchMapping("/{id}/password")
+    public ResponseEntity<?> changePassword(@PathVariable int id, PasswordDto passwordDto) {
+        return editService.changePassword(id, passwordDto);
     }
 
     @PatchMapping("/{id}/other-information")
