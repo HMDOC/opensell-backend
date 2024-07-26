@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface VerificationCodeRepository extends JpaRepository<VerificationCode, Integer> {
-    @Query(value = "select code from verification_code vc, customer c where c.email = ?1 and c.id = vc.customer_id", nativeQuery = true)
-    String getCodeByEmail(String email);
+    @Query(value = "SELECT COUNT(vc.code) FROM verification_code vc INNER JOIN customer c ON vc.customer_id = c.id WHERE c.email = ?2 AND vc.code = ?1 LIMIT 1", nativeQuery = true)
+    int countByCodeAndCustomerEmailLimitOne(String code, String email);
 
     @Modifying
     @Query(value = "DELETE vc FROM verification_code vc WHERE vc.type = :#{#type.name()} AND TIMESTAMPDIFF(MINUTE, vc.created_at, CURRENT_TIMESTAMP) > ?1", nativeQuery = true)
