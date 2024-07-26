@@ -1,19 +1,19 @@
 package com.opensell.customer.setting.verification;
 
-import com.opensell.repository.CustomerModificationRepository;
+import com.opensell.customer.setting.SettingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class VerificationService {
-    private final CustomerModificationRepository customerModificationRepository;
+    private final SettingRepository settingRepository;
 
     public boolean isUsernameExists(int id, String username) {
-        return customerModificationRepository.isUsernameExist(id, username) > 0;
+        return settingRepository.isUsernameExist(id, username) > 0;
     }
 
     public boolean isEmailExists(int id, String email) {
-        return customerModificationRepository.isEmailExist(id, email) > 0;
+        return settingRepository.isEmailExist(id, email) > 0;
     }
 }

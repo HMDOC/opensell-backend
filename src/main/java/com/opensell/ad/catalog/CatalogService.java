@@ -4,7 +4,7 @@ import com.opensell.ad.catalog.dto.AdPreviewDto;
 import com.opensell.model.Ad;
 import com.opensell.ad.catalog.dto.AdSearchParamsDto;
 import com.opensell.ad.catalog.dto.AdViewDto;
-import com.opensell.repository.AdRepository;
+import com.opensell.ad.AdRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;

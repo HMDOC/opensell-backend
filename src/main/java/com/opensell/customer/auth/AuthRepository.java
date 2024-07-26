@@ -1,4 +1,4 @@
-package com.opensell.repository;
+package com.opensell.customer.auth;
 
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +11,7 @@ import com.opensell.model.Customer;
 
 @Repository
 @Transactional
-public interface LoginRepository extends JpaRepository<Customer, Integer> {
+public interface AuthRepository extends JpaRepository<Customer, Integer> {
     //login
     @Query(value= "SELECT * FROM customer c WHERE c.email = ?1 OR c.username = ?1 AND c.is_deleted = false AND c.is_activated = true", nativeQuery = true)
     Customer getUser(String usernameOrEmail);

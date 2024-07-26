@@ -1,24 +1,22 @@
 package com.opensell.customer.auth;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/customer/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
 
+    @GetMapping
+    public CustomerDto getCustomerDto(@RequestParam int idCustomer) {
+        return authService.getCustomerDto(idCustomer);
+    }
+
     @GetMapping("/login")
     public Integer login(@RequestParam String username, @RequestParam String pwd) {
         return authService.login(username, pwd);
-    }
-
-    @GetMapping("/getDto")
-    public CustomerDto getCustomerDto(@RequestParam int idCustomer) {
-        return authService.getCustomerDto(idCustomer);
     }
 
     @PostMapping("/signup")

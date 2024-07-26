@@ -1,4 +1,4 @@
-package com.opensell.repository;
+package com.opensell.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.opensell.model.Customer;

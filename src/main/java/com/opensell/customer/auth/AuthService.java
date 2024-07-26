@@ -3,8 +3,7 @@ package com.opensell.customer.auth;
 import com.opensell.enums.VerificationCodeType;
 import com.opensell.model.Customer;
 import com.opensell.model.customer.VerificationCode;
-import com.opensell.repository.CustomerRepository;
-import com.opensell.repository.LoginRepository;
+import com.opensell.customer.CustomerRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.EmailService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,7 @@ import java.util.List;
 public class AuthService {
     private final CustomerRepository customerRepository;
     private final VerificationCodeRepository verificationCodeRepository;
-    private final LoginRepository loginRepository;
+    private final AuthRepository authRepository;
     private final EmailService emailService;
     private final PasswordEncoder passwordEncoder;
 
@@ -58,9 +57,9 @@ public class AuthService {
      * @since 1.0
      */
     public int signup(String email, String username, String pwd) {
-        if (loginRepository.findOneByEmail(email) == 1) {
+        if (authRepository.findOneByEmail(email) == 1) {
             return 1; // Email already exists
-        } else if (loginRepository.findOneByUsername(username) > 0) {
+        } else if (authRepository.findOneByUsername(username) > 0) {
             return 2; // Username already exists
         }
 
@@ -76,7 +75,7 @@ public class AuthService {
             .verificationCodes(List.of(verificationCode))
             .build();
 
-        loginRepository.save(customer);
+        authRepository.save(customer);
 
         if (emailService.sendEmail(email, "Welcome to OpenSell",
             "Thank you for signing up with OpenSell! Here's your verification code:\n" + verificationCode.getCode())) {
@@ -92,7 +91,7 @@ public class AuthService {
      * @since 1.0
      */
     public Integer login(String username, String pwd) {
-        Customer customer = loginRepository.getUser(username);
+        Customer customer = authRepository.getUser(username);
 
         if (customer != null && passwordEncoder.matches(pwd, customer.getPwd())) {
             return customer.getId();
@@ -118,7 +117,7 @@ public class AuthService {
      */
     public int verifyCode(String email, String inputCode) {
         if (verificationCodeRepository.getCodeByEmail(email).equals(inputCode)) {
-            if (loginRepository.activateAccount(email) > 0) {
+            if (authRepository.activateAccount(email) > 0) {
                 return 0; // Email verified
             }
         }

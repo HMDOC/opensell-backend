@@ -1,7 +1,6 @@
 package com.opensell.customer;
 
 import com.opensell.model.Customer;
-import com.opensell.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

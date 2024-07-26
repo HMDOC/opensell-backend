@@ -101,6 +101,9 @@ Create a file named `.env.local` in the root folder with this content :
 ```properties
 VITE_PORT=
 VITE_BACKEND_URL=
+
+# The secret key for JWT
+VITE_JWT_SECRET_KEY=
 ```
 </details>
 

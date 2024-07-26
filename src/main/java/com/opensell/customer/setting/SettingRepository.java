@@ -1,4 +1,4 @@
-package com.opensell.repository;
+package com.opensell.customer.setting;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +14,7 @@ import jakarta.transaction.Transactional;
  */
 @Repository
 @Transactional
-public interface CustomerModificationRepository extends CrudRepository<Customer, Integer> {
+public interface SettingRepository extends CrudRepository<Customer, Integer> {
     @Modifying
     @Query(value = "UPDATE customer c SET c.icon_path = ?1 WHERE c.id = ?2 LIMIT 1", nativeQuery = true)
     int updateCustomerIconPath(String iconPath, int customerId);

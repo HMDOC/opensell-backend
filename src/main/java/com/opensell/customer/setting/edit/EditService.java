@@ -5,8 +5,8 @@ import com.opensell.customer.setting.edit.dto.PasswordDto;
 import com.opensell.exception.CustomerNotFound;
 import com.opensell.model.Customer;
 import com.opensell.enums.RegexVerifier;
-import com.opensell.repository.CustomerModificationRepository;
-import com.opensell.repository.CustomerRepository;
+import com.opensell.customer.setting.SettingRepository;
+import com.opensell.customer.CustomerRepository;
 import com.opensell.service.FileUploadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -25,9 +25,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class EditService {
-    private final CustomerModificationRepository rep;
+    private final SettingRepository rep;
     private final PasswordEncoder passwordEncoder;
-    private final CustomerModificationRepository customerModificationRepository;
+    private final SettingRepository settingRepository;
     private final CustomerRepository customerRepository;
     private final FileUploadService fileUploadService;
 
@@ -40,7 +40,7 @@ public class EditService {
 
                 if(customer != null) {
                     customer.setEmail(email);
-                    customerModificationRepository.save(customer);
+                    settingRepository.save(customer);
                     return ResponseEntity.ok().build();
                 }
 
@@ -70,14 +70,14 @@ public class EditService {
 
         // To see : RegexVerifier.PWD.verify
         try {
-            Customer customer = customerModificationRepository.findById(id).orElseThrow(CustomerNotFound::new);
+            Customer customer = settingRepository.findById(id).orElseThrow(CustomerNotFound::new);
 
             if(!passwordEncoder.matches(passwordDto.oldPassword(), customer.getPwd())) {
                 return ResponseEntity.badRequest().body(PasswordError.INVALID_OLD_PASSWORD);
             }
 
             customer.setPwd(passwordEncoder.encode(passwordDto.password()));
-            customerModificationRepository.save(customer);
+            settingRepository.save(customer);
             return ResponseEntity.ok().body("Password changed successfully.");
         } catch (CustomerNotFound e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found");
@@ -99,14 +99,14 @@ public class EditService {
 
     public ResponseEntity<?> changeOtherInformation(int id, OtherInformationDto otherInformationDto) {
         try {
-            Customer customer = customerModificationRepository.findById(id).orElseThrow(CustomerNotFound::new);
+            Customer customer = settingRepository.findById(id).orElseThrow(CustomerNotFound::new);
 
             customer.setUsername(otherInformationDto.username());
             customer.setFirstName(getContentOrNull(otherInformationDto.firstName()));
             customer.setLastName(getContentOrNull(otherInformationDto.lastName()));
             customer.setBio(getContentOrNull(otherInformationDto.bio()));
 
-            customerModificationRepository.save(customer);
+            settingRepository.save(customer);
             return ResponseEntity.ok("Customer has been updated.");
         } catch (Exception e) {
             if(e instanceof CustomerNotFound) {
