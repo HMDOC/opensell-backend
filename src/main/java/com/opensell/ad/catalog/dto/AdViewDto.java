@@ -50,7 +50,7 @@ public class AdViewDto {
 			this.adTagsName = tags;
 			this.adImages = ad.getAdImages();
 			this.username = customer.getUsername();
-			this.userIcon = customer.getCustomerInfo().getIconPath();
+			this.userIcon = customer.getIconPath();
 		}
 	}
 }

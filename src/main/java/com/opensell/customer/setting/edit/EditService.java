@@ -102,9 +102,9 @@ public class EditService {
             Customer customer = customerModificationRepository.findById(id).orElseThrow(CustomerNotFound::new);
 
             customer.setUsername(otherInformationDto.username());
-            customer.getCustomerInfo().setFirstName(getContentOrNull(otherInformationDto.firstName()));
-            customer.getCustomerInfo().setLastName(getContentOrNull(otherInformationDto.lastName()));
-            customer.getCustomerInfo().setBio(getContentOrNull(otherInformationDto.bio()));
+            customer.setFirstName(getContentOrNull(otherInformationDto.firstName()));
+            customer.setLastName(getContentOrNull(otherInformationDto.lastName()));
+            customer.setBio(getContentOrNull(otherInformationDto.bio()));
 
             customerModificationRepository.save(customer);
             return ResponseEntity.ok("Customer has been updated.");

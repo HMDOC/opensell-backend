@@ -3,7 +3,6 @@ package com.opensell.model;
 import java.time.LocalDateTime;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.opensell.model.customer.CustomerInfo;
 import com.opensell.model.customer.VerificationCode;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -36,15 +35,7 @@ public class Customer {
 
     @Builder.Default
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
-    private boolean isVerified = false;
-
-    @Builder.Default
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
     private boolean isActivated = false;
-
-    @OneToOne
-    @JoinColumn(name = "customer_info_id")
-    private CustomerInfo customerInfo;
 
     @Builder.Default
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
@@ -58,4 +49,12 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     List<VerificationCode> verificationCodes;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String bio;
+
+    private String iconPath;
 }

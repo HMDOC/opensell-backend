@@ -5,19 +5,24 @@ import java.util.List;
 import com.opensell.ad.catalog.dto.AdPreviewDto;
 import com.opensell.model.Ad;
 import com.opensell.model.Customer;
-import com.opensell.model.customer.CustomerInfo;
 
 public record ProfileDto(
+    String firstName,
+    String lastName,
+    String bio,
+    String iconPath,
     String username,
     LocalDateTime joinedDate,
-    CustomerInfo customerInfo,
     List<AdPreviewDto> ads
 ) {
     public ProfileDto(Customer customer) {
         this(
+            customer.getFirstName(),
+            customer.getLastName(),
+            customer.getBio(),
+            customer.getIconPath(),
             customer.getUsername(),
             customer.getJoinedDate(),
-            customer.getCustomerInfo(),
             customer.getAds().stream().map(Ad::toAdSearchPreview).toList()
         );
     }

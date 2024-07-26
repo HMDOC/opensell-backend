@@ -2,9 +2,7 @@ package com.opensell.customer.auth;
 
 import com.opensell.enums.VerificationCodeType;
 import com.opensell.model.Customer;
-import com.opensell.model.customer.CustomerInfo;
 import com.opensell.model.customer.VerificationCode;
-import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
@@ -13,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 @Component
@@ -22,7 +21,6 @@ public class AuthService {
     private final VerificationCodeRepository verificationCodeRepository;
     private final LoginRepository loginRepository;
     private final EmailService emailService;
-    private final CustomerInfoRepository customerInfoRepository;
     private final PasswordEncoder passwordEncoder;
 
     /**
@@ -76,7 +74,6 @@ public class AuthService {
             .email(email)
             .pwd(passwordEncoder.encode(pwd))
             .verificationCodes(List.of(verificationCode))
-            .customerInfo(customerInfoRepository.save(new CustomerInfo()))
             .build();
 
         loginRepository.save(customer);
