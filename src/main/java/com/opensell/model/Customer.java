@@ -1,17 +1,15 @@
 package com.opensell.model;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.customer.CustomerInfo;
 import com.opensell.model.verification.VerificationCode;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
+@Builder
 @Entity
 @Data
 @AllArgsConstructor
@@ -32,21 +30,25 @@ public class Customer {
     @NotBlank
     private String pwd;
 
+    @Builder.Default
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
-    private Boolean isDeleted;
+    private boolean isDeleted = false;
 
+    @Builder.Default
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
-    private Boolean isVerified;
+    private boolean isVerified = false;
 
+    @Builder.Default
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
-    private Boolean isActivated;
+    private boolean isActivated = false;
 
     @OneToOne
     @JoinColumn(name = "customer_info_id")
     private CustomerInfo customerInfo;
 
+    @Builder.Default
     @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
-    private Date joinedDate;
+    private LocalDateTime joinedDate = LocalDateTime.now();
 
     @JsonIgnore
     @ToString.Exclude

@@ -4,9 +4,11 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,6 +24,7 @@ public class VerificationCode {
     @Enumerated(EnumType.STRING)
     private VerificationCodeType type;
 
+    @Builder.Default
     @Column(columnDefinition = "DATETIME DEFAULT NOW()", nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 

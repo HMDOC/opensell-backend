@@ -1,8 +1,7 @@
 package com.opensell.model.dto;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
-
 import com.opensell.ad.catalog.dto.AdPreviewDto;
 import com.opensell.model.Ad;
 import com.opensell.model.Customer;
@@ -10,7 +9,7 @@ import com.opensell.model.customer.CustomerInfo;
 
 public class CustomerProfile {
     public String username;
-    public Date joinedDate;
+    public LocalDateTime joinedDate;
     public CustomerInfo customerInfo;
     public List<AdPreviewDto> ads;
 
