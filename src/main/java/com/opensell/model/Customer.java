@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.customer.CustomerInfo;
+import com.opensell.model.verification.VerificationCode;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -49,6 +50,10 @@ public class Customer {
 
     @JsonIgnore
     @ToString.Exclude
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Ad> ads;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
+    List<VerificationCode> verificationCodes;
 }

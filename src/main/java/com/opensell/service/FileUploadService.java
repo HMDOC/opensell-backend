@@ -4,11 +4,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import lombok.Getter;
 
 /**
@@ -90,10 +88,9 @@ public class FileUploadService {
 	 * Save multiple files to the backend and get the links.
 	 * 
 	 * @author Achraf
-	 * @param files
-	 * @param path
-	 * @return
-	 * @throws Exception
+	 * @param files The files you want the save.
+	 * @param fileType The type of the files.
+	 * @since 1.0
 	*/
 	public List<String> saveFiles(List<MultipartFile> files, FileType fileType) {
 		try {

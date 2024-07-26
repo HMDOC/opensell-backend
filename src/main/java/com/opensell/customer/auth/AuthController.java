@@ -1,4 +1,4 @@
-package com.opensell.controller;
+package com.opensell.customer.auth;
 
 import com.opensell.model.Customer;
 import com.opensell.model.customer.CustomerInfo;
@@ -9,24 +9,25 @@ import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.LoginRepository;
 import com.opensell.repository.VerificationCodeRepository;
-import com.opensell.service.CodeService;
 import com.opensell.service.EmailService;
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-public class AuthenticationController {
+public class AuthController {
     private final LoginRepository loginRepository;
     private final EmailService emailService;
-    private final CodeService codeService;
     private final VerificationCodeRepository codeRepository;
     private final CustomerInfoRepository customerInfoRepository;
     private final PasswordEncoder passwordEncoder;
     private final CustomerRepository customerRepo;
+    private final AuthService authService;
 
     @GetMapping("/login")
     public Integer login(@RequestParam String username, @RequestParam String pwd) {
@@ -55,7 +56,7 @@ public class AuthenticationController {
         } else if (loginRepository.findOneByUsername(username) > 0) {
             return 2; // Username already exists
         } else {
-            String code = codeService.generateCode();
+            String code = authService.generateCode();
             Date now = new Date(System.currentTimeMillis());
 
             VerificationCode newCode = new VerificationCode();
@@ -73,13 +74,13 @@ public class AuthenticationController {
             customer.setCustomerInfo(infos);
             customer.setJoinedDate(now);
 
-            newCode.setCustomer(customer);
             newCode.setCode(code);
             newCode.setType(VerificationCodeType.FIRST_SIGN_UP);
             newCode.setCreatedAt(LocalDateTime.now());
+            customer.setVerificationCodes(List.of(newCode));
 
-            loginRepository.save(customer);
             codeRepository.save(newCode);
+            loginRepository.save(customer);
             if (emailService.sendEmail(email, "Welcome to OpenSell",
                     "Thank you for signing up with OpenSell! Here's your verification code:\n" + code)) {
                 return 3; // Email sent

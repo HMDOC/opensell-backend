@@ -80,10 +80,10 @@ public class Ad {
     private Set<AdTag> adTags;
 
     @JsonIgnore
-	@OneToMany(mappedBy = "ad")
+	@OneToMany(mappedBy = "ad", cascade = CascadeType.ALL)
 	private List<AdImage> adImages = new ArrayList<>();
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
 

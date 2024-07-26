@@ -1,7 +1,6 @@
 package com.opensell.model.verification;
 
 import java.time.LocalDateTime;
-import com.opensell.model.Customer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -16,9 +15,6 @@ public class VerificationCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @ManyToOne
-    Customer customer;
 
     @NotBlank
     private String code;
