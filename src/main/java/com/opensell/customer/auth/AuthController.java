@@ -1,6 +1,5 @@
 package com.opensell.customer.auth;
 
-import com.opensell.model.dto.CustomerDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

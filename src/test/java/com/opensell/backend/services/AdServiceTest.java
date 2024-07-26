@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.opensell.controller.AdController;
+import com.opensell.ad.AdController;
 
 @SpringBootTest(classes = {com.opensell.backend.services.AdServiceTest.class})
 @TestInstance(Lifecycle.PER_CLASS)

@@ -1,4 +1,4 @@
-package com.opensell.controller;
+package com.opensell.ad;
 
 import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;

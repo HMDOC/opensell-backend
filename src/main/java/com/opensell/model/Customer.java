@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.customer.CustomerInfo;
-import com.opensell.model.verification.VerificationCode;
+import com.opensell.model.customer.VerificationCode;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;

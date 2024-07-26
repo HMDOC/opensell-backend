@@ -34,7 +34,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        System.out.println(appConfig.allowedUrls());
         return http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(customizer -> customizer

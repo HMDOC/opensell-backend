@@ -1,9 +1,9 @@
 package com.opensell.customer.auth;
 
+import com.opensell.enums.VerificationCodeType;
 import com.opensell.model.Customer;
 import com.opensell.model.customer.CustomerInfo;
-import com.opensell.model.dto.CustomerDto;
-import com.opensell.model.verification.VerificationCode;
+import com.opensell.model.customer.VerificationCode;
 import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.repository.LoginRepository;
@@ -51,7 +51,7 @@ public class AuthService {
      */
     @Scheduled(fixedRate = 60000, initialDelay = 60000)
     public void codeCleanUp() {
-        System.out.println(verificationCodeRepository.deleteExpiredCode(10, VerificationCode.VerificationCodeType.FIRST_SIGN_UP) + " expired codes deleted.");
+        System.out.println(verificationCodeRepository.deleteExpiredCode(10, VerificationCodeType.FIRST_SIGN_UP) + " expired codes deleted.");
     }
 
     /**
@@ -68,7 +68,7 @@ public class AuthService {
 
         VerificationCode verificationCode = VerificationCode.builder()
             .code(this.generateCode())
-            .type(VerificationCode.VerificationCodeType.FIRST_SIGN_UP)
+            .type(VerificationCodeType.FIRST_SIGN_UP)
             .build();
 
         Customer customer = Customer.builder()

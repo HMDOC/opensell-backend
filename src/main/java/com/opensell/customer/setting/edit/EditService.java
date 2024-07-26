@@ -4,7 +4,7 @@ import com.opensell.customer.setting.edit.dto.OtherInformationDto;
 import com.opensell.customer.setting.edit.dto.PasswordDto;
 import com.opensell.exception.CustomerNotFound;
 import com.opensell.model.Customer;
-import com.opensell.model.verification.RegexVerifier;
+import com.opensell.enums.RegexVerifier;
 import com.opensell.repository.CustomerModificationRepository;
 import com.opensell.repository.CustomerRepository;
 import com.opensell.service.FileUploadService;

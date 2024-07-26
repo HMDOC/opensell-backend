@@ -1,4 +1,4 @@
-package com.opensell.model.ad;
+package com.opensell.enums;
 
 public enum AdShape {
 	NEW,
