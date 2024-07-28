@@ -7,6 +7,7 @@ import com.opensell.customer.CustomerRepository;
 import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.service.EmailService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -56,11 +57,15 @@ public class AuthService {
      *
      * @since 1.0
      */
-    public int signup(String email, String username, String pwd) {
-        if (authRepository.findOneByEmail(email) == 1) {
-            return 1; // Email already exists
+    public ResponseEntity<?> signup(String email, String username, String pwd) {
+        if (authRepository.findOneByEmail(email) > 0) {
+            return ResponseEntity.badRequest().body(
+                new AuthError("Email already exists", 188)
+            );
         } else if (authRepository.findOneByUsername(username) > 0) {
-            return 2; // Username already exists
+            return ResponseEntity.badRequest().body(
+                new AuthError("Username already exists", 202)
+            );
         }
 
         VerificationCode verificationCode = VerificationCode.builder()
@@ -79,10 +84,10 @@ public class AuthService {
 
         if (emailService.sendEmail(email, "Welcome to OpenSell",
             "Thank you for signing up with OpenSell! Here's your verification code:\n" + verificationCode.getCode())) {
-            return 3; // Email sent
+            return ResponseEntity.ok("Email sent");
         }
 
-        return 4; // Email not send
+        return ResponseEntity.internalServerError().body("Enable to send a email.");
     }
 
     /**
@@ -90,14 +95,14 @@ public class AuthService {
      *
      * @since 1.0
      */
-    public Integer login(String username, String pwd) {
+    public ResponseEntity<?> login(String username, String pwd) {
         Customer customer = authRepository.getUser(username);
 
         if (customer != null && passwordEncoder.matches(pwd, customer.getPwd())) {
-            return customer.getId();
+            return ResponseEntity.ok(customer.getId());
         }
 
-        return null;
+        return ResponseEntity.badRequest().body("Invalid username or password.");
     }
 
     /**

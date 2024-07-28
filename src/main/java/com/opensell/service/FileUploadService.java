@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.opensell.enums.FileType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,18 +33,6 @@ public class FileUploadService {
 
 		RandName(int length) {
 			this.length = length;
-		}
-	}
-
-	@Getter
-    public enum FileType {
-		AD_IMAGE("/ad-image/"),
-		CUSTOMER_PROFILE("/customer-profile/");
-
-		private final String folder;
-
-		FileType(String folder) {
-			this.folder = folder;
 		}
 	}
 

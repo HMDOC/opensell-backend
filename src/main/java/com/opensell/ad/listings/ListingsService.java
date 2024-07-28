@@ -7,6 +7,7 @@ import com.opensell.ad.AdRepository;
 import com.opensell.ad.catalog.dto.AdPreviewDto;
 import com.opensell.ad.listings.dto.AdCreatorDto;
 import com.opensell.customer.CustomerRepository;
+import com.opensell.enums.FileType;
 import com.opensell.exception.AdTitleUniqueException;
 import com.opensell.model.Ad;
 import com.opensell.model.Customer;
@@ -90,7 +91,7 @@ public class ListingsService {
             if (imagePositions.size() != images.size())
                 throw new RuntimeException("imagePosition need to be the same size as images.");
 
-            List<String> filePaths = fileUploadService.saveFiles(images, FileUploadService.FileType.AD_IMAGE);
+            List<String> filePaths = fileUploadService.saveFiles(images, FileType.AD_IMAGE);
             if (filePaths == null) throw new RuntimeException("No files was saved.");
             if (filePaths.size() != images.size()) throw new RuntimeException("All images were not saved.");
 

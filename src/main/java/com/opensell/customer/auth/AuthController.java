@@ -1,6 +1,7 @@
 package com.opensell.customer.auth;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,12 +16,12 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public Integer login(@RequestParam String username, @RequestParam String pwd) {
+    public ResponseEntity<?> login(@RequestParam String username, @RequestParam String pwd) {
         return authService.login(username, pwd);
     }
 
     @PostMapping("/signup")
-    public int signup(@RequestParam String email, @RequestParam String username, @RequestParam String pwd) {
+    public ResponseEntity<?> signup(@RequestParam String email, @RequestParam String username, @RequestParam String pwd) {
         return authService.signup(email, username, pwd);
     }
 

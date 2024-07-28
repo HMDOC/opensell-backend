@@ -2,6 +2,7 @@ package com.opensell.customer.setting.edit;
 
 import com.opensell.customer.setting.edit.dto.OtherInformationDto;
 import com.opensell.customer.setting.edit.dto.PasswordDto;
+import com.opensell.enums.FileType;
 import com.opensell.exception.CustomerNotFound;
 import com.opensell.model.Customer;
 import com.opensell.enums.RegexVerifier;
@@ -86,8 +87,9 @@ public class EditService {
 
 
     public boolean changeIconPath(int id, MultipartFile iconFile) {
-        String iconPath = fileUploadService.saveFiles(List.of(iconFile), FileUploadService.FileType.CUSTOMER_PROFILE).getFirst();
-        return rep.updateCustomerIconPath(iconPath, id) > 0;
+        String fileName = iconFile != null ? fileUploadService.saveFiles(List.of(iconFile), FileType.CUSTOMER_PROFILE).getFirst() : null;
+
+        return rep.updateCustomerIconPath(fileName, id) > 0;
     }
 
     /**
