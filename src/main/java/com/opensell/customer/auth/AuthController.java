@@ -1,5 +1,6 @@
 package com.opensell.customer.auth;
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestParam String email, @RequestParam String username, @RequestParam String pwd) {
+    public ResponseEntity<?> signup(@RequestParam String email, @RequestParam String username, @RequestParam String pwd) throws MessagingException {
         return authService.signup(email, username, pwd);
     }
 

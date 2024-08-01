@@ -1,11 +1,13 @@
 package com.opensell.customer.auth;
 
+import com.opensell.email.template.SignUpTemplate;
 import com.opensell.enums.VerificationCodeType;
 import com.opensell.model.Customer;
 import com.opensell.model.customer.VerificationCode;
 import com.opensell.customer.CustomerRepository;
 import com.opensell.repository.VerificationCodeRepository;
-import com.opensell.service.EmailService;
+import com.opensell.email.EmailService;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -57,7 +59,7 @@ public class AuthService {
      *
      * @since 1.0
      */
-    public ResponseEntity<?> signup(String email, String username, String pwd) {
+    public ResponseEntity<?> signup(String email, String username, String pwd) throws MessagingException {
         if (authRepository.findOneByEmail(email) > 0) {
             return ResponseEntity.badRequest().body(
                 new AuthError("Email already exists", 188)
@@ -82,8 +84,7 @@ public class AuthService {
 
         authRepository.save(customer);
 
-        if (emailService.sendEmail(email, "Welcome to OpenSell",
-            "Thank you for signing up with OpenSell! Here's your verification code:\n" + verificationCode.getCode())) {
+        if (emailService.sendSignupCode(email, customer.getUsername(), verificationCode.getCode())) {
             return ResponseEntity.ok("Email sent");
         }
 
