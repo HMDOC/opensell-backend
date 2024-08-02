@@ -28,7 +28,7 @@ public class CatalogService {
             query.filterSold(), Sort.by(query.sortBy()));
 
         if (adList != null) {
-            ArrayList<String> searchTags = new ArrayList<>((query.adTags() == null) ? null : query.adTags());
+            ArrayList<String> searchTags = new ArrayList<>((query.tags() == null) ? null : query.tags());
 
             List<AdPreviewDto> resultList = new ArrayList<>(adList.size());
 
@@ -43,7 +43,7 @@ public class CatalogService {
             }
 
             System.out.println(resultList.size());
-            System.out.println(query.adTags());
+            System.out.println(query.tags());
             //System.out.println(searchTags);
             if (query.reverseSort()==1) {
                 Collections.reverse(resultList);
