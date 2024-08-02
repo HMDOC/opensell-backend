@@ -45,7 +45,7 @@ public class CatalogService {
             System.out.println(resultList.size());
             System.out.println(query.adTags());
             //System.out.println(searchTags);
-            if (query.reverseSort()) {
+            if (query.reverseSort()==1) {
                 Collections.reverse(resultList);
             }
 
