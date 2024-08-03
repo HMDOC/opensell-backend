@@ -13,15 +13,6 @@ spring:
       max-file-size: 50MB
       max-request-size: 500MB
       enabled: true
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    show-sql: true
-    defer-datasource-initialization: true
-  sql:
-    init:
-      mode: always
-      
   output:
     ansi:
       enabled: always
@@ -45,5 +36,8 @@ spring:
             required: true
       verify:
         host: http://localhost:${port}
+  data:
+    mongodb:
+      database: ${MONGO_INITDB_DATABASE}
 
 
