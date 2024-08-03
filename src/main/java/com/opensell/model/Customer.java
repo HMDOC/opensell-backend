@@ -2,15 +2,13 @@ package com.opensell.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.customer.VerificationCode;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Builder
 @Document
@@ -18,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-    @MongoId
+    @Id
     private String id;
 
     @NotBlank
@@ -45,10 +43,10 @@ public class Customer {
     //DATETIME DEFAULT NOW()
     private LocalDateTime joinedDate = LocalDateTime.now();
 
-    @DBRef
-    @JsonIgnore
-    @ToString.Exclude
-    private List<Ad> ads;
+//    @DBRef
+//    @JsonIgnore
+//    @ToString.Exclude
+//    private List<Ad> ads;
 
     List<VerificationCode> verificationCodes;
 

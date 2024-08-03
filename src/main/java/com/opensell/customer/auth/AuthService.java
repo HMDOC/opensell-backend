@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
@@ -57,11 +58,11 @@ public class AuthService {
      * @since 1.0
      */
     public ResponseEntity<?> signup(String email, String username, String pwd) throws MessagingException {
-        if (authRepository.findOneByEmail(email) > 0) {
+        if (authRepository.existsByEmail(email)) {
             return ResponseEntity.badRequest().body(
                 new AuthError("Email already exists", 188)
             );
-        } else if (authRepository.findOneByUsername(username) > 0) {
+        } else if (authRepository.existsByUsername(username)) {
             return ResponseEntity.badRequest().body(
                 new AuthError("Username already exists", 202)
             );
@@ -95,6 +96,7 @@ public class AuthService {
      */
     public ResponseEntity<?> login(String username, String pwd) {
         Customer customer = authRepository.getUser(username);
+        System.out.println("Customer content : "+customer);
 
         if (customer != null && passwordEncoder.matches(pwd, customer.getPwd())) {
             return ResponseEntity.ok(customer.getId());

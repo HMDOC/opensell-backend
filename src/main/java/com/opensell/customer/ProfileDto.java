@@ -23,7 +23,9 @@ public record ProfileDto(
             customer.getIconPath(),
             customer.getUsername(),
             customer.getJoinedDate(),
-            customer.getAds().stream().map(Ad::toAdSearchPreview).toList()
+            null
+            // REDO
+            //customer.getAds().stream().map(Ad::toAdSearchPreview).toList()
         );
     }
 }

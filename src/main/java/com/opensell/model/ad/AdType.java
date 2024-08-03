@@ -5,9 +5,9 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Document
 @Data
@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 public class AdType {
     public static final int MAX_LENGTH = 60;
 
-    @MongoId
+    @Id
     private String id;
 
     @Size(min = 1, max = MAX_LENGTH)

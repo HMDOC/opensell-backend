@@ -38,6 +38,5 @@ spring:
         host: http://localhost:${port}
   data:
     mongodb:
-      database: ${MONGO_INITDB_DATABASE}
-
-
+      auto-index-creation: true
+      database: ${MONGO_INITDB_ROOT_DATABASE}

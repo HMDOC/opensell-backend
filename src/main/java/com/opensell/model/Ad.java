@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
@@ -29,7 +30,7 @@ public class Ad {
     public static final int DESCRIPTION_MAX_LENGTH = 5000;
     public static final int TITLE_MAX_LENGTH = 80;
 
-    @MongoId
+    @Id
     private String id;
 
     @Size(max = TITLE_MAX_LENGTH)
@@ -66,7 +67,7 @@ public class Ad {
     @NotBlank
     private String address;
 
-    @DocumentReference
+    @DBRef
     private AdType adType;
 
     @Builder.Default
