@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import com.opensell.enums.FileType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -86,22 +85,22 @@ public class FileUploadService {
 		try {
 			if(files == null) throw new Exception("files cannot be null");
 			if(fileType == null) throw new Exception("fileType cannot be null");
-
 			List<String> filesPath = new ArrayList<>();
+			var folderPath = uploadPath+fileType.folder;
 
 			files.forEach(file -> {
 				try {
-					String randomFileName = fileType.folder+randFileName(".png", RandName.URL);
-					File destFile = new File(uploadPath+randomFileName);
+					String randomFileName = randFileName(".png", RandName.FILE_NAME);
+					File destFile = new File(folderPath+randomFileName);
 
 					while(destFile.exists()) {
-						randomFileName = fileType.folder+randFileName(".png", RandName.URL);
-						destFile.renameTo(new File(uploadPath+randomFileName));
+						randomFileName = randFileName(".png", RandName.FILE_NAME);
+						destFile.renameTo(new File(folderPath+randomFileName));
 					}
 
 					destFile.createNewFile();
 					file.transferTo(destFile);
-					filesPath.add(imageServerUrl+randomFileName);
+					filesPath.add(randomFileName);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

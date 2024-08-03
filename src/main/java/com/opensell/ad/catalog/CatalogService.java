@@ -60,7 +60,7 @@ public class CatalogService {
      */
     public ResponseEntity<?> getAdBuyerView(String idAd) {
         try {
-            Ad ad = adRepo.findOneByIdAndIsDeletedFalse(idAd);
+            Ad ad = adRepo.findOneByIdAndDeletedFalse(idAd);
 
             if (ad == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ad not found");
 

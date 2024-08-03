@@ -30,18 +30,19 @@ public class ListingsController {
         return listingsService.deleteAd(idAd);
     }
 
+    @PostMapping("/images")
+    public ResponseEntity<List<String>> saveImages(@RequestBody List<MultipartFile> images) {
+        return ResponseEntity.ok(listingsService.saveImages(images));
+    }
+
     @PostMapping
-    public ResponseEntity<AdPreviewDto> createAd(@RequestBody(required = false) List<MultipartFile> images,
-                                                  @RequestParam(required = false) List<Integer> imagePositions,
-                                                  AdCreatorDto adCreatorDto) throws JsonProcessingException {
-        return listingsService.createOrUpdateAd(images, imagePositions, adCreatorDto, false);
+    public ResponseEntity<AdPreviewDto> createAd(@RequestBody AdCreatorDto adCreatorDto) {
+        return listingsService.createOrUpdateAd(adCreatorDto, false);
     }
 
     @PatchMapping
-    public ResponseEntity<AdPreviewDto> updateAd(@RequestBody(required = false) List<MultipartFile> images,
-                                                 @RequestParam(required = false) List<Integer> imagePositions,
-                                                 AdCreatorDto adCreatorDto) throws JsonProcessingException {
-        return listingsService.createOrUpdateAd(images, imagePositions, adCreatorDto, true);
+    public ResponseEntity<AdPreviewDto> updateAd(@RequestBody AdCreatorDto adCreatorDto) {
+        return listingsService.createOrUpdateAd(adCreatorDto, true);
     }
 
     @GetMapping("/is-title-constraint-ok")
@@ -51,7 +52,7 @@ public class ListingsController {
 
     // CustomerId will be removed with Spring security
     @GetMapping("/{customerId}/all")
-    public List<AdPreviewDto> getCustomerAds(@PathVariable String customerId) {
+    public List<?> getCustomerAds(@PathVariable String customerId) {
         return listingsService.getCustomerAds(customerId);
     }
 }

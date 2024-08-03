@@ -1,11 +1,8 @@
 package com.opensell.model;
 
-import java.time.LocalDateTime;
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.opensell.model.ad.AdType;
 import com.opensell.ad.catalog.dto.AdPreviewDto;
+import com.opensell.model.ad.AdType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -17,15 +14,19 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+
+import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Builder
 //@Table(uniqueConstraints = {
 //	@UniqueConstraint(columnNames = {"title", "customer_id"}, name = "title_customer")
 //})
 @Document
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Ad {
     public static final int DESCRIPTION_MAX_LENGTH = 5000;
     public static final int TITLE_MAX_LENGTH = 80;
@@ -48,11 +49,11 @@ public class Ad {
 
     @Builder.Default
     @NotNull
-    private boolean isSold = false;
+    private boolean sold = false;
 
     @Builder.Default
     @NotNull
-    private boolean isDeleted = false;
+    private boolean deleted = false;
 
     @NotNull
     private int visibility;
@@ -74,11 +75,11 @@ public class Ad {
     private Set<String> tags = new LinkedHashSet<>();
 
     @Builder.Default
-	private Set<String> images = new LinkedHashSet<>();
+    private Set<String> images = new LinkedHashSet<>();
 
     @DBRef
     @NotNull
-	private Customer customer;
+    private Customer customer;
 
     @JsonIgnore
     public String getFirstImagePath() {

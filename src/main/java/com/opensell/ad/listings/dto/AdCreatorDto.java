@@ -9,6 +9,7 @@ import jakarta.validation.constraints.*;
 import lombok.Builder;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Builder
@@ -28,7 +29,7 @@ public record AdCreatorDto(
     @NotBlank
     String address,
 
-    boolean isSold,
+    boolean sold,
 
     @NotBlank
     @Size(max = Ad.DESCRIPTION_MAX_LENGTH, min = 5)
@@ -46,7 +47,7 @@ public record AdCreatorDto(
     @Min(0)
     int visibility,
 
-    String adImagesJson
+    Set<String> images
 ) {
     public static AdCreatorDto fromAd(Ad ad) throws JsonProcessingException {
         return AdCreatorDto.builder()
@@ -55,13 +56,13 @@ public record AdCreatorDto(
             .title(ad.getTitle())
             .price(ad.getPrice())
             .address(ad.getAddress())
-            .isSold(ad.isSold())
+            .sold(ad.isSold())
             .description(ad.getDescription())
             .tags(ad.getTags())
             .adTypeId(ad.getAdType().getId())
             .shape(ad.getShape())
             .visibility(ad.getVisibility())
-            .adImagesJson(new ObjectMapper().writeValueAsString(ad.getImages()))
+            .images(ad.getImages())
             .build();
     }
 }

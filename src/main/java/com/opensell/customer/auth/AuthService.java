@@ -39,7 +39,8 @@ public class AuthService {
      */
     @Scheduled(fixedRate = 600000, initialDelay = 600000)
     protected void emailCleanUp() {
-        System.out.println(customerRepository.deleteAllByIsActivatedFalseAndVerificationCodesIsEmpty() + " unactivated account deleted.");
+        System.out.println("WARNING: EMAIL clean up not implemented yet");
+        //System.out.println(customerRepository.deleteAllByIsActivatedFalseAndVerificationCodesIsEmpty() + " unactivated account deleted.");
     }
 
     /**
