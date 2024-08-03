@@ -9,7 +9,7 @@ import com.opensell.model.Ad;
  * @author Davide
  */
 public record AdPreviewDto(
-	int id,
+	String id,
 	String title,
 	double price,
 	String firstImage,

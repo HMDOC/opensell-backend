@@ -32,7 +32,7 @@ public class EditService {
     private final CustomerRepository customerRepository;
     private final FileUploadService fileUploadService;
 
-    public ResponseEntity<?> changeEmail(int id, String email, String confirmEmail) {
+    public ResponseEntity<?> changeEmail(String id, String email, String confirmEmail) {
         try {
             boolean areEmailsEqual = email.equals(confirmEmail);
 
@@ -86,7 +86,7 @@ public class EditService {
     }
 
 
-    public boolean changeIconPath(int id, MultipartFile iconFile) {
+    public boolean changeIconPath(String id, MultipartFile iconFile) {
         String fileName = iconFile != null ? fileUploadService.saveFiles(List.of(iconFile), FileType.CUSTOMER_PROFILE).getFirst() : null;
 
         return rep.updateCustomerIconPath(fileName, id) > 0;

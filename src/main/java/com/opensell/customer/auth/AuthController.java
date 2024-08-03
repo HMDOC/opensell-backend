@@ -12,7 +12,7 @@ public class AuthController {
     private final AuthService authService;
 
     @GetMapping
-    public CustomerDto getCustomerDto(@RequestParam int idCustomer) {
+    public CustomerDto getCustomerDto(@RequestParam String idCustomer) {
         return authService.getCustomerDto(idCustomer);
     }
 

@@ -34,7 +34,7 @@ public class CatalogService {
 
             for (Ad ad : adList) {
                 if (searchTags != null && !searchTags.isEmpty()) {
-                    if (!ad.getTagsName().containsAll(searchTags)) {
+                    if (!ad.getTags().containsAll(searchTags)) {
                         continue;
                     }
                 }
@@ -58,7 +58,7 @@ public class CatalogService {
      *
      * @author Achraf
      */
-    public ResponseEntity<?> getAdBuyerView(int idAd) {
+    public ResponseEntity<?> getAdBuyerView(String idAd) {
         try {
             Ad ad = adRepo.findOneByIdAndIsDeletedFalse(idAd);
 

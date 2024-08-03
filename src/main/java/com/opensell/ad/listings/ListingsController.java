@@ -21,12 +21,12 @@ public class ListingsController {
      * To get an adView when a user want to modify an ad.
      */
     @GetMapping("/{idAd}")
-    public AdCreatorDto getAdModificationDto(@PathVariable int idAd) throws JsonProcessingException {
+    public AdCreatorDto getAdModificationDto(@PathVariable String idAd) throws JsonProcessingException {
         return listingsService.getAdModificationDto(idAd);
     }
 
     @DeleteMapping("/{idAd}")
-    public boolean deleteAd(@PathVariable int idAd) {
+    public boolean deleteAd(@PathVariable String idAd) {
         return listingsService.deleteAd(idAd);
     }
 
@@ -45,13 +45,13 @@ public class ListingsController {
     }
 
     @GetMapping("/is-title-constraint-ok")
-    public boolean isTitleConstraintOk(@RequestParam String title, @RequestParam int customerId, @RequestParam(required = false) Integer adId) {
+    public boolean isTitleConstraintOk(@RequestParam String title, @RequestParam String customerId, @RequestParam(required = false) String adId) {
         return listingsService.isTitleConstraintOk(title, customerId, adId);
     }
 
     // CustomerId will be removed with Spring security
     @GetMapping("/{customerId}/all")
-    public List<AdPreviewDto> getCustomerAds(@PathVariable Integer customerId) {
+    public List<AdPreviewDto> getCustomerAds(@PathVariable String customerId) {
         return listingsService.getCustomerAds(customerId);
     }
 }

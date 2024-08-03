@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 public class VerificationService {
     private final SettingRepository settingRepository;
 
-    public boolean isUsernameExists(int id, String username) {
-        return settingRepository.isUsernameExist(id, username) > 0;
+    public boolean isUsernameExists(String id, String username) {
+        return settingRepository.isUsernameExist(id, username);
     }
 
-    public boolean isEmailExists(int id, String email) {
-        return settingRepository.isEmailExist(id, email) > 0;
+    public boolean isEmailExists(String id, String email) {
+        return settingRepository.isEmailExist(id, email);
     }
 }

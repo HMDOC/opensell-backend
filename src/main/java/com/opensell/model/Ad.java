@@ -1,17 +1,11 @@
 package com.opensell.model;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.opensell.model.ad.AdImage;
-import com.opensell.model.ad.AdTag;
 import com.opensell.model.ad.AdType;
 import com.opensell.ad.catalog.dto.AdPreviewDto;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -20,19 +14,23 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Builder
-@Table(uniqueConstraints = {
-	@UniqueConstraint(columnNames = {"title", "customer_id"}, name = "title_customer")
-})
-@Entity @Data @AllArgsConstructor @NoArgsConstructor
+//@Table(uniqueConstraints = {
+//	@UniqueConstraint(columnNames = {"title", "customer_id"}, name = "title_customer")
+//})
+@Document
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Ad {
     public static final int DESCRIPTION_MAX_LENGTH = 5000;
     public static final int TITLE_MAX_LENGTH = 80;
 
-    @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private int id;
+    @MongoId
+    private String id;
 
     @Size(max = TITLE_MAX_LENGTH)
     @NotBlank
@@ -42,16 +40,17 @@ public class Ad {
     @PositiveOrZero
     private double price;
 
+    @Builder.Default
     @NotNull
-    @Column(columnDefinition = "DATETIME DEFAULT NOW()")
+    //"DATETIME DEFAULT NOW()"
     private LocalDateTime addedDate = LocalDateTime.now();
 
+    @Builder.Default
     @NotNull
-    @Column(columnDefinition = "BOOLEAN DEFAULT 0")
     private boolean isSold = false;
 
+    @Builder.Default
     @NotNull
-    @Column(columnDefinition = "BOOLEAN DEFAULT 0")
     private boolean isDeleted = false;
 
     @NotNull
@@ -67,58 +66,24 @@ public class Ad {
     @NotBlank
     private String address;
 
-    @ManyToOne
-    @JoinColumn(name = "ad_type_id", nullable = false)
+    @DocumentReference
     private AdType adType;
 
-    @ManyToMany
-    @JoinTable(
-    	name = "ad_ad_tag_rel",
-        joinColumns = @JoinColumn(name = "ad_id"),
-        inverseJoinColumns = @JoinColumn(name = "ad_tag_id")
-    )
-    private Set<AdTag> adTags;
+    @Builder.Default
+    private Set<String> tags = new LinkedHashSet<>();
 
-    @JsonIgnore
-	@OneToMany(mappedBy = "ad", cascade = CascadeType.ALL)
-	private List<AdImage> adImages = new ArrayList<>();
+    @Builder.Default
+	private Set<String> images = new LinkedHashSet<>();
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "customer_id", nullable = false)
+    @DBRef
+    @NotNull
 	private Customer customer;
 
     @JsonIgnore
-    public Set<String> getTagsName() {
-        return this.adTags
-                .stream()
-                .map(AdTag::getName)
-                .collect(Collectors.toSet());
-    }
-
-    @JsonIgnore
-    public List<String> getImagesPath() {
-        return this.adImages
-                .stream()
-                .map(AdImage::getPath)
-                .toList();
-    }
-
-    @JsonIgnore
     public String getFirstImagePath() {
-        if(this.adImages != null) {
-            Optional<String> imagePath = this.adImages
-                .stream()
-                .filter(img -> img.getSpot() == 0)
-                .findFirst()
-                .map(AdImage::getPath);
-
-            return imagePath.orElse(null);
-        }
-
-        return null;
+        return images.stream().findFirst().orElse(null);
     }
 
-    @JsonIgnore
     public AdPreviewDto toAdSearchPreview() {
         return new AdPreviewDto(this);
     }

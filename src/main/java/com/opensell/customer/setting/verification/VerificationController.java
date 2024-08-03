@@ -13,12 +13,12 @@ public class VerificationController {
     private final VerificationService verificationService;
 
     @GetMapping("/username/exists")
-    public boolean isUsernameExists(@RequestParam int id, @RequestParam String username) {
+    public boolean isUsernameExists(@RequestParam String id, @RequestParam String username) {
         return verificationService.isUsernameExists(id, username);
     }
 
     @GetMapping("/email/exists")
-    public boolean isEmailExists(@RequestParam int id, @RequestParam String email) {
+    public boolean isEmailExists(@RequestParam String id, @RequestParam String email) {
         return verificationService.isEmailExists(id, email);
     }
 }

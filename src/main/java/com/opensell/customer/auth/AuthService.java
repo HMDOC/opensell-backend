@@ -1,11 +1,9 @@
 package com.opensell.customer.auth;
 
-import com.opensell.email.template.SignUpTemplate;
 import com.opensell.enums.VerificationCodeType;
 import com.opensell.model.Customer;
 import com.opensell.model.customer.VerificationCode;
 import com.opensell.customer.CustomerRepository;
-import com.opensell.repository.VerificationCodeRepository;
 import com.opensell.email.EmailService;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +18,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AuthService {
     private final CustomerRepository customerRepository;
-    private final VerificationCodeRepository verificationCodeRepository;
     private final AuthRepository authRepository;
     private final EmailService emailService;
     private final PasswordEncoder passwordEncoder;
@@ -51,7 +48,7 @@ public class AuthService {
      */
     @Scheduled(fixedRate = 60000, initialDelay = 60000)
     public void codeCleanUp() {
-        System.out.println(verificationCodeRepository.deleteExpiredCode(10, VerificationCodeType.FIRST_SIGN_UP) + " expired codes deleted.");
+        System.out.println(customerRepository.deleteExpiredCode(10, VerificationCodeType.FIRST_SIGN_UP) + " expired codes deleted.");
     }
 
     /**
@@ -111,7 +108,7 @@ public class AuthService {
      *
      * @since 1.0
      */
-    public CustomerDto getCustomerDto(int id) {
+    public CustomerDto getCustomerDto(String id) {
         Customer customer = customerRepository.findOneByIdAndIsDeletedFalseAndIsActivatedTrue(id);
         return customer != null ? new CustomerDto(customer) : null;
     }
@@ -122,7 +119,7 @@ public class AuthService {
      * @since 1.0
      */
     public int verifyCode(String email, String inputCode) {
-        if (verificationCodeRepository.countByCodeAndCustomerEmailLimitOne(inputCode, email) > 0) {
+        if (customerRepository.countByCodeAndCustomerEmailLimitOne(inputCode, email) > 0) {
             if (authRepository.activateAccount(email) > 0) {
                 return 0; // Email verified
             }

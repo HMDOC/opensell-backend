@@ -1,8 +1,8 @@
 package com.opensell.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.opensell.model.ad.AdType;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface AdTypeRepository extends JpaRepository<AdType, Integer> {
-    AdType findOneById(int id);
+public interface AdTypeRepository extends MongoRepository<AdType, String> {
+    AdType findOneById(String id);
 }

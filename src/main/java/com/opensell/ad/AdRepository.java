@@ -3,26 +3,25 @@ package com.opensell.ad;
 import com.opensell.ad.catalog.dto.AdPreviewDto;
 import com.opensell.model.Ad;
 import com.opensell.model.Customer;
-import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.repository.Update;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
 @Repository
-public interface AdRepository extends JpaRepository<Ad, Integer> {
+public interface AdRepository extends MongoRepository<Ad, String> {
     /**
+     * REDO
      * @author Davide
      */
     // https://www.baeldung.com/spring-jpa-like-queries
     // https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
-    @Query("""
+    /*@Query("""
         SELECT a FROM Ad a \
         WHERE ( a.isDeleted = false AND a.visibility = 0 AND \
         ( UPPER(a.title) LIKE %:search% OR UPPER(a.description) LIKE %:search% ) AND \
@@ -31,7 +30,8 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
         ( a.shape = :shapeId OR :shapeId is null ) AND\
         ( a.adType.id = :typeId OR :typeId is null ) AND \
         ( a.isSold = :filterSold OR :filterSold is null) )\
-        """)
+        """)*/
+    @Query("{isDeleted: {$eq: false}}")
     List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin, @Param("pMax") Double priceMax,
                          @Param("dMin") LocalDateTime dateMin, @Param("dMax") LocalDateTime dateMax, @Param("shapeId") Integer shapeId,
                          @Param("typeId") Integer typeId, @Param("filterSold") Boolean filterSold, @Param("sort") Sort sort);
@@ -43,17 +43,20 @@ public interface AdRepository extends JpaRepository<Ad, Integer> {
      *
      * @author Achraf
      */
-    @Query(value = "SELECT * FROM ad a WHERE a.id = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
-    Ad getAdToModify(int idAd);
+    //@Query(value = "SELECT * FROM ad a WHERE a.id = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
+    @Query("{isDeleted: {$eq: false}, id: {$eq: ?0}}")
+    Ad getAdToModify(String id);
 
-    Ad findOneByIdAndIsDeletedFalse(Integer idAd);
+    Ad findOneByIdAndIsDeletedFalse(String idAd);
 
-    Optional<Ad> findOneByTitleAndCustomerIdAndIsDeletedFalse(String title, long customerId);
+    Optional<Ad> findOneByTitleAndCustomerIdAndIsDeletedFalse(String title, String customerId);
 
-    @Modifying
-    @Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id = ?1 LIMIT 1", nativeQuery = true)
-    int hideAd(Integer idAd);
+    //@Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id = ?1 LIMIT 1", nativeQuery = true)
+    @Query("{isDeleted: {$eq: false}, id: {$eq: ?0}}")
+    @Update("{$set: {'isDeleted' : true}}")
+    int hideAd(String id);
 
-    @Query("SELECT new com.opensell.ad.catalog.dto.AdPreviewDto(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
+    //@Query("SELECT new com.opensell.ad.catalog.dto.AdPreviewDto(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
+    @Query("{customer: {$eq: ?0}, isDeleted: {$eq: false}}")
     List<AdPreviewDto> getCustomerAds(Customer customer);
 }

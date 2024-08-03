@@ -1,11 +1,11 @@
 package com.opensell.customer.setting;
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.ExistsQuery;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.repository.Update;
 import org.springframework.stereotype.Repository;
 import com.opensell.model.Customer;
-import jakarta.transaction.Transactional;
 
 /**
  * @author Olivier Mansuy
@@ -13,15 +13,17 @@ import jakarta.transaction.Transactional;
  * at the same place
  */
 @Repository
-@Transactional
-public interface SettingRepository extends CrudRepository<Customer, Integer> {
-    @Modifying
-    @Query(value = "UPDATE customer c SET c.icon_path = ?1 WHERE c.id = ?2 LIMIT 1", nativeQuery = true)
-    int updateCustomerIconPath(String iconPath, int customerId);
+public interface SettingRepository extends MongoRepository<Customer, Integer> {
+    //@Query(value = "UPDATE customer c SET c.icon_path = ?1 WHERE c.id = ?2 LIMIT 1", nativeQuery = true)
+    @Query("{id: ?1}")
+    @Update("{$set: {iconPath: ?0}}")
+    int updateCustomerIconPath(String iconPath, String customerId);
 
-    @Query(value = "SELECT EXISTS(SELECT * FROM customer c WHERE c.id != ?1 AND c.email = ?2)", nativeQuery = true)
-    int isEmailExist(int id, String email);
+    //@Query(value = "SELECT EXISTS(SELECT * FROM customer c WHERE c.id != ?1 AND c.email = ?2)", nativeQuery = true)
+    @ExistsQuery("{id: {$ne: ?0}, email: ?1}")
+    boolean isEmailExist(String id, String email);
 
-    @Query(value = "SELECT EXISTS(SELECT * FROM customer c WHERE c.id != ?1 AND c.username = ?2)", nativeQuery = true)
-    int isUsernameExist(int id, String username);
+    //@Query(value = "SELECT EXISTS(SELECT * FROM customer c WHERE c.id != ?1 AND c.username = ?2)", nativeQuery = true)
+    @ExistsQuery("{id: {$ne: ?0}, username: ?1}")
+    boolean isUsernameExist(String id, String username);
 }

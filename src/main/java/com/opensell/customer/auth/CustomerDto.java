@@ -13,7 +13,7 @@ public record CustomerDto(
 	String lastName,
 	String bio,
 	String iconPath,
-	int customerId,
+	String customerId,
 	String username,
 	String email
 ) {

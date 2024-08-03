@@ -4,50 +4,52 @@ import java.time.LocalDateTime;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.opensell.model.customer.VerificationCode;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Builder
-@Entity
+@Document
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-    @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @MongoId
+    private String id;
 
     @NotBlank
-    @Column(unique = true)
+    @Indexed(unique = true, sparse = true)
     private String username;
 
     @NotBlank
-    @Column(unique = true)
+    @Indexed(unique = true, sparse = true)
     private String email;
 
     @NotBlank
     private String pwd;
 
     @Builder.Default
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
+    @NotNull
     private boolean isDeleted = false;
 
     @Builder.Default
-    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT false")
+    @NotNull
     private boolean isActivated = false;
 
     @Builder.Default
-    @Column(nullable = false, columnDefinition = "DATETIME DEFAULT NOW()")
+    @NotNull
+    //DATETIME DEFAULT NOW()
     private LocalDateTime joinedDate = LocalDateTime.now();
 
+    @DBRef
     @JsonIgnore
     @ToString.Exclude
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Ad> ads;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
     List<VerificationCode> verificationCodes;
 
     private String firstName;

@@ -11,10 +11,10 @@ import java.util.Set;
 
 @Builder
 public record AdCreatorDto(
-    Integer adId,
+    String adId,
 
     @NotNull
-    Integer customerId,
+    String customerId,
 
     @NotBlank
     @Size(max = Ad.TITLE_MAX_LENGTH, min = 2)
@@ -34,8 +34,7 @@ public record AdCreatorDto(
 
     Set<String> tags,
 
-    @Positive
-    int adTypeId,
+    String adTypeId,
 
     @Max(AdShape.MAX)
     @Min(0)
@@ -56,11 +55,11 @@ public record AdCreatorDto(
             .address(ad.getAddress())
             .isSold(ad.isSold())
             .description(ad.getDescription())
-            .tags(ad.getTagsName())
+            .tags(ad.getTags())
             .adTypeId(ad.getAdType().getId())
             .shape(ad.getShape())
             .visibility(ad.getVisibility())
-            .adImagesJson(new ObjectMapper().writeValueAsString(ad.getAdImages()))
+            .adImagesJson(new ObjectMapper().writeValueAsString(ad.getImages()))
             .build();
     }
 }

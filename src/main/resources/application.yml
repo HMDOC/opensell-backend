@@ -3,6 +3,9 @@ app:
 server:
   port: ${SERVER_PORT}
 spring:
+  docker:
+    compose:
+      lifecycle-management: start_only
   config:
     import: file:env.properties
   servlet:
@@ -10,10 +13,6 @@ spring:
       max-file-size: 50MB
       max-request-size: 500MB
       enabled: true
-  datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: create-drop

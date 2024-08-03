@@ -19,7 +19,7 @@ public class CatalogController {
      * @author Achraf
      */
     @GetMapping("/{idAd}")
-    public ResponseEntity<?> getAdBuyerView(@PathVariable int idAd) {
+    public ResponseEntity<?> getAdBuyerView(@PathVariable String idAd) {
         return catalogService.getAdBuyerView(idAd);
     }
 
