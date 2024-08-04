@@ -1,6 +1,7 @@
 package com.opensell.ad.catalog;
 
 import com.opensell.ad.catalog.dto.AdPreviewDto;
+import com.opensell.ad.listings.dto.AdPreviewProjectionDto;
 import com.opensell.model.Ad;
 import com.opensell.ad.catalog.dto.AdSearchParamsDto;
 import com.opensell.ad.catalog.dto.AdViewDto;
@@ -21,36 +22,14 @@ import java.util.List;
 public class CatalogService {
     private final AdRepository adRepo;
 
-    public List<AdPreviewDto> adSearch(AdSearchParamsDto query) {
+    public List<AdPreviewProjectionDto> adSearch(AdSearchParamsDto query) {
         System.out.println(query);
-        List<Ad> adList = adRepo.getAdSearch(query.query().toUpperCase(), query.priceMin(), query.priceMax(),
-            query.dateMin(), query.dateMax(), query.shapeId(), query.typeId(),
+        List<AdPreviewProjectionDto> adList = adRepo.getAdSearch(query.query(), query.priceMin(), query.priceMax(),
+            query.dateMin(), query.dateMax(), query.shape(), query.typeId(),
             query.filterSold(), Sort.by(query.sortBy()));
 
-        if (adList != null) {
-            ArrayList<String> searchTags = new ArrayList<>((query.tags() == null) ? null : query.tags());
-
-            List<AdPreviewDto> resultList = new ArrayList<>(adList.size());
-
-            for (Ad ad : adList) {
-                if (searchTags != null && !searchTags.isEmpty()) {
-                    if (!ad.getTags().containsAll(searchTags)) {
-                        continue;
-                    }
-                }
-
-                resultList.add(new AdPreviewDto(ad));
-            }
-
-            System.out.println(resultList.size());
-            System.out.println(query.tags());
-            //System.out.println(searchTags);
-            if (query.reverseSort()==1) {
-                Collections.reverse(resultList);
-            }
-
-            return resultList;
-        } else return null;
+        System.out.println(adList.size());
+        return adList;
     }
 
     /**

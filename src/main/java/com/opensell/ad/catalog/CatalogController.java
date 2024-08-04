@@ -30,7 +30,7 @@ public class CatalogController {
      * @author Davide
      */
     @PostMapping("/search")
-    public List<AdPreviewDto> adSearch(@RequestBody AdSearchParamsDto query) {
+    public List<?> adSearch(@RequestBody AdSearchParamsDto query) {
         return catalogService.adSearch(query);
     }
 }
