@@ -42,7 +42,6 @@ public interface AdRepository extends MongoRepository<Ad, String> {
      *
      * @author Achraf
      */
-    //@Query(value = "SELECT * FROM ad a WHERE a.id = ?1 AND a.is_deleted = false LIMIT 1", nativeQuery = true)
     @Query("{deleted: false, id: ?0}")
     Ad getAdToModify(String id);
 
@@ -50,12 +49,19 @@ public interface AdRepository extends MongoRepository<Ad, String> {
 
     Optional<Ad> findOneByTitleAndCustomerIdAndDeletedFalse(String title, String customerId);
 
-    //@Query(value = "UPDATE ad a SET a.is_deleted = 1 WHERE a.id = ?1 LIMIT 1", nativeQuery = true)
     @Query("{deleted: false, id: ?0}")
     @Update("{$set: {'deleted' : true}}")
     int hideAd(String id);
 
-    //@Query("SELECT new com.opensell.ad.catalog.dto.AdPreviewDto(a) FROM Ad a WHERE a.customer = ?1 AND a.isDeleted = false")
+    /**
+     * This is the function to get the Ad for my-ads page.
+     */
     @Query("{'customer.id': ?0, deleted: false}")
     List<AdPreviewProjectionDto> getCustomerAds(String customerId);
+
+    /**
+     * This is the function to get the Ad for the user profile page.
+     */
+    @Query("{'customer.id': ?0, deleted: false, visibility: 0}")
+    List<AdPreviewProjectionDto> getProfileAds(String customerId);
 }

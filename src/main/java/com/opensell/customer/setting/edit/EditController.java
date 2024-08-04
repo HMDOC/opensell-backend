@@ -22,12 +22,12 @@ public class EditController {
     }
 
     @PatchMapping("/{id}/password")
-    public ResponseEntity<?> changePassword(@PathVariable int id, PasswordDto passwordDto) {
+    public ResponseEntity<?> changePassword(@PathVariable String id, PasswordDto passwordDto) {
         return editService.changePassword(id, passwordDto);
     }
 
     @PatchMapping("/{id}/other-information")
-    public ResponseEntity<?> changeOtherInformation(@PathVariable int id, OtherInformationDto otherInformationDto) {
+    public ResponseEntity<?> changeOtherInformation(@PathVariable String id, OtherInformationDto otherInformationDto) {
         return editService.changeOtherInformation(id, otherInformationDto);
     }
 

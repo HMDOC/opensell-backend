@@ -32,6 +32,13 @@ public class EditService {
     private final CustomerRepository customerRepository;
     private final FileUploadService fileUploadService;
 
+    /**
+     * To return null if the content is blank.
+     */
+    public String getContentOrNull(String content) {
+        return content == null ? null : (content.isBlank() ? null : content);
+    }
+
     public ResponseEntity<?> changeEmail(String id, String email, String confirmEmail) {
         try {
             boolean areEmailsEqual = email.equals(confirmEmail);
@@ -59,7 +66,7 @@ public class EditService {
         int INVALID_OLD_PASSWORD = 102;
     }
 
-    public ResponseEntity<?> changePassword(int id, PasswordDto passwordDto) {
+    public ResponseEntity<?> changePassword(String id, PasswordDto passwordDto) {
         if(!passwordDto.password().equals(passwordDto.confirmPassword())) {
             return ResponseEntity.badRequest().body(PasswordError.PASSWORD_NOT_EQUAL_CONFIRM_PASSWORD);
         }
@@ -92,14 +99,7 @@ public class EditService {
         return rep.updateCustomerIconPath(fileName, id) > 0;
     }
 
-    /**
-     * To return null if the content is blank.
-     */
-    public String getContentOrNull(String content) {
-        return content == null ? null : (content.isBlank() ? null : content);
-    }
-
-    public ResponseEntity<?> changeOtherInformation(int id, OtherInformationDto otherInformationDto) {
+    public ResponseEntity<?> changeOtherInformation(String id, OtherInformationDto otherInformationDto) {
         try {
             Customer customer = settingRepository.findById(id).orElseThrow(CustomerNotFound::new);
 

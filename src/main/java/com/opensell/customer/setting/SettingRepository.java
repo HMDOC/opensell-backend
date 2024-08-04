@@ -13,8 +13,7 @@ import com.opensell.model.Customer;
  * at the same place
  */
 @Repository
-public interface SettingRepository extends MongoRepository<Customer, Integer> {
-    //@Query(value = "UPDATE customer c SET c.icon_path = ?1 WHERE c.id = ?2 LIMIT 1", nativeQuery = true)
+public interface SettingRepository extends MongoRepository<Customer, String> {
     @Query("{id: ?1}")
     @Update("{$set: {iconPath: ?0}}")
     int updateCustomerIconPath(String iconPath, String customerId);
