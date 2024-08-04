@@ -13,7 +13,7 @@ public record AdPreviewDto(
 	String title,
 	double price,
 	String firstImage,
-	boolean isSold,
+	boolean sold,
 	int visibility
 ) {
 	public AdPreviewDto(Ad ad) {

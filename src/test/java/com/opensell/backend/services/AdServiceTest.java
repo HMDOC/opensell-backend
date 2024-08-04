@@ -173,7 +173,7 @@ public class AdServiceTest {
 				null, null,
 				null, null, null, null, "price", false);
 		// 0 is false
-        assertEquals(0, adList.get(0).isSold());*/
+        assertEquals(0, adList.get(0).sold());*/
 
 		assertTrue(true);
 	}
@@ -202,7 +202,7 @@ public class AdServiceTest {
 				null, null, null, null, null, true, "addedDate", false);
         
 		for(AdSearchPreview ad : adList) {
-			if (!ad.isSold()) {
+			if (!ad.sold()) {
 				fail("Ad " + ad.adLink() + " is not sold.");
 				break;
 			}

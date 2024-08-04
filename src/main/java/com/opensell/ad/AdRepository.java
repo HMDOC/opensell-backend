@@ -6,7 +6,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.Update;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.Optional;
 public interface AdRepository extends MongoRepository<Ad, String> {
     /**
      * REDO
-     * @author Davide
+     * @author Davide, Achraf
      */
     // https://www.baeldung.com/spring-jpa-like-queries
     // https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
@@ -30,10 +29,21 @@ public interface AdRepository extends MongoRepository<Ad, String> {
         ( a.adType.id = :typeId OR :typeId is null ) AND \
         ( a.sold = :filterSold OR :filterSold is null) )\
         """)*/
-    @Query("{deleted: false}")
-    List<Ad> getAdSearch(@Param("search") String searchName, @Param("pMin") Double priceMin, @Param("pMax") Double priceMax,
-                         @Param("dMin") LocalDateTime dateMin, @Param("dMax") LocalDateTime dateMax, @Param("shapeId") Integer shapeId,
-                         @Param("typeId") Integer typeId, @Param("filterSold") Boolean filterSold, @Param("sort") Sort sort);
+    // Need to finish with sold.
+    @Query("""
+    {
+        deleted: false,
+        visibility: 0,
+        $or: [{title: {$regex: '?0', $options: 'i'}}, {description: {$regex: '?0', $options: 'i'}}],
+        price: {$gte: ?1, $lte: ?2},
+        addedDate: {$gte: ?3, $lte: ?4},
+        shape: ?5,
+        'adType.id': ?6
+    }
+    """)
+    List<Ad> getAdSearch(String searchName, Double priceMin, Double priceMax,
+                         LocalDateTime dateMin, LocalDateTime dateMax, String shapeId,
+                         Integer typeId, Boolean filterSold, Sort sort);
 
     /**
      * Return an ad that have the idAd in parameter if it is not deleted.

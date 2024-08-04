@@ -13,13 +13,13 @@ public record AdSearchParamsDto(
 	LocalDateTime dateMax,
 	Integer typeId,
 	List<String> tags,
-	Integer shapeId,
+	String shapeId,
 	Boolean filterSold,
 	String sortBy,
 	byte reverseSort
 ) {
 	public AdSearchParamsDto(String query, Double priceMin, Double priceMax, LocalDateTime dateMin, LocalDateTime dateMax, Integer typeId,
-							 List<String> tags, Integer shapeId, Boolean filterSold, String sortBy, byte reverseSort) {
+							 List<String> tags, String shapeId, Boolean filterSold, String sortBy, byte reverseSort) {
 		this.query = query;
 		this.priceMin = (priceMin != null) ? priceMin : 0.0d;
 		this.priceMax = (priceMax != null) ? priceMax : 99990.0d;
