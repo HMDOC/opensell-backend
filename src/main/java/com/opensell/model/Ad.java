@@ -1,7 +1,6 @@
 package com.opensell.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.opensell.ad.catalog.dto.AdPreviewDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -11,20 +10,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Builder
-//@Table(uniqueConstraints = {
-//	@UniqueConstraint(columnNames = {"title", "customer_id"}, name = "title_customer")
-//})
 @Document
 @Data
 @AllArgsConstructor
+@CompoundIndexes(value = {
+    @CompoundIndex(name = "customer_id_and_ad_title", def = "{title: 1, 'customer.id': 1}", unique = true, sparse = true)
+})
 @NoArgsConstructor
 public class Ad {
     public static final int DESCRIPTION_MAX_LENGTH = 5000;
@@ -43,7 +43,6 @@ public class Ad {
 
     @Builder.Default
     @NotNull
-    //"DATETIME DEFAULT NOW()"
     private LocalDateTime addedDate = LocalDateTime.now();
 
     @Builder.Default
@@ -81,11 +80,7 @@ public class Ad {
     private Customer customer;
 
     @JsonIgnore
-    public String getFirstImagePath() {
+    public String getFirstImage() {
         return images.stream().findFirst().orElse(null);
-    }
-
-    public AdPreviewDto toAdSearchPreview() {
-        return new AdPreviewDto(this);
     }
 }

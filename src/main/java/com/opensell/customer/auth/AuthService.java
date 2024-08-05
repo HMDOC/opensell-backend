@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
@@ -49,7 +48,8 @@ public class AuthService {
      */
     @Scheduled(fixedRate = 60000, initialDelay = 60000)
     public void codeCleanUp() {
-        System.out.println(customerRepository.deleteExpiredCode(10, VerificationCodeType.FIRST_SIGN_UP) + " expired codes deleted.");
+        System.out.println("WARNING: Delete expired codes not implemented yet.");
+        //System.out.println(customerRepository.deleteExpiredCode(10, VerificationCodeType.FIRST_SIGN_UP) + " expired codes deleted.");
     }
 
     /**

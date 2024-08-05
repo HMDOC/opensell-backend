@@ -21,7 +21,7 @@ public record AdPreviewDto(
 			ad.getId(),
 			ad.getTitle(),
 			ad.getPrice(),
-			ad.getFirstImagePath(),
+			ad.getFirstImage(),
 			ad.isSold(),
 			ad.getVisibility()
 		);
