@@ -1,7 +1,7 @@
 package com.opensell.ad.catalog.dto;
 
 import com.opensell.model.Ad;
-import com.opensell.model.ad.AdType;
+import com.opensell.model.AdCategory;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
@@ -23,7 +23,7 @@ public class AdViewDto {
 	public int adVisibility;
 	public String adDescription;
 	public String adAddress;
-	public AdType adType;
+	public AdCategory adCategory;
 	public Set<String> adTagsName;
 	public Set<String> adImages;
 	public String username;
@@ -41,7 +41,7 @@ public class AdViewDto {
 			this.adVisibility = ad.getVisibility();
 			this.adDescription = ad.getDescription();
 			this.adAddress = ad.getAddress();
-			this.adType = ad.getAdType();
+			this.adCategory = ad.getAdCategory();
 			this.adTagsName = ad.getTags();
 			this.adImages = ad.getImages();
 			this.username = customer.getUsername();

@@ -1,4 +1,4 @@
-package com.opensell.model.ad;
+package com.opensell.model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdType {
+public class AdCategory {
     public static final int MAX_LENGTH = 60;
 
     @Id

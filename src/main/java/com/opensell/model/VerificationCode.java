@@ -1,4 +1,4 @@
-package com.opensell.model.customer;
+package com.opensell.model;
 
 import java.time.LocalDateTime;
 
@@ -22,6 +22,5 @@ public class VerificationCode {
 
     @Builder.Default
     @NotNull
-    //"DATETIME DEFAULT NOW()"
     private LocalDateTime createdAt = LocalDateTime.now();
 }

@@ -2,7 +2,7 @@ package com.opensell.customer.auth;
 
 import com.opensell.enums.VerificationCodeType;
 import com.opensell.model.Customer;
-import com.opensell.model.customer.VerificationCode;
+import com.opensell.model.VerificationCode;
 import com.opensell.customer.CustomerRepository;
 import com.opensell.email.EmailService;
 import jakarta.mail.MessagingException;
@@ -13,7 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor

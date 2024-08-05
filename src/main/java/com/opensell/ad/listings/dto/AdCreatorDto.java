@@ -1,15 +1,12 @@
 package com.opensell.ad.listings.dto;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensell.model.Ad;
 import com.opensell.enums.AdShape;
 import com.opensell.enums.AdVisibility;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 
-import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Builder
@@ -59,7 +56,7 @@ public record AdCreatorDto(
             .sold(ad.isSold())
             .description(ad.getDescription())
             .tags(ad.getTags())
-            .adTypeId(ad.getAdType().getId())
+            .adTypeId(ad.getAdCategory().getId())
             .shape(ad.getShape())
             .visibility(ad.getVisibility())
             .images(ad.getImages())

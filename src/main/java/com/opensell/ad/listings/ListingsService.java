@@ -25,7 +25,7 @@ public class ListingsService {
     private final AdRepository adRepo;
     private final FileUploadService fileUploadService;
     private final CustomerRepository customerRepository;
-    private final AdTypeRepository adTypeRepository;
+    private final AdCategoryRepository adCategoryRepository;
 
     public AdCreatorDto getAdModificationDto(String idAd) throws JsonProcessingException {
         Ad ad = adRepo.getAdToModify(idAd);
@@ -79,7 +79,7 @@ public class ListingsService {
         ad.setSold(adCreatorDto.sold());
         ad.setDescription(adCreatorDto.description());
         ad.setTags(adCreatorDto.tags());
-        ad.setAdType(adTypeRepository.findOneById(adCreatorDto.adTypeId()));
+        ad.setAdCategory(adCategoryRepository.findOneById(adCreatorDto.adTypeId()));
         ad.setShape(adCreatorDto.shape());
         ad.setVisibility(adCreatorDto.visibility());
         ad.setImages(adCreatorDto.images());

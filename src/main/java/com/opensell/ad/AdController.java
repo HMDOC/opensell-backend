@@ -1,7 +1,7 @@
 package com.opensell.ad;
 
-import com.opensell.model.ad.AdType;
-import com.opensell.repository.AdTypeRepository;
+import com.opensell.model.AdCategory;
+import com.opensell.repository.AdCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +14,10 @@ import java.util.List;
 @RequestMapping("/api/ad")
 @RequiredArgsConstructor
 public class AdController {
-    private final AdTypeRepository adTypeRepo;
+    private final AdCategoryRepository adTypeRepo;
 
     @GetMapping("/get-all-ad-type")
-    public List<AdType> getAllTypes() {
+    public List<AdCategory> getAllTypes() {
         return adTypeRepo.findAll();
     }
 }
