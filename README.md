@@ -1,9 +1,9 @@
-# Opensell
+# Opensell 2.0
 
-Opensell is a website for buying and selling ads that we made in the course 420-412-MV(project - development of a web application) at Cegep Marie-Victorin.
+Opensell is a website for buying and selling ads that we initially made in the course 420-412-MV(project - development of a web application) at Cegep Marie-Victorin between January and May 2024. In the summer of the same year, the UI of the website was optimized and redesigned using the library MUI. The backend was optimized too and the original database(Mariadb) was replaced with MongoDB and by doing so, all the old SQL entities and queries where replace by documents and mongodb queries.  
 
 <!-- Need to put some icon that give info -->
-![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home3.png)
+![Home ](./src/main/resources/markdown-images/cover.png)
 
 ## Features
 
@@ -13,6 +13,10 @@ Opensell is a website for buying and selling ads that we made in the course 420-
 - Changing information about our account like our phone number, bio, picture, etc.
 
 ## Technologies
+
+### Database
+
+- MongoDB
 
 ### Backend
 
@@ -124,12 +128,12 @@ npm start
 
 ## Preview
 
-![Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/login.png)
+![Signup](./src/main/resources/markdown-images/signup.png)
 
-![Home Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/connected_option_in_main_page.png)
+![Home Login](./src/main/resources/markdown-images/home.png)
 
-![My Ads](https://raw.githubusercontent.com/HMDOC/readme-src/main/my-ads.png)
+![My Ads](./src/main/resources/markdown-images/my-ads.png)
 
-![Profile](https://raw.githubusercontent.com/HMDOC/readme-src/main/profil.png)
+![Profile](./src/main/resources/markdown-images/profile.png)
 
-![Settings](https://raw.githubusercontent.com/HMDOC/readme-src/main/settings.png)
+![Settings](./src/main/resources/markdown-images/settings.png)
