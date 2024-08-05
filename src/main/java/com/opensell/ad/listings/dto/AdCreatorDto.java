@@ -33,7 +33,7 @@ public record AdCreatorDto(
 
     Set<String> tags,
 
-    String adTypeId,
+    String adCategoryId,
 
     @Max(AdShape.MAX)
     @Min(0)
@@ -55,7 +55,7 @@ public record AdCreatorDto(
             .sold(ad.isSold())
             .description(ad.getDescription())
             .tags(ad.getTags())
-            .adTypeId(ad.getAdCategory().getId())
+            .adCategoryId(ad.getAdCategory().getId())
             .shape(ad.getShape())
             .visibility(ad.getVisibility())
             .images(ad.getImages())

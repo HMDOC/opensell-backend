@@ -79,7 +79,7 @@ public class ListingsService {
         ad.setSold(adCreatorDto.sold());
         ad.setDescription(adCreatorDto.description());
         ad.setTags(adCreatorDto.tags());
-        ad.setAdCategory(adCategoryRepository.findOneById(adCreatorDto.adTypeId()));
+        ad.setAdCategory(adCategoryRepository.findOneById(adCreatorDto.adCategoryId()));
         ad.setShape(adCreatorDto.shape());
         ad.setVisibility(adCreatorDto.visibility());
         ad.setImages(adCreatorDto.images());
