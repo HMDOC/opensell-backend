@@ -19,6 +19,7 @@ Opensell is a website for buying and selling ads that we made in the course 420-
 - Java
 - Spring Boot
 - Lombok
+- docker-compose
 
 ### Frontend
 
@@ -32,7 +33,7 @@ Opensell is a website for buying and selling ads that we made in the course 420-
 <details open><summary><b>External dependencies</b></summary>
 
 - [nodejs](https://nodejs.org/en/download/prebuilt-installer)
-- [MariaDB](https://mariadb.org/download/)
+- [docker](https://www.docker.com/get-started/)
 - [JDK 21](https://www.oracle.com/ca-en/java/technologies/downloads/#java21)
 
 </details>
@@ -63,10 +64,6 @@ Create the file `env.properties` in the root folder that contains this :
 # The port of the backend.
 SERVER_PORT=
 
-DB_USERNAME=
-DB_PASSWORD=
-DB_URL=
-
 # The url of the SMTP server. Ex: smtp-mail.outlook.com
 SMTP_HOST=
 
@@ -83,6 +80,11 @@ IMAGE_SERVER_PATH=
 
 # The url of the server that contain the image. Ex: http://localhost:$PORT
 IMAGE_SERVER_URL=
+
+# The information that will be given directly to the MongoDB container.
+MONGO_INITDB_ROOT_USERNAME=
+MONGO_INITDB_ROOT_PASSWORD=
+MONGO_INITDB_ROOT_DATABASE=
 ```
 </details>
 <br />
