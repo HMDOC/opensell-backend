@@ -2,7 +2,6 @@ package com.opensell.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -40,13 +39,7 @@ public class Customer {
 
     @Builder.Default
     @NotNull
-    //DATETIME DEFAULT NOW()
     private LocalDateTime joinedDate = LocalDateTime.now();
-
-//    @DBRef
-//    @JsonIgnore
-//    @ToString.Exclude
-//    private List<Ad> ads;
 
     List<VerificationCode> verificationCodes;
 

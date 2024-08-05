@@ -90,6 +90,8 @@ MONGO_INITDB_ROOT_USERNAME=
 MONGO_INITDB_ROOT_PASSWORD=
 MONGO_INITDB_ROOT_DATABASE=
 ```
+
+After running the project, you need to connect to the database container with [MongoDB Compass](https://www.mongodb.com/try/download/compass). After you need to import the data of the collections adCategory, customer and ad located at `./src/main/ressources/data`. The import order is adCategory.json, customer.json and ad.json.
 </details>
 <br />
 

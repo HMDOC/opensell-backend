@@ -23,19 +23,20 @@ public interface AdRepository extends MongoRepository<Ad, String> {
         deleted: false,
         visibility: 0,
         $and: [
-            { $or: [ { $expr: { $eq: [?6, null] } }, { 'adCategory.id': ?6 } ] },
-            { $or: [ { $expr: { $eq: [?7, null] } }, { sold: ?7 } ] },
-            { $or: [ { $expr: { $eq: [?5, null] } }, { shape: ?5 } ] },
+            { $or: [ { $expr: { $eq: [?4, null] } }, { 'adCategory.id': ?4 } ] },
+            { $or: [ { $expr: { $eq: [?5, null] } }, { sold: ?5 } ] },
+            { $or: [ { $expr: { $eq: [?3, null] } }, { shape: ?3 } ] },
             { $or: [ { $expr: { $eq: [?0, ''] } }, { title: { $regex: '?0', $options: 'i' } }, { description: { $regex: '?0', $options: 'i' } } ] },
-            { $or: [ { $expr: { $eq: [?8, []] } }, { tags: { $all: ?8 } } ] }
+            { $or: [ { $expr: { $eq: [?6, []] } }, { tags: { $all: ?6 } } ] }
         ],
         price: { $gte: ?1, $lte: ?2 },
-        addedDate: { $gte: ?3, $lte: ?4 },
     }
     """)
-    List<AdPreviewProjectionDto> getAdSearch(String searchName, Double priceMin, Double priceMax,
-                         LocalDateTime dateMin, LocalDateTime dateMax, Integer shape,
-                         String typeId, Boolean filterSold, String[] tags, Sort sort);
+    List<AdPreviewProjectionDto> getAdSearch(
+        String searchName, Double priceMin, Double priceMax,
+        Integer shape, String typeId, Boolean filterSold,
+        String[] tags, Sort sort
+    );
 
     /**
      * Return an ad that have the idAd in parameter if it is not deleted.

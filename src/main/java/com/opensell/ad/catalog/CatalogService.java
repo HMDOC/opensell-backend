@@ -25,9 +25,11 @@ public class CatalogService {
 
     public List<AdPreviewProjectionDto> adSearch(AdSearchParamsDto query) {
         System.out.println(query);
-        List<AdPreviewProjectionDto> adList = adRepo.getAdSearch(query.query(), query.priceMin(), query.priceMax(),
-            query.dateMin(), query.dateMax(), query.shape(), query.typeId(),
-            query.filterSold(), query.tags(), Sort.by(query.sortBy()));
+        List<AdPreviewProjectionDto> adList = adRepo.getAdSearch(
+            query.query(), query.priceMin(), query.priceMax(),
+            query.shape(), query.typeId(), query.filterSold(),
+            query.tags(), Sort.by(query.sortBy())
+        );
 
         System.out.println(adList.size());
         return adList;
