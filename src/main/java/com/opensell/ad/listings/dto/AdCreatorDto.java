@@ -6,7 +6,6 @@ import com.opensell.enums.AdShape;
 import com.opensell.enums.AdVisibility;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
-
 import java.util.Set;
 
 @Builder

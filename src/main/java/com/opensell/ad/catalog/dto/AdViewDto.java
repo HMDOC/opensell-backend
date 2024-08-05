@@ -2,8 +2,6 @@ package com.opensell.ad.catalog.dto;
 
 import com.opensell.model.Ad;
 import com.opensell.model.AdCategory;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -13,39 +11,36 @@ import java.util.Set;
  *
  * @author Achraf
  */
-@Data @NoArgsConstructor
-public class AdViewDto {
-	public String adTitle;
-	public double adPrice;
-	public LocalDateTime adAddedDate;
-	public int adShape;
-	public boolean isAdSold;
-	public int adVisibility;
-	public String adDescription;
-	public String adAddress;
-	public AdCategory adCategory;
-	public Set<String> adTagsName;
-	public Set<String> adImages;
-	public String username;
-	public String userIcon;
-
+public record AdViewDto(
+	String adTitle,
+	double adPrice,
+	LocalDateTime adAddedDate,
+	int adShape,
+	boolean isAdSold,
+	int adVisibility,
+	String adDescription,
+	String adAddress,
+	AdCategory adCategory,
+	Set<String> adTagsName,
+	Set<String> adImages,
+	String username,
+	String userIcon
+) {
 	public AdViewDto(Ad ad) {
-		if(ad != null) {
-			var customer = ad.getCustomer();
-
-			this.adTitle = ad.getTitle();
-			this.adPrice = ad.getPrice();
-			this.adAddedDate = ad.getAddedDate();
-			this.adShape = ad.getShape();
-			this.isAdSold = ad.isSold();
-			this.adVisibility = ad.getVisibility();
-			this.adDescription = ad.getDescription();
-			this.adAddress = ad.getAddress();
-			this.adCategory = ad.getAdCategory();
-			this.adTagsName = ad.getTags();
-			this.adImages = ad.getImages();
-			this.username = customer.getUsername();
-			this.userIcon = customer.getIconPath();
-		}
+		this(
+			ad.getTitle(),
+			ad.getPrice(),
+			ad.getAddedDate(),
+			ad.getShape(),
+			ad.isSold(),
+			ad.getVisibility(),
+			ad.getDescription(),
+			ad.getAddress(),
+			ad.getAdCategory(),
+			ad.getTags(),
+			ad.getImages(),
+			ad.getCustomer().getUsername(),
+			ad.getCustomer().getIconPath()
+		);
 	}
 }

@@ -23,7 +23,7 @@ public interface AdRepository extends MongoRepository<Ad, String> {
         deleted: false,
         visibility: 0,
         $and: [
-            { $or: [ { $expr: { $eq: [?6, null] } }, { 'adType.id': ?6 } ] },
+            { $or: [ { $expr: { $eq: [?6, null] } }, { 'adCategory.id': ?6 } ] },
             { $or: [ { $expr: { $eq: [?7, null] } }, { sold: ?7 } ] },
             { $or: [ { $expr: { $eq: [?5, null] } }, { shape: ?5 } ] },
             { $or: [ { $expr: { $eq: [?0, ''] } }, { title: { $regex: '?0', $options: 'i' } }, { description: { $regex: '?0', $options: 'i' } } ] },
