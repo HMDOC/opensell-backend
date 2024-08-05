@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class CatalogService {
         System.out.println(query);
         List<AdPreviewProjectionDto> adList = adRepo.getAdSearch(query.query(), query.priceMin(), query.priceMax(),
             query.dateMin(), query.dateMax(), query.shape(), query.typeId(),
-            query.filterSold(), Sort.by(query.sortBy()));
+            query.filterSold(), query.tags(), Sort.by(query.sortBy()));
 
         System.out.println(adList.size());
         return adList;

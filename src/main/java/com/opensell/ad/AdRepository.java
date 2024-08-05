@@ -14,31 +14,20 @@ import java.util.Optional;
 @Repository
 public interface AdRepository extends MongoRepository<Ad, String> {
     /**
-     * REDO
+     * Query that will be executed when the user search ads in the catalog.
+     *
      * @author Davide, Achraf
      */
-    // https://www.baeldung.com/spring-jpa-like-queries
-    // https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
-    /*@Query("""
-        SELECT a FROM Ad a \
-        WHERE ( a.deleted = false AND a.visibility = 0 AND \
-        ( UPPER(a.title) LIKE %:search% OR UPPER(a.description) LIKE %:search% ) AND \
-        ( a.price between :pMin And :pMax ) AND \
-        ( a.addedDate between :dMin AND :dMax ) AND \
-        ( a.shape = :shapeId OR :shapeId is null ) AND\
-        ( a.adType.id = :typeId OR :typeId is null ) AND \
-        ( a.sold = :filterSold OR :filterSold is null) )\
-        """)*/
-    // Need to finish with sold.
     @Query("""
     {
         deleted: false,
         visibility: 0,
         $and: [
+            { $or: [ { $expr: { $eq: [?6, null] } }, { 'adType.id': ?6 } ] },
             { $or: [ { $expr: { $eq: [?7, null] } }, { sold: ?7 } ] },
             { $or: [ { $expr: { $eq: [?5, null] } }, { shape: ?5 } ] },
-            { $or: [ { $expr: { $eq: [?6, null] } }, { 'adType.id': ?6 } ] },
             { $or: [ { $expr: { $eq: [?0, ''] } }, { title: { $regex: '?0', $options: 'i' } }, { description: { $regex: '?0', $options: 'i' } } ] },
+            { $or: [ { $expr: { $eq: [?8, []] } }, { tags: { $all: ?8 } } ] }
         ],
         price: { $gte: ?1, $lte: ?2 },
         addedDate: { $gte: ?3, $lte: ?4 },
@@ -46,7 +35,7 @@ public interface AdRepository extends MongoRepository<Ad, String> {
     """)
     List<AdPreviewProjectionDto> getAdSearch(String searchName, Double priceMin, Double priceMax,
                          LocalDateTime dateMin, LocalDateTime dateMax, Integer shape,
-                         String typeId, Boolean filterSold, Sort sort);
+                         String typeId, Boolean filterSold, String[] tags, Sort sort);
 
     /**
      * Return an ad that have the idAd in parameter if it is not deleted.
