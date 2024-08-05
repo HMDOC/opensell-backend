@@ -132,7 +132,9 @@ npm start
 
 ![Signup](./src/main/resources/markdown-images/signup.png)
 
-![Home Login](./src/main/resources/markdown-images/home.png)
+![Home](./src/main/resources/markdown-images/home.png)
+
+![Catalog](./src/main/resources/markdown-images/catalog.png)
 
 ![My Ads](./src/main/resources/markdown-images/my-ads.png)
 
