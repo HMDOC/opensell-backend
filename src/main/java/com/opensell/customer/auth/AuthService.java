@@ -121,7 +121,9 @@ public class AuthService {
      * @since 1.0
      */
     public int verifyCode(String email, String inputCode) {
-        if (customerRepository.countByCodeAndCustomerEmailLimitOne(inputCode, email) > 0) {
+        Integer countResult = customerRepository.countByCodeAndCustomerEmailLimitOne(inputCode, email);
+
+        if (countResult != null && countResult > 0) {
             if (authRepository.activateAccount(email) > 0) {
                 return 0; // Email verified
             }
