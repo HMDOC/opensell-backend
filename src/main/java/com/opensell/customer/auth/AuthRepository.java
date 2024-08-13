@@ -18,7 +18,17 @@ public interface AuthRepository extends MongoRepository<Customer, String> {
     @ExistsQuery("{username: ?0}")
     boolean existsByUsername(String username);
 
+    /**
+     * Query that will set the field isActivated to true, and it will remove the code that the user used.
+     */
     @Query("{email: ?0}")
-    @Update("{$set: {isActivated: true}}")
-    int activateAccount(String email);
+    @Update("""
+    {
+        $set: { isActivated: true },
+        $pull : {
+            verificationCodes: { code: ?1 }
+        }
+    }
+    """)
+    int activateAccount(String email, String verificationCode);
 }

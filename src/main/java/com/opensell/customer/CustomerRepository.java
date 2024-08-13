@@ -2,9 +2,7 @@ package com.opensell.customer;
 
 import com.opensell.enums.VerificationCodeType;
 import com.opensell.model.Customer;
-import org.springframework.data.mongodb.repository.Aggregation;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.repository.*;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional

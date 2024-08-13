@@ -124,7 +124,7 @@ public class AuthService {
         Integer countResult = customerRepository.countByCodeAndCustomerEmailLimitOne(inputCode, email);
 
         if (countResult != null && countResult > 0) {
-            if (authRepository.activateAccount(email) > 0) {
+            if (authRepository.activateAccount(email, inputCode) > 0) {
                 return 0; // Email verified
             }
         }
