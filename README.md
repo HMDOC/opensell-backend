@@ -107,11 +107,16 @@ npm install
 
 Create a file named `.env.local` in the root folder with this content :
 ```properties
-VITE_PORT=
+# Port of the frontend
+VITE_PORT=80
 VITE_BACKEND_URL=
-
-# The secret key for JWT
 VITE_JWT_SECRET_KEY=
+
+# URL of the image server, should finish with a /
+VITE_IMAGES_SERVER_URL=
+
+VITE_AD_IMAGES_FOLDER=ad-image/
+VITE_CUSTOMER_PROFILE_FOLDER=customer-profile/
 ```
 </details>
 
