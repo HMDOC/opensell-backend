@@ -7,6 +7,10 @@ import com.opensell.ad.catalog.dto.AdSearchParamsDto;
 import com.opensell.ad.catalog.dto.AdViewDto;
 import com.opensell.ad.AdRepository;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,15 +27,17 @@ import java.util.List;
 public class CatalogService {
     private final AdRepository adRepo;
 
-    public List<AdPreviewProjectionDto> adSearch(AdSearchParamsDto query) {
+    public Page<AdPreviewProjectionDto> adSearch(AdSearchParamsDto query) {
         System.out.println(query);
-        List<AdPreviewProjectionDto> adList = adRepo.getAdSearch(
+        Pageable page = PageRequest.of(query.page()-1, 12, Sort.by(query.sortBy()));
+        
+        Page<AdPreviewProjectionDto> adList = adRepo.getAdSearch(
             query.query(), query.priceMin(), query.priceMax(),
             query.shape(), query.typeId(), query.filterSold(),
-            query.tags(), Sort.by(query.sortBy())
+            query.tags(), page
         );
-
-        System.out.println(adList.size());
+        
+        System.out.println(adList.getTotalPages());
         return adList;
     }
 
