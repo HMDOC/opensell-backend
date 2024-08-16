@@ -37,7 +37,6 @@ public class CatalogService {
             query.tags(), page
         );
         
-        System.out.println(adList.getTotalPages());
         return adList;
     }
 
