@@ -3,6 +3,7 @@ package com.opensell.service;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import com.opensell.enums.FileType;
 import org.springframework.beans.factory.annotation.Value;
@@ -68,9 +69,14 @@ public class FileUploadService {
 		for(int i = 0; i < randName.length; i++) {
 			fileNameBuilder.append(randAsciiLetter());
 		}
-		fileNameBuilder.append(extension);
+		fileNameBuilder.append(".").append(extension);
 		
 		return fileNameBuilder.toString();
+	}
+
+	public String getExtensionsFromMultipartFile(MultipartFile file) {
+		String[] seperatedFileName = Objects.requireNonNull(file.getOriginalFilename()).split("\\.");
+		return seperatedFileName[seperatedFileName.length - 1];
 	}
 
 	/**
@@ -90,17 +96,16 @@ public class FileUploadService {
 
 			files.forEach(file -> {
 				try {
-					String randomFileName = randFileName(".png", RandName.FILE_NAME);
-					File destFile = new File(folderPath+randomFileName);
+					String extension = getExtensionsFromMultipartFile(file);
+					File destFile = new File(folderPath+randFileName(extension, RandName.FILE_NAME));
 
 					while(destFile.exists()) {
-						randomFileName = randFileName(".png", RandName.FILE_NAME);
-						destFile.renameTo(new File(folderPath+randomFileName));
+						destFile.renameTo(new File(folderPath+randFileName(extension, RandName.FILE_NAME)));
 					}
 
 					destFile.createNewFile();
 					file.transferTo(destFile);
-					filesPath.add(randomFileName);
+					filesPath.add(destFile.getName());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
