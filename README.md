@@ -2,8 +2,7 @@
 
 Opensell is a marketplace website that we developed during the course 420-412-MV (Project - Development of a Web Application) at the Cegep Marie-Victorin between January and May 2024. In the summer of the same year, the frontend and backend project structure was modified, the site's UI was optimized and redesigned using the MUI library. The backend was also optimized and the original database (Mariadb) was replaced by MongoDB.
 
-<!-- Need to put some icon that give info -->
-![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/cover.png)
+![Home](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/cover.png)
 
 ## Important links
 
@@ -51,6 +50,7 @@ Opensell is a marketplace website that we developed during the course 420-412-MV
 <details open><summary><b>Images server</b></summary>
 
 Setup :
+
 ```shell
 git clone https://github.com/HMDOC/opensell-images
 npm install
@@ -63,11 +63,13 @@ npm install
 <details open><summary><b>Backend</b></summary>
 
 Setup :
-```
+
+```sh
 git clone https://github.com/HMDOC/opensell-backend
 ```
 
 Create a file named `env.properties` in the root directory with the following content :
+
 ```properties
 # The port of the backend.
 SERVER_PORT=
@@ -103,13 +105,15 @@ After running the project, you need to connect to the database container using [
 <details open><summary><b>Frontend</b></summary>
 
 Setup :
-```
+
+```sh
 git clone https://github.com/HMDOC/opensell-frontend
 cd opensell-frontend/
 npm install
 ```
 
 Create a file named `.env.local` in the root directory with the following content :
+
 ```properties
 # Port of the frontend
 VITE_PORT=80
@@ -122,6 +126,7 @@ VITE_IMAGES_SERVER_URL=
 VITE_AD_IMAGES_FOLDER=ad-image/
 VITE_CUSTOMER_PROFILE_FOLDER=customer-profile/
 ```
+
 </details>
 
 ## Run the project
