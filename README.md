@@ -1,16 +1,16 @@
-# Opensell
+# Opensell (Backend Side)
 
-Opensell is a website for buying and selling ads that we made in the course 420-412-MV(project - development of a web application) at Cegep Marie-Victorin.
+Opensell is a marketplace website that we developed during the course 420-412-MV (Project - Development of a Web Application) at the Cegep Marie-Victorin between January and May 2024.
 
 <!-- Need to put some icon that give info -->
 ![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home3.png)
 
 ## Features
 
-- Login and sign up.
-- Creating and modifying ads.
-- Searching ads with multiples filter like price range, category, tags, shape and many more.
-- Changing information about our account like our phone number, bio, picture, etc.
+- Log in and register.
+- Create and modify ads.
+- Search ads with multiple filters such as price range, category, tags, shape and more.
+- Change information about our account such as our phone number, bio, picture, etc.
 
 ## Technologies
 
@@ -91,12 +91,22 @@ npm start
 
 ## Preview
 
+### Login
+
 ![Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/login.png)
 
-![Home Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/connected_option_in_main_page.png)
+### Home
+
+![Home](https://raw.githubusercontent.com/HMDOC/readme-src/main/connected_option_in_main_page.png)
+
+### My ads
 
 ![My Ads](https://raw.githubusercontent.com/HMDOC/readme-src/main/my-ads.png)
 
-![Profil](https://raw.githubusercontent.com/HMDOC/readme-src/main/profil.png)
+### Profile
+
+![Profile](https://raw.githubusercontent.com/HMDOC/readme-src/main/profil.png)
+
+### Settings
 
 ![Settings](https://raw.githubusercontent.com/HMDOC/readme-src/main/settings.png)
