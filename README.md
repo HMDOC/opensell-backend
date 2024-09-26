@@ -1,81 +1,130 @@
-# Opensell
+# Opensell 2.0 (Backend Side)
 
-Opensell is a website for buying and selling ads that we made in the course 420-412-MV(project - development of a web application) at Cegep Marie-Victorin.
+Opensell is a marketplace website that we developed during the course 420-412-MV (Project - Development of a Web Application) at the Cegep Marie-Victorin between January and May 2024. In the summer of the same year, the frontend and backend project structure was modified, the site's UI was optimized and redesigned using the MUI library. The backend was also optimized and the original database (Mariadb) was replaced by MongoDB.
 
-<!-- Need to put some icon that give info -->
-![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home3.png)
+![Home](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/cover.png)
+
+## Important links
+
+- [Frontend](https://github.com/HMDOC/opensell-frontend)
 
 ## Features
 
-- Login and sign up.
-- Creating and modifying ads.
-- Searching ads with multiples filter like price range, category, tags, shape and many more.
-- Changing information about our account like our phone number, bio, picture, etc.
+- Log in and register.
+- Create and modify ads.
+- Search ads with multiple filters such as price range, category, tags, shape and more.
+- Change information about our account such as our phone number, bio, picture, etc.
 
 ## Technologies
 
-### Frontend
+### Database
 
-- Typescript
-- React
-- Axios
-- react-bootstrap
-- react-modal
+- MongoDB
 
 ### Backend
 
 - Java
 - Spring Boot
 - Lombok
+- docker-compose
+
+### Frontend
+
+- Typescript
+- React
+- Axios
+- MUI
 
 ## Installation
 <!-- Dependencies -->
 <details open><summary><b>External dependencies</b></summary>
-<br />
 
 - [nodejs](https://nodejs.org/en/download/prebuilt-installer)
-- [MariaDB](https://mariadb.org/download/)
+- [docker](https://www.docker.com/get-started/)
 - [JDK 21](https://www.oracle.com/ca-en/java/technologies/downloads/#java21)
 
 </details>
+<br />
+
+<!-- Images section -->
+<details open><summary><b>Images server</b></summary>
+
+Setup :
+
+```shell
+git clone https://github.com/HMDOC/opensell-images
+npm install
+```
+
+</details>
+<br />
+
+<!-- Backend section -->
+<details open><summary><b>Backend</b></summary>
+
+Setup :
+
+```sh
+git clone https://github.com/HMDOC/opensell-backend
+```
+
+Create a file named `env.properties` in the root directory with the following content :
+
+```properties
+# The port of the backend.
+SERVER_PORT=
+
+# The url of the SMTP server. Ex: smtp-mail.outlook.com
+SMTP_HOST=
+
+# The port of the SMTP server. Ex: 587
+SMTP_PORT=
+SMTP_EMAIL=
+SMTP_PASSWORD=
+
+# The url that can make request to the backend. The only one you need is the one of the frontend
+ALLOWED_URLS=
+
+# The path where the image are going to be stored. This path should end with /public if you are using the image server.
+IMAGE_SERVER_PATH=
+
+# The url of the server that contain the image. Ex: http://localhost:$PORT
+IMAGE_SERVER_URL=
+
+# The information that will be given directly to the MongoDB container.
+MONGO_INITDB_ROOT_USERNAME=
+MONGO_INITDB_ROOT_PASSWORD=
+MONGO_INITDB_ROOT_DATABASE=
+```
+
+After running the project, you need to connect to the database container using [MongoDB Compass](https://www.mongodb.com/try/download/compass). Then you need to import the data from the adCategory, customer, and ad collections located at `./src/main/ressources/data`. The import order is adCategory.json, customer.json, and ad.json.
+</details>
+<br />
 
 <!-- Frontend section -->
 <details open><summary><b>Frontend</b></summary>
-<br />
 
 Setup :
-```
+
+```sh
 git clone https://github.com/HMDOC/opensell-frontend
 cd opensell-frontend/
 npm install
 ```
 
-Create a file named `data.json` in the `src` folder with this content :
-```json
-{
-    "url": "<BACKEND_URL>"
-}
-```
-</details>
+Create a file named `.env.local` in the root directory with the following content :
 
-<!-- Backend section -->
-<details open><summary><b>Backend</b></summary>
-<br />
+```properties
+# Port of the frontend
+VITE_PORT=80
+VITE_BACKEND_URL=
+VITE_JWT_SECRET_KEY=
 
-Setup :
-```
-git clone https://github.com/HMDOC/opensell-backend
-# Import the project in your IDE.
-```
+# URL of the image server, should finish with a /
+VITE_IMAGES_SERVER_URL=
 
-In your IDE, go to `run configurations` for the project and add this in section `VM options` :
-```sh
--Dport=9108 -Durl="jdbc:mariadb://localhost:3306/mydatabase" -Duser="john" -Dpwd="THIS_IS_NOT_MY_PASSWORD" -DmailPort=587 -Demail="nothankyou@github.com" -DmailPassword="THIS_IS_NOT_MY_PASSWORD" -DuploadPath="<PATH_OF_THE_IMAGES>" -DallowedUrl="http://localhost/" -DserverUrl="<BACKEND_URL>"
-```
-
-To enable images :
-```
-You need to create two folders one named "/ad-image" that will contain the images for the ads and the other "/customer-profil" will contain the profil pictures of the users. They need to be accessible by http like this : http://<BACKEND_URL>/ad-image/.
+VITE_AD_IMAGES_FOLDER=ad-image/
+VITE_CUSTOMER_PROFILE_FOLDER=customer-profile/
 ```
 
 </details>
@@ -84,19 +133,37 @@ You need to create two folders one named "/ad-image" that will contain the image
 
 ```sh
 # Frontend
-npm start
+npm run dev
 
-# Backend : run with your IDE.
+# Backend: run with your IDE or :
+./mvnw spring-boot:run
+
+# Images
+npm start
 ```
 
 ## Preview
 
-![Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/login.png)
+### Sign up
 
-![Home Login](https://raw.githubusercontent.com/HMDOC/readme-src/main/connected_option_in_main_page.png)
+![Signup](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/signup.png)
 
-![My Ads](https://raw.githubusercontent.com/HMDOC/readme-src/main/my-ads.png)
+### Home
 
-![Profil](https://raw.githubusercontent.com/HMDOC/readme-src/main/profil.png)
+![Home](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/home.png)
 
-![Settings](https://raw.githubusercontent.com/HMDOC/readme-src/main/settings.png)
+### Catalog
+
+![Catalog](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/catalog.png)
+
+### My ads
+
+![My Ads](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/my-ads.png)
+
+### Profile
+
+![Profile](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/profile.png)
+
+### Setting
+
+![Settings](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/settings.png)

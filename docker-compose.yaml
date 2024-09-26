@@ -1,0 +1,8 @@
+services:
+  db:
+    container_name: opensell_db
+    image: mongo
+    ports:
+      - "25000:27017"
+    env_file:
+      - ./env.properties

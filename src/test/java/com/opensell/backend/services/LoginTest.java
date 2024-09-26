@@ -1,15 +1,10 @@
 package com.opensell.backend.services;
 
-import java.sql.Date;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.opensell.entities.Customer;
-import com.opensell.repository.LoginRepository;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(classes = {com.opensell.backend.services.LoginTest.class})

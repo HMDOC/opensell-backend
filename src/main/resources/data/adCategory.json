@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d02"
+  },
+  "name": "Health"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d03"
+  },
+  "name": "Books"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d04"
+  },
+  "name": "Automotive"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d05"
+  },
+  "name": "Outdoors"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d06"
+  },
+  "name": "Shoes"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d07"
+  },
+  "name": "Jewelery"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d08"
+  },
+  "name": "Games"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d09"
+  },
+  "name": "Baby"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d0a"
+  },
+  "name": "Grocery"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d0b"
+  },
+  "name": "Industrial"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d0c"
+  },
+  "name": "Electronics"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d0d"
+  },
+  "name": "Music"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d0e"
+  },
+  "name": "Kids"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d0f"
+  },
+  "name": "Sports"
+},
+{
+  "_id": {
+    "$oid": "66b0fd7b8fcaf70ea2804d10"
+  },
+  "name": "Home"
+}]

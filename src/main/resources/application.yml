@@ -1,32 +1,26 @@
+app:
+  allowed-urls: ${ALLOWED_URLS}
 server:
-  port: ${port}
+  port: ${SERVER_PORT}
 spring:
+  docker:
+    compose:
+      lifecycle-management: start_only
+  config:
+    import: file:env.properties
   servlet:
     multipart:
       max-file-size: 50MB
       max-request-size: 500MB
       enabled: true
-  datasource:
-    url: ${url}
-    username: ${user}
-    password: ${pwd}
-  jpa:
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-    defer-datasource-initialization: true
-  sql:
-    init:
-      mode: always
-      
   output:
     ansi:
       enabled: always
   mail:
-    host: smtp-mail.outlook.com
-    port: ${mailPort}
-    username: ${email}
-    password: ${mailPassword}
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    username: ${SMTP_EMAIL}
+    password: ${SMTP_PASSWORD}
     default-encoding: UTF-8
     properties:
       mail:
@@ -42,5 +36,7 @@ spring:
             required: true
       verify:
         host: http://localhost:${port}
-
-
+  data:
+    mongodb:
+      auto-index-creation: true
+      database: ${MONGO_INITDB_ROOT_DATABASE}
