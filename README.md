@@ -1,16 +1,20 @@
-# Opensell 2.0
+# Opensell 2.0 (Backend Side)
 
-Opensell is a website for buying and selling ads that we initially made in the course 420-412-MV(project - development of a web application) at Cegep Marie-Victorin between January and May 2024. In the summer of the same year, the UI of the website was optimized and redesigned using the library MUI. The backend was optimized too and the original database(Mariadb) was replaced with MongoDB and by doing so, all the old SQL entities and queries where replace by documents and mongodb queries.  
+Opensell is a marketplace website that we developed during the course 420-412-MV (Project - Development of a Web Application) at the Cegep Marie-Victorin between January and May 2024. In the summer of the same year, the frontend and backend project structure was modified, the site's UI was optimized and redesigned using the MUI library. The backend was also optimized and the original database (Mariadb) was replaced by MongoDB.
 
 <!-- Need to put some icon that give info -->
 ![Home ](./src/main/resources/markdown-images/cover.png)
 
+## Important links
+
+- [Frontend](https://github.com/HMDOC/opensell-frontend)
+
 ## Features
 
-- Login and sign up.
-- Creating and modifying ads.
-- Searching ads with multiples filter like price range, category, tags, shape and many more.
-- Changing information about our account like our phone number, bio, picture, etc.
+- Log in and register.
+- Create and modify ads.
+- Search ads with multiple filters such as price range, category, tags, shape and more.
+- Change information about our account such as our phone number, bio, picture, etc.
 
 ## Technologies
 
@@ -44,7 +48,7 @@ Opensell is a website for buying and selling ads that we initially made in the c
 <br />
 
 <!-- Images section -->
-<details open><summary><b>Images Server</b></summary>
+<details open><summary><b>Images server</b></summary>
 
 Setup :
 ```shell
@@ -63,7 +67,7 @@ Setup :
 git clone https://github.com/HMDOC/opensell-backend
 ```
 
-Create the file `env.properties` in the root folder that contains this :
+Create a file named `env.properties` in the root directory with the following content :
 ```properties
 # The port of the backend.
 SERVER_PORT=
@@ -91,7 +95,7 @@ MONGO_INITDB_ROOT_PASSWORD=
 MONGO_INITDB_ROOT_DATABASE=
 ```
 
-After running the project, you need to connect to the database container with [MongoDB Compass](https://www.mongodb.com/try/download/compass). After you need to import the data of the collections adCategory, customer and ad located at `./src/main/ressources/data`. The import order is adCategory.json, customer.json and ad.json.
+After running the project, you need to connect to the database container using [MongoDB Compass](https://www.mongodb.com/try/download/compass). Then you need to import the data from the adCategory, customer, and ad collections located at `./src/main/ressources/data`. The import order is adCategory.json, customer.json, and ad.json.
 </details>
 <br />
 
@@ -105,7 +109,7 @@ cd opensell-frontend/
 npm install
 ```
 
-Create a file named `.env.local` in the root folder with this content :
+Create a file named `.env.local` in the root directory with the following content :
 ```properties
 # Port of the frontend
 VITE_PORT=80
@@ -135,14 +139,26 @@ npm start
 
 ## Preview
 
+### Sign up
+
 ![Signup](./src/main/resources/markdown-images/signup.png)
+
+### Home
 
 ![Home](./src/main/resources/markdown-images/home.png)
 
+### Catalog
+
 ![Catalog](./src/main/resources/markdown-images/catalog.png)
+
+### My ads
 
 ![My Ads](./src/main/resources/markdown-images/my-ads.png)
 
+### Profile
+
 ![Profile](./src/main/resources/markdown-images/profile.png)
+
+### Setting
 
 ![Settings](./src/main/resources/markdown-images/settings.png)
