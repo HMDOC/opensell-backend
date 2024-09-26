@@ -4,6 +4,10 @@ Opensell is a marketplace website that we developed during the course 420-412-MV
 
 ![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home3.png)
 
+## Important links
+
+- [Frontend](https://github.com/HMDOC/opensell-frontend/tree/legacy)
+
 ## Features
 
 - Log in and register.
