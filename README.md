@@ -2,7 +2,7 @@
 
 Opensell is a marketplace website that we developed during the course 420-412-MV (Project - Development of a Web Application) at the Cegep Marie-Victorin between January and May 2024.
 
-![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/main/home3.png)
+![Home](https://raw.githubusercontent.com/HMDOC/readme-src/main/home3.png)
 
 ## Important links
 
