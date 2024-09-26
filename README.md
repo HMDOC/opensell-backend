@@ -3,7 +3,7 @@
 Opensell is a marketplace website that we developed during the course 420-412-MV (Project - Development of a Web Application) at the Cegep Marie-Victorin between January and May 2024. In the summer of the same year, the frontend and backend project structure was modified, the site's UI was optimized and redesigned using the MUI library. The backend was also optimized and the original database (Mariadb) was replaced by MongoDB.
 
 <!-- Need to put some icon that give info -->
-![Home ](./src/main/resources/markdown-images/cover.png)
+![Home ](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/cover.png)
 
 ## Important links
 
@@ -141,24 +141,24 @@ npm start
 
 ### Sign up
 
-![Signup](./src/main/resources/markdown-images/signup.png)
+![Signup](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/signup.png)
 
 ### Home
 
-![Home](./src/main/resources/markdown-images/home.png)
+![Home](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/home.png)
 
 ### Catalog
 
-![Catalog](./src/main/resources/markdown-images/catalog.png)
+![Catalog](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/catalog.png)
 
 ### My ads
 
-![My Ads](./src/main/resources/markdown-images/my-ads.png)
+![My Ads](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/my-ads.png)
 
 ### Profile
 
-![Profile](./src/main/resources/markdown-images/profile.png)
+![Profile](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/profile.png)
 
 ### Setting
 
-![Settings](./src/main/resources/markdown-images/settings.png)
+![Settings](https://raw.githubusercontent.com/HMDOC/readme-src/refs/heads/main/markdown-images/settings.png)
