@@ -20,7 +20,7 @@ import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 
 @RestController
-@CrossOrigin("${allowedUrl}")
+@CrossOrigin("${ALLOWED_URL}")
 @RequestMapping("/user")
 public class CustomerInfoController {
     

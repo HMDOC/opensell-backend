@@ -18,10 +18,10 @@ import lombok.Getter;
  */
 @Service
 public class FileUploadService {
-	@Value("${serverUrl}")
+	@Value("${SERVER_URL}")
 	public String serverUrl;
 
-	@Value("${uploadPath}")
+	@Value("${UPLOAD_PATH}")
     public String uploadPath;
 
 	public static enum RandName {

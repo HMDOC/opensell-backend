@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EmailService {
-        @Value("${email}") private String senderEmail;
+        @Value("${SMTP_EMAIL}") private String senderEmail;
         @Autowired
         private JavaMailSender javaMailSender;
     
