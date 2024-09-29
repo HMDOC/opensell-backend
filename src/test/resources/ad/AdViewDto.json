@@ -1,0 +1,18 @@
+{
+  "adTitle" : "Toyota Echo 2003",
+  "adPrice" : 3000,
+  "adAddedDate" :  "2024-09-29T19:12:42.736Z",
+  "adShape" :  3,
+  "isAdSold":  true,
+  "adVisibility": 0,
+  "adDescription":  "Sold as is.",
+  "adAddress":  "Cegep Marie-Victorin",
+  "adCategory": {
+    "id": "5effaa5662679b5af2c58829",
+    "name" : "Car"
+  },
+  "adTagsName" :  ["Toyota", "Echo", "2003"],
+  "adImages":  ["http://localhost:3000/toyota-echo-2003.png"],
+  "username": "Pierre",
+  "userIcon" : "http://localhost:3000/pierre-icon.png"
+}
