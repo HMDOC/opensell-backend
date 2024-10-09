@@ -1,0 +1,10 @@
+spring:
+  docker:
+    compose:
+      lifecycle-management: start_only
+  mail:
+    host: localhost
+    port: 1025
+    username: support@opensell.com
+    password: NO_PASSWORD_IS_NEEDED_FOR_DEV
+    default-encoding: UTF-8

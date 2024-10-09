@@ -2,12 +2,12 @@ app:
   allowed-urls: ${ALLOWED_URLS}
 server:
   port: ${SERVER_PORT}
+
 spring:
-  docker:
-    compose:
-      lifecycle-management: start_only
   config:
     import: file:env.properties
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
   servlet:
     multipart:
       max-file-size: 50MB
@@ -16,26 +16,6 @@ spring:
   output:
     ansi:
       enabled: always
-  mail:
-    host: ${SMTP_HOST}
-    port: ${SMTP_PORT}
-    username: ${SMTP_EMAIL}
-    password: ${SMTP_PASSWORD}
-    default-encoding: UTF-8
-    properties:
-      mail:
-        mime:
-          charset: UTF
-        smtp:
-          write-timeout: 10000
-          connectiontimeout: 10000
-          timeout: 10000
-          auth: true
-          starttls:
-            enable: true
-            required: true
-      verify:
-        host: http://localhost:${port}
   data:
     mongodb:
       auto-index-creation: true
