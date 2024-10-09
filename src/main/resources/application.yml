@@ -1,11 +1,6 @@
-app:
-  allowed-urls: ${ALLOWED_URLS}
 server:
-  port: ${SERVER_PORT}
-
+  port: 8080
 spring:
-  config:
-    import: file:env.properties
   profiles:
     active: ${ACTIVE_PROFILE:dev}
   servlet:
@@ -19,4 +14,4 @@ spring:
   data:
     mongodb:
       auto-index-creation: true
-      database: ${MONGO_INITDB_ROOT_DATABASE}
+      database: opensell

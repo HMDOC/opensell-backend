@@ -4,6 +4,8 @@ services:
     image: mongo
     ports:
       - "25000:27017"
+    environment:
+      - MONGO_INITDB_ROOT_DATABASE=opensell
     env_file:
       - ./env.properties
   mail_server:
