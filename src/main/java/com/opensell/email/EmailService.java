@@ -1,5 +1,6 @@
 package com.opensell.email;
 
+import com.opensell.config.AppConfig;
 import com.opensell.email.template.SignUpTemplate;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class EmailService {
-    @Value("${SMTP_EMAIL}")
-    private String senderEmail;
+    private final AppConfig appConfig;
     private final JavaMailSender mailSender;
 
     public boolean sendHtmlEmail(String[] to, String subject, String body) throws MessagingException {
@@ -27,7 +27,7 @@ public class EmailService {
             var message = mailSender.createMimeMessage();
             var helper = new MimeMessageHelper(message);
 
-            helper.setFrom("Opensell<"+senderEmail+">");
+            helper.setFrom("Opensell<"+appConfig.supportEmail()+">");
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(body, true);
@@ -42,7 +42,7 @@ public class EmailService {
 
     public void sendNonHtmlEmail(String[] to, String subject, String body) throws MessagingException {
         var message = new SimpleMailMessage();
-        message.setFrom(senderEmail);
+        message.setFrom(appConfig.supportEmail());
         message.setTo(to);
         message.setSubject(subject);
         message.setText(body);
