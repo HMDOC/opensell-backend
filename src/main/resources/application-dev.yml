@@ -2,7 +2,7 @@ app:
   allowed-urls: http://localhost:3000/
   support-email: support@opensell.com
   image-server-url: http://localhost:2500/
-  image-server-path: ${IMAGE_SERVER_PATH:../opensell-images}
+  image-server-path: ${APP_IMAGE_SERVER_PATH:../opensell-images/public}
 spring:
   docker:
     compose:
