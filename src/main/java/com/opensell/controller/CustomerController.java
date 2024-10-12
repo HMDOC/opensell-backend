@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin("${ALLOWED_URL}")
 @RequestMapping("/c")
 public class CustomerController {
 

@@ -1,48 +1,24 @@
+app:
+  server-url: ${SERVER_URL:http://localhost:8080}
+  upload-path: ${UPLOAD_PATH:/tmp/opensell-images}
+  support-email: ${SUPPORT_EMAIL:support@opensell.com}
+  allowedUrls: ${ALLOWED_URLS:http://localhost:3000}
 server:
-  port: ${SERVER_PORT}
+  port: ${SERVER_PORT:8080}
 spring:
-  config:
-    import: file:env.properties
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
   servlet:
     multipart:
       max-file-size: 50MB
       max-request-size: 500MB
       enabled: true
-  datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PWD}
   jpa:
-    hibernate:
-      ddl-auto: create
     show-sql: true
     defer-datasource-initialization: true
   sql:
     init:
       mode: always
-      
   output:
     ansi:
       enabled: always
-  mail:
-    host: ${SMTP_HOST}
-    port: ${SMTP_PORT}
-    username: ${SMTP_EMAIL}
-    password: ${SMTP_PASSWORD}
-    default-encoding: UTF-8
-    properties:
-      mail:
-        mime:
-          charset: UTF
-        smtp:
-          write-timeout: 10000
-          connectiontimeout: 10000
-          timeout: 10000
-          auth: true
-          starttls:
-            enable: true
-            required: true
-      verify:
-        host: http://localhost:${SERVER_PORT}
-
-

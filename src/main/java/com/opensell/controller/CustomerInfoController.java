@@ -6,21 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.opensell.entities.dto.AdSearchPreview;
-import com.opensell.entities.dto.CustomerProfil;
-
-import java.util.List;
-import java.util.ArrayList;
-
 import com.opensell.entities.Ad;
 import com.opensell.entities.Customer;
-import com.opensell.entities.customer.CustomerInfo;
+import com.opensell.entities.dto.CustomerProfil;
 import com.opensell.repository.AdRepository;
-import com.opensell.repository.CustomerInfoRepository;
 import com.opensell.repository.CustomerRepository;
 
 @RestController
-@CrossOrigin("${ALLOWED_URL}")
 @RequestMapping("/user")
 public class CustomerInfoController {
     

@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.opensell.config.AppConfig;
+
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Class to create randomized links and save file to the backend.
@@ -17,12 +20,9 @@ import lombok.Getter;
  * @author Achraf
  */
 @Service
+@RequiredArgsConstructor
 public class FileUploadService {
-	@Value("${SERVER_URL}")
-	public String serverUrl;
-
-	@Value("${UPLOAD_PATH}")
-    public String uploadPath;
+	public final AppConfig appConfig;
 
 	public static enum RandName {
 		URL(12),
@@ -38,7 +38,7 @@ public class FileUploadService {
 
 	public enum FileType {
 		AD_IMAGE("/ad-image/"),
-		CUSTOMER_PROFIL("/customer-profil/");
+		CUSTOMER_PROFIL("/customer-profile/");
 
 		@Getter
 		private String folder;
@@ -103,20 +103,21 @@ public class FileUploadService {
 			if(fileType == null) throw new Exception("fileType cannot be null");
 
 			List<String> filesPath = new ArrayList<>();
+			var folderPath = appConfig.uploadPath()+fileType.folder;
 
 			files.forEach(file -> {
 				try {
-					String randomFileName = fileType.folder+randFileName(".png", RandName.URL);
-					File destFile = new File(uploadPath+randomFileName);
+					String randomFileName = randFileName(".png", RandName.URL);
+					File destFile = new File(folderPath+randomFileName);
 
 					while(destFile.exists()) {
-						randomFileName = fileType.folder+randFileName(".png", RandName.URL);
-						destFile.renameTo(new File(uploadPath+randomFileName));
+						randomFileName = randFileName(".png", RandName.URL);
+						destFile.renameTo(new File(folderPath+randomFileName));
 					}
 
 					destFile.createNewFile();
 					file.transferTo(destFile);
-					filesPath.add(serverUrl+randomFileName);
+					filesPath.add(appConfig.serverUrl()+randomFileName);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

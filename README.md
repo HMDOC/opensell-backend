@@ -89,8 +89,8 @@ SMTP_PASSWORD=
 
 # Database information
 DB_URL=jdbc:mariadb://localhost:3306/opensell
-DB_USER=
-DB_PWD=
+DB_USERNAME=
+DB_PASSWORD=
 
 SERVER_URL=
 

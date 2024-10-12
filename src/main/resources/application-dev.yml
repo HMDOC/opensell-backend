@@ -1,0 +1,7 @@
+spring:
+  docker:
+    compose:
+      lifecycle-management: start-only
+  jpa:
+    hibernate:
+      ddl-auto: create
