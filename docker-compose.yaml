@@ -6,8 +6,8 @@ services:
       - "25000:27017"
     environment:
       - MONGO_INITDB_ROOT_DATABASE=opensell
-    env_file:
-      - ./env.properties
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=opensell
   mail_server:
     image: axllent/mailpit
     container_name: opensell_smtp
@@ -15,6 +15,6 @@ services:
       - "8025:8025"
       - "1025:1025"
     environment:
-      MP_MAX_MESSAGES: 5000
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+      - MP_MAX_MESSAGES=5000
+      - MP_SMTP_AUTH_ACCEPT_ANY=1
+      - MP_SMTP_AUTH_ALLOW_INSECURE=1
