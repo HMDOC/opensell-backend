@@ -1,16 +1,10 @@
-FROM ubuntu
+FROM openjdk:21
+WORKDIR /home/opensell
 
-WORKDIR /opensell
+ARG JAR_FILE=./target/*.jar
+COPY ${JAR_FILE} backend.jar
+RUN mkdir -p images/ad-image
+RUN mkdir -p images/customer-profile
 
-# Copy the jar
-COPY ./target/backend-1.0.1.jar ./
-
-# Copy the config file
-COPY ../launch.sh ./
-
-RUN apt update -y
-RUN apt install -y openjdk-21-jdk
-RUN apt install -y mariadb-server
-
-# Need to do : mariadb-secure-installation
-# CMD [ "java", "-jar", "backend-1.0.1.jar" ]
+CMD [ "java", "-DACTIVE_PROFILE=prod", "-jar", "backend.jar" ]
+EXPOSE 8080

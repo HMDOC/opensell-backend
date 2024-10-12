@@ -11,3 +11,6 @@ spring:
     username: support@opensell.com
     password: NO_PASSWORD_IS_NEEDED_FOR_DEV
     default-encoding: UTF-8
+  sql:
+    init:
+      mode: always
