@@ -5,3 +5,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+  mail:
+    host: localhost
+    port: 1025
+    username: support@opensell.com
+    password: NO_PASSWORD_IS_NEEDED_FOR_DEV
+    default-encoding: UTF-8

@@ -1,6 +1,6 @@
 services:
   db:
-    container_name: opensell-db
+    container_name: com.opensell.db.dev.legacy
     image: mariadb:11.5.2
     expose:
       - 3306
@@ -11,3 +11,13 @@ services:
       - MYSQL_USER=opensell
       - MYSQL_PASSWORD=opensell
       - MYSQL_DATABASE=opensell
+  mail_server:
+    image: axllent/mailpit
+    container_name: com.opensell.smtp.dev.legacy
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    environment:
+      - MP_MAX_MESSAGES=5000
+      - MP_SMTP_AUTH_ACCEPT_ANY=1
+      - MP_SMTP_AUTH_ALLOW_INSECURE=1
