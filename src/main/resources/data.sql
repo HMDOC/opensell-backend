@@ -1,1848 +1,1131 @@
+INSERT INTO ad_type(id_ad_type, name) VALUES (1, 'Health');
+INSERT INTO ad_type(id_ad_type, name) VALUES (2, 'Books');
+INSERT INTO ad_type(id_ad_type, name) VALUES (3, 'Automotive');
+INSERT INTO ad_type(id_ad_type, name) VALUES (4, 'Outdoors');
+INSERT INTO ad_type(id_ad_type, name) VALUES (5, 'Shoes');
+INSERT INTO ad_type(id_ad_type, name) VALUES (6, 'Jewelery');
+INSERT INTO ad_type(id_ad_type, name) VALUES (7, 'Games');
+INSERT INTO ad_type(id_ad_type, name) VALUES (8, 'Baby');
+INSERT INTO ad_type(id_ad_type, name) VALUES (9, 'Grocery');
+INSERT INTO ad_type(id_ad_type, name) VALUES (10, 'Industrial');
+INSERT INTO ad_type(id_ad_type, name) VALUES (11, 'Electronics');
+INSERT INTO ad_type(id_ad_type, name) VALUES (12, 'Music');
+INSERT INTO ad_type(id_ad_type, name) VALUES (13, 'Kids');
+INSERT INTO ad_type(id_ad_type, name) VALUES (14, 'Sports');
+INSERT INTO ad_type(id_ad_type, name) VALUES (15, 'Home');
 
-/* CustomerInfo */
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (1, 'Gallard', 'McEachern', 'http://dummyimage.com/124x100.png/ff4444/ffffff', '720-998-9680');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (2, 'Phillipp', 'Hankard', 'http://dummyimage.com/216x100.png/cc0000/ffffff', '247-785-2944');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (3, 'Nina', 'Cruz', 'http://dummyimage.com/138x100.png/dddddd/000000', '721-405-1462');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (4, 'Leigh', 'Tidey', 'http://dummyimage.com/215x100.png/5fa2dd/ffffff', '219-629-9432');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (5, 'Micheline', 'Betts', 'http://dummyimage.com/128x100.png/dddddd/000000', '685-152-2915');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (6, 'Collin', 'Salvadore', 'http://dummyimage.com/116x100.png/dddddd/000000', '529-524-1629');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (7, 'Byron', 'Bertelet', 'http://dummyimage.com/155x100.png/ff4444/ffffff', '990-291-2884');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (8, 'Veriee', 'Yurikov', 'http://dummyimage.com/138x100.png/ff4444/ffffff', '397-982-4825');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (9, 'Jeremie', 'Lamswood', 'http://dummyimage.com/140x100.png/5fa2dd/ffffff', '743-573-4250');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (10, 'Timmi', 'Wallace', 'http://dummyimage.com/119x100.png/5fa2dd/ffffff', '548-816-1984');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (11, 'Dorelle', 'Diglin', 'http://dummyimage.com/212x100.png/cc0000/ffffff', '889-145-7446');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (12, 'Loree', 'Royle', 'http://dummyimage.com/175x100.png/ff4444/ffffff', '892-533-1963');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (13, 'Laurel', 'MacLennan', 'http://dummyimage.com/221x100.png/5fa2dd/ffffff', '529-202-1541');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (14, 'Ram', 'Luxton', 'http://dummyimage.com/117x100.png/ff4444/ffffff', '538-514-8042');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (15, 'Silvio', 'Scholard', 'http://dummyimage.com/246x100.png/5fa2dd/ffffff', '665-968-1196');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (16, 'Burty', 'Mc Gee', 'http://dummyimage.com/151x100.png/dddddd/000000', '588-143-1615');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (17, 'Clemence', 'Calkin', 'http://dummyimage.com/150x100.png/ff4444/ffffff', '343-790-7380');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (18, 'Damon', 'MacTrustram', 'http://dummyimage.com/133x100.png/5fa2dd/ffffff', '657-390-2155');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (19, 'Sallyann', 'Eliesco', 'http://dummyimage.com/152x100.png/5fa2dd/ffffff', '653-612-1619');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (20, 'Hilarius', 'Beavon', 'http://dummyimage.com/234x100.png/ff4444/ffffff', '182-565-0560');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (21, 'Laverne', 'Loisi', 'http://dummyimage.com/217x100.png/cc0000/ffffff', '147-905-7946');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (22, 'Brod', 'Dewdney', 'http://dummyimage.com/201x100.png/dddddd/000000', '447-458-7052');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (23, 'Gaye', 'Kemery', 'http://dummyimage.com/168x100.png/cc0000/ffffff', '329-225-4150');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (24, 'Alair', 'Sadgrove', 'http://dummyimage.com/128x100.png/ff4444/ffffff', '621-253-6270');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (25, 'Chick', 'Moreland', 'http://dummyimage.com/113x100.png/5fa2dd/ffffff', '357-919-6228');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (26, 'Hayley', 'Cordrey', 'http://dummyimage.com/223x100.png/5fa2dd/ffffff', '954-765-4125');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (27, 'Kristina', 'Horsley', 'http://dummyimage.com/215x100.png/ff4444/ffffff', '410-322-3253');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (28, 'Beverlie', 'MacGill', 'http://dummyimage.com/170x100.png/5fa2dd/ffffff', '218-351-8593');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (29, 'Fairfax', 'MacMeanma', 'http://dummyimage.com/103x100.png/cc0000/ffffff', '957-860-3129');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (30, 'Florella', 'Auten', 'http://dummyimage.com/111x100.png/cc0000/ffffff', '311-364-2578');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (31, 'Gabriel', 'Atkirk', 'http://dummyimage.com/225x100.png/ff4444/ffffff', '338-229-0831');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (32, 'Rosalyn', 'Lebreton', 'http://dummyimage.com/122x100.png/ff4444/ffffff', '669-504-0703');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (33, 'Roxine', 'Gehrels', 'http://dummyimage.com/191x100.png/cc0000/ffffff', '524-508-5745');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (34, 'Michelina', 'Lofting', 'http://dummyimage.com/188x100.png/ff4444/ffffff', '947-994-9466');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (35, 'Ora', 'Grierson', 'http://dummyimage.com/177x100.png/ff4444/ffffff', '771-303-8164');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (36, 'Kinsley', 'Dunstall', 'http://dummyimage.com/150x100.png/cc0000/ffffff', '937-543-3133');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (37, 'Vernen', 'Aspray', 'http://dummyimage.com/233x100.png/ff4444/ffffff', '399-743-5964');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (38, 'Starlin', 'Gomer', 'http://dummyimage.com/210x100.png/5fa2dd/ffffff', '816-311-4323');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (39, 'Niki', 'Battell', 'http://dummyimage.com/235x100.png/ff4444/ffffff', '919-445-5605');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (40, 'Juliet', 'Lind', 'http://dummyimage.com/236x100.png/ff4444/ffffff', '362-772-8265');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (41, 'Gothart', 'Febvre', 'http://dummyimage.com/183x100.png/cc0000/ffffff', '611-521-0275');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (42, 'Reade', 'Quayle', 'http://dummyimage.com/208x100.png/dddddd/000000', '615-601-3586');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (43, 'Darren', 'O''dell', 'http://dummyimage.com/121x100.png/5fa2dd/ffffff', '103-854-4301');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (44, 'Melisse', 'Bolger', 'http://dummyimage.com/246x100.png/ff4444/ffffff', '602-504-8393');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (45, 'Daphne', 'Varvell', 'http://dummyimage.com/176x100.png/ff4444/ffffff', '275-163-4068');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (46, 'Ruy', 'Suatt', 'http://dummyimage.com/157x100.png/cc0000/ffffff', '445-950-2506');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (47, 'Raina', 'Jirsa', 'http://dummyimage.com/133x100.png/cc0000/ffffff', '233-570-6762');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (48, 'Vasili', 'Rentoul', 'http://dummyimage.com/247x100.png/cc0000/ffffff', '179-683-4231');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (49, 'Nickey', 'Knell', 'http://dummyimage.com/139x100.png/dddddd/000000', '437-313-1748');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (50, 'Cinderella', 'Commucci', 'http://dummyimage.com/129x100.png/dddddd/000000', '749-124-3381');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (51, 'Kimberley', 'Sanderson', 'http://dummyimage.com/101x100.png/dddddd/000000', '691-361-9853');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (52, 'Timmie', 'Sowden', 'http://dummyimage.com/209x100.png/dddddd/000000', '338-281-2534');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (53, 'Vitia', 'Bampforth', 'http://dummyimage.com/211x100.png/cc0000/ffffff', '532-797-5905');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (54, 'Olly', 'Stening', 'http://dummyimage.com/238x100.png/5fa2dd/ffffff', '120-839-9312');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (55, 'Eliot', 'Winchcombe', 'http://dummyimage.com/209x100.png/5fa2dd/ffffff', '902-390-8766');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (56, 'Rianon', 'Hicken', 'http://dummyimage.com/245x100.png/cc0000/ffffff', '992-622-5905');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (57, 'Josefa', 'Soans', 'http://dummyimage.com/246x100.png/ff4444/ffffff', '729-335-1621');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (58, 'Tamarra', 'Pride', 'http://dummyimage.com/209x100.png/5fa2dd/ffffff', '977-649-8194');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (59, 'Kerri', 'Hitzschke', 'http://dummyimage.com/184x100.png/ff4444/ffffff', '920-430-7882');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (60, 'Berkeley', 'Yearron', 'http://dummyimage.com/163x100.png/5fa2dd/ffffff', '824-982-3870');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (61, 'Almira', 'Gerriet', 'http://dummyimage.com/199x100.png/cc0000/ffffff', '464-401-4257');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (62, 'Clarie', 'Serginson', 'http://dummyimage.com/174x100.png/ff4444/ffffff', '168-907-7605');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (63, 'Sianna', 'Peetermann', 'http://dummyimage.com/115x100.png/dddddd/000000', '298-617-5815');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (64, 'Sarajane', 'Leyban', 'http://dummyimage.com/138x100.png/ff4444/ffffff', '958-282-4585');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (65, 'Lynn', 'Wills', 'http://dummyimage.com/107x100.png/5fa2dd/ffffff', '859-398-4848');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (66, 'Lea', 'Wensley', 'http://dummyimage.com/105x100.png/dddddd/000000', '324-378-1040');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (67, 'Edvard', 'Rosetti', 'http://dummyimage.com/171x100.png/cc0000/ffffff', '290-919-0445');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (68, 'Correna', 'Arrell', 'http://dummyimage.com/169x100.png/dddddd/000000', '345-719-3549');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (69, 'Silvester', 'Kunneke', 'http://dummyimage.com/204x100.png/ff4444/ffffff', '203-807-7641');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (70, 'Yvette', 'Lashbrook', 'http://dummyimage.com/106x100.png/dddddd/000000', '981-606-6506');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (71, 'Ethelind', 'Tigner', 'http://dummyimage.com/101x100.png/dddddd/000000', '501-575-5521');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (72, 'Delainey', 'Gallant', 'http://dummyimage.com/233x100.png/5fa2dd/ffffff', '724-510-1779');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (73, 'Boycey', 'Layman', 'http://dummyimage.com/230x100.png/ff4444/ffffff', '572-264-0633');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (74, 'Bar', 'Witherow', 'http://dummyimage.com/237x100.png/5fa2dd/ffffff', '841-224-3539');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (75, 'Ronica', 'Wainscot', 'http://dummyimage.com/243x100.png/cc0000/ffffff', '741-288-2729');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (76, 'Dorey', 'Ribou', 'http://dummyimage.com/202x100.png/ff4444/ffffff', '856-278-6468');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (77, 'Bernardina', 'Boutcher', 'http://dummyimage.com/224x100.png/ff4444/ffffff', '728-651-5289');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (78, 'Evangelin', 'Makeswell', 'http://dummyimage.com/180x100.png/dddddd/000000', '297-342-8325');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (79, 'Anabelle', 'Ahrenius', 'http://dummyimage.com/248x100.png/cc0000/ffffff', '837-289-0235');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (80, 'Rasia', 'Gino', 'http://dummyimage.com/153x100.png/dddddd/000000', '868-647-6092');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (81, 'Yolanthe', 'Delph', 'http://dummyimage.com/117x100.png/5fa2dd/ffffff', '850-531-2106');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (82, 'Becka', 'Cheeld', 'http://dummyimage.com/243x100.png/5fa2dd/ffffff', '690-615-7305');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (83, 'Margi', 'Dikelin', 'http://dummyimage.com/170x100.png/5fa2dd/ffffff', '522-675-5992');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (84, 'Brunhilda', 'Kingaby', 'http://dummyimage.com/122x100.png/cc0000/ffffff', '299-573-0252');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (85, 'Peria', 'Gloy', 'http://dummyimage.com/101x100.png/dddddd/000000', '193-725-6101');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (86, 'Heidi', 'Cuppleditch', 'http://dummyimage.com/129x100.png/ff4444/ffffff', '349-321-4221');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (87, 'Dredi', 'Rothery', 'http://dummyimage.com/192x100.png/5fa2dd/ffffff', '394-344-6279');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (88, 'Lesly', 'Sissel', 'http://dummyimage.com/236x100.png/cc0000/ffffff', '590-291-6854');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (89, 'Tracey', 'Hambrick', 'http://dummyimage.com/146x100.png/5fa2dd/ffffff', '367-124-9422');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (90, 'Justus', 'Asser', 'http://dummyimage.com/141x100.png/5fa2dd/ffffff', '697-660-3304');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (91, 'Amy', 'Kirkbright', 'http://dummyimage.com/161x100.png/ff4444/ffffff', '227-554-9117');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (92, 'Selia', 'Garwood', 'http://dummyimage.com/234x100.png/5fa2dd/ffffff', '610-686-5003');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (93, 'Courtney', 'Allflatt', 'http://dummyimage.com/178x100.png/ff4444/ffffff', '710-909-8977');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (94, 'Gray', 'Kearle', 'http://dummyimage.com/192x100.png/ff4444/ffffff', '522-642-9161');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (95, 'Breena', 'Bareham', 'http://dummyimage.com/230x100.png/ff4444/ffffff', '796-525-5971');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (96, 'Sandy', 'Kisby', 'http://dummyimage.com/202x100.png/cc0000/ffffff', '264-107-3347');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (97, 'Vanna', 'Franzotto', 'http://dummyimage.com/170x100.png/ff4444/ffffff', '269-234-3130');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (98, 'Berny', 'Gurys', 'http://dummyimage.com/206x100.png/cc0000/ffffff', '730-110-1988');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (99, 'Shelagh', 'Kalkofen', 'http://dummyimage.com/224x100.png/ff4444/ffffff', '133-895-3556');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (100, 'Lisle', 'Coraini', 'http://dummyimage.com/118x100.png/5fa2dd/ffffff', '140-775-7460');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (101, 'Payton', 'Feldfisher', 'http://dummyimage.com/228x100.png/cc0000/ffffff', '266-271-7999');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (102, 'Briney', 'Oxer', 'http://dummyimage.com/219x100.png/ff4444/ffffff', '364-251-0682');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (103, 'Norina', 'Reichardt', 'http://dummyimage.com/162x100.png/cc0000/ffffff', '837-939-3378');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (104, 'Hyacinthie', 'Eilles', 'http://dummyimage.com/102x100.png/cc0000/ffffff', '647-515-0726');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (105, 'Margy', 'Chartres', 'http://dummyimage.com/192x100.png/ff4444/ffffff', '298-899-3505');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (106, 'Elfrieda', 'Moakes', 'http://dummyimage.com/128x100.png/cc0000/ffffff', '500-600-1034');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (107, 'Filide', 'Bromehead', 'http://dummyimage.com/159x100.png/5fa2dd/ffffff', '247-686-1097');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (108, 'Ethelyn', 'Maskall', 'http://dummyimage.com/145x100.png/dddddd/000000', '986-408-3677');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (109, 'Donni', 'Biaggioli', 'http://dummyimage.com/189x100.png/ff4444/ffffff', '273-285-3023');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (110, 'Paloma', 'Greatland', 'http://dummyimage.com/125x100.png/cc0000/ffffff', '187-335-1108');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (111, 'Karrah', 'Rumble', 'http://dummyimage.com/135x100.png/5fa2dd/ffffff', '964-396-3862');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (112, 'Delphinia', 'Uvedale', 'http://dummyimage.com/221x100.png/5fa2dd/ffffff', '707-959-0905');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (113, 'Gerrie', 'Dunmore', 'http://dummyimage.com/189x100.png/ff4444/ffffff', '261-489-4306');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (114, 'Siusan', 'Jotcham', 'http://dummyimage.com/223x100.png/dddddd/000000', '404-239-4023');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (115, 'Tamqrah', 'Boost', 'http://dummyimage.com/122x100.png/5fa2dd/ffffff', '845-298-0085');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (116, 'Aguistin', 'Lowdiane', 'http://dummyimage.com/122x100.png/dddddd/000000', '377-254-7224');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (117, 'Rudolfo', 'Aldine', 'http://dummyimage.com/245x100.png/ff4444/ffffff', '887-310-9137');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (118, 'Gerty', 'Ranshaw', 'http://dummyimage.com/230x100.png/5fa2dd/ffffff', '171-739-9075');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (119, 'Sybila', 'Gillogley', 'http://dummyimage.com/198x100.png/dddddd/000000', '320-479-2648');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (120, 'Bondie', 'McDoual', 'http://dummyimage.com/154x100.png/ff4444/ffffff', '675-398-3787');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (121, 'Nicky', 'Ricks', 'http://dummyimage.com/176x100.png/5fa2dd/ffffff', '867-955-8154');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (122, 'Geoffrey', 'Wiltshaw', 'http://dummyimage.com/105x100.png/dddddd/000000', '650-894-4884');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (123, 'Kiley', 'Rumsey', 'http://dummyimage.com/109x100.png/dddddd/000000', '785-195-7399');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (124, 'Vidovik', 'Mustard', 'http://dummyimage.com/120x100.png/cc0000/ffffff', '156-609-1085');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (125, 'Caril', 'Schwanden', 'http://dummyimage.com/115x100.png/5fa2dd/ffffff', '667-499-4807');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (126, 'Royal', 'Warrick', 'http://dummyimage.com/151x100.png/cc0000/ffffff', '299-932-9746');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (127, 'Merrily', 'Kyneton', 'http://dummyimage.com/213x100.png/cc0000/ffffff', '178-786-2115');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (128, 'Bronnie', 'Tomsu', 'http://dummyimage.com/215x100.png/ff4444/ffffff', '264-910-0568');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (129, 'Cora', 'Ransom', 'http://dummyimage.com/183x100.png/ff4444/ffffff', '983-509-7572');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (130, 'Idaline', 'Baldrick', 'http://dummyimage.com/199x100.png/5fa2dd/ffffff', '270-848-3486');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (131, 'Joey', 'Sumpner', 'http://dummyimage.com/191x100.png/dddddd/000000', '633-585-0066');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (132, 'Den', 'Delia', 'http://dummyimage.com/207x100.png/5fa2dd/ffffff', '467-644-0784');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (133, 'Josefina', 'Warlowe', 'http://dummyimage.com/231x100.png/5fa2dd/ffffff', '165-469-9259');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (134, 'Agnesse', 'Sainz', 'http://dummyimage.com/146x100.png/5fa2dd/ffffff', '321-754-3349');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (135, 'Meryl', 'Tuberfield', 'http://dummyimage.com/230x100.png/dddddd/000000', '628-275-2049');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (136, 'Renato', 'Maystone', 'http://dummyimage.com/152x100.png/5fa2dd/ffffff', '811-224-2136');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (137, 'Cletus', 'Kern', 'http://dummyimage.com/161x100.png/cc0000/ffffff', '903-526-2718');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (138, 'Lind', 'Sidnall', 'http://dummyimage.com/114x100.png/5fa2dd/ffffff', '778-921-9894');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (139, 'Wenona', 'Echallie', 'http://dummyimage.com/113x100.png/dddddd/000000', '802-968-1961');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (140, 'Rory', 'Milmoe', 'http://dummyimage.com/250x100.png/cc0000/ffffff', '980-378-3818');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (141, 'Malvina', 'Withnall', 'http://dummyimage.com/197x100.png/cc0000/ffffff', '754-192-8690');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (142, 'Reinald', 'Kear', 'http://dummyimage.com/117x100.png/ff4444/ffffff', '891-334-6475');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (143, 'Free', 'Goulthorp', 'http://dummyimage.com/158x100.png/cc0000/ffffff', '752-175-5175');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (144, 'Spense', 'Falshaw', 'http://dummyimage.com/115x100.png/5fa2dd/ffffff', '200-663-9342');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (145, 'Yard', 'Key', 'http://dummyimage.com/137x100.png/cc0000/ffffff', '983-767-0915');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (146, 'Lyn', 'Presswell', 'http://dummyimage.com/144x100.png/dddddd/000000', '650-827-8913');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (147, 'Lynsey', 'Bloomfield', 'http://dummyimage.com/169x100.png/cc0000/ffffff', '269-452-3387');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (148, 'Chanda', 'Honnicott', 'http://dummyimage.com/202x100.png/ff4444/ffffff', '856-753-6853');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (149, 'Myrilla', 'Molohan', 'http://dummyimage.com/204x100.png/ff4444/ffffff', '665-628-3393');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (150, 'Nikita', 'Jozefiak', 'http://dummyimage.com/146x100.png/cc0000/ffffff', '252-931-5694');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (151, 'Rivi', 'Harlick', 'http://dummyimage.com/237x100.png/dddddd/000000', '506-659-3431');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (152, 'Sam', 'Burnhard', 'http://dummyimage.com/113x100.png/cc0000/ffffff', '700-545-5235');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (153, 'Genni', 'McVity', 'http://dummyimage.com/162x100.png/5fa2dd/ffffff', '752-495-3213');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (154, 'Edgar', 'Dismore', 'http://dummyimage.com/134x100.png/ff4444/ffffff', '838-147-7155');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (155, 'Fedora', 'McPeeters', 'http://dummyimage.com/201x100.png/cc0000/ffffff', '548-306-2944');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (156, 'Winfred', 'Benettolo', 'http://dummyimage.com/137x100.png/ff4444/ffffff', '895-347-5749');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (157, 'Jaine', 'Bagenal', 'http://dummyimage.com/157x100.png/dddddd/000000', '898-415-3095');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (158, 'Lucho', 'Harhoff', 'http://dummyimage.com/129x100.png/ff4444/ffffff', '160-618-9340');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (159, 'Fee', 'Stanislaw', 'http://dummyimage.com/186x100.png/cc0000/ffffff', '573-575-0445');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (160, 'Etty', 'Gauch', 'http://dummyimage.com/182x100.png/dddddd/000000', '246-725-8219');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (161, 'Sigfrid', 'Karpe', 'http://dummyimage.com/236x100.png/5fa2dd/ffffff', '465-174-8258');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (162, 'Merwyn', 'Waddingham', 'http://dummyimage.com/148x100.png/ff4444/ffffff', '876-825-0001');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (163, 'Pasquale', 'Haskell', 'http://dummyimage.com/249x100.png/dddddd/000000', '143-734-6662');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (164, 'Marquita', 'Rogerot', 'http://dummyimage.com/123x100.png/ff4444/ffffff', '628-916-7087');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (165, 'Winnie', 'Brunnstein', 'http://dummyimage.com/104x100.png/cc0000/ffffff', '726-394-8399');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (166, 'Esta', 'Kahler', 'http://dummyimage.com/123x100.png/5fa2dd/ffffff', '304-473-5981');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (167, 'Essa', 'Dhennin', 'http://dummyimage.com/108x100.png/dddddd/000000', '165-701-0413');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (168, 'Tish', 'Pittwood', 'http://dummyimage.com/105x100.png/cc0000/ffffff', '389-415-4854');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (169, 'Forest', 'Gulc', 'http://dummyimage.com/127x100.png/dddddd/000000', '560-537-1227');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (170, 'Lonnie', 'Geraldez', 'http://dummyimage.com/101x100.png/5fa2dd/ffffff', '774-234-9712');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (171, 'Bertrand', 'Cleiment', 'http://dummyimage.com/117x100.png/cc0000/ffffff', '130-875-7163');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (172, 'Lonni', 'Jeffcoate', 'http://dummyimage.com/157x100.png/ff4444/ffffff', '176-214-8453');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (173, 'Roosevelt', 'Di Nisco', 'http://dummyimage.com/146x100.png/ff4444/ffffff', '616-913-8193');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (174, 'Ynez', 'Branwhite', 'http://dummyimage.com/143x100.png/cc0000/ffffff', '667-316-1661');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (175, 'Ermanno', 'Sperwell', 'http://dummyimage.com/150x100.png/dddddd/000000', '166-511-5796');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (176, 'Wilmer', 'Vallance', 'http://dummyimage.com/163x100.png/cc0000/ffffff', '119-858-4172');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (177, 'Augie', 'Polkinghorne', 'http://dummyimage.com/231x100.png/dddddd/000000', '884-406-4303');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (178, 'Alysa', 'Marshfield', 'http://dummyimage.com/214x100.png/ff4444/ffffff', '505-744-8275');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (179, 'Marabel', 'Maraga', 'http://dummyimage.com/204x100.png/5fa2dd/ffffff', '903-701-7871');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (180, 'Lynett', 'Ellul', 'http://dummyimage.com/239x100.png/dddddd/000000', '294-579-7620');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (181, 'Chic', 'Pesak', 'http://dummyimage.com/157x100.png/ff4444/ffffff', '635-297-6813');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (182, 'Friedrick', 'Oakland', 'http://dummyimage.com/112x100.png/cc0000/ffffff', '992-424-4590');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (183, 'Denna', 'Eaton', 'http://dummyimage.com/242x100.png/ff4444/ffffff', '898-221-0380');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (184, 'Aland', 'Gawthorp', 'http://dummyimage.com/154x100.png/5fa2dd/ffffff', '442-298-1087');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (185, 'Dickie', 'Sketh', 'http://dummyimage.com/102x100.png/ff4444/ffffff', '468-840-9366');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (186, 'Sherlock', 'Pattini', 'http://dummyimage.com/148x100.png/5fa2dd/ffffff', '455-145-7895');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (187, 'Riane', 'Pretley', 'http://dummyimage.com/129x100.png/dddddd/000000', '992-750-2340');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (188, 'Tucky', 'Dodell', 'http://dummyimage.com/229x100.png/dddddd/000000', '773-223-3934');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (189, 'Crystie', 'Readings', 'http://dummyimage.com/117x100.png/cc0000/ffffff', '361-387-1036');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (190, 'Carlynne', 'Egle', 'http://dummyimage.com/195x100.png/ff4444/ffffff', '887-725-1320');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (191, 'Merrielle', 'Panner', 'http://dummyimage.com/124x100.png/ff4444/ffffff', '119-961-4843');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (192, 'Ephraim', 'Sewall', 'http://dummyimage.com/230x100.png/ff4444/ffffff', '715-542-7557');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (193, 'Karissa', 'Sandeford', 'http://dummyimage.com/140x100.png/5fa2dd/ffffff', '929-644-8676');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (194, 'Aveline', 'Tidman', 'http://dummyimage.com/103x100.png/dddddd/000000', '539-298-3261');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (195, 'Lotta', 'Tallman', 'http://dummyimage.com/219x100.png/ff4444/ffffff', '848-269-6411');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (196, 'Caren', 'Scafe', 'http://dummyimage.com/195x100.png/ff4444/ffffff', '505-994-7454');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (197, 'Maurita', 'Rothera', 'http://dummyimage.com/140x100.png/ff4444/ffffff', '974-460-8467');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (198, 'Loree', 'Clemente', 'http://dummyimage.com/161x100.png/ff4444/ffffff', '681-704-3571');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (199, 'Bobby', 'Spata', 'http://dummyimage.com/106x100.png/dddddd/000000', '462-868-6274');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (200, 'George', 'Lecount', 'http://dummyimage.com/233x100.png/ff4444/ffffff', '413-811-6783');
-insert into customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) values (201, 'LaGrimashe', 'Michie', 'https://media.assettype.com/bloombergquint%2F2023-06%2F1ff74842-ac21-4db2-90a2-8b5dc2b9dad9%2Fgrimace_shake.jpg?auto=format%2Ccompress&w=576', '514-325-0150');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (1, 'Maureen', 'Schmeler', null, '347-583-1663');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (2, 'Johnpaul', 'Abbott', null, '211.572.2581');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (3, 'Dannie', 'Orn', null, '429.776.9565 x28538');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (4, 'Okey', 'DuBuque', null, '1-221-809-6252 x49634');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (5, 'Justice', 'Walter', null, '(895) 269-3677 x794');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (6, 'Issac', 'Nitzsche', null, '1-965-802-4460 x86862');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (7, 'Kailyn', 'Ritchie', null, '266.899.7583');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (8, 'Candelario', 'Schulist', null, '488.488.5457 x99180');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (9, 'Eliezer', 'Bogan', null, '1-392-985-9752 x265');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (10, 'Julianne', 'Sipes', null, '(380) 902-2427 x2200');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (11, 'Elna', 'Mueller', null, '(297) 342-0553 x824');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (12, 'Jules', 'Moore-Crist', null, '874.526.8920 x451');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (13, 'Jaclyn', 'Walker', null, '655-466-6145 x05390');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (14, 'Mallory', 'Langworth', null, '843.948.8598 x585');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (15, 'Krista', 'Jacobson', null, '1-222-896-4168 x29800');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (16, 'Cornelius', 'Pagac', null, '814.751.0176 x837');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (17, 'Elliott', 'Nolan', null, '1-574-410-0582 x34069');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (18, 'Thalia', 'Stehr', null, '706-215-7711 x972');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (19, 'Dorothea', 'Kirlin', null, '1-941-641-2850 x714');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (20, 'Callie', 'Hammes', null, '1-879-479-8113');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (21, 'Trevor', 'Klein', null, '(740) 893-3348 x34230');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (22, 'Domenic', 'Nitzsche', null, '1-954-546-0706 x77123');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (23, 'Okey', 'Cronin', null, '503.608.1123');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (24, 'Green', 'Graham', null, '(881) 451-3951');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (25, 'Adrain', 'Beatty', null, '708-358-9410 x4046');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (26, 'Keagan', 'Collier', null, '337.601.6103 x92931');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (27, 'Rogelio', 'Rosenbaum', null, '982-640-4609 x18221');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (28, 'Winona', 'Hessel', null, '355.969.7878 x01952');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (29, 'Keara', 'Gusikowski', null, '652.426.2149');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (30, 'Piper', 'Morar-Schmitt', null, '1-815-379-4167');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (31, 'Friedrich', 'Paucek', null, '(611) 299-3282');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (32, 'Mabel', 'Prohaska', null, '674.514.0042 x2980');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (33, 'Georgiana', 'Ondricka', null, '733.566.4485 x072');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (34, 'Alfreda', 'Sawayn', null, '(781) 739-4390 x173');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (35, 'Albert', 'Hartmann', null, '1-652-690-6978 x7458');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (36, 'Jarod', 'Padberg', null, '698-474-7263');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (37, 'Marco', 'Schowalter-Fritsch', null, '1-750-481-5462 x665');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (38, 'Soledad', 'Bogisich', null, '990.320.0700 x496');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (39, 'Lafayette', 'Mills', null, '(275) 676-9214 x664');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (40, 'Vinnie', 'Macejkovic', null, '(707) 828-3227 x429');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (41, 'Evalyn', 'Robel', null, '1-336-822-4441 x3724');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (42, 'Zack', 'Johnston', null, '1-401-312-3920 x76830');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (43, 'Willa', 'Pouros', 'fmEGqCQhLIAGymQAqdfBnbDTwCJTQy.png', '726.220.5639');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (44, 'Laisha', 'Zulauf', 'uTIbSlKbVCTaNAPJxBIzBviLvozXXr.png', '972.293.6572');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (45, 'Jaquelin', 'Waelchi', null, '414.710.3203 x2814');
+INSERT INTO customer_info (id_customer_info, first_name, last_name, icon_path, phone_number) VALUES (46, 'Josephine', 'Powlowski', null, '564-726-5631 x425');
 
-/* Customer */
-INSERT INTO `customer` (`customer_info_id`, `id_customer`, `is_activated`, `is_deleted`, `is_verified`, `joined_date`, `link`, `personal_email`, `pwd`, `username`) VALUES
-	(1, 1, 1, 0, 1, '2020-08-07 00:00:00', '918033eb4e58', 'mjouhandeau0@photobucket.com', '$2a$10$guThIuIP0neYouX.sYkWO.Q5mXn1RfcRkcXTJ8/xrbGKKGxEezpgC', 'lcordel0'),
-	(2, 2, 1, 0, 1, '2015-01-26 00:00:00', 'c14325400bf4', 'parondel1@dropbox.com', 'gI3I!QS', 'jfiloniere1'),
-	(3, 3, 1, 1, 1, '2021-12-20 00:00:00', '50c839d125ea', 'cnaisbit2@angelfire.com', 'pL0iI$&', 'tjelfs2'),
-	(4, 4, 1, 0, 1, '2014-08-14 00:00:00', '9161e270f17c', 'gducket3@lycos.com', 'aG74R8)I', 'vgeeson3'),
-	(5, 5, 1, 0, 1, '2006-08-17 00:00:00', 'a847c4b45b6a', 'cspire4@ed.gov', 'qF9G*CiI', 'hbrennen4'),
-	(6, 6, 1, 0, 1, '2021-01-07 00:00:00', '68a18d7ae49d', 'gconochie5@topsy.com', 'rK2=b@yW', 'bnabbs5'),
-	(7, 7, 1, 0, 0, '2012-01-15 00:00:00', '3aea0b9606e7', 'hkarppi6@163.com', 'rO0JRW', 'achanders6'),
-	(8, 8, 1, 0, 1, '2014-11-09 00:00:00', '2a5cc9d67289', 'mforgan7@domainmarket.com', 'jK4G7S=oR_', 'igatesman7'),
-	(9, 9, 1, 0, 0, '2023-07-20 00:00:00', '777adca2fb67', 'jharder8@adobe.com', 'tX6wQO{S', 'dkupec8'),
-	(10, 10, 1, 0, 1, '2020-12-23 00:00:00', 'abde756d6033', 'bjirasek9@creativecommons.org', 'eB4%._|', 'jkillerby9'),
-	(11, 11, 1, 0, 0, '2023-07-12 00:00:00', '40182da83304', 'chandslipa@mozilla.org', 'mW22vy1N3gqw', 'aizatta'),
-	(12, 12, 1, 1, 1, '2021-10-31 00:00:00', 'd7765ed9843b', 'hellissb@weebly.com', 'wM1ad{', 'rimosb'),
-	(13, 13, 1, 0, 0, '2022-01-18 00:00:00', '2b26028d4f03', 'mharowerc@smh.com.au', 'mB7waMX0<"<', 'dvoelkerc'),
-	(14, 14, 1, 1, 0, '2014-04-05 00:00:00', '5bc257adcc90', 'lpaped@jigsy.com', 'hQ7VS36coP', 'ucowansd'),
-	(15, 15, 1, 1, 1, '2005-10-16 00:00:00', 'c33096a7c243', 'dcrabbe@webeden.co.uk', 'uL7*R.O', 'ecattinie'),
-	(16, 16, 1, 1, 1, '2018-01-16 00:00:00', '194db2f01962', 'hfarishf@themeforest.net', 'oB6`Ec', 'hbeeresf'),
-	(17, 17, 1, 1, 1, '2016-05-26 00:00:00', '3ed7b3afeea9', 'kristeg@telegraph.co.uk', 'qT51GbW7', 'cankrettg'),
-	(18, 18, 1, 1, 0, '2009-01-24 00:00:00', 'c55592a799ba', 'gtwidaleh@360.cn', 'jT4H1VIc`N', 'smennithorph'),
-	(19, 19, 1, 1, 1, '2009-11-18 00:00:00', '53d1889f1f0d', 'fdomonei@samsung.com', 'dB2_fW|', 'icrolli'),
-	(20, 20, 1, 0, 0, '2012-03-05 00:00:00', '94c8acad228e', 'rricketj@usgs.gov', 'oB7M`4,?u"=', 'lreffej'),
-	(21, 21, 1, 1, 1, '2006-09-18 00:00:00', '980c7e12b008', 'mgammadek@last.fm', 'dL1g~mlGK$l', 'mklishink'),
-	(22, 22, 1, 0, 0, '2007-05-16 00:00:00', 'f2a424f5e79f', 'cgillibrandl@boston.com', 'mD0`y)!b', 'schastenetl'),
-	(23, 23, 1, 1, 1, '2023-11-22 00:00:00', '14f93895a1c9', 'rchadburnm@xrea.com', 'lX3@vpt`JL', 'orickeardm'),
-	(24, 24, 1, 0, 0, '2004-08-11 00:00:00', 'd4d84995ba10', 'blawrenzn@sciencedaily.com', 'sA8TG@P}B', 'bkinceyn'),
-	(25, 25, 1, 0, 0, '2009-02-24 00:00:00', '7a861df5ce87', 'bpatono@ocn.ne.jp', 'fK8nijYwj', 'btownbyo'),
-	(26, 26, 1, 0, 0, '2015-03-17 00:00:00', '504fa1fe1540', 'apienp@arizona.edu', 'yG9FM6y0,', 'edukesp'),
-	(27, 27, 1, 0, 1, '2017-04-18 00:00:00', '875ba4298953', 'akempeq@weather.com', 'tM11?B', 'ketoileq'),
-	(28, 28, 1, 0, 0, '2019-11-20 00:00:00', '3087e21a1c21', 'alomaxr@stanford.edu', 'fD9GO&g=BnE', 'eruzekr'),
-	(29, 29, 1, 0, 0, '2002-09-02 00:00:00', 'e93d8167a7ad', 'rsantarellis@ed.gov', 'kC4ZKQmTOR', 'ttretheweys'),
-	(30, 30, 1, 1, 1, '2016-01-01 00:00:00', '0c0306cf876f', 'csnowlingt@hubpages.com', 'mT0Q}HDqqq9E', 'lradeliffet'),
-	(31, 31, 1, 1, 0, '2018-10-11 00:00:00', '8d3d0eb25fa9', 'bkempstoneu@com.com', 'jI2jre,wH', 'dlinceu'),
-	(32, 32, 1, 1, 1, '2011-09-14 00:00:00', 'f172daacfb79', 'jferrynv@stanford.edu', 'pB3H?<', 'dvineallv'),
-	(33, 33, 1, 0, 0, '2017-11-08 00:00:00', '43cfa373f74d', 'tgwinw@mac.com', 'bS6K+XQ', 'jtonksw'),
-	(34, 34, 1, 0, 0, '2018-06-05 00:00:00', '0db135050da4', 'cstainsbyx@plala.or.jp', 'jR8,d/p', 'hmcdonoghx'),
-	(35, 35, 1, 0, 1, '2018-03-07 00:00:00', '9c7f4a3e77b5', 'mbirkbyy@google.es', 'mO1ut50+L', 'dbollettiy'),
-	(36, 36, 1, 0, 1, '2015-02-15 00:00:00', '8be498854d24', 'dmanisz@geocities.jp', 'aM0Q"e)4}t`n', 'kyglesiaz'),
-	(37, 37, 1, 0, 1, '2002-12-07 00:00:00', '575db4df2e64', 'jrubel10@hhs.gov', 'pN0IYY4kz%1', 'rhollington10'),
-	(38, 38, 1, 0, 0, '2013-01-12 00:00:00', 'ee581629eaa4', 'dcassey11@hibu.com', 'cZ2Qji"k9dR9', 'kantic11'),
-	(39, 39, 1, 1, 1, '2009-05-19 00:00:00', 'dd12a8908cc8', 'rhurche12@chron.com', 'oZ9_$X8', 'kepton12'),
-	(40, 40, 1, 1, 1, '2003-08-13 00:00:00', 'ce9446189831', 'yfoulser13@boston.com', 'bA0BVcjn=EF', 'kveljes13'),
-	(41, 41, 1, 0, 1, '2014-08-10 00:00:00', '6d73a9be39c2', 'docarney14@tinyurl.com', 'jL569v', 'rmacfaell14'),
-	(42, 42, 1, 1, 0, '2017-04-12 00:00:00', '22967e9f938f', 'nmitford15@chicagotribune.com', 'rB8z|>FVbv1M', 'btomlins15'),
-	(43, 43, 1, 0, 0, '2022-08-29 00:00:00', '351e0536de8d', 'oburges16@reverbnation.com', 'tD82?T!', 'gmunns16'),
-	(44, 44, 1, 0, 1, '2009-12-15 00:00:00', '9a3dddcf2b69', 'escreech17@vimeo.com', 'hU6=~H', 'glafee17'),
-	(45, 45, 1, 1, 0, '2006-03-13 00:00:00', '9e6c01383455', 'jmiddell18@sourceforge.net', 'qS8{bn', 'bplewman18'),
-	(46, 46, 1, 1, 0, '2017-10-29 00:00:00', 'd43c038930cc', 'kbewicke19@creativecommons.org', 'zK6GvC20Y', 'everna19'),
-	(47, 47, 1, 0, 0, '2019-11-28 00:00:00', '9b23b68c06c0', 'mhussey1a@hibu.com', 'aM3$Q&', 'lchattaway1a'),
-	(48, 48, 1, 1, 1, '2003-06-12 00:00:00', 'dfb53dc2c6ad', 'bjurisic1b@hhs.gov', 'dN7/GB(Kf>', 'vping1b'),
-	(49, 49, 1, 0, 1, '2004-05-08 00:00:00', '4211ee186c2a', 'ptrobe1c@reference.com', 'pF4IR9g(', 'rrylett1c'),
-	(50, 50, 1, 1, 0, '2005-10-02 00:00:00', '7035323a0835', 'bcardis1d@friendfeed.com', 'vT2|xaDFWCB', 'twebburn1d'),
-	(51, 51, 1, 1, 1, '2017-12-15 00:00:00', 'bfe08c2c89f7', 'rkeenlayside1e@slashdot.org', 'nU2tffiRW!}x', 'mmaclardie1e'),
-	(52, 52, 1, 0, 0, '2007-09-26 00:00:00', 'ef459eb369e4', 'cjurkowski1f@slideshare.net', 'tA9fj~=hd1W<', 'kkibbey1f'),
-	(53, 53, 1, 0, 1, '2007-09-25 00:00:00', 'b51d2588c452', 'shurley1g@creativecommons.org', 'tT0@/Qyd10@', 'rrudsdale1g'),
-	(54, 54, 1, 0, 0, '2003-09-23 00:00:00', '63f75f285b2b', 'shaet1h@gnu.org', 'kR5tu*a@5', 'hrenachowski1h'),
-	(55, 55, 1, 1, 1, '2014-04-07 00:00:00', 'b0542fda97ec', 'mboston1i@marriott.com', 'cR564lWIN9CR', 'nforst1i'),
-	(56, 56, 1, 0, 1, '2005-12-21 00:00:00', '892db2354a7c', 'slampaert1j@desdev.cn', 'eB1C,K5h)%!', 'tfarnish1j'),
-	(57, 57, 1, 1, 1, '2020-04-15 00:00:00', '4df6aaeda1e1', 'edavie1k@g.co', 'lM7fl%e', 'zbrownsey1k'),
-	(58, 58, 1, 1, 1, '2014-03-26 00:00:00', '4f2b226d6c29', 'gpugsley1l@yahoo.co.jp', 'oC93Ce>#', 'slacky1l'),
-	(59, 59, 1, 1, 1, '2020-09-19 00:00:00', '812c627c261f', 'hshera1m@foxnews.com', 'cA2M"QUOK(__', 'lgush1m'),
-	(60, 60, 1, 1, 1, '2022-10-26 00:00:00', 'f92a18b47c43', 'sduncklee1n@alexa.com', 'tW97filKC', 'ddeener1n'),
-	(61, 61, 1, 1, 0, '2011-02-20 00:00:00', 'c89cbae6591e', 'barsey1o@alexa.com', 'vH36UGBP%', 'amanchett1o'),
-	(62, 62, 1, 1, 1, '2003-05-07 00:00:00', '2f471ca95b43', 'mhaughton1p@ucoz.com', 'rG0~Rc3(', 'gmccoish1p'),
-	(63, 63, 1, 1, 1, '2014-11-16 00:00:00', 'ade68d83dd31', 'brubin1q@godaddy.com', 'rC0@bk', 'cwinwood1q'),
-	(64, 64, 1, 1, 0, '2004-08-23 00:00:00', '7ad0fe9b56bf', 'mgobel1r@youtube.com', 'bX4Cj***', 'dbeavers1r'),
-	(65, 65, 1, 1, 0, '2023-08-24 00:00:00', '3dda8d9fb128', 'blettington1s@berkeley.edu', 'tR1llxpSw0', 'jjuliff1s'),
-	(66, 66, 1, 0, 1, '2020-03-29 00:00:00', '71f8e8419f07', 'akevis1t@dailymail.co.uk', 'iI0hX$WAEN6', 'kcreany1t'),
-	(67, 67, 1, 0, 0, '2004-12-31 00:00:00', '0ef37932d4f3', 'cparsley1u@last.fm', 'cC1(0wg|BW', 'hheadington1u'),
-	(68, 68, 1, 1, 1, '2006-03-12 00:00:00', 'a4d3e58d9302', 'jsimonel1v@t-online.de', 'vZ1hr@rc)K>J', 'scorrington1v'),
-	(69, 69, 1, 0, 0, '2015-07-29 00:00:00', 'e2e0759568ad', 'lveasey1w@weather.com', 'fC2L)h$"/2', 'wslyde1w'),
-	(70, 70, 1, 1, 1, '2019-07-27 00:00:00', '6706f7eeb31e', 'asarfas1x@desdev.cn', 'hF58Zho=/H', 'ticzokvitz1x'),
-	(71, 71, 1, 1, 1, '2012-12-27 00:00:00', '0620e531109d', 'scoleridge1y@booking.com', 'jT0lkrb@j!', 'bsang1y'),
-	(72, 72, 1, 0, 1, '2020-11-28 00:00:00', 'd321a5fc9061', 'ihumerstone1z@sakura.ne.jp', 'hD5r+R4(V+', 'agillmore1z'),
-	(73, 73, 1, 0, 1, '2018-04-16 00:00:00', '4875e1e474de', 'cbertelsen20@friendfeed.com', 'zZ3c971p', 'hevins20'),
-	(74, 74, 1, 0, 0, '2019-06-14 00:00:00', '70064be4ab55', 'jriepel21@rakuten.co.jp', 'pG0gr?hl', 'jpengilley21'),
-	(75, 75, 1, 1, 0, '2019-05-04 00:00:00', '47249e2563fa', 'lthornton22@businessinsider.com', 'nQ9"{o&p', 'sguyonnet22'),
-	(76, 76, 1, 0, 0, '2021-11-23 00:00:00', '2be484eec599', 'mlocket23@dell.com', 'kM2BR>HM4o', 'rkeitch23'),
-	(77, 77, 1, 0, 1, '2021-03-22 00:00:00', 'ab26e50a24d8', 'ctribell24@skyrock.com', 'cU7w%6"', 'mskydall24'),
-	(78, 78, 1, 1, 1, '2019-06-17 00:00:00', '102f0361a992', 'hzanolli25@cargocollective.com', 'qI35Cw{', 'rocarran25'),
-	(79, 79, 1, 1, 0, '2004-01-01 00:00:00', '4e9271508bdf', 'mcale26@soundcloud.com', 'cI4*tP?R(&=Q', 'mdavenhall26'),
-	(80, 80, 1, 0, 0, '2012-12-12 00:00:00', '4084ee4c258a', 'jgollard27@clickbank.net', 'eZ2FWF}}', 'rstickles27'),
-	(81, 81, 1, 0, 1, '2002-11-10 00:00:00', '79343f0ea9b9', 'mizachik28@altervista.org', 'rG1Al@!%', 'hdoorly28'),
-	(82, 82, 1, 1, 1, '2002-09-14 00:00:00', '340ab9cd1336', 'cgatteridge29@myspace.com', 'jI84EY#', 'lmattaus29'),
-	(83, 83, 1, 0, 1, '2019-07-19 00:00:00', 'b0edbc8d26cc', 'gmiko2a@aboutads.info', 'xY79J<nQN', 'rkennerknecht2a'),
-	(84, 84, 1, 0, 0, '2019-09-14 00:00:00', 'b5505b58e7b0', 'egludor2b@disqus.com', 'tX48v0hS', 'aboleyn2b'),
-	(85, 85, 1, 1, 1, '2020-02-08 00:00:00', 'f0c6704ec5c2', 'mdaymond2c@spiegel.de', 'eG7CNrrF"fa', 'bbesque2c'),
-	(86, 86, 1, 1, 1, '2009-12-23 00:00:00', '7e1148f0d2a8', 'ldyball2d@globo.com', 'kJ6kXk', 'wrobecon2d'),
-	(87, 87, 1, 1, 1, '2017-07-22 00:00:00', 'f86f93fd1e42', 'cwetherald2e@typepad.com', 'yK8FEC<.<', 'udecent2e'),
-	(88, 88, 1, 0, 1, '2020-10-28 00:00:00', 'f5b3365166e2', 'jphin2f@accuweather.com', 'oP44&O>', 'hdurtnell2f'),
-	(89, 89, 1, 1, 1, '2017-03-07 00:00:00', 'ff477f7829d0', 'pdjekic2g@smugmug.com', 'oG0Z1!@QRxd', 'mlovegrove2g'),
-	(90, 90, 1, 0, 1, '2023-04-18 00:00:00', '368e950d5641', 'jbettanay2h@histats.com', 'eW55npppM', 'echessil2h'),
-	(91, 91, 1, 0, 1, '2011-11-25 00:00:00', '4b53e471ff85', 'sjurgenson2i@people.com.cn', 'eJ1|>Ho', 'nwhitcombe2i'),
-	(92, 92, 1, 0, 0, '2006-05-08 00:00:00', '5bb7433ebe6f', 'nruvel2j@delicious.com', 'sF6<En?', 'amilligan2j'),
-	(93, 93, 1, 1, 0, '2022-02-10 00:00:00', 'c71a59976ca7', 'jmedgwick2k@comcast.net', 'gV2O$o&n)IR', 'mpesak2k'),
-	(94, 94, 1, 1, 0, '2006-08-09 00:00:00', '91916fb8b515', 'rgencke2l@a8.net', 'zT4o{1Ia%', 'gbaiden2l'),
-	(95, 95, 1, 1, 1, '2017-07-08 00:00:00', '237406ff7a97', 'mgarshore2m@diigo.com', 'nN15ae~=#X', 'lireson2m'),
-	(96, 96, 1, 0, 1, '2007-04-15 00:00:00', '48ac0fa1dfef', 'bbrou2n@google.de', 'uD4pU1RaGp', 'ewathey2n'),
-	(97, 97, 1, 1, 0, '2011-02-23 00:00:00', '91328fb34ebd', 'mbartolomieu2o@microsoft.com', 'jK4SbZ)C', 'msandercroft2o'),
-	(98, 98, 1, 0, 0, '2019-01-11 00:00:00', '98092550a95b', 'cfackney2p@networksolutions.com', 'dE4egPbXe', 'jmarchenko2p'),
-	(99, 99, 1, 0, 0, '2009-04-06 00:00:00', '2b40857e4070', 'abroom2q@apache.org', 'pX6v&0|(@', 'bpennacci2q'),
-	(100, 100, 1, 1, 0, '2017-12-23 00:00:00', '0ff802123da6', 'mhendrickson2r@npr.org', 'mD7MB@u', 'bkoche2r'),
-	(101, 101, 1, 0, 0, '2007-12-20 00:00:00', '904d0976d225', 'jdombrell2s@illinois.edu', 'kC9H5Sr8Te', 'hfolley2s'),
-	(102, 102, 1, 1, 0, '2009-07-25 00:00:00', '9d1217ce6705', 'fkettlestring2t@comcast.net', 'iT3k@X_', 'whonywill2t'),
-	(103, 103, 1, 1, 1, '2002-03-07 00:00:00', '1b9419fdcca5', 'emaisey2u@howstuffworks.com', 'eC8#%bd|897', 'ggladdin2u'),
-	(104, 104, 1, 1, 0, '2002-04-29 00:00:00', 'ed513564a097', 'rstudman2v@umich.edu', 'vE8)6bGyW', 'masmus2v'),
-	(105, 105, 1, 0, 1, '2011-03-13 00:00:00', '833e9f399002', 'ayea2w@google.fr', 'nP4JMzb91pb', 'cbehnke2w'),
-	(106, 106, 1, 1, 0, '2012-06-09 00:00:00', 'bc161d2bc2f0', 'bogbourne2x@walmart.com', 'nG55_6', 'jpepin2x'),
-	(107, 107, 1, 1, 0, '2016-06-30 00:00:00', 'c698c07fff7d', 'gbeardon2y@dagondesign.com', 'wL1p!&', 'bhalfhead2y'),
-	(108, 108, 1, 1, 0, '2007-11-16 00:00:00', 'c9aaf6ef9790', 'rchidley2z@dot.gov', 'jG0bG)g6', 'fzumfelde2z'),
-	(109, 109, 1, 1, 1, '2023-03-20 00:00:00', '2ff77d9edd15', 'cnuccii30@theguardian.com', 'dL71!+', 'iitscowicz30'),
-	(110, 110, 1, 0, 0, '2009-11-15 00:00:00', '55ddeab82756', 'rhubber31@cnbc.com', 'fQ6>0&8}X', 'saguirrezabala31'),
-	(111, 111, 1, 1, 0, '2020-11-06 00:00:00', '005ac0d1a9fd', 'lbranscombe32@about.me', 'rG8A(<Xsz&18', 'bborley32'),
-	(112, 112, 1, 0, 0, '2018-02-19 00:00:00', 'c3128dbc36a3', 'fminear33@nsw.gov.au', 'mP9~)kBH', 'wvanshin33'),
-	(113, 113, 1, 1, 1, '2018-08-05 00:00:00', 'c44e93aaabdc', 'rsollitt34@gravatar.com', 'eN3fth', 'wtremonte34'),
-	(114, 114, 1, 1, 1, '2014-10-16 00:00:00', 'a29a431227c6', 'msterte35@usa.gov', 'pZ2m(S&H%6J', 'cbridgens35'),
-	(115, 115, 1, 1, 1, '2003-11-01 00:00:00', '6baa22a8d602', 'epeppett36@weather.com', 'bU8&|!D@d1', 'acanby36'),
-	(116, 116, 1, 1, 0, '2007-04-12 00:00:00', '68f48711ea16', 'dlenoire37@mayoclinic.com', 'uG3OE+}', 'lminette37'),
-	(117, 117, 1, 0, 0, '2018-03-17 00:00:00', '56da66ef279c', 'lhocking38@networksolutions.com', 'jY9yjHK', 'rnorthover38'),
-	(118, 118, 1, 1, 1, '2021-11-12 00:00:00', '3a027f165e46', 'sskittrall39@gmpg.org', 'mA5wY(NZ=1v=', 'lgabel39'),
-	(119, 119, 1, 1, 0, '2022-01-11 00:00:00', '862149667127', 'gthurstance3a@360.cn', 'nK7~oIu', 'epratt3a'),
-	(120, 120, 1, 0, 0, '2021-11-11 00:00:00', 'cdc23abf31d5', 'jlammenga3b@buzzfeed.com', 'jV7MZLE5s#1y', 'strowbridge3b'),
-	(121, 121, 1, 0, 0, '2022-10-12 00:00:00', '68fc87de3017', 'efolger3c@trellian.com', 'zU4XVdQ*6(R', 'kfoldes3c'),
-	(122, 122, 1, 1, 1, '2003-08-22 00:00:00', '70f27d8a0927', 'eappleford3d@livejournal.com', 'mJ0F{y', 'eladson3d'),
-	(123, 123, 1, 0, 0, '2003-07-13 00:00:00', '97573b30391c', 'cdurnin3e@imdb.com', 'tJ8JlB|=s$', 'lboneham3e'),
-	(124, 124, 1, 0, 1, '2002-07-31 00:00:00', '5de017b385ad', 'gmacdaid3f@apple.com', 'jU9Po)uG7Q0L', 'aeayres3f'),
-	(125, 125, 1, 0, 0, '2009-10-09 00:00:00', '2fa60e0ebff3', 'oharmour3g@samsung.com', 'dM1R`Sz1', 'epople3g'),
-	(126, 126, 1, 1, 0, '2012-01-30 00:00:00', '82b453694954', 'rpowelee3h@netvibes.com', 'wF55cz}rDE(', 'mpabst3h'),
-	(127, 127, 1, 0, 1, '2007-01-14 00:00:00', '559db1e999ff', 'edenerley3i@clickbank.net', 'aB0D_=Bc&#b(', 'gdudbridge3i'),
-	(128, 128, 1, 1, 1, '2018-02-11 00:00:00', '4a7ff2172ec1', 'cbinnell3j@blogspot.com', 'nD5qb9%4=', 'phaste3j'),
-	(129, 129, 1, 0, 0, '2004-04-15 00:00:00', 'a766e917b00d', 'gtomeo3k@ted.com', 'dI634zh=dtg', 'jmcgoldrick3k'),
-	(130, 130, 1, 1, 0, '2008-02-13 00:00:00', 'd2d3ced4a390', 'wdunsford3l@amazonaws.com', 'hT7MxyiTq', 'tsigne3l'),
-	(131, 131, 1, 0, 0, '2014-02-25 00:00:00', 'f727f8c0cd93', 'jmulqueeny3m@toplist.cz', 'qT3Sv8Fm#z@', 'cboncoeur3m'),
-	(132, 132, 1, 1, 1, '2006-07-28 00:00:00', '5df859dfdaef', 'dwiggins3n@sakura.ne.jp', 'xE6vaE+T3', 'dgregorace3n'),
-	(133, 133, 1, 0, 0, '2002-10-30 00:00:00', 'd3dc2499e9ef', 'ewartonby3o@ebay.co.uk', 'qP8|6~ZAtdn~', 'rmccorkell3o'),
-	(134, 134, 1, 0, 0, '2013-10-09 00:00:00', '82fafbef8308', 'hhiseman3p@theglobeandmail.com', 'eJ2|d23', 'sfisby3p'),
-	(135, 135, 1, 1, 0, '2008-06-23 00:00:00', 'cc3cfeb97985', 'cedworthie3q@amazon.com', 'jF9sck1Z', 'adavidesco3q'),
-	(136, 136, 1, 1, 0, '2022-02-17 00:00:00', 'eade62699dc8', 'ikobes3r@uiuc.edu', 'cR3R)}&"', 'msimcox3r'),
-	(137, 137, 1, 1, 0, '2017-01-11 00:00:00', 'bcbcba0ce6e7', 'hcoultard3s@house.gov', 'gK4>XY57', 'lburges3s'),
-	(138, 138, 1, 1, 1, '2004-12-12 00:00:00', '4e6941be2cea', 'ddobrovolski3t@salon.com', 'dR7J*.!pn', 'freynolds3t'),
-	(139, 139, 1, 0, 0, '2019-11-20 00:00:00', 'c79272eea2ce', 'eflagg3u@livejournal.com', 'rD4{nA', 'tmacmeekan3u'),
-	(140, 140, 1, 1, 1, '2019-12-24 00:00:00', 'c201a34e45e4', 'rkinastan3v@shareasale.com', 'eZ6,i)QJfA)', 'rmazin3v'),
-	(141, 141, 1, 0, 0, '2018-07-13 00:00:00', '5a643736f03e', 'fsimonin3w@gizmodo.com', 'fC8McS+,8r)/', 'lgeorgescu3w'),
-	(142, 142, 1, 1, 0, '2013-01-03 00:00:00', 'd7a156ebde4f', 'ebrotherton3x@paypal.com', 'rM61P}o_qYv', 'dtassel3x'),
-	(143, 143, 1, 0, 1, '2018-01-18 00:00:00', '779b01c52fec', 'jvoice3y@nymag.com', 'hI0GUtXJmsa', 'vcromwell3y'),
-	(144, 144, 1, 0, 1, '2021-01-22 00:00:00', 'fa16e0a3ad06', 'rabbay3z@china.com.cn', 'uS7AWy!k{s', 'hgregoletti3z'),
-	(145, 145, 1, 1, 1, '2009-07-23 00:00:00', 'c40848cdb340', 'tkneal40@hc360.com', 'qO5EbWM#q', 'lburgwin40'),
-	(146, 146, 1, 0, 0, '2017-10-01 00:00:00', '275bba8147b2', 'tphilippon41@reddit.com', 'jF584HR', 'hrozier41'),
-	(147, 147, 1, 0, 0, '2013-08-07 00:00:00', 'acd7250b2d7b', 'bdeviney42@etsy.com', 'dL4?(Y$"%(I', 'krevett42'),
-	(148, 148, 1, 1, 0, '2020-06-24 00:00:00', '9222e961b3d6', 'rcracoe43@skyrock.com', 'fR0b=svHxX}', 'amedlicott43'),
-	(149, 149, 1, 1, 0, '2004-01-05 00:00:00', 'fa56cc0d431c', 'criddoch44@ucoz.ru', 'mD7bj&wu@wRe', 'wgunton44'),
-	(150, 150, 1, 1, 0, '2012-05-22 00:00:00', '8db207f32458', 'wcaser45@cmu.edu', 'eX9Gv.#|M8qG', 'gearwicker45'),
-	(151, 151, 1, 0, 1, '2015-11-05 00:00:00', '12938e87b7a3', 'klashbrook46@de.vu', 'sG1)kOnR7', 'mkonmann46'),
-	(152, 152, 1, 1, 0, '2007-06-20 00:00:00', 'b2597bec91d7', 'fgarrity47@cdc.gov', 'gM7BB4URkR~', 'cdayes47'),
-	(153, 153, 1, 0, 1, '2010-04-01 00:00:00', 'eee60ce438b0', 'jsoar48@webmd.com', 'cR0eNd', 'ebargh48'),
-	(154, 154, 1, 1, 1, '2013-11-10 00:00:00', '1a3a8ad351a8', 'jgammidge49@smugmug.com', 'yU24lzqiU', 'ggelland49'),
-	(155, 155, 1, 0, 0, '2007-06-05 00:00:00', '68beb205d650', 'rbuttgow4a@csmonitor.com', 'gS4oK2aBY', 'sbosley4a'),
-	(156, 156, 1, 0, 1, '2014-02-18 00:00:00', '43448600b79d', 'jheathfield4b@google.it', 'mT3)3j$', 'jivashintsov4b'),
-	(157, 157, 1, 1, 1, '2015-10-15 00:00:00', '07c9b427a06e', 'cmalcher4c@zimbio.com', 'hV2Z!(U%wM', 'nlande4c'),
-	(158, 158, 1, 1, 1, '2005-08-28 00:00:00', 'bf119575997c', 'mblanpein4d@marketwatch.com', 'oQ5+g*gn~G=', 'dlethbury4d'),
-	(159, 159, 1, 1, 1, '2020-05-30 00:00:00', '15c483a10891', 'bcovelle4e@japanpost.jp', 'aK6/Wu#', 'bblenkiron4e'),
-	(160, 160, 1, 1, 0, '2002-05-05 00:00:00', '5f28e220fc69', 'rskrzynski4f@hugedomains.com', 'lQ8o?c1', 'cpoon4f'),
-	(161, 161, 1, 1, 1, '2016-03-20 00:00:00', '9b673bc6652b', 'mmohammed4g@symantec.com', 'mB1h)T', 'dshenton4g'),
-	(162, 162, 1, 1, 0, '2019-12-19 00:00:00', '2d3c2734a779', 'swilmut4h@ameblo.jp', 'eV5VK~', 'rbutters4h'),
-	(163, 163, 1, 0, 1, '2011-11-07 00:00:00', '245197c0813d', 'ltowey4i@jigsy.com', 'zL2BfRnr4SdN', 'fwhitebrook4i'),
-	(164, 164, 1, 1, 1, '2015-05-13 00:00:00', '32224ae20527', 'jreiach4j@surveymonkey.com', 'iQ7Q>k', 'tpirelli4j'),
-	(165, 165, 1, 1, 0, '2011-05-01 00:00:00', '1d5c0b15d640', 'slewing4k@arstechnica.com', 'tO5qAd', 'sshirtcliffe4k'),
-	(166, 166, 1, 0, 0, '2013-04-03 00:00:00', '3009d71b2143', 'mmelvin4l@seesaa.net', 'tY7Tvk(E', 'charkus4l'),
-	(167, 167, 1, 0, 1, '2006-08-17 00:00:00', '9674f0f5d959', 'slope4m@purevolume.com', 'mS4k#O', 'eloveredge4m'),
-	(168, 168, 1, 1, 1, '2003-12-23 00:00:00', '509c3b3946f6', 'pseath4n@examiner.com', 'yV5Rdz(Y', 'cmaseyk4n'),
-	(169, 169, 1, 1, 0, '2007-12-02 00:00:00', 'bf4fcf83350a', 'jjaques4o@blogger.com', 'kO7)*dvhxx1N', 'cscadding4o'),
-	(170, 170, 1, 1, 1, '2006-07-26 00:00:00', 'cb98985720c3', 'jbowbrick4p@blogtalkradio.com', 'vM0ya.Y', 'amaskelyne4p'),
-	(171, 171, 1, 1, 0, '2017-05-03 00:00:00', '9da8b33dcf00', 'oohickee4q@nsw.gov.au', 'xD6bFEQ', 'cbrockhouse4q'),
-	(172, 172, 1, 0, 1, '2023-03-06 00:00:00', 'b44708660c01', 'ccrossman4r@trellian.com', 'oT4_MUW', 'cmcinnery4r'),
-	(173, 173, 1, 0, 0, '2023-12-08 00:00:00', '69e18056403b', 'hdecastelain4s@craigslist.org', 'fI3xkBnhpTu', 'pkeel4s'),
-	(174, 174, 1, 0, 1, '2017-07-18 00:00:00', 'a029205fd8da', 'mmcnee4t@prnewswire.com', 'gA7DD2', 'ghurton4t'),
-	(175, 175, 1, 0, 0, '2003-07-16 00:00:00', '52790e7de29e', 'dbradley4u@state.gov', 'zX7=&C', 'lmorrill4u'),
-	(176, 176, 1, 1, 1, '2014-05-07 00:00:00', '5f59af31f5a3', 'rhrinchishin4v@facebook.com', 'yL3ju=z!D~', 'drosenzveig4v'),
-	(177, 177, 1, 0, 1, '2015-08-05 00:00:00', '560f7c5c913c', 'bspatig4w@booking.com', 'qR1!#_K`X`', 'redwick4w'),
-	(178, 178, 1, 0, 0, '2017-06-02 00:00:00', 'd0a738d3d075', 'aglennon4x@instagram.com', 'dY8k`x{%', 'tstapford4x'),
-	(179, 179, 1, 0, 1, '2005-12-04 00:00:00', 'e26473b31e2c', 'gledford4y@google.de', 'gW8iUt(a', 'epaulson4y'),
-	(180, 180, 1, 0, 0, '2007-05-22 00:00:00', '533788f38b01', 'rmanginot4z@dyndns.org', 'qH3N2D1~N@!U', 'djacmard4z'),
-	(181, 181, 1, 1, 0, '2023-04-04 00:00:00', 'ca8ca50b4756', 'kpeart50@omniture.com', 'vI25{bD', 'jtremellier50'),
-	(182, 182, 1, 1, 0, '2010-01-17 00:00:00', 'd9101d860b46', 'mscolts51@si.edu', 'tE7Vk(`0', 'lgayter51'),
-	(183, 183, 1, 0, 1, '2002-03-11 00:00:00', '8840a40d6577', 'mschenkel52@shareasale.com', 'eD3x$y', 'hdrewson52'),
-	(184, 184, 1, 0, 0, '2023-05-26 00:00:00', '0bc3ae6f18cc', 'ejoslow53@seattletimes.com', 'iA7?hKr', 'rgrellis53'),
-	(185, 185, 1, 1, 1, '2005-11-23 00:00:00', 'c168ec1649b7', 'sfrodsham54@google.ru', 'wJ2r4D~vj%W', 'aheitz54'),
-	(186, 186, 1, 0, 0, '2018-08-10 00:00:00', 'b74d90ee6be6', 'hsuthworth55@telegraph.co.uk', 'xN82kml?', 'reller55'),
-	(187, 187, 1, 0, 0, '2020-01-27 00:00:00', '9eeef1abe21b', 'jfullegar56@macromedia.com', 'tR05E$n', 'sgoodfellowe56'),
-	(188, 188, 1, 1, 1, '2019-05-01 00:00:00', '3c09ee81b2ee', 'hlibreros57@rambler.ru', 'dD4mu>f"PdC', 'nblazek57'),
-	(189, 189, 1, 0, 0, '2018-06-15 00:00:00', 'fd0068917632', 'mgiottoi58@msu.edu', 'dI6q&PY5Cj', 'shiscocks58'),
-	(190, 190, 1, 0, 1, '2009-11-25 00:00:00', '38207db6072a', 'hcradick59@cnbc.com', 'hI5H5Sq3', 'ppostans59'),
-	(191, 191, 1, 0, 1, '2003-07-20 00:00:00', 'dfcdb407b409', 'abinns5a@ucoz.ru', 'aL5{!u+0t', 'sclapham5a'),
-	(192, 192, 1, 0, 0, '2003-01-03 00:00:00', 'bb48a114e866', 'dsawyers5b@utexas.edu', 'jE18gh~i>A%', 'mlesek5b'),
-	(193, 193, 1, 1, 0, '2023-04-02 00:00:00', '4317fc8d759f', 'rcapeloff5c@geocities.com', 'gS7W(rRf8&2@', 'eheineke5c'),
-	(194, 194, 1, 0, 0, '2015-11-03 00:00:00', '771b6547e0c1', 'lchipping5d@prnewswire.com', 'sT3vreIGQ', 'ostaig5d'),
-	(195, 195, 1, 1, 0, '2016-08-14 00:00:00', 'e6c10f8c4e8c', 'mmerill5e@ning.com', 'hO7`e!', 'craeside5e'),
-	(196, 196, 1, 1, 0, '2003-04-07 00:00:00', 'efab0c912a9c', 'ggutman5f@miibeian.gov.cn', 'aV0KT6G|', 'rbysaker5f'),
-	(197, 197, 1, 1, 1, '2020-02-27 00:00:00', 'aa9437f424c6', 'tmacentee5g@mapy.cz', 'aY1D?qd<"ka', 'ielfleet5g'),
-	(198, 198, 1, 1, 1, '2019-03-29 00:00:00', 'eb82eb71724b', 'mcolquyte5h@kickstarter.com', 'aX0*Hy})', 'csteeples5h'),
-	(199, 199, 1, 0, 1, '2003-11-23 00:00:00', 'c1e4f8182efa', 'jmasey5i@artisteer.com', 'jE0POhx|', 'rclogg5i'),
-	(200, 200, 1, 1, 0, '2016-12-18 00:00:00', 'ae02cb59df2b', 'akaret5j@pbs.org', 'xW6@l)|rNZI', 'rdonke5j'),
-	(201, 201, 1, 0, 0, '2024-05-08 00:00:00', 'jitwoeUOflSg', 'gafic12884@facais.com', '$2a$10$YPoGDxvCCTCJC1zci2H9mea8Lrk3EOi9JddoKNRA41MG./oUtV5ui', 'Grimashake');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (1, 1, 1, 0, 0, '2024-10-12 23:28:37', 'aVVogq5hDDUl', 'jack@gmail.com', '$2a$10$jbYvcdqb7eJ.Y4aM/iQYiOxoMl.CsMhpNOUm7JNqlnSGWzqJ4riGG', 'jack@gmail.com');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (2, 2, 1, 0, 0, '2024-10-12 23:28:37', 'o9I5wdCxUMcZ', 'Vernon.Ferry67@hotmail.com', 'oVTho8GvDO7AXs3', 'Esther.Huels');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (3, 3, 1, 0, 0, '2024-10-12 23:28:37', 'C7adyEP_ka03', 'Victoria64@yahoo.com', 'j4ZLMaZr1w6d3vv', 'Maybell_VonRueden');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (4, 4, 1, 0, 0, '2024-10-12 23:28:37', 'TBow3vEgiOYK', 'Hipolito.Dickens@hotmail.com', 'S5LQBzRUtyXuOSZ', 'Quinten_Sipes');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (5, 5, 1, 0, 0, '2024-10-12 23:28:37', 'dNRn9okzPOxN', 'Clarabelle.Robel8@gmail.com', 'Te96nJG7LXpdbCC', 'Issac_Bailey37');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (6, 6, 1, 0, 0, '2024-10-12 23:28:37', 'Zmm-kHPxT6xy', 'Casey34@hotmail.com', 'OjYHW8aokkfBEvq', 'Blanche62');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (7, 7, 1, 0, 0, '2024-10-12 23:28:37', 'yO6wC76zRp9t', 'Halle48@yahoo.com', 'KHQzOojjstwUvLY', 'Leora.Gusikowski10');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (8, 8, 1, 0, 0, '2024-10-12 23:28:37', 'QpGUj8sBWcTB', 'Kacie_Waelchi87@yahoo.com', 'Ofe8y6D79xzukZ0', 'Rene.Auer51');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (9, 9, 1, 0, 0, '2024-10-12 23:28:37', 'NRlZwXzzJTaf', 'Ryann_Bergstrom@hotmail.com', 'FZflqR5Zm3oQjLV', 'Salvador61');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (10, 10, 1, 0, 0, '2024-10-12 23:28:37', 'DLi2eVzu7xjF', 'Amara_Ankunding@yahoo.com', 'YiZZk6PckgD8RBF', 'Doris.Parker54');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (11, 11, 1, 0, 0, '2024-10-12 23:28:37', '3AuHHiDtmbOr', 'Mittie.Fahey72@gmail.com', 'VCPChKd0dR3aJ4p', 'Immanuel.Funk');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (12, 12, 1, 0, 0, '2024-10-12 23:28:37', '2O-73qok8Ytr', 'Johnathan92@hotmail.com', 'xQI_sxo_2Jt1uJU', 'Isobel.Jacobson-Rowe');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (13, 13, 1, 0, 0, '2024-10-12 23:28:37', 'JWQ-4UdFJLP2', 'Pat_Rempel84@yahoo.com', 'fXovKm2FwiL0q16', 'Maxine_Koelpin16');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (14, 14, 1, 0, 0, '2024-10-12 23:28:37', '8eDyl3-FE_m2', 'Dean_Barton61@gmail.com', '3XvPt2q7vLQrHYX', 'Hope36');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (15, 15, 1, 0, 0, '2024-10-12 23:28:37', 'eTATRth7Fi1_', 'Maryam.Koss@gmail.com', 'doeegNYnMihSuxf', 'Kendall_Bailey');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (16, 16, 1, 0, 0, '2024-10-12 23:28:37', 'aRs0QQOMMKQe', 'Charles_Marks6@gmail.com', 'x3rCCX4CHFXrgOZ', 'Hugh.Kerluke69');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (17, 17, 1, 0, 0, '2024-10-12 23:28:37', 'd7HEYUkr8WFY', 'Ona_Raynor@yahoo.com', 'cjxvOUiJUtRdPta', 'Pierre_OKon24');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (18, 18, 1, 0, 0, '2024-10-12 23:28:37', 'N6zzEcKdxFP3', 'Ottilie.Corkery@yahoo.com', '7sSCal9AG6YIPrp', 'Amelie.Bartoletti18');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (19, 19, 1, 0, 0, '2024-10-12 23:28:37', 'xaRAObP0ECZ_', 'Berenice_Maggio37@hotmail.com', 'oyKGSJum58ZsW4b', 'Thurman.Medhurst');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (20, 20, 1, 0, 0, '2024-10-12 23:28:37', 'C_OUFjHpB5R4', 'Benjamin_Strosin@gmail.com', '9YTnAIwfQ2JDQRW', 'Alec_Predovic');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (21, 21, 1, 0, 0, '2024-10-12 23:28:37', 'Tnye3wtH06iE', 'Audra79@gmail.com', 'XZh59uPKhvB8vgr', 'Filomena36');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (22, 22, 1, 0, 0, '2024-10-12 23:28:37', '7K-VUmYvGEWm', 'Kieran93@gmail.com', 'FqmXN5LDcflaLSy', 'Albina.Boyer32');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (23, 23, 1, 0, 0, '2024-10-12 23:28:37', '1ts0o_mGRP4P', 'Tyrell6@hotmail.com', 'kifkru8fw6KxcQd', 'Enoch57');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (24, 24, 1, 0, 0, '2024-10-12 23:28:37', 'wQOHK9fpy74Z', 'Rollin_Wilkinson9@gmail.com', 'aNZWxqmuOy0UpL3', 'Nathanial.Effertz');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (25, 25, 1, 0, 0, '2024-10-12 23:28:37', 'q7yXr-cTUsue', 'Jermaine_Schultz43@hotmail.com', 'ovFG_4i8mZt5hYF', 'Mozelle.Franecki34');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (26, 26, 1, 0, 0, '2024-10-12 23:28:37', '-iZQjU2rTKVi', 'Mabelle.Huel@gmail.com', '0XrnzOyJYxa_MBS', 'Triston6');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (27, 27, 1, 0, 0, '2024-10-12 23:28:37', 'wvhJLAkf9Xmd', 'Julie.Connelly@yahoo.com', '46heOXCE8ot0EKw', 'Rodrigo.Wiegand32');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (28, 28, 1, 0, 0, '2024-10-12 23:28:37', '3AwXZLXCle0k', 'Hilton67@hotmail.com', '1y7ayvGcv_QYaQ3', 'Trever_Dach');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (29, 29, 1, 0, 0, '2024-10-12 23:28:37', 'Nsdx76bZb8kr', 'Johan_Hamill28@gmail.com', 'T1fptw7sjudeuKj', 'Kristina_Schowalter10');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (30, 30, 1, 0, 0, '2024-10-12 23:28:37', 'ISvaHL37jGqQ', 'Lorna.Okuneva77@gmail.com', 'sEndjXJPu08JbM_', 'Edna.Frami50');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (31, 31, 1, 0, 0, '2024-10-12 23:28:37', 'mZMZdZou8Y-X', 'Makenna_VonRueden@yahoo.com', 'W5487TUzt3vfhsL', 'Skye_Mueller');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (32, 32, 1, 0, 0, '2024-10-12 23:28:37', 'JIcuhjOSvmLQ', 'Maurice87@yahoo.com', '603I6wnnMBwiPUJ', 'Pink.Ruecker');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (33, 33, 1, 0, 0, '2024-10-12 23:28:37', 'GhtxUUkA12Jz', 'Sonny3@yahoo.com', '2LHtWJDY0XFnrxy', 'Rusty_Bins67');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (34, 34, 1, 0, 0, '2024-10-12 23:28:37', 'Bd7LOkL69kFI', 'Ubaldo_Reinger@gmail.com', '16tMrLy3ulaU7f6', 'Wilfrid.Jerde');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (35, 35, 1, 0, 0, '2024-10-12 23:28:37', 'BLuuEmhBW-i5', 'Scot.Beer95@gmail.com', 'ATD7zY92cxdFlgD', 'Leonora_Toy');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (36, 36, 1, 0, 0, '2024-10-12 23:28:37', 'uwxmShyCbErU', 'Nakia52@yahoo.com', '7CyuvKNY5y4v2ZD', 'Tatyana28');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (37, 37, 1, 0, 0, '2024-10-12 23:28:37', 'KmJA8TVHZj3i', 'Natalie.Kuhn@gmail.com', '0jNkHPKbz_VeMdO', 'Sigurd4');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (38, 38, 1, 0, 0, '2024-10-12 23:28:37', 'yEdcUO_6Wl72', 'Madilyn_Batz7@yahoo.com', 'nzaGLFoq4lPwuK9', 'Peyton62');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (39, 39, 1, 0, 0, '2024-10-12 23:28:37', '8ko7ceHBTFvB', 'Beth18@gmail.com', 'aU7LTQA3UTezjrf', 'Mandy_Hettinger');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (40, 40, 1, 0, 0, '2024-10-12 23:28:37', 'sbwpqRUdccsM', 'Chanel.Jerde@yahoo.com', 'mmQjB3Oe3y25KxP', 'Ressie.Renner');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (41, 41, 1, 0, 0, '2024-10-12 23:28:37', 'f9T0PVx39xv-', 'Amely71@yahoo.com', 'Wuz7RIE7i12kXe7', 'Trent.Hermiston55');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (42, 42, 1, 0, 0, '2024-10-12 23:28:37', '1wcb3CryujgT', 'jebiv36331@foraro.com', '$2a$10$7IBaR/3jKlabrfLafFcUveYbJkWyWoHwxY73BtQQl07W7miHNTPqC', 'jebiv36331@foraro.com');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (43, 43, 1, 0, 0, '2024-10-12 23:28:37', 'PM_PVLicROUd', 'jack1@gmail.com', '$2a$10$mLLJU33OrZYVNGcgPlTIceEbWr.4m4L0oKgbBx2xxY3GpqdhvTq7e', 'jack1@gmail.com');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (44, 44, 1, 0, 0, '2024-10-12 23:28:37', 'SgOz6HOfXiFi', 'support@cegepmv.ca', '$2a$10$PVZ5uBGcmoCp46xf06fAEu7g/me3pfNKLQz7WU1/0pUSVEfrof5tW', 'support@cegepmv.ca');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (45, 45, 1, 0, 0, '2024-10-12 23:28:37', '3jrIy21rDPU9', 'a@gmail.com', '$2a$10$xxeT13CbX9syx3g2y3VxHuIvMLSqPFKVSroUhHzqg2HlrSpt9JX.a', 'a@gmail.com');
+INSERT INTO customer (customer_info_id, id_customer, is_activated, is_deleted, is_verified, joined_date, link, personal_email, pwd, username) VALUES (46, 46, 1, 0, 0, '2024-10-12 23:28:37', 'Ur2jKu2H0T3p', 'power@gmail.com', '$2a$10$nHy7hMx.Mez8TM2lEq/Kj..iXcY0JpoU17owlT7rHmq1XIzEN/yua', 'Power');
 
-/* AdTag */
-insert into ad_tag (id_ad_tag, name) values (1, 'SDH');
-insert into ad_tag (id_ad_tag, name) values (2, 'BOQ');
-insert into ad_tag (id_ad_tag, name) values (3, 'IXB');
-insert into ad_tag (id_ad_tag, name) values (4, 'DNK');
-insert into ad_tag (id_ad_tag, name) values (5, 'MST');
-insert into ad_tag (id_ad_tag, name) values (6, 'HGH');
-insert into ad_tag (id_ad_tag, name) values (7, 'AGP');
-insert into ad_tag (id_ad_tag, name) values (8, 'TVF');
-insert into ad_tag (id_ad_tag, name) values (9, 'EFW');
-insert into ad_tag (id_ad_tag, name) values (10, 'HPB');
-insert into ad_tag (id_ad_tag, name) values (11, 'PTQ');
-insert into ad_tag (id_ad_tag, name) values (12, 'MUO');
-insert into ad_tag (id_ad_tag, name) values (13, 'ZTB');
-insert into ad_tag (id_ad_tag, name) values (14, 'UTE');
-insert into ad_tag (id_ad_tag, name) values (15, 'CFE');
-insert into ad_tag (id_ad_tag, name) values (16, 'IBL');
-insert into ad_tag (id_ad_tag, name) values (17, 'ENY');
-insert into ad_tag (id_ad_tag, name) values (18, 'INE');
-insert into ad_tag (id_ad_tag, name) values (19, 'DIP');
-insert into ad_tag (id_ad_tag, name) values (20, 'LLE');
-insert into ad_tag (id_ad_tag, name) values (21, 'KTT');
-insert into ad_tag (id_ad_tag, name) values (22, 'DBO');
-insert into ad_tag (id_ad_tag, name) values (23, 'EIE');
-insert into ad_tag (id_ad_tag, name) values (24, 'OJC');
-insert into ad_tag (id_ad_tag, name) values (25, 'IBB');
-insert into ad_tag (id_ad_tag, name) values (26, 'NLK');
-insert into ad_tag (id_ad_tag, name) values (27, 'LIO');
-insert into ad_tag (id_ad_tag, name) values (28, 'BUT');
-insert into ad_tag (id_ad_tag, name) values (29, 'WNH');
-insert into ad_tag (id_ad_tag, name) values (30, 'ECR');
-insert into ad_tag (id_ad_tag, name) values (31, 'DOC');
-insert into ad_tag (id_ad_tag, name) values (32, 'IHN');
-insert into ad_tag (id_ad_tag, name) values (33, 'KIG');
-insert into ad_tag (id_ad_tag, name) values (34, 'TKF');
-insert into ad_tag (id_ad_tag, name) values (35, 'IBI');
-insert into ad_tag (id_ad_tag, name) values (36, 'AAQ');
-insert into ad_tag (id_ad_tag, name) values (37, 'NAC');
-insert into ad_tag (id_ad_tag, name) values (38, 'GAC');
-insert into ad_tag (id_ad_tag, name) values (39, 'JHS');
-insert into ad_tag (id_ad_tag, name) values (40, 'AHI');
-insert into ad_tag (id_ad_tag, name) values (41, 'YCE');
-insert into ad_tag (id_ad_tag, name) values (42, 'AOP');
-insert into ad_tag (id_ad_tag, name) values (43, 'ORX');
-insert into ad_tag (id_ad_tag, name) values (44, 'WIB');
-insert into ad_tag (id_ad_tag, name) values (45, 'SMF');
-insert into ad_tag (id_ad_tag, name) values (46, 'ANX');
-insert into ad_tag (id_ad_tag, name) values (47, '0');
-insert into ad_tag (id_ad_tag, name) values (48, 'KLF');
-insert into ad_tag (id_ad_tag, name) values (49, 'DGO');
-insert into ad_tag (id_ad_tag, name) values (50, 'PGA');
-insert into ad_tag (id_ad_tag, name) values (51, 'BHW');
-insert into ad_tag (id_ad_tag, name) values (52, 'GLF');
-insert into ad_tag (id_ad_tag, name) values (53, 'FFL');
-insert into ad_tag (id_ad_tag, name) values (54, 'YCU');
-insert into ad_tag (id_ad_tag, name) values (55, 'NTI');
-insert into ad_tag (id_ad_tag, name) values (56, 'AID');
-insert into ad_tag (id_ad_tag, name) values (57, 'MNQW');
-insert into ad_tag (id_ad_tag, name) values (58, 'SLV');
-insert into ad_tag (id_ad_tag, name) values (59, 'DCI');
-insert into ad_tag (id_ad_tag, name) values (60, 'KDA');
-insert into ad_tag (id_ad_tag, name) values (61, 'YDT');
-insert into ad_tag (id_ad_tag, name) values (62, 'KAE');
-insert into ad_tag (id_ad_tag, name) values (63, 'MAF');
-insert into ad_tag (id_ad_tag, name) values (64, 'XJM');
-insert into ad_tag (id_ad_tag, name) values (65, 'DGW');
-insert into ad_tag (id_ad_tag, name) values (66, 'GYP');
-insert into ad_tag (id_ad_tag, name) values (67, 'SOK');
-insert into ad_tag (id_ad_tag, name) values (68, 'HSG');
-insert into ad_tag (id_ad_tag, name) values (69, 'OKL');
-insert into ad_tag (id_ad_tag, name) values (70, 'UCE');
-insert into ad_tag (id_ad_tag, name) values (71, 'CQS');
-insert into ad_tag (id_ad_tag, name) values (72, 'AEM');
-insert into ad_tag (id_ad_tag, name) values (73, 'KOQ');
-insert into ad_tag (id_ad_tag, name) values (74, 'LYX');
-insert into ad_tag (id_ad_tag, name) values (75, 'CBT');
-insert into ad_tag (id_ad_tag, name) values (76, 'CAP');
-insert into ad_tag (id_ad_tag, name) values (77, 'YGM');
-insert into ad_tag (id_ad_tag, name) values (78, 'LPX');
-insert into ad_tag (id_ad_tag, name) values (79, 'LRH');
-insert into ad_tag (id_ad_tag, name) values (80, 'ROK');
-insert into ad_tag (id_ad_tag, name) values (81, 'FLV');
-insert into ad_tag (id_ad_tag, name) values (82, 'HSC');
-insert into ad_tag (id_ad_tag, name) values (83, 'DKS');
-insert into ad_tag (id_ad_tag, name) values (84, 'GBT');
-insert into ad_tag (id_ad_tag, name) values (85, 'HVK');
-insert into ad_tag (id_ad_tag, name) values (86, 'TWY');
-insert into ad_tag (id_ad_tag, name) values (87, 'CVE');
-insert into ad_tag (id_ad_tag, name) values (88, 'YUE');
-insert into ad_tag (id_ad_tag, name) values (89, 'TGU');
-insert into ad_tag (id_ad_tag, name) values (90, 'CFB');
-insert into ad_tag (id_ad_tag, name) values (91, 'DMN');
-insert into ad_tag (id_ad_tag, name) values (92, 'AKH');
-insert into ad_tag (id_ad_tag, name) values (93, 'NOP');
-insert into ad_tag (id_ad_tag, name) values (94, 'EIK');
-insert into ad_tag (id_ad_tag, name) values (95, 'FKN');
-insert into ad_tag (id_ad_tag, name) values (96, 'YGK');
-insert into ad_tag (id_ad_tag, name) values (97, 'BPC');
-insert into ad_tag (id_ad_tag, name) values (98, 'PHH');
-insert into ad_tag (id_ad_tag, name) values (99, 'TDX');
-insert into ad_tag (id_ad_tag, name) values (100, 'SUA');
-insert into ad_tag (id_ad_tag, name) values (101, 'AKQ');
-insert into ad_tag (id_ad_tag, name) values (102, 'HYL');
-insert into ad_tag (id_ad_tag, name) values (103, 'AHN');
-insert into ad_tag (id_ad_tag, name) values (104, 'HKS');
-insert into ad_tag (id_ad_tag, name) values (105, 'YNC');
-insert into ad_tag (id_ad_tag, name) values (106, 'MQZ');
-insert into ad_tag (id_ad_tag, name) values (107, 'LXS');
-insert into ad_tag (id_ad_tag, name) values (108, 'FIZ');
-insert into ad_tag (id_ad_tag, name) values (109, 'KOHD');
-insert into ad_tag (id_ad_tag, name) values (110, 'SRI');
-insert into ad_tag (id_ad_tag, name) values (111, 'BUY');
-insert into ad_tag (id_ad_tag, name) values (112, 'FNE');
-insert into ad_tag (id_ad_tag, name) values (113, 'CEN');
-insert into ad_tag (id_ad_tag, name) values (114, 'SYK');
-insert into ad_tag (id_ad_tag, name) values (115, 'SMY');
-insert into ad_tag (id_ad_tag, name) values (116, 'TQR');
-insert into ad_tag (id_ad_tag, name) values (117, 'NTB');
-insert into ad_tag (id_ad_tag, name) values (118, 'DIQ');
-insert into ad_tag (id_ad_tag, name) values (119, 'MSL');
-insert into ad_tag (id_ad_tag, name) values (120, 'AMT');
-insert into ad_tag (id_ad_tag, name) values (121, 'ESE');
-insert into ad_tag (id_ad_tag, name) values (122, 'THM');
-insert into ad_tag (id_ad_tag, name) values (123, 'IDK');
-insert into ad_tag (id_ad_tag, name) values (124, 'ALO');
-insert into ad_tag (id_ad_tag, name) values (125, 'TMI');
-insert into ad_tag (id_ad_tag, name) values (126, 'DBP');
-insert into ad_tag (id_ad_tag, name) values (127, 'RET');
-insert into ad_tag (id_ad_tag, name) values (128, 'FEZ');
-insert into ad_tag (id_ad_tag, name) values (129, 'OHD');
-insert into ad_tag (id_ad_tag, name) values (130, 'FAK');
-insert into ad_tag (id_ad_tag, name) values (131, 'LEK');
-insert into ad_tag (id_ad_tag, name) values (132, 'ONQ');
-insert into ad_tag (id_ad_tag, name) values (133, 'BUW');
-insert into ad_tag (id_ad_tag, name) values (134, 'GOR');
-insert into ad_tag (id_ad_tag, name) values (135, 'LDV');
-insert into ad_tag (id_ad_tag, name) values (136, 'WMD');
-insert into ad_tag (id_ad_tag, name) values (137, 'AIH');
-insert into ad_tag (id_ad_tag, name) values (138, 'TAK');
-insert into ad_tag (id_ad_tag, name) values (139, 'CVB');
-insert into ad_tag (id_ad_tag, name) values (140, 'OMN');
-insert into ad_tag (id_ad_tag, name) values (141, 'AUU');
-insert into ad_tag (id_ad_tag, name) values (142, 'ADV');
-insert into ad_tag (id_ad_tag, name) values (143, 'KMI');
-insert into ad_tag (id_ad_tag, name) values (144, 'FLO');
-insert into ad_tag (id_ad_tag, name) values (145, 'KWY');
-insert into ad_tag (id_ad_tag, name) values (146, 'CHZ');
-insert into ad_tag (id_ad_tag, name) values (147, 'SUE');
-insert into ad_tag (id_ad_tag, name) values (148, 'SASL');
-insert into ad_tag (id_ad_tag, name) values (149, 'LAY');
-insert into ad_tag (id_ad_tag, name) values (150, 'SESL');
-insert into ad_tag (id_ad_tag, name) values (151, 'CAQW');
-insert into ad_tag (id_ad_tag, name) values (152, 'POM');
-insert into ad_tag (id_ad_tag, name) values (153, 'RPB');
-insert into ad_tag (id_ad_tag, name) values (154, 'TID');
-insert into ad_tag (id_ad_tag, name) values (155, 'NAQ');
-insert into ad_tag (id_ad_tag, name) values (156, 'MBG');
-insert into ad_tag (id_ad_tag, name) values (157, 'WEI');
-insert into ad_tag (id_ad_tag, name) values (158, 'GIS');
-insert into ad_tag (id_ad_tag, name) values (159, 'SUO');
-insert into ad_tag (id_ad_tag, name) values (160, 'CTF');
-insert into ad_tag (id_ad_tag, name) values (161, 'FBR');
-insert into ad_tag (id_ad_tag, name) values (162, 'LKH');
-insert into ad_tag (id_ad_tag, name) values (163, 'TSZ');
-insert into ad_tag (id_ad_tag, name) values (164, 'BAB');
-insert into ad_tag (id_ad_tag, name) values (165, 'RHT');
-insert into ad_tag (id_ad_tag, name) values (166, 'UBA');
-insert into ad_tag (id_ad_tag, name) values (167, 'ELK');
-insert into ad_tag (id_ad_tag, name) values (168, 'MTK');
-insert into ad_tag (id_ad_tag, name) values (169, 'SAR');
-insert into ad_tag (id_ad_tag, name) values (170, 'UIZ');
-insert into ad_tag (id_ad_tag, name) values (171, 'PSZ');
-insert into ad_tag (id_ad_tag, name) values (172, 'ZVG');
-insert into ad_tag (id_ad_tag, name) values (173, 'COT');
-insert into ad_tag (id_ad_tag, name) values (174, 'FRD');
-insert into ad_tag (id_ad_tag, name) values (175, 'MYB');
-insert into ad_tag (id_ad_tag, name) values (176, 'CXT');
-insert into ad_tag (id_ad_tag, name) values (177, 'MGV');
-insert into ad_tag (id_ad_tag, name) values (178, 'NSH');
-insert into ad_tag (id_ad_tag, name) values (179, 'MYN');
-insert into ad_tag (id_ad_tag, name) values (180, 'FUM');
-insert into ad_tag (id_ad_tag, name) values (181, 'BWK');
-insert into ad_tag (id_ad_tag, name) values (182, 'WVB');
-insert into ad_tag (id_ad_tag, name) values (183, 'LBG');
-insert into ad_tag (id_ad_tag, name) values (184, 'SZL');
-insert into ad_tag (id_ad_tag, name) values (185, 'KAZ');
-insert into ad_tag (id_ad_tag, name) values (186, 'ZRM');
-insert into ad_tag (id_ad_tag, name) values (187, 'XIG');
-insert into ad_tag (id_ad_tag, name) values (188, 'ASI');
-insert into ad_tag (id_ad_tag, name) values (189, 'QRY');
-insert into ad_tag (id_ad_tag, name) values (190, 'FGD');
-insert into ad_tag (id_ad_tag, name) values (191, 'LGF');
-insert into ad_tag (id_ad_tag, name) values (192, 'CVO');
-insert into ad_tag (id_ad_tag, name) values (193, 'SGN');
-insert into ad_tag (id_ad_tag, name) values (194, 'LUK');
-insert into ad_tag (id_ad_tag, name) values (195, 'AHS');
-insert into ad_tag (id_ad_tag, name) values (196, 'OH1D');
-insert into ad_tag (id_ad_tag, name) values (197, 'BZZT');
-insert into ad_tag (id_ad_tag, name) values (198, 'YRF');
-insert into ad_tag (id_ad_tag, name) values (199, 'ANS');
-insert into ad_tag (id_ad_tag, name) values (200, 'LNB');
-insert into ad_tag (id_ad_tag, name) values (201, 'purple');
-insert into ad_tag (id_ad_tag, name) values (202, 'shake');
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (1, 13, 36, "2024-08-05 16:41:11.286", 0, 0, 111, 1, 2, "Elegant Frozen Fish", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "140 Weber Fords", "Wl8eT2B7H6ZG", "IAazdkhmw7CgYxPrQ9wZKqgs");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (2, 1, 33, "2024-08-05 16:41:11.287", 0, 0, 664, 3, 1, "Incredible Concrete Sausages", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "6747 Marcelina Mills", "ChKzSpgaK--D", "iszPGI0QigaYBKR9jIxijVMp");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (3, 15, 2, "2024-08-05 16:41:11.288", 0, 0, 199, 3, 0, "Playdate Console", "This fun little handheld console comes with 24 games built-in, and a crank!", "42608 Franklin Avenue", "TEjMwBfGt9Ui", "y_9pqi15Nd-rdbLmojSsT6h8");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (4, 3, 26, "2024-08-05 16:41:11.288", 0, 0, 422, 4, 0, "Sleek Bronze Chicken", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "7329 Darrel Ridge", "TccstWjIBrWF", "EmI64b-87eRmT6dDVV6lv1A5");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (5, 7, 23, "2024-08-05 16:41:11.289", 0, 0, 277, 1, 2, "Oriental Bronze Salad", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "29270 Hunter Lakes", "y-wj4ia486Fz", "4aybzkVbE8XQxEfMARhnGBFK");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (6, 2, 41, "2024-08-05 16:41:11.289", 0, 0, 839, 4, 1, "Ergonomic Wooden Mouse", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "449 Woodside Road", "y60eSQXdH5fH", "4s3DgUy76ciuM-xTwT6UTzWt");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (7, 6, 36, "2024-08-05 16:41:11.290", 0, 0, 805, 1, 1, "Small Metal Fish", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "528 Ezekiel Spring", "90YrBeh0FNMp", "46RSyga-9cynP-85LhURZCNw");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (8, 11, 10, "2024-08-05 16:41:11.290", 0, 0, 473, 0, 2, "Incredible Plastic Table", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "7354 S East Street", "l7qiDeUV1lV4", "e3POtN4IAAojOaPVsltxlYM5");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (9, 8, 9, "2024-08-05 16:41:11.291", 0, 0, 211, 2, 2, "Bespoke Concrete Table", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "522 Dessie Unions", "eG_8Bg8aSnPP", "sQvAlHFJ67xAZKvZodhlNUm7");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (10, 12, 17, "2024-08-05 16:41:11.291", 0, 0, 908, 2, 1, "Awesome Soft Hat", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "7734 E Maple Street", "alKLiCSNXd7I", "3KGUbqOCBsSvPIMC_KhIimYs");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (11, 11, 11, "2024-08-05 16:41:11.292", 0, 0, 953, 4, 1, "Modern Fresh Shoes", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "4323 Schumm Stream", "cAAcXSJJ5Uk4", "nKE59-ALslqi9ggtFyBCd7yA");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (12, 14, 37, "2024-08-05 16:41:11.292", 0, 0, 516, 3, 1, "Intelligent Steel Cheese", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "9360 Yost Harbor", "mhFuZa4MSN8a", "0SvKmTuM8grkWNOZC6592XWv");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (13, 9, 24, "2024-08-05 16:41:11.293", 0, 0, 631, 2, 0, "Incredible Frozen Car", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "50998 Lincoln Street", "4ifpml8rVSzh", "vJEej6pYlKzCVan824EfPOL7");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (14, 13, 28, "2024-08-05 16:41:11.293", 0, 0, 695, 2, 2, "Electronic Bronze Pants", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "78466 Glennie Grove", "xTiaJIvtzox2", "zfTqFoWl16THXVEGo5W2Tihs");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (15, 6, 35, "2024-08-05 16:41:11.293", 0, 0, 98, 3, 0, "Awesome Soft Cheese", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "6595 Schoen Shores", "Mi9ceUiVwbjB", "zlk9Vq9gOBieFXC9Q6Elnzus");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (16, 4, 33, "2024-08-05 16:41:11.294", 0, 0, 211, 2, 1, "Elegant Fresh Bike", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "711 Honeysuckle Close", "VI2e4a-cD03n", "fpPl0S5Bh7zU47SBlfNmo3_a");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (17, 13, 38, "2024-08-05 16:41:11.294", 0, 0, 815, 1, 1, "Bespoke Metal Shoes", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "30584 Poplar Close", "FfNltLgKK9R3", "Fq_zoaLIKlZVEzZL6jXcOksd");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (18, 3, 34, "2024-08-05 16:41:11.295", 0, 0, 347, 2, 1, "Handmade Plastic Bike", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "5049 N Main Avenue", "Ytf-oBW3J3jG", "HLNz4DZFiqglIlYfOMI-sFos");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (19, 4, 37, "2024-08-05 16:41:11.295", 0, 0, 40, 3, 0, "Zooble Animatez Figurine", "Enjoy putting this silly and goofy little figurine on your table!", "708 Katelynn Radial", "61EPNXT7PPjB", "ihmyW8mKNi-SuYYStGeZkQgq");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (20, 5, 17, "2024-08-05 16:41:11.295", 0, 0, 98, 3, 1, "Rustic Wooden Shirt", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "2776 Abbott Ports", "EbQsqe5_uS5M", "flqdkXHYaezdhurN4slOfPXb");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (21, 3, 19, "2024-08-05 16:41:11.295", 0, 0, 7, 2, 0, "Oriental Cotton Fish", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "904 Lincoln Road", "NsAP_9jjr_sF", "Gf4NQWtWHj8Rh-wQPv-Xnap3");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (22, 12, 3, "2024-08-05 16:41:11.295", 0, 0, 767, 0, 1, "Tasty Concrete Ball", "The Football Is Good For Training And Recreational Purposes", "4606 Kaylin Lakes", "GYJcQlwBLCuT", "ZOWGo98GWjU3PBdZfkiklLLC");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (23, 3, 31, "2024-08-05 16:41:11.295", 0, 0, 313, 1, 1, "Awesome Bronze Cheese", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "4456 W 6th Street", "f_k8__7N3c1h", "VJ7mNhLfa7WdfV3vmLMeu2F9");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (24, 1, 36, "2024-08-05 16:41:11.295", 0, 0, 287, 3, 1, "Tasty Fresh Gloves", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "7726 Grace Cliffs", "k2NYwc5451EN", "0_vExwHAE085gkxIXYWD5Euz");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (25, 2, 22, "2024-08-05 16:41:11.296", 0, 0, 238, 1, 0, "Yootooz Mangle Plush", "This old plush has been discontinued, so we made it extra expensive due to its rarity. Mangle's gender is Yes, by the way!", "5009 Jamal Crest", "Mct5-wn54xTB", "3lWsvx0K0PykhNaWyLijyvTG");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (26, 8, 21, "2024-08-05 16:41:11.296", 0, 0, 315, 4, 1, "Incredible Metal Keyboard", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "37588 Juwan Meadow", "jtQOIyQl2dd7", "62DKv6K0RtdxRc4Lsn7HcLLz");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (27, 14, 25, "2024-08-05 16:41:11.296", 0, 0, 769, 3, 1, "Unbranded Concrete Pants", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "2478 Corwin Plaza", "pcDExQffrD0o", "xgnejQg991wTsCZEyq35cQ98");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (28, 13, 33, "2024-08-05 16:41:11.296", 0, 0, 787, 3, 1, "Modern Bronze Pants", "The Football Is Good For Training And Recreational Purposes", "4029 N Cedar Street", "ETvaOJrpWTh4", "XTbb47x94AN2LTj3usfBMrLe");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (29, 4, 32, "2024-08-05 16:41:11.296", 0, 0, 527, 4, 2, "Modern Cotton Fish", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "1533 Adrienne View", "C_rChG_Y8wvw", "N1349y948rSRbBrLrqO246jx");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (30, 10, 12, "2024-08-05 16:41:11.296", 0, 0, 594, 0, 1, "Luxurious Metal Pants", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "17687 Stanley Plain", "hBFDfHu_YEB7", "jhFphsOI9aRcYLY12qREgK7A");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (31, 2, 28, "2024-08-05 16:41:11.296", 0, 0, 927, 1, 0, "Overpriced Station", "This console does not need to exist, but we made it anyway! Play Concord!", "59721 Audra Rapid", "MZ8m5YrNK_mM", "ZckGQoHZ8EJNl4FUd3r4a8wE");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (32, 8, 5, "2024-08-05 16:41:11.297", 0, 0, 58, 5, 2, "Elegant Frozen Cheese", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "73298 N 2nd Street", "hngST4cMPUd-", "4PnJGjQd3tNkK9Tx2pKIC8o0");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (33, 3, 21, "2024-08-05 16:41:11.297", 0, 0, 206, 1, 1, "Recycled Soft Shirt", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "1774 Marcia Hill", "sMYv33yHuYlb", "8uVcOET7pKh2vxExbgIusN8H");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (34, 2, 12, "2024-08-05 16:41:11.297", 0, 0, 687, 1, 1, "Fantastic Wooden Sausages", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "42443 Mae Mission", "34ZanAfeqfXg", "6pUgoSpc9iwATL_w8M8Xyu9b");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (35, 7, 29, "2024-08-05 16:41:11.297", 0, 0, 103, 3, 1, "Handcrafted Metal Car", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "39278 Keyon Cliffs", "KHZOnzxlAJVw", "66_aYv8tfq8qzzDTwbZI_vmf");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (36, 9, 36, "2024-08-05 16:41:11.297", 0, 0, 871, 3, 1, "Luxurious Wooden Salad", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "640 Dannie Ville", "sqQizS5tnk8n", "EMDu1QjJCSvK3fCX61FdGwUo");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (37, 9, 40, "2024-08-05 16:41:11.298", 0, 0, 932, 1, 1, "Generic Metal Pizza", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "36660 Pacocha Mission", "RtADLckPXDqb", "4U-4Hho4LK5G4TqPJIqWUoXW");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (38, 14, 41, "2024-08-05 16:41:11.298", 0, 0, 985, 2, 1, "Luxurious Soft Bacon", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "541 Thad Lakes", "urWouloMmGcL", "DCAUIhn6v4vLLvDBXo0LKsyy");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (39, 7, 29, "2024-08-05 16:41:11.298", 0, 0, 749, 1, 1, "Practical Frozen Bike", "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", "4036 Hermiston Street", "7VMo7uCPQ4zC", "OC19m3abzB9EBMFeNJsn49D3");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (40, 7, 37, "2024-08-05 16:41:11.298", 0, 0, 142, 5, 0, "Walkman", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "841 S State Street", "poiP7CDB0trx", "Cwsy3zv07Ci7zVvK75eNAa7d");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (41, 11, 22, "2024-08-05 16:41:11.298", 0, 0, 1949, 5, 0, "iPhone", "They're so rich they broke grammar rules.", "96023 Murray Garden", "1Jy3PpcfOMvv", "h4ASYQ_B7VtP-dzz0WmSGIJT");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (42, 15, 39, "2024-08-05 16:41:11.298", 0, 0, 788, 4, 2, "Electronic Metal Bike", "The Football Is Good For Training And Recreational Purposes", "19646 Franklin Street", "srKs-QKSqL3F", "zXIdBs9AaRWXrWKtIgEqjtdj");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (43, 4, 25, "2024-08-05 16:41:11.298", 0, 0, 845, 4, 0, "Bespoke Fresh Ball", "The Football Is Good For Training And Recreational Purposes", "93938 Chestnut Street", "x9CgAUwsrP__", "J5j9QSI9wBNXSnvPHHruRVAo");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (44, 10, 38, "2024-08-05 16:41:11.298", 0, 0, 810, 3, 0, "Handcrafted Fresh Bike", "Get yer own custom made bike that looks silly!", "57233 The Beeches", "fheeKOiniYTo", "KU9h_KIRfj86pqD3SekuGfuS");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (45, 9, 28, "2024-08-05 16:41:11.298", 0, 0, 932, 0, 1, "Handcrafted Steel Soap", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "13334 Hauck Extension", "F6Ttd0Ivw9B7", "-QiOvUma4EqZbtujARRFXJRW");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (46, 14, 34, "2024-08-05 16:41:11.298", 0, 0, 702, 3, 0, "Intelligent Fresh Chair", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "22858 Karlie Mill", "UHqV8iByEuO3", "HMSU_Ralj2FjjwCbZeCmGpUO");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (47, 11, 2, "2024-08-05 16:41:11.299", 0, 0, 759, 0, 2, "Modern Frozen Chips", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "9471 Burnice Motorway", "aCPEWQ4HkcKW", "HMYoN4kCxLZzy6Cu_UNtUGO1");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (48, 4, 24, "2024-08-05 16:41:11.299", 0, 0, 100, 4, 1, "Luxurious Cotton Hat", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "7545 May Trace", "8va1SjRBBB4S", "V0E7T9zKyKiYXou_64_UynsI");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (49, 2, 30, "2024-08-05 16:41:11.299", 0, 0, 214, 2, 2, "Handmade Plastic Mouse", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "5045 Abshire Tunnel", "n3UU3joG16lz", "LHBgrd65dG8ytduiRXVfHsl_");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (50, 12, 16, "2024-08-05 16:41:11.299", 0, 0, 591, 5, 1, "Gorgeous Rubber Cheese", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "9155 Angelica Circle", "GRCwMy-iaxEO", "Y13zMwBi6QkMXtHWWrEAbtjA");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (51, 3, 11, "2024-08-05 16:41:11.299", 0, 0, 69, 2, 0, "Bluey kitchen playset", "Cook some yummy food with Nana!", "2007 Depot Street", "QKrqSt7mRxpm", "FBzH23BxURYsuLo7o2MnXINX");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (52, 1, 9, "2024-08-05 16:41:11.299", 0, 0, 153, 3, 1, "Small Metal Salad", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "3537 Bashirian Trace", "Kqt_jcppJa-k", "97iOj1H9Dfm538V8cb2ujX7g");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (53, 11, 6, "2024-08-05 16:41:11.299", 0, 0, 483, 1, 1, "Rustic Bronze Towels", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "31403 Maple Road", "sGRIGspK33n0", "ZHbjTZS6WtrjBEqNW-e8AkI2");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (54, 15, 13, "2024-08-05 16:41:11.299", 0, 0, 951, 1, 1, "Modern Frozen Tuna", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "69005 Hall Street", "Jt7JI7IvdJAR", "BBP3YK-OO5Ig6NtDIHsGzVWl");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (55, 1, 39, "2024-08-05 16:41:11.299", 0, 0, 12, 2, 0, "Tasty Plastic Car", "Car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car car", "3297 Brody Mews", "Yzpl7F8pKb0s", "1ABU3T3eZMly_gUBsfy15tOX");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (56, 3, 28, "2024-08-05 16:41:11.299", 0, 0, 60, 1, 2, "Intelligent Wooden Computer", "The Football Is Good For Training And Recreational Purposes", "78550 Manor Close", "qRpzjIY5NbfY", "3Zo_SAB9nDC4YP8Y6rA5F-Ib");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (57, 12, 7, "2024-08-05 16:41:11.300", 0, 0, 36, 3, 0, "Bowling tickets", "Get THREE whole bowling tickets for the price of 2! Limited time offer.", "53818 Nightingale Close", "kTYVfxFDEldP", "mo4s7Er8APK25WhK9vUrlWAq");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (58, 9, 36, "2024-08-05 16:41:11.300", 0, 0, 296, 4, 2, "Modern Plastic Keyboard", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "77292 Mayer Point", "2xUqCxTsdJeQ", "5BJYDpLYPmQAityp0rJSjiLU");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (59, 3, 34, "2024-08-05 16:41:11.300", 0, 0, 736, 1, 2, "Practical Granite Gloves", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "30861 Cromwell Road", "_hkiCVuSKS28", "Cb9K1BJ4wGzGYlytHdLsffxT");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (60, 2, 2, "2024-08-05 16:41:11.300", 0, 0, 706, 4, 1, "Bespoke Metal Fish", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "336 Lou Lock", "Lmu5qqMz2Jjx", "gmJEb3fYj3pOqkFYwgGkwEY7");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (61, 14, 25, "2024-08-05 16:41:11.300", 0, 0, 858, 5, 1, "Generic Rubber Bacon", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "6170 Clark Street", "gJLiMPacM4uY", "rgt95xnXuKhohyrsarFHG4CQ");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (62, 1, 13, "2024-08-05 16:41:11.300", 0, 0, 479, 1, 1, "Luxurious Fresh Soap", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "8223 Devonshire Road", "lrow4B-Q-BbZ", "rSCP7okrt66CitoTbdSBsmNQ");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (63, 1, 21, "2024-08-05 16:41:11.300", 0, 0, 180, 5, 1, "Recycled Concrete Table", "The Football Is Good For Training And Recreational Purposes", "96025 Willow Grove", "UopCRw_uTezL", "ymptA0lL1h9-opOXrXo1gixC");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (64, 7, 7, "2024-08-05 16:41:11.300", 0, 0, 60, 2, 0, "10k Vbucks", "We love vbucks", "33159 Bins Spring", "GlRHcH7VZVLB", "woADJxwteGHfm4gSzAii3Ava");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (65, 15, 18, "2024-08-05 16:41:11.300", 0, 0, 779, 2, 1, "Licensed Soft Chicken", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "6498 E 12th Street", "iJEOVBHVQpow", "Qa2nBHllrs4uILuHCZVoT2Pf");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (66, 15, 30, "2024-08-05 16:41:11.300", 0, 0, 99, 1, 0, "Nintendo Alarmo", "Ruin Nintendo properties by waking up to them!", "21527 Quarry Road", "-aapem6mcyZw", "VQhklZBUcgFgjP6kShxabsEk");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (67, 12, 39, "2024-08-05 16:41:11.301", 0, 0, 22, 1, 0, "Bunny Maloney Season 1 (Full) (English dub)", "This long lost comedy cartoon has FINALLY been recovered! Purchase this DVD collection and witness an enitre season of unhinged madness that should not have aired on children's TV!", "764 Hirthe Lakes", "8s-y7bfSvIsT", "8Ms4gEWfog8Qy2RG0LA75dtv");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (68, 9, 10, "2024-08-05 16:41:11.300", 0, 0, 433, 2, 1, "Intelligent Granite Cheese", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "935 W Broadway", "zy2se5kE1b8R", "HNGskBwuIqgMgO6ayk5wCvWi");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (69, 10, 5, "2024-08-05 16:41:11.301", 0, 0, 962, 4, 1, "Refined Bronze Sausages", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "1865 Jenkins Brooks", "6-TiMK0HIvdV", "7K63ortg7M_yE71B2LKPWleA");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (70, 10, 10, "2024-08-05 16:41:11.301", 0, 0, 342, 2, 1, "Handcrafted Frozen Shirt", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "2105 Elm Road", "SYJpT73ef8_3", "0CRgDmGefUGj6FTQgV_6U6Jc");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (71, 10, 17, "2024-08-05 16:42:11.300", 0, 0, 47, 2, 0, "Red Hat", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "385 Glover Cove", "HoyBvkaugMwF", "ITBemYpJ7zijWEbfWuHc3DC3");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (72, 3, 2, "2024-08-05 16:41:11.301", 0, 0, 518, 5, 2, "Handmade Metal Bacon", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "770 Abbott Mills", "FsvzVE8EFOt7", "c2bQ4GnijYpYFu4mcHpG0Ijo");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (73, 9, 8, "2024-08-05 16:41:11.301", 0, 0, 752, 3, 1, "Licensed Frozen Ball", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "7167 The Mount", "nEQTj9ZYRG9_", "-m5RBetli8dKDQdg7S9Gk9Ur");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (74, 6, 28, "2024-08-05 16:41:11.301", 0, 0, 626, 2, 1, "Handmade Metal Ball", "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles", "14319 Juwan Parkway", "QHi8E5LamZqF", "-L3bLj3Yaa0oUnsXMOAumPnK");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (75, 2, 34, "2024-08-05 16:41:11.301", 0, 0, 332, 4, 1, "Refined Soft Ball", "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", "614 Kaylee Overpass", "Ag81CskauPj8", "JnSCWW1R-1iJlV32Ml8FCZr0");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (76, 3, 16, "2024-08-05 16:41:11.301", 0, 0, 649, 4, 2, "Generic Rubber Chicken", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "67010 Bruen Stream", "Ii27XpTTdEUX", "Lc6inQAPMrHduqp7WSb3Sa-a");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (77, 4, 27, "2024-08-05 16:41:11.301", 0, 0, 598, 5, 1, "Elegant Plastic Mouse", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "5795 Bergstrom Plains", "pFfsDGt7SjeA", "FUUt3mZKkcrILZaQQyo0lpNJ");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (78, 14, 6, "2024-08-05 16:41:11.301", 0, 0, 290, 3, 1, "Rustic Wooden Shirt", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "32684 W 5th Street", "OCTTkjs2ikwL", "8DfrqDn3Ym7T4i1behWmwXOq");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (79, 12, 34, "2024-08-05 16:41:11.300", 0, 0, 162, 3, 0, "Keytar!!", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "252 Bins Island", "in9X4eJvPa7o", "m8EgkMjmejFM7aSnbah8rEoX");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (80, 4, 22, "2024-08-05 16:41:11.302", 0, 0, 860, 3, 1, "Small Fresh Bacon", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "855 Reinger Valley", "BfYHYoMLDmGs", "fIZRVofd5y-jy7qld_ciHk-L");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (81, 2, 13, "2024-08-05 16:41:11.302", 0, 0, 285, 0, 0, "Wii U", "Nobody bought this, but man I love it so much.", "740 Smitham Parkway", "7VZXN-Ym-YWa", "dnlte8DCH51xixd0JCEn5p0E");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (82, 8, 3, "2024-08-05 16:41:11.302", 0, 0, 306, 3, 1, "Luxurious Bronze Chips", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "148 Lesch Fords", "CMqNKFGk090k", "XfuA0fhb50ffh51ctF1V2ZAt");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (83, 7, 22, "2024-08-05 16:41:11.302", 0, 0, 694, 3, 2, "Generic Wooden Ball", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "929 Kendra Greens", "AIkSrfCsZHhf", "z29n_P1Vs9ZSu43Sl5a6Pzjo");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (84, 10, 40, "2024-08-05 16:41:11.302", 0, 0, 213, 1, 0, "Pokémon Cards", "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", "9994 Bryana Manors", "6jAidRif2F6e", "RAicMEWbvgSLMIduqqTJAiHP");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (85, 4, 37, "2024-08-05 16:41:11.302", 0, 0, 663, 2, 1, "Sleek Steel Keyboard", "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive", "938 Billie Forges", "u1HproAt92y1", "Heyr4ybEV8X0IqUHdQ9l74Ib");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (86, 4, 15, "2024-08-05 16:41:11.302", 0, 0, 137, 0, 2, "Small Steel Shirt", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "105 Velda Lakes", "K2lF7oyvP_f6", "mQh5OmQJZVaA93h4NI9cYO-T");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (87, 1, 4, "2024-08-05 16:41:11.302", 0, 0, 491, 2, 1, "Tasty Plastic Keyboard", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "49972 Reinger River", "L-DATJAoUGG1", "mdkLET7lBCnqpryHlig-neuc");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (88, 7, 23, "2024-08-05 16:41:11.302", 0, 0, 616, 1, 1, "Incredible Rubber Soap", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "12846 Wilton Crest", "La9yGya8_ARa", "yqKhG_1srhobLff5VStcWN_Z");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (89, 3, 4, "2024-08-05 16:41:11.302", 0, 0, 866, 1, 1, "Recycled Granite Soap", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "518 Metz Cliffs", "GT8F_HXQHnMk", "HW5o-Onz1LF4rMZUod5Jm4Gn");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (90, 12, 19, "2024-08-05 16:41:11.302", 0, 0, 517, 1, 1, "Bespoke Soft Car", "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J", "4382 Third Avenue", "aHZEb5xT6N3u", "AfllU8zmjs4cHM49oce4fLPi");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (91, 7, 8, "2024-08-05 16:41:11.303", 0, 0, 762, 3, 1, "Awesome Concrete Salad", "The Football Is Good For Training And Recreational Purposes", "290 Kaela Lodge", "mmgn_yXaSBld", "gNMD1_ZsPOSfXFOvQUVnjrYd");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (92, 10, 26, "2024-08-05 16:41:11.303", 0, 0, 340, 4, 0, "Luxurious Bronze Cheese", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "227 O'Conner Ramp", "aJRmBVbAngui", "wY9dxUDwhjT8IcGwIomcXdIm");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (93, 15, 2, "2024-08-05 16:41:11.303", 0, 0, 185, 3, 0, "Drone", "a drone!", "2651 N Locust Street", "uH9ykRlOlzTa", "BsJMSsAAGUu82Ig7-7J4qte4");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (94, 15, 35, "2024-08-05 16:41:11.303", 0, 0, 895, 0, 1, "Licensed Soft Gloves", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "63348 Maudie Road", "l_UOkNdXWcFs", "TjevxsiQEXqohqwVc-GqCU0Y");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (95, 6, 18, "2024-08-05 16:41:11.303", 0, 0, 965, 5, 1, "Ergonomic Wooden Pants", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "7595 Annie Underpass", "K3lzt3oJs9uC", "rMD5H_QuUAkJhQEqT35hGRIZ");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (96, 13, 13, "2024-08-05 16:41:11.303", 0, 0, 750, 0, 2, "Gorgeous Steel Pants", "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", "46313 Leannon Coves", "UlfmshQMvhUA", "fmIGOZFWcYyx8ksGEfVnzGbM");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (97, 2, 13, "2024-08-05 16:41:11.303", 0, 0, 883, 2, 2, "Refined Plastic Pizza", "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", "159 S Lincoln Street", "_5nQHxt4NUGE", "CLWz4SNAjxpMRahyD3i7pwYa");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (98, 13, 32, "2024-08-05 16:41:11.303", 0, 0, 810, 1, 1, "Gorgeous Granite Bacon", "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support", "49674 Jayden Rapid", "V-2F4-D84vnl", "rhH3wLacPn1bNOcusJIhQS9Y");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (99, 7, 14, "2024-08-05 16:41:11.304", 0, 0, 731, 0, 1, "Elegant Cotton Shoes", "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", "57984 E 14th Street", "2ZzOyi_4S5ot", "saptET-duA5B84alEB5fXaFj");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (100, 14, 14, "2024-08-05 16:41:11.304", 0, 0, 330, 1, 2, "Recycled Metal Computer", "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", "376 Reginald Parkway", "0t9lFP5XZ7Jp", "k_yezPkZeqH3h8FFZjagUtBM");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (101, 9, 43, "2024-10-11 22:26:20.533", 0, 0, 123231, 2, 0, "fdsafasd", "adsfadsfasdf", "asdfasdf", "bo1vw2O57UgB", "lJlB3MsKIJiwzAD_IQZ6TyJU");
+INSERT INTO ad (id_ad, ad_type_id, customer_id, added_date, is_deleted, is_sold, price, shape, visibility, title, description, address, link, reference) VALUES (102, 10, 44, "2023-10-12 00:31:25.446", 0, 0, 64, 2, 0, "La cafetière de Philipe", "La cafetière de Philipe en bon état.", "7000 Rue Marie-Victorin, Montréal, CA", "MXWn57IslyqG", "1tP6fUq3cCmhxuVlZvf1hCZH");
 
-/* AdType */
-insert into ad_type (id_ad_type, name) values (1, 'Car');
-insert into ad_type (id_ad_type, name) values (2, 'Tool');
-insert into ad_type (id_ad_type, name) values (3, 'Hardware');
-insert into ad_type (id_ad_type, name) values (4, 'Toys');
-insert into ad_type (id_ad_type, name) values (5, 'Parts');
-insert into ad_type (id_ad_type, name) values (6, 'Equipment');
-insert into ad_type (id_ad_type, name) values (7, 'Furniture');
-insert into ad_type (id_ad_type, name) values (8, 'Collectibles');
-insert into ad_type (id_ad_type, name) values (9, 'Category01');
-insert into ad_type (id_ad_type, name) values (10, 'Category02');
-insert into ad_type (id_ad_type, name) values (11, 'Category03');
-insert into ad_type (id_ad_type, name) values (12, 'Category04');
-insert into ad_type (id_ad_type, name) values (13, 'Category05');
-insert into ad_type (id_ad_type, name) values (14, 'Category06');
-insert into ad_type (id_ad_type, name) values (15, 'Cooking tools');
-insert into ad_type (id_ad_type, name) values (16, 'Collectors Item');
-insert into ad_type (id_ad_type, name) values (17, 'Vintage Items');
-insert into ad_type (id_ad_type, name) values (18, 'Appliances');
-insert into ad_type (id_ad_type, name) values (19, 'Accessories');
-insert into ad_type (id_ad_type, name) values (20, 'Hamid');
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (1, 1, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (2, 2, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (3, 3, 'playdate1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (3, 4, 'playdate0.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (3, 5, 'playdate2.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (3, 6, 'playdate3.gif', 3);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (4, 7, 'bronzeChicken1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (4, 8, 'bronzeChicken2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (4, 9, 'bronzeChicken3.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (5, 10, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (6, 11, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (7, 12, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (8, 13, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (9, 14, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (10, 15, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (11, 16, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (12, 17, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (13, 18, 'carSnow1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (13, 19, 'carSnow2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (14, 20, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (15, 21, 'cheese1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (15, 22, 'cheese2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (16, 23, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (17, 24, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (18, 25, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (19, 26, 'zoobleFig0.webp', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (19, 27, 'zoobleFig1.webp', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (19, 28, 'zoobleFig2.webp', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (20, 29, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (21, 30, 'fish1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (21, 31, 'fish2.gif', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (22, 32, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (23, 33, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (24, 34, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (25, 35, 'mangle1.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (25, 36, 'mangle2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (25, 37, 'mangle3.png', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (26, 38, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (27, 39, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (28, 40, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (29, 41, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (30, 42, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (31, 43, 'playstation1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (32, 44, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (33, 45, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (34, 46, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (35, 47, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (36, 48, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (37, 49, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (38, 50, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (39, 51, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (40, 52, 'walkman3.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (40, 53, 'walkman2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (40, 54, 'walkman1.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (41, 55, 'iphone2.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (41, 56, 'iphone1.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (41, 57, 'iphone3.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (42, 58, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (43, 59, 'ball1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (43, 60, 'ball2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (44, 61, 'bike3.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (44, 62, 'bike1.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (44, 63, 'bike4.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (44, 64, 'bike2.jpg', 3);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (45, 65, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (46, 66, 'chair1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (46, 67, 'chair2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (46, 68, 'chair3.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (47, 69, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (48, 70, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (49, 71, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (50, 72, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (51, 73, 'blueyplayset1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (51, 74, 'blueyplayset2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (51, 75, 'blueyplayset3.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (52, 76, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (53, 77, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (54, 78, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (55, 79, 'car1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (55, 80, 'car2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (56, 81, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (57, 82, 'bowl.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (57, 83, 'bowl.png', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (58, 84, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (59, 85, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (60, 86, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (61, 87, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (62, 88, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (63, 89, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (64, 90, 'vbucks.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (64, 91, 'vbucks1.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (65, 92, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (66, 93, 'alarmo0.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (66, 94, 'alarmo.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (66, 95, 'alarmo1.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (67, 96, 'bunny1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (67, 97, 'bunny.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (67, 98, 'bunny2.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (67, 99, 'bunny3.png', 3);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (68, 100, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (69, 101, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (70, 102, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (71, 103, 'redhat.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (71, 104, 'redhat2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (72, 105, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (73, 106, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (74, 107, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (75, 108, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (76, 109, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (77, 110, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (78, 111, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (79, 112, 'keytar.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (79, 113, 'keytar1.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (79, 114, 'keytar2.png', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (80, 115, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (81, 116, 'wiiu1.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (81, 117, 'wiiu2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (81, 118, 'wiiu3.jpg', 2);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (82, 119, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (83, 120, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (84, 121, 'pokemon.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (84, 122, 'pokemon2.jpg', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (85, 123, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (86, 124, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (87, 125, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (88, 126, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (89, 127, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (90, 128, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (91, 129, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (92, 130, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (93, 131, 'drone0.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (93, 132, 'drone.png', 1);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (94, 133, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (95, 134, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (96, 135, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (97, 136, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (98, 137, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (99, 138, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (100, 139, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (101, 140, 'opensell.png', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (102, 141, 'JtsByCDVRbmmlPwsgihMxhUTRMGepo.jpg', 0);
+INSERT INTO ad_image (ad_id, id_ad_image, path, spot) VALUES (102, 142, 'aUILgeripLwvnKkeEIBAUIkQPkKexp.jpg', 1);
 
-/* Ad */
-INSERT INTO `ad` (`ad_type_id`, `added_date`, `customer_id`, `id_ad`, `is_deleted`, `is_sold`, `price`, `shape`, `visibility`, `title`, `description`, `address`, `link`, `reference`) VALUES
-	(1, '2023-09-17 00:00:00', 1, 1, 0, 1, 6849.89, 3, 0, 'Cressida', 'Curabitur in libero ut massa volutpat convallis.', 'Apt 1046', '19tMibtni6QZ', 'exuding'),
-	(2, '2024-01-16 00:00:00', 1, 2, 0, 0, 7585.61, 2, 1, 'Mirage', 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 'Room 774', '18WRZLWzoTXC', 'didactic'),
-	(3, '2023-03-21 00:00:00', 1, 3, 0, 0, 8682.23, 2, 1, 'Avalanche 2500', 'Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.', 'Room 880', '1BUQ17Nrpq86', 'Monitored'),
-	(4, '2023-05-18 00:00:00', 1, 4, 0, 1, 7082.67, 1, 1, 'Aerostar', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', 'PO Box 9631', '1BJABQHVr9DQ', 'Streamlined'),
-	(5, '2023-08-18 00:00:00', 1, 5, 0, 0, 628.88, 0, 1, 'Grand Prix', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'PO Box 69874', '1JggTyZxHHLN', 'discrete'),
-	(6, '2023-05-23 00:00:00', 6, 6, 0, 0, 3740.82, 4, 1, '850', 'Quisque ut erat. Curabitur gravida nisi at nibh.', '12th Floor', '14qvvGPvNe8S', 'radical'),
-	(7, '2023-05-04 00:00:00', 7, 7, 0, 1, 1191.73, 3, 1, 'Montero', 'Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.', 'Apt 1733', '18tNAgKD7ccN', 'Decentralized'),
-	(8, '2023-03-14 00:00:00', 8, 8, 0, 0, 3514.35, 0, 0, 'Probe', 'Proin at turpis a pede posuere nonummy. Integer non velit.', '10th Floor', '1KcDzmVZWtnq', 'attitude-oriented'),
-	(9, '2023-10-28 00:00:00', 1, 9, 0, 1, 6114.33, 4, 0, 'S2000', 'Aenean lectus.', 'PO Box 98294', '18RT27kvjpjK', 'software'),
-	(10, '2023-02-18 00:00:00', 10, 10, 0, 0, 4866.34, 1, 2, 'Grand Vitara', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', '7th Floor', '14ZpmR7ZvxVX', 'Adaptive'),
-	(11, '2023-11-21 00:00:00', 11, 11, 0, 1, 1639.99, 0, 1, 'Silverado 2500', 'Etiam faucibus cursus urna.', 'Apt 1163', '19V6M8WTgFzx', 'Customer-centric'),
-	(12, '2024-01-18 00:00:00', 12, 12, 0, 0, 1920.11, 1, 0, 'Cressida', 'Maecenas ut massa quis augue luctus tincidunt.', '12th Floor', '146N7ohqggsa', 'interface'),
-	(13, '2023-06-17 00:00:00', 13, 13, 0, 1, 4326.31, 1, 1, 'LTD Crown Victoria', 'Integer ac neque. Duis bibendum.', 'PO Box 83908', '1GQcvQ7P9s2x', 'throughput'),
-	(14, '2023-05-29 00:00:00', 14, 14, 0, 1, 8060.65, 4, 0, 'Lanos', 'Duis at velit eu est congue elementum.', 'PO Box 85064', '1Bq1Ym9awJLH', 'ability'),
-	(15, '2024-01-09 00:00:00', 15, 15, 0, 1, 1709.46, 0, 1, 'Q7', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', 'Suite 47', '15t9kj4MP1dY', 'Proactive'),
-	(16, '2023-08-12 00:00:00', 16, 16, 0, 0, 4162.4, 1, 2, 'Vibe', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.', 'PO Box 57627', '1Ew9yWU9zag6', 'software'),
-	(17, '2023-03-23 00:00:00', 17, 17, 0, 1, 8790.18, 2, 2, 'Grand Am', 'Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', 'Suite 67', '1CthnrsSf5zH', 'contextually-based'),
-	(18, '2023-11-06 00:00:00', 18, 18, 0, 0, 8966.39, 4, 2, 'Landaulet', 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', 'PO Box 73939', '19bx44DMr6Hk', 'Sharable'),
-	(19, '2024-01-08 00:00:00', 19, 19, 0, 0, 2479.92, 3, 0, 'Ranger', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', 'Room 518', '18xSPfiVGfiX', 'executive'),
-	(10, '2024-01-28 00:00:00', 20, 20, 0, 0, 9563.15, 3, 1, 'Altima', 'Aliquam non mauris. Morbi non lectus.', '3rd Floor', '1EVxbAnhsmy4', 'web-enabled'),
-	(11, '2023-09-13 00:00:00', 21, 21, 0, 0, 6009.87, 0, 1, 'CR-V', 'Nunc rhoncus dui vel sem. Sed sagittis.', 'PO Box 94841', '1PA9brXNz8Fw', 'Cloned'),
-	(12, '2023-10-16 00:00:00', 22, 22, 0, 1, 4121.01, 2, 0, 'Caprice', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', 'Suite 17', '15XZ924bUkww', 'static'),
-	(13, '2023-07-07 00:00:00', 23, 23, 0, 1, 9043.81, 3, 1, 'Galant', 'Aenean auctor gravida sem.', 'Room 1259', '13mxejiQHffE', 'Innovative'),
-	(14, '2023-07-17 00:00:00', 24, 24, 0, 1, 4451.19, 0, 2, 'E-Class', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.', '4th Floor', '1PSGvKUByAak', 'Advanced'),
-	(15, '2023-12-08 00:00:00', 25, 25, 0, 0, 8316.19, 3, 0, 'Integra', 'Duis mattis egestas metus.', '11th Floor', '19tnHMoF8NyJ', 'radical'),
-	(16, '2023-07-03 00:00:00', 26, 26, 0, 1, 893.68, 1, 1, 'Corvette', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', 'Apt 1914', '1NWAKNqNoVGT', 'well-modulated'),
-	(17, '2023-11-27 00:00:00', 27, 27, 0, 1, 753.69, 4, 0, 'D150', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 'Apt 724', '1F9hiXNH4kVV', 'system-worthy'),
-	(18, '2023-07-27 00:00:00', 28, 28, 0, 0, 7417.31, 2, 2, 'MR2', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', 'PO Box 84801', '18FJ649bFWzF', 'incremental'),
-	(19, '2023-10-26 00:00:00', 29, 29, 0, 0, 80.66, 2, 1, 'Lancer', 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', 'Suite 6', '17KrAeGoyNbY', 'attitude-oriented'),
-	(20, '2023-11-01 00:00:00', 30, 30, 0, 1, 8844.81, 1, 2, 'Quattroporte', 'Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', 'Room 577', '13KqZSSERvPa', 'synergy'),
-	(1, '2024-01-21 00:00:00', 31, 31, 0, 1, 897.95, 4, 1, 'Quattro', 'Proin eu mi. Nulla ac enim.', 'PO Box 51221', '1EGVaZS7yoYB', 'Cross-group'),
-	(2, '2023-07-18 00:00:00', 32, 32, 0, 0, 7563.55, 2, 2, 'LS Hybrid', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.', '17th Floor', '1Ae5GiRXu3o9', 'secondary'),
-	(3, '2024-02-09 00:00:00', 33, 33, 0, 1, 8691.23, 3, 1, 'Grand Voyager', 'Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', 'Room 1917', '1BtGfPjnYqi2', 'Triple-buffered'),
-	(4, '2023-12-30 00:00:00', 34, 34, 0, 1, 4960.59, 2, 1, 'Mulsanne', 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.', 'Apt 1275', '1AFoVQ1UdJwy', 'Graphical Customer Interface'),
-	(5, '2023-11-05 00:00:00', 35, 35, 0, 0, 769.66, 2, 0, 'Murano', 'Phasellus id sapien in sapien iaculis congue.', 'Suite 26', '1Ha1vVdZkmBY', 'Triple-buffered'),
-	(6, '2023-12-05 00:00:00', 36, 36, 0, 0, 7740.17, 2, 0, 'Impreza', 'Praesent blandit.', '2nd Floor', '1MjkLaGFhevd', 'bi-directional'),
-	(7, '2023-09-26 00:00:00', 37, 37, 0, 0, 7291.93, 2, 1, 'Ram 3500', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.', 'PO Box 45317', '166ScU6dr4bW', 'architecture'),
-	(8, '2023-03-12 00:00:00', 38, 38, 0, 0, 4608.47, 0, 0, 'Range Rover', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 'PO Box 46618', '15YDdhNR5K57', 'paradigm'),
-	(9, '2023-12-06 00:00:00', 39, 39, 0, 0, 2572.8, 2, 2, 'Savana 2500', 'Aenean sit amet justo.', 'PO Box 3348', '1BHVHuSfYbkB', 'Profound'),
-	(10, '2023-08-29 00:00:00', 40, 40, 0, 1, 6185.63, 2, 0, 'Titan', 'Nullam sit amet turpis elementum ligula vehicula consequat.', '8th Floor', '1C86ZYgmj1TY', 'customer loyalty'),
-	(11, '2023-07-07 00:00:00', 41, 41, 0, 0, 7195.27, 4, 2, 'Concorde', 'Nullam sit amet turpis elementum ligula vehicula consequat.', 'PO Box 12580', '18UeuWm3R8JB', 'hybrid'),
-	(12, '2023-11-07 00:00:00', 42, 42, 0, 0, 4551.04, 0, 1, 'Mazda3', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', '16th Floor', '148bMkfLu27U', 'local area network'),
-	(13, '2023-02-14 00:00:00', 43, 43, 0, 0, 2344.55, 4, 1, 'Metro', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.', 'Suite 27', '1BUDQYV5W5TT', 'reciprocal'),
-	(14, '2023-06-17 00:00:00', 44, 44, 0, 1, 368.99, 3, 1, 'Galant', 'Aenean lectus. Pellentesque eget nunc.', 'PO Box 87273', '15WjY6ZKLgB5', 'knowledge base'),
-	(15, '2023-08-16 00:00:00', 45, 45, 0, 0, 2579.43, 2, 2, 'Regal', 'Aenean auctor gravida sem.', 'Suite 14', '1MWmzjceEiNS', 'definition'),
-	(16, '2024-01-28 00:00:00', 46, 46, 0, 0, 7629.37, 3, 1, 'Cordia', 'Duis at velit eu est congue elementum.', '2nd Floor', '1Ah9zZB3gZEL', 'bottom-line'),
-	(17, '2023-09-21 00:00:00', 47, 47, 0, 1, 9422.43, 0, 2, 'Imperial', 'Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.', '14th Floor', '12mdfHopo3rg', 'scalable'),
-	(18, '2023-07-08 00:00:00', 48, 48, 0, 0, 3522.31, 3, 0, 'Ram 2500', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.', 'Room 1253', '1Ddzu9PWtWgX', 'coherent'),
-	(19, '2023-11-05 00:00:00', 49, 49, 0, 1, 7221.17, 0, 0, 'LTD Crown Victoria', 'Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.', 'PO Box 42781', '1AsxYj3YWj5F', 'time-frame'),
-	(20, '2023-07-14 00:00:00', 50, 50, 0, 0, 7647.04, 3, 0, 'Escalade EXT', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.', 'Room 1182', '17mSt3TxWZHw', 'customer loyalty'),
-	(1, '2023-10-26 00:00:00', 51, 51, 0, 1, 5653.39, 3, 1, 'Sierra 1500', 'Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', 'Suite 34', '1A3KnLNAbF7T', 'upward-trending'),
-	(2, '2024-02-01 00:00:00', 52, 52, 0, 0, 6121.67, 0, 2, 'Trans Sport', 'Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.', 'Room 772', '1MizG1ZvZen3', 'neural-net'),
-	(3, '2023-09-21 00:00:00', 53, 53, 0, 0, 616.39, 2, 1, 'Th!nk', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.', 'PO Box 12003', '1MrrVuCHtZBd', 'benchmark'),
-	(4, '2023-09-08 00:00:00', 54, 54, 0, 0, 5575.28, 3, 2, 'Celica', 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.', 'Apt 698', '1FDEAhgidVcM', 'coherent'),
-	(5, '2023-07-06 00:00:00', 55, 55, 0, 0, 2244.6, 4, 0, 'Accent', 'Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', '2nd Floor', '1HTopoC8ManE', 'open system'),
-	(6, '2023-10-10 00:00:00', 56, 56, 0, 0, 6227.83, 3, 0, '4Runner', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum.', 'Room 230', '15RHmrGsQvdr', 'demand-driven'),
-	(7, '2023-03-26 00:00:00', 57, 57, 0, 0, 8611.33, 2, 1, 'H3T', 'Duis bibendum. Morbi non quam nec dui luctus rutrum.', 'Room 862', '1Lwc7DyeuTJz', 'interface'),
-	(8, '2023-10-26 00:00:00', 58, 58, 0, 0, 7105.29, 2, 2, 'Sixty Special', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', '17th Floor', '19iNJBez2LJy', 'multi-state'),
-	(9, '2023-05-16 00:00:00', 59, 59, 0, 0, 268.48, 1, 2, 'CR-Z', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.', '5th Floor', '1EysbDxBm5BX', 'Robust'),
-	(10, '2023-07-03 00:00:00', 60, 60, 0, 0, 3919.73, 2, 1, 'LHS', 'Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.', 'PO Box 55630', '1LWQyQKXNPyX', '24/7'),
-	(11, '2023-03-29 00:00:00', 61, 61, 0, 1, 9535.13, 0, 0, 'E-Series', 'Nulla nisl.', 'Apt 1763', '1PPLZS1PEad2', 'Customer-focused'),
-	(12, '2023-08-12 00:00:00', 62, 62, 0, 0, 3845.63, 3, 2, 'Cavalier', 'Etiam pretium iaculis justo.', '14th Floor', '1AUFXuPV4KsN', 'Function-based'),
-	(13, '2023-08-04 00:00:00', 63, 63, 0, 0, 9972.65, 0, 0, 'MPV', 'Aliquam erat volutpat. In congue. Etiam justo.', 'Room 289', '15Ac4E5BE3Vf', 'Customer-friendly'),
-	(14, '2023-03-19 00:00:00', 64, 64, 0, 0, 1036.02, 2, 2, 'Camaro', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', 'Suite 91', '1JEC5DxXsUcu', 'attitude'),
-	(15, '2023-11-11 00:00:00', 65, 65, 0, 1, 8471.86, 1, 1, 'MR2', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', 'Apt 19', '1KqDn9zNpzre', 'help-desk'),
-	(16, '2023-02-25 00:00:00', 66, 66, 0, 1, 2916.85, 3, 1, 'XT', 'Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.', 'Apt 70', '1DYMHJBWCo5o', 'intranet'),
-	(17, '2023-06-25 00:00:00', 67, 67, 0, 0, 6250.95, 1, 1, 'Sequoia', 'Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 'PO Box 72779', '1L8sLdKu8skB', 'middleware'),
-	(18, '2023-10-17 00:00:00', 68, 68, 0, 1, 2920.53, 0, 0, 'Contour', 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', 'Apt 165', '1G2YWDU9xCRK', '5th generation'),
-	(19, '2023-11-09 00:00:00', 69, 69, 0, 0, 1053.39, 0, 0, 'Boxster', 'Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.', 'Suite 28', '16F9bAezM7X7', 'bandwidth-monitored'),
-	(20, '2023-10-23 00:00:00', 70, 70, 0, 1, 465.79, 2, 1, 'C-Class', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', 'PO Box 33841', '12iTzL9SHHPi', 'next generation'),
-	(1, '2023-12-09 00:00:00', 71, 71, 0, 1, 4986.45, 2, 1, 'Dakota', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', '2nd Floor', '1KQEw9XKDQAN', 'web-enabled'),
-	(2, '2024-01-21 00:00:00', 72, 72, 0, 0, 3202, 3, 1, 'Galant', 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', '6th Floor', '146utKPiiUR2', 'Profit-focused'),
-	(3, '2024-01-12 00:00:00', 73, 73, 0, 0, 7588.37, 2, 0, 'Escalade EXT', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', '15th Floor', '13tBKsQaxbPY', 'solution-oriented'),
-	(4, '2023-08-24 00:00:00', 74, 74, 0, 0, 5102.09, 4, 0, 'Estate', 'Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.', '14th Floor', '14NhXCfCUwPL', 'info-mediaries'),
-	(5, '2024-01-29 00:00:00', 75, 75, 0, 1, 7116.7, 2, 1, 'Mazda6', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 'Apt 1556', '1PAyMXZK8hDr', 'Down-sized'),
-	(6, '2023-06-30 00:00:00', 76, 76, 0, 1, 7579.76, 0, 0, 'SVX', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', 'Apt 1650', '1L88z1j9LomG', 'customer-facing'),
-	(7, '2023-12-22 00:00:00', 77, 77, 0, 0, 1065.31, 1, 0, 'GTI', 'Integer a nibh.', 'Room 1779', '186gK8sEctag', 'optimal'),
-	(8, '2023-05-28 00:00:00', 78, 78, 0, 1, 3312.28, 4, 2, 'Firebird', 'Integer ac leo. Pellentesque ultrices mattis odio.', 'Apt 1633', '1Jkffho9xyLA', 'approach'),
-	(9, '2023-05-16 00:00:00', 79, 79, 0, 0, 7713.43, 0, 2, 'A6', 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', 'PO Box 49428', '1HoikWXe3a4A', 'system-worthy'),
-	(10, '2023-10-05 00:00:00', 80, 80, 0, 1, 1269.78, 4, 2, '1 Series', 'In hac habitasse platea dictumst.', 'Suite 15', '14FJ6x2LX6sK', 'Cloned'),
-	(11, '2023-04-27 00:00:00', 81, 81, 0, 1, 2239.02, 2, 0, 'S6', 'Ut at dolor quis odio consequat varius.', 'PO Box 27114', '172h9FN3Scos', 'pricing structure'),
-	(12, '2023-09-30 00:00:00', 82, 82, 0, 0, 6959.41, 2, 1, 'GT', 'Curabitur at ipsum ac tellus semper interdum.', 'Room 551', '1JJfUrLxwxAN', 'Fully-configurable'),
-	(13, '2023-11-29 00:00:00', 83, 83, 0, 1, 5375.46, 3, 1, 'Fusion', 'Maecenas pulvinar lobortis est.', 'PO Box 32535', '1391F9zMNhUy', 'database'),
-	(14, '2023-10-20 00:00:00', 84, 84, 0, 0, 8365.39, 2, 1, 'Maxima', 'Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.', 'Apt 538', '1CcsVAuNnukV', 'uniform'),
-	(15, '2023-07-09 00:00:00', 85, 85, 0, 1, 9943.42, 4, 1, 'Legacy', 'Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.', '8th Floor', '1MFGPe5SggVA', 'utilisation'),
-	(16, '2023-10-03 00:00:00', 86, 86, 0, 1, 9150.5, 4, 2, '929', 'In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.', 'PO Box 49738', '13kLJAZuGrao', 'dynamic'),
-	(17, '2023-11-19 00:00:00', 87, 87, 0, 1, 549.31, 2, 0, 'Caravan', 'Suspendisse accumsan tortor quis turpis. Sed ante.', 'Room 170', '16EJ4bGhefFv', 'forecast'),
-	(18, '2023-12-27 00:00:00', 88, 88, 0, 0, 1910.48, 3, 2, 'Cayenne', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 'Room 1337', '1tjA7KbGCG8S', 'encompassing'),
-	(17, '2023-09-03 00:00:00', 89, 89, 0, 0, 246.99, 3, 2, 'Eclipse', 'Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', 'PO Box 67082', '1FVL97GnuVuQ', 'asymmetric'),
-	(19, '2023-10-27 00:00:00', 90, 90, 0, 0, 1578.18, 0, 1, 'Savana 2500', 'Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', 'PO Box 41705', '1Hg7Ax6P6cP2', 'Progressive'),
-	(19, '2023-03-29 00:00:00', 91, 91, 0, 1, 5172.11, 3, 2, 'Pathfinder', 'Aliquam erat volutpat. In congue.', 'Suite 79', '16KNHoRS2dBk', 'Seamless'),
-	(7, '2023-09-24 00:00:00', 92, 92, 0, 1, 7857.69, 4, 0, '2500', 'In quis justo. Maecenas rhoncus aliquam lacus.', '17th Floor', '19rLvhsxVQk8', 'Seamless'),
-	(3, '2023-11-01 00:00:00', 93, 93, 0, 1, 9787.74, 4, 0, '300SD', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 'PO Box 24695', '1HyDUrhw4TNP', 'Graphic Interface'),
-	(14, '2023-05-06 00:00:00', 94, 94, 0, 0, 8389.71, 0, 1, 'Amigo', 'Vivamus in felis eu sapien cursus vestibulum.', 'Suite 13', '18uw6wXaE39B', 'info-mediaries'),
-	(4, '2024-01-31 00:00:00', 95, 95, 0, 0, 3115.62, 0, 0, 'Mazdaspeed6', 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', 'Suite 1', '1LdD5EkvCaom', 'emulation'),
-	(2, '2023-12-02 00:00:00', 96, 96, 0, 1, 4989.59, 0, 1, 'Cabriolet', 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.', 'Room 944', '19uiL2Y2hZZe', 'Re-engineered'),
-	(16, '2023-05-16 00:00:00', 97, 97, 0, 0, 6077.82, 3, 1, 'Genesis', 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', 'PO Box 46942', '1BbWHwcjwZs1', 'hierarchy'),
-	(9, '2023-05-24 00:00:00', 98, 98, 0, 0, 3723.95, 0, 1, 'Ram Van B150', 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.', 'Room 1786', '1JR8K7dh6Pj2', 'Function-based'),
-	(12, '2023-10-16 00:00:00', 99, 99, 0, 1, 1354.01, 4, 0, 'SC', 'Nullam sit amet turpis elementum ligula vehicula consequat.', 'Room 1007', '17fVHTZdrk3c', 'alliance'),
-	(10, '2023-12-18 00:00:00', 100, 100, 0, 0, 9394.63, 1, 1, 'Camry', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', 'Suite 24', '1GeqjMAHke8V', '24/7'),
-	(11, '2023-09-05 00:00:00', 101, 101, 0, 0, 4113.64, 0, 2, 'LX', 'Proin eu mi.', 'PO Box 30237', '168tXhVNqDCm', 'directional'),
-	(12, '2024-01-30 00:00:00', 102, 102, 0, 1, 4142.17, 4, 0, 'F250', 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.', 'Apt 1145', '1LSq44YkHFLx', 'background'),
-	(13, '2023-10-01 00:00:00', 103, 103, 0, 0, 3867.18, 3, 0, '5 Series', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 'Apt 326', '15jFcEZhhYp9', 'Optional'),
-	(14, '2023-02-16 00:00:00', 104, 104, 0, 1, 5922.23, 2, 1, 'Veracruz', 'Aliquam sit amet diam in magna bibendum imperdiet.', 'PO Box 30388', '14ncrWqj5iPE', 'transitional'),
-	(15, '2023-09-26 00:00:00', 105, 105, 0, 1, 2157.78, 0, 0, 'TrailBlazer', 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', 'Suite 57', '1LSViw5a9RSz', 'Upgradable'),
-	(16, '2023-06-25 00:00:00', 106, 106, 0, 1, 4758.69, 2, 0, 'CL-Class', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', 'Suite 11', '1DgnWQoQASf1', 'productivity'),
-	(17, '2023-12-31 00:00:00', 107, 107, 0, 0, 6411.44, 4, 0, 'LX', 'Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', '16th Floor', '14vhVHtuJNFx', 'clear-thinking'),
-	(18, '2023-08-05 00:00:00', 108, 108, 0, 1, 4131.41, 0, 1, 'Accord', 'Proin risus.', 'Apt 704', '1Hpms9QYvbee', 'local area network'),
-	(19, '2023-05-09 00:00:00', 109, 109, 0, 1, 5387.75, 0, 0, 'Sierra', 'Mauris ullamcorper purus sit amet nulla.', 'Apt 1954', '162aQGGGJNgc', 'hardware'),
-	(10, '2023-12-16 00:00:00', 110, 110, 0, 0, 660.15, 2, 0, 'Acclaim', 'Mauris lacinia sapien quis libero.', '2nd Floor', '1C4UwPGwmwCy', 'circuit'),
-	(11, '2023-04-19 00:00:00', 111, 111, 0, 1, 4825.41, 4, 1, 'MDX', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.', 'Apt 1659', '13YeE7tTdpv8', 'maximized'),
-	(12, '2023-07-11 00:00:00', 112, 112, 0, 0, 8571.9, 3, 1, 'Riviera', 'In blandit ultrices enim.', 'Room 1545', '15HRY1XxrQYP', 'Monitored'),
-	(13, '2023-08-17 00:00:00', 113, 113, 0, 1, 3100.87, 0, 2, 'Riviera', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', 'Apt 1984', '1DxH4cwEdDNZ', 'Polarised'),
-	(14, '2023-06-15 00:00:00', 114, 114, 0, 0, 9400.65, 2, 0, 'LeSabre', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 'Room 540', '1E3ZTYFZKSt1', 'Public-key'),
-	(15, '2023-03-14 00:00:00', 115, 115, 0, 0, 9486.17, 4, 2, 'Express 3500', 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', 'PO Box 32777', '1PXqfsBPL2D2', 'local'),
-	(16, '2023-12-31 00:00:00', 116, 116, 0, 1, 5754.25, 3, 1, 'XC90', 'Duis mattis egestas metus.', 'Suite 50', '1H1RmhM34gvB', 'Enhanced'),
-	(17, '2023-11-25 00:00:00', 117, 117, 0, 0, 7494.82, 4, 1, 'Cordia', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', '13th Floor', '1CmBp4JkJptL', 'knowledge base'),
-	(18, '2023-04-06 00:00:00', 118, 118, 0, 1, 709.29, 0, 2, 'E-Class', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 'Apt 1032', '1FwER7axTcyM', 'Programmable'),
-	(19, '2023-08-12 00:00:00', 119, 119, 0, 0, 6611.59, 4, 2, '2500 Club Coupe', 'Aliquam non mauris. Morbi non lectus.', 'Room 764', '18wvr3eeDFtP', 'non-volatile'),
-	(10, '2023-08-08 00:00:00', 120, 120, 0, 0, 9108.64, 3, 0, 'F150', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 'Room 816', '1NMo1o1FDE9o', 'full-range'),
-	(11, '2023-04-18 00:00:00', 121, 121, 0, 0, 6517.8, 3, 2, 'Probe', 'Phasellus in felis.', '4th Floor', '1EHNAaaFLVQv', 'modular'),
-	(12, '2024-01-08 00:00:00', 122, 122, 0, 1, 6174.42, 1, 1, 'Tucson', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 'PO Box 55362', '16fqWQwcLAVi', 'time-frame'),
-	(13, '2024-01-09 00:00:00', 123, 123, 0, 1, 2907.42, 0, 2, 'V8 Vantage', 'Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.', 'PO Box 36373', '1JNbhUeRvUeR', 'executive'),
-	(14, '2023-11-17 00:00:00', 124, 124, 0, 0, 6731.28, 2, 0, 'Expo', 'Morbi non quam nec dui luctus rutrum. Nulla tellus.', 'PO Box 17128', '1BpGPjYXp3SB', 'didactic'),
-	(15, '2023-07-25 00:00:00', 125, 125, 0, 0, 4815.48, 3, 2, 'Terrain', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', '20th Floor', '1AGgo6LTwprK', 'content-based'),
-	(16, '2023-04-08 00:00:00', 126, 126, 0, 0, 2100.36, 3, 1, 'Golf', 'Integer non velit.', 'Room 35', '1ucaJDfHaETr', 'benchmark'),
-	(17, '2023-12-10 00:00:00', 127, 127, 0, 1, 6215.55, 2, 1, 'Fairlane', 'Suspendisse accumsan tortor quis turpis. Sed ante.', 'PO Box 12187', '1EzAaf9N3hdv', 'Realigned'),
-	(18, '2023-04-01 00:00:00', 128, 128, 0, 0, 555.8, 2, 2, 'LX', 'Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', 'PO Box 56327', '16JQJxdV1fee', 'upward-trending'),
-	(19, '2024-01-02 00:00:00', 129, 129, 0, 0, 6774.93, 2, 0, 'Metro', 'Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', 'Apt 188', '1AhBVeQSFbGJ', 'frame'),
-	(10, '2023-04-20 00:00:00', 130, 130, 0, 1, 1863.31, 4, 2, 'S8', 'Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.', 'Room 188', '12YPvKNeizK7', 'Persistent'),
-	(11, '2023-10-14 00:00:00', 131, 131, 0, 1, 941.28, 4, 0, 'Suburban 2500', 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', 'Apt 1681', '14pwqTHxjQz8', 'policy'),
-	(12, '2023-03-21 00:00:00', 132, 132, 0, 0, 3231.77, 1, 1, 'Rio', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', 'Suite 26', '1C92wrGz1o4K', 'core'),
-	(13, '2023-06-10 00:00:00', 133, 133, 0, 1, 6400.25, 0, 2, 'GTI', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', '1st Floor', '1FzLbKhNdYw5', 'intranet'),
-	(14, '2023-06-05 00:00:00', 134, 134, 0, 1, 7379.53, 1, 2, 'Element', 'Nunc nisl.', '15th Floor', '1MZZ5qBQQNs1', 'regional'),
-	(15, '2023-08-26 00:00:00', 135, 135, 0, 0, 5958.74, 0, 0, 'NSX', 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.', '20th Floor', '1H9Ph7dVuGh5', 'migration'),
-	(16, '2023-09-10 00:00:00', 136, 136, 0, 0, 6576.65, 3, 2, 'Bravada', 'In hac habitasse platea dictumst.', 'PO Box 70420', '1EypVQuz7JZW', 'regional'),
-	(17, '2023-10-24 00:00:00', 137, 137, 0, 1, 815.51, 1, 2, 'Grand Caravan', 'Pellentesque at nulla. Suspendisse potenti.', 'Room 1791', '1BTHNTREbEUV', 'transitional'),
-	(18, '2023-06-06 00:00:00', 138, 138, 0, 1, 3988, 4, 1, 'Sonata', 'Pellentesque eget nunc.', 'Suite 21', '1E3dNv8U6Gvn', 'Self-enabling'),
-	(19, '2023-03-12 00:00:00', 139, 139, 0, 0, 7261, 0, 0, 'Explorer', 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.', 'PO Box 92916', '1LNK6Kk5LP7a', 'national'),
-	(10, '2023-11-04 00:00:00', 140, 140, 0, 0, 8872.18, 3, 0, 'Century', 'Donec dapibus. Duis at velit eu est congue elementum.', 'Suite 32', '1H3BDaUh6sx1', 'Cross-platform'),
-	(11, '2023-10-09 00:00:00', 141, 141, 0, 1, 8021.64, 3, 2, 'Yukon XL 1500', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 'PO Box 30286', '1CzhmZGcnjUA', 'secured line'),
-	(12, '2023-09-12 00:00:00', 142, 142, 0, 1, 2260.23, 3, 0, 'Aurora', 'Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.', 'Suite 73', '14gSKXnxgxoE', 'Realigned'),
-	(13, '2023-12-12 00:00:00', 143, 143, 0, 0, 8564.51, 0, 0, 'Prizm', 'Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.', '7th Floor', '19YAhze5xbXp', '3rd generation'),
-	(14, '2023-03-31 00:00:00', 144, 144, 0, 1, 8398.57, 4, 2, 'Ram 1500 Club', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', '17th Floor', '18hLm7E2Q5YC', 'Front-line'),
-	(15, '2023-11-26 00:00:00', 145, 145, 0, 0, 8883.44, 4, 2, 'Integra', 'Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.', 'Room 950', '1FvCJPer3arw', 'static'),
-	(16, '2023-10-18 00:00:00', 146, 146, 0, 0, 469.56, 4, 0, 'Prelude', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', '2nd Floor', '1PLfq2vDw1TJ', 'structure'),
-	(17, '2023-11-21 00:00:00', 147, 147, 0, 0, 9199.72, 0, 1, 'Escort', 'Nulla mollis molestie lorem. Quisque ut erat.', 'PO Box 5939', '1XwKoF6ndK3w', 'national'),
-	(18, '2023-05-24 00:00:00', 148, 148, 0, 0, 563.29, 3, 1, 'S4', 'Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.', 'Room 960', '1KhmaufSDmPd', 'object-oriented'),
-	(19, '2023-05-21 00:00:00', 149, 149, 0, 0, 7278.52, 1, 2, 'S-Class', 'Duis aliquam convallis nunc.', 'Suite 48', '1FSJdvwWtwXq', 'Decentralized'),
-	(10, '2024-01-14 00:00:00', 150, 150, 0, 1, 5284.21, 0, 0, 'Leone', 'Etiam faucibus cursus urna.', 'Suite 93', '17QoUHKGZnqT', 'methodology'),
-	(11, '2023-04-16 00:00:00', 151, 151, 0, 0, 88.34, 0, 2, 'Ranger', 'Nulla facilisi. Cras non velit nec nisi vulputate nonummy.', 'Suite 54', '182M2TeG1WNX', 'leverage'),
-	(12, '2023-12-05 00:00:00', 152, 152, 0, 0, 4105.37, 1, 0, 'Intrigue', 'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', 'Room 1429', '14sGBuiC13o2', 'frame'),
-	(13, '2023-05-18 00:00:00', 153, 153, 0, 0, 8491.91, 0, 1, 'Oasis', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', 'Suite 53', '1QGDBEYtvAfC', 'even-keeled'),
-	(14, '2023-05-07 00:00:00', 154, 154, 0, 0, 12795.73, 0, 2, 'Yukon XL 2500', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 'Apt 1376', '113j4sh992z9', 'dedicated'),
-	(15, '2023-05-15 00:00:00', 155, 155, 0, 1, 7038.61, 4, 1, 'Ion', 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', 'PO Box 72438', '1DxTBjkgRrjj', 'Extended'),
-	(16, '2024-01-27 00:00:00', 156, 156, 0, 0, 6651.97, 2, 2, 'Boxster', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 'PO Box 36715', '1FdDrac8CtT8', 'Multi-layered'),
-	(17, '2023-04-10 00:00:00', 157, 157, 0, 1, 3093.12, 3, 0, 'Impala', 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.', 'PO Box 87174', '1C8BgyM4nsVM', 'Robust'),
-	(18, '2024-01-10 00:00:00', 158, 158, 0, 0, 8019.09, 2, 0, 'NSX', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 'Apt 1058', '1CVkaZ2XDtYg', 'complexity'),
-	(19, '2023-03-20 00:00:00', 159, 159, 0, 1, 4444.19, 3, 0, 'Aztek', 'Sed vel enim sit amet nunc viverra dapibus.', '14th Floor', '1LCuodtAp1ue', 'Cross-platform'),
-	(10, '2023-05-14 00:00:00', 160, 160, 0, 0, 7945.91, 4, 0, 'Cooper', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 'Apt 733', '19zusLopYHZ6', 'project'),
-	(11, '2023-11-11 00:00:00', 161, 161, 0, 1, 1679.07, 3, 0, 'Integra', 'Duis mattis egestas metus. Aenean fermentum.', 'Apt 745', '19PDDwMjJhTE', 'grid-enabled'),
-	(12, '2023-07-07 00:00:00', 162, 162, 0, 1, 2046.53, 1, 0, 'MX-5', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 'Room 842', '169W2i9MpJFX', 'Universal'),
-	(13, '2023-03-30 00:00:00', 163, 163, 0, 0, 7118.4, 3, 2, '4Runner', 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.', '19th Floor', '1m84iXQh2wzS', 'discrete'),
-	(14, '2023-05-31 00:00:00', 164, 164, 0, 1, 459.14, 3, 2, 'Montero Sport', 'Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.', '5th Floor', '1Nb73HZQnegP', 'static'),
-	(15, '2023-04-27 00:00:00', 165, 165, 0, 0, 3241.1, 3, 2, 'GTI', 'Fusce posuere felis sed lacus.', 'Suite 75', '1DDY6pQfJM7p', 'bi-directional'),
-	(16, '2023-08-06 00:00:00', 166, 166, 0, 0, 7924.72, 2, 1, 'LS', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 'Room 1512', '19hPiCj4fwfw', 'exuding'),
-	(17, '2023-06-19 00:00:00', 167, 167, 0, 1, 9505.11, 2, 2, 'F250', 'Donec ut dolor.', 'PO Box 4096', '1CHDXNeUUj6K', 'intranet'),
-	(18, '2023-03-03 00:00:00', 168, 168, 0, 0, 9626.84, 4, 1, 'GS', 'In hac habitasse platea dictumst.', 'PO Box 8930', '19uwZDbxNm2a', 'Polarised'),
-	(19, '2024-01-10 00:00:00', 169, 169, 0, 1, 1203.68, 1, 0, 'Cirrus', 'Proin at turpis a pede posuere nonummy. Integer non velit.', 'Apt 373', '1AEvxtXktZBn', 'Devolved'),
-	(10, '2023-07-02 00:00:00', 170, 170, 0, 0, 1712.56, 4, 2, 'Sierra 2500', 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', '9th Floor', '1QGPftxSLrhQ', '24 hour'),
-	(11, '2023-04-29 00:00:00', 171, 171, 0, 1, 1567.86, 1, 0, 'Allroad', 'Nullam molestie nibh in lectus.', 'Suite 94', '1CnmRQ7CvbJo', 'Cross-platform'),
-	(12, '2024-01-14 00:00:00', 172, 172, 0, 1, 6728, 3, 2, 'Camry', 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.', '1st Floor', '1LvMoaHCM4DB', 'Quality-focused'),
-	(13, '2023-04-08 00:00:00', 173, 173, 0, 0, 4318.29, 3, 0, 'Silverado 2500', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '12th Floor', '17Anjh9iXdgq', 'Secured'),
-	(14, '2023-04-05 00:00:00', 174, 174, 0, 1, 4978.94, 0, 1, '323', 'In sagittis dui vel nisl. Duis ac nibh.', 'PO Box 61522', '1PRXAAvJCE6S', 'success'),
-	(15, '2023-03-26 00:00:00', 175, 175, 0, 0, 6834.78, 2, 1, 'Vibe', 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.', 'Room 243', '1Hx5CMhWVwoE', 'needs-based'),
-	(16, '2023-12-03 00:00:00', 176, 176, 0, 0, 4943.72, 2, 1, 'C8 Double 12 S', 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', '11th Floor', '18TH12YUYiTg', 'emulation'),
-	(17, '2023-09-15 00:00:00', 177, 177, 0, 1, 5125, 0, 0, 'TSX', 'In quis justo.', 'PO Box 64040', '1MQhBoueMxr2', 'Profit-focused'),
-	(18, '2023-03-12 00:00:00', 178, 178, 0, 1, 3860.53, 2, 2, 'LR4', 'In blandit ultrices enim.', 'PO Box 91513', '1LoEa7gWiFPc', 'customer-facing'),
-	(19, '2023-12-16 00:00:00', 179, 179, 0, 1, 7367.54, 0, 0, 'M5', 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', 'Room 1728', '1NgJdKxVdKbM', 'moratorium'),
-	(10, '2023-09-10 00:00:00', 180, 180, 0, 1, 5362.59, 2, 0, 'Corvair', 'In hac habitasse platea dictumst.', 'Room 1228', '1C6ETjXeAakZ', 'Mandatory'),
-	(11, '2023-05-30 00:00:00', 181, 181, 0, 1, 6442.04, 2, 2, 'Rio', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', 'Suite 62', '1JXkKVMat2HK', 'client-driven'),
-	(12, '2023-06-12 00:00:00', 182, 182, 0, 1, 9054.63, 4, 0, '7 Series', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', '7th Floor', '19HvyQzcW73k', 'Stand-alone'),
-	(13, '2023-09-28 00:00:00', 183, 183, 0, 1, 7441.29, 0, 1, 'Legacy', 'Proin at turpis a pede posuere nonummy. Integer non velit.', 'PO Box 52150', '17xgeBaPKbiv', 'Diverse'),
-	(14, '2023-02-26 00:00:00', 184, 184, 0, 1, 2136.43, 1, 0, 'Escape', 'Nulla ut erat id mauris vulputate elementum. Nullam varius.', '11th Floor', '1HJL7TgmNQeF', 'zero tolerance'),
-	(15, '2023-06-19 00:00:00', 185, 185, 0, 1, 9213.65, 0, 0, 'Exige', 'Curabitur in libero ut massa volutpat convallis.', '8th Floor', '16ayghcW2vNG', 'database'),
-	(16, '2023-03-16 00:00:00', 186, 186, 0, 1, 2659.84, 0, 0, 'Murciélago', 'Duis aliquam convallis nunc.', 'Suite 99', '14KyBNxv26hz', '4th generation'),
-	(17, '2023-03-20 00:00:00', 187, 187, 0, 1, 9353.63, 0, 0, 'F150', 'In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.', 'Suite 86', '1ETgK94wSqwD', 'Streamlined'),
-	(18, '2023-12-19 00:00:00', 188, 188, 0, 0, 4496.46, 4, 0, 'Cabriolet', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.', 'Room 529', '17sNrxUEcg5p', 'Programmable'),
-	(19, '2023-04-08 00:00:00', 189, 189, 0, 1, 3993.69, 1, 2, '500SEL', 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.', 'PO Box 31326', '1KG5zSeWpLVT', 'Innovative'),
-	(10, '2023-08-18 00:00:00', 190, 190, 0, 1, 9390.82, 3, 2, 'Grand Prix', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 'Room 1122', '14XbW8dETCyU', 'Customizable'),
-	(11, '2023-08-27 00:00:00', 191, 191, 0, 1, 9884.84, 4, 0, 'rio', 'Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.', 'Apt 1250', '1PN381c9ojR1', 'mission-critical'),
-	(12, '2023-12-23 00:00:00', 192, 192, 0, 1, 3501, 4, 0, 'Diamante', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', '10th Floor', '1Px6NaqNoSW2', 'stable'),
-	(13, '2023-06-21 00:00:00', 193, 193, 0, 1, 610.02, 3, 2, 'Avalon', 'Morbi non quam nec dui luctus rutrum. Nulla tellus.', '17th Floor', '1AcdGEUW2Ldg', 'local'),
-	(14, '2023-04-19 00:00:00', 194, 194, 0, 1, 733.18, 0, 2, 'Explorer', 'Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.', '11th Floor', '1HTw2d7at8qq', 'Synergistic'),
-	(15, '2023-09-04 00:00:00', 195, 195, 0, 0, 8331.41, 2, 0, 'Jetta III', 'Aliquam erat volutpat.', '17th Floor', '12sdTBDmeWWd', 'Organized'),
-	(16, '2023-05-14 00:00:00', 196, 196, 0, 1, 4755.9, 4, 2, 'Panamera', 'Suspendisse ornare consequat lectus.', 'Room 1459', '14pdWbvxf3ti', 'concept'),
-	(17, '2023-02-16 00:00:00', 197, 197, 0, 1, 2553.57, 3, 2, 'Metro', 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.', '20th Floor', '126QtYx55zr8', 'Operative'),
-	(18, '2023-03-10 00:00:00', 198, 198, 0, 1, 6588.75, 1, 2, 'Miata MX-5', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', '7th Floor', '1D1iyjxHR5fq', 'software'),
-	(19, '2024-01-26 00:00:00', 199, 199, 0, 0, 3677.82, 1, 1, 'S-Class', 'In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.', 'Room 614', '1JV4wmxdkR89', 'encompassing'),
-	(20, '2023-09-04 00:00:00', 200, 200, 0, 0, 3432.77, 1, 2, 'Navigator', 'Nulla ut erat id mauris vulputate elementum. Nullam varius.', 'PO Box 71467', '1EvDieZutcWp', 'web-enabled'),
-	(2, '2024-05-08 18:11:36', 201, 201, 0, 0, 15.99, 0, 0, 'Purple Milkshake', ' ASDF ASDF ASDF ASDF ASDF ASDF ', '7000 Rue Marie-Victorin, Montréal, QC H1G 2J6', 'the-grimache', 'web-enabled');
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (1, "surface");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (2, "phooey");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (3, "limit");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (4, "cancel");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (5, "yippee");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (6, "whose");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (7, "hall");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (8, "bubbly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (9, "whoever");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (10, "incidentally");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (11, "considering");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (12, "how");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (13, "president");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (14, "eek");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (15, "fictionalize");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (16, "lapse");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (17, "however");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (18, "waveform");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (19, "below");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (20, "vicious");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (21, "hike");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (22, "grand");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (23, "during");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (24, "rappel");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (25, "uh-huh");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (26, "whenever");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (27, "afore");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (28, "um");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (29, "out");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (30, "derrick");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (31, "prior");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (32, "lump");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (33, "oof");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (34, "besides");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (35, "firsthand");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (36, "zowie");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (37, "relieved");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (38, "parry");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (39, "limber");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (40, "knottily");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (41, "why");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (42, "optimistic");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (43, "or");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (44, "drat");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (45, "dilute");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (46, "gosh");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (47, "ha");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (48, "clarification");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (49, "wide-eyed");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (50, "but");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (51, "wherever");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (52, "sniff");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (53, "pfft");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (54, "pish");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (55, "closely");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (56, "decisive");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (57, "for");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (58, "circa");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (59, "toffee");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (60, "beside");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (61, "as");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (62, "aha");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (63, "longitude");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (64, "fine");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (65, "rescue");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (66, "than");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (67, "ugh");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (68, "playfully");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (69, "radio");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (70, "helplessly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (71, "kindly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (72, "stylus");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (73, "brr");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (74, "clump");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (75, "next");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (76, "meanwhile");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (77, "exactly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (78, "warmly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (79, "almanac");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (80, "bagel");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (81, "babyish");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (82, "bob");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (83, "because");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (84, "voter");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (85, "yum");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (86, "hm");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (87, "vacantly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (88, "coyote");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (89, "grouchy");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (90, "direct");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (91, "annually");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (92, "wet");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (93, "reckless");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (94, "sedately");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (95, "tail");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (96, "oh");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (97, "prestigious");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (98, "droopy");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (99, "yuck");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (100, "yowza");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (101, "profitable");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (102, "along");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (103, "merrily");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (104, "scrutinise");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (105, "delve");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (106, "eve");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (107, "notwithstanding");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (108, "morph");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (109, "odd");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (110, "among");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (111, "under");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (112, "kosher");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (113, "yearningly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (114, "quiver");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (115, "astride");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (116, "anti");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (117, "supportive");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (118, "seriously");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (119, "aw");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (120, "grizzled");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (121, "knot");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (122, "adventurously");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (123, "ah");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (124, "elimination");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (125, "onto");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (126, "er");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (127, "uneven");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (128, "winner");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (129, "little");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (130, "gadzooks");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (131, "fatally");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (132, "owlishly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (133, "binge");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (134, "meager");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (135, "fooey");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (136, "bellyache");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (137, "garlic");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (138, "despite");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (139, "toward");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (140, "once");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (141, "identical");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (142, "since");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (143, "hub");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (144, "blah");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (145, "sturdy");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (146, "endear");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (147, "power");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (148, "and");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (149, "daring");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (150, "regarding");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (151, "before");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (152, "butt");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (153, "chorus");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (154, "airspace");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (155, "outside");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (156, "ouch");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (157, "around");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (158, "of");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (159, "sneaky");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (160, "attempt");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (161, "spectate");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (162, "powerfully");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (163, "deceivingly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (164, "needily");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (165, "interesting");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (166, "boo");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (167, "enlightened");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (168, "snack");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (169, "ew");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (170, "format");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (171, "misspend");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (172, "hence");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (173, "radiant");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (174, "nearly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (175, "conscious");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (176, "bog");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (177, "past");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (178, "over");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (179, "yieldingly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (180, "unfolded");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (181, "thorough");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (182, "utilized");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (183, "fervently");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (184, "deport");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (185, "boohoo");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (186, "ack");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (187, "muffle");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (188, "humanise");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (189, "stereotype");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (190, "in");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (191, "buffer");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (192, "aim");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (193, "dash");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (194, "chubby");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (195, "behind");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (196, "gynaecology");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (197, "concerning");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (198, "plastic");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (199, "bias");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (200, "dig");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (201, "portion");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (202, "queasily");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (203, "lode");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (204, "amused");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (205, "thrifty");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (206, "grandparent");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (207, "geez");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (208, "yawningly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (209, "red");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (210, "impression");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (211, "ick");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (212, "spring");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (213, "east");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (214, "ostracise");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (215, "cozy");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (216, "phew");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (217, "woot");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (218, "lawful");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (219, "shrilly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (220, "copper");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (221, "rankle");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (222, "dibble");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (223, "obediently");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (224, "writhe");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (225, "following");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (226, "eventually");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (227, "constrain");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (228, "joyous");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (229, "apropos");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (230, "safeguard");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (231, "lest");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (232, "loyally");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (233, "pique");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (234, "violet");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (235, "google");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (236, "happy-go-lucky");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (237, "violently");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (238, "jog");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (239, "worth");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (240, "athwart");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (241, "doubtfully");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (242, "qua");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (243, "academic");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (244, "ferociously");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (245, "which");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (246, "cheery");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (247, "sugar");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (248, "outrageous");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (249, "locate");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (250, "disability");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (251, "cauterise");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (252, "without");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (253, "absolute");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (254, "arrogantly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (255, "bah");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (256, "undercharge");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (257, "psst");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (258, "guilty");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (259, "staple");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (260, "clench");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (261, "grassland");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (262, "kookily");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (263, "different");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (264, "frankly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (265, "if");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (266, "vainly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (267, "legal");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (268, "unlucky");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (269, "gorgeous");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (270, "storm");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (271, "outrigger");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (272, "gleeful");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (273, "thankfully");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (274, "cricket");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (275, "gazelle");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (276, "silly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (277, "unlike");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (278, "barring");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (279, "station");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (280, "ship");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (281, "mortar");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (282, "successfully");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (283, "dimly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (284, "sans");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (285, "crooked");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (286, "whereas");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (287, "with");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (288, "leaker");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (289, "usefully");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (290, "tipple");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (291, "restate");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (292, "furthermore");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (293, "tough-guy");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (294, "funny");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (295, "outlying");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (296, "famously");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (297, "hoot");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (298, "mechanically");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (299, "dizzy");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (300, "anenst");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (301, "colorless");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (302, "tremendously");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (303, "acquire");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (304, "lucky");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (305, "jackfruit");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (306, "on");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (307, "clever");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (308, "down");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (309, "whoa");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (310, "dearest");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (311, "frightened");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (312, "crop");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (313, "atheist");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (314, "better");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (315, "parallel");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (316, "duh");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (317, "slimy");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (318, "yet");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (319, "sweaty");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (320, "who");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (321, "climate");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (322, "campaign");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (323, "until");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (324, "terminal");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (325, "extraneous");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (326, "snare");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (327, "exclude");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (328, "empty");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (329, "hunting");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (330, "railing");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (331, "skinny");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (332, "governor");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (333, "company");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (334, "contraindicate");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (335, "triumphantly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (336, "opposite");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (337, "upbeat");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (338, "excluding");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (339, "turbulent");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (340, "while");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (341, "whether");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (342, "surprisingly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (343, "failing");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (344, "wisdom");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (345, "kiddingly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (346, "vector");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (347, "the");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (348, "utterly");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (349, "necessary");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (350, "doting");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (351, "off");
+INSERT INTO ad_tag (id_ad_tag, name) VALUES (352, "forestry");
 
-
-/* AdImage */
-insert into ad_image (ad_id, id_ad_image, path, spot) values (1, 4, 'http://dummyimage.com/1249x1340.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (1, 5, 'http://dummyimage.com/1456x1527.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (1, 6, 'http://dummyimage.com/1624x1239.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (1, 7, 'http://dummyimage.com/1673x1160.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (2, 8, 'http://dummyimage.com/1341x709.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (2, 9, 'http://dummyimage.com/1455x1317.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (2, 10, 'http://dummyimage.com/1991x1575.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (2, 11, 'http://dummyimage.com/1881x821.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (3, 12, 'http://dummyimage.com/1267x1161.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (3, 13, 'http://dummyimage.com/1275x746.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (3, 14, 'http://dummyimage.com/1144x1596.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (3, 15, 'http://dummyimage.com/1715x1494.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (4, 16, 'http://dummyimage.com/1785x910.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (4, 17, 'http://dummyimage.com/1407x1356.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (4, 18, 'http://dummyimage.com/1017x769.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (4, 19, 'http://dummyimage.com/1326x1223.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (5, 20, 'http://dummyimage.com/1076x1597.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (5, 21, 'http://dummyimage.com/1252x921.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (5, 22, 'http://dummyimage.com/1624x620.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (5, 23, 'http://dummyimage.com/1483x997.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (6, 24, 'http://dummyimage.com/1048x1348.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (6, 25, 'http://dummyimage.com/1157x863.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (6, 26, 'http://dummyimage.com/1394x1328.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (6, 27, 'http://dummyimage.com/1614x1256.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (7, 28, 'http://dummyimage.com/1236x1244.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (7, 29, 'http://dummyimage.com/1739x1409.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (7, 30, 'http://dummyimage.com/1071x669.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (7, 31, 'http://dummyimage.com/1834x1141.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (8, 32, 'http://dummyimage.com/1786x1022.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (8, 33, 'http://dummyimage.com/1574x1494.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (8, 34, 'http://dummyimage.com/1351x1361.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (8, 35, 'http://dummyimage.com/1355x882.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (9, 36, 'http://dummyimage.com/1890x976.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (9, 37, 'http://dummyimage.com/1456x1113.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (9, 38, 'http://dummyimage.com/1495x1416.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (9, 39, 'http://dummyimage.com/1648x1111.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (10, 40, 'http://dummyimage.com/1496x628.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (10, 41, 'http://dummyimage.com/1287x806.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (10, 42, 'http://dummyimage.com/1385x1395.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (10, 43, 'http://dummyimage.com/1913x1206.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (11, 44, 'http://dummyimage.com/1292x1296.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (11, 45, 'http://dummyimage.com/1003x1064.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (11, 46, 'http://dummyimage.com/1151x1462.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (11, 47, 'http://dummyimage.com/1491x1512.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (12, 48, 'http://dummyimage.com/1377x770.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (12, 49, 'http://dummyimage.com/1553x1206.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (12, 50, 'http://dummyimage.com/1170x1234.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (12, 51, 'http://dummyimage.com/1227x880.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (13, 52, 'http://dummyimage.com/1824x1569.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (13, 53, 'http://dummyimage.com/1423x800.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (13, 54, 'http://dummyimage.com/1355x1135.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (13, 55, 'http://dummyimage.com/1271x1418.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (14, 56, 'http://dummyimage.com/1378x741.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (14, 57, 'http://dummyimage.com/1315x1574.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (14, 58, 'http://dummyimage.com/1975x703.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (14, 59, 'http://dummyimage.com/1068x1511.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (15, 60, 'http://dummyimage.com/1668x1285.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (15, 61, 'http://dummyimage.com/1968x902.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (15, 62, 'http://dummyimage.com/1018x841.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (15, 63, 'http://dummyimage.com/1326x1408.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (16, 64, 'http://dummyimage.com/1715x777.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (16, 65, 'http://dummyimage.com/1978x887.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (16, 66, 'http://dummyimage.com/1759x735.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (16, 67, 'http://dummyimage.com/1199x609.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (17, 68, 'http://dummyimage.com/1700x749.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (17, 69, 'http://dummyimage.com/1373x1188.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (17, 70, 'http://dummyimage.com/1337x869.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (17, 71, 'http://dummyimage.com/1464x624.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (18, 72, 'http://dummyimage.com/1341x1493.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (18, 73, 'http://dummyimage.com/1530x1306.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (18, 74, 'http://dummyimage.com/1799x766.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (18, 75, 'http://dummyimage.com/1021x880.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (19, 76, 'http://dummyimage.com/1858x1504.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (19, 77, 'http://dummyimage.com/1228x683.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (19, 78, 'http://dummyimage.com/1212x985.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (19, 79, 'http://dummyimage.com/1452x852.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (20, 80, 'http://dummyimage.com/1215x613.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (20, 81, 'http://dummyimage.com/1604x911.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (20, 82, 'http://dummyimage.com/1255x819.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (20, 83, 'http://dummyimage.com/1348x1026.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (21, 84, 'http://dummyimage.com/1812x632.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (21, 85, 'http://dummyimage.com/1387x732.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (21, 86, 'http://dummyimage.com/1682x1372.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (21, 87, 'http://dummyimage.com/1514x728.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (22, 88, 'http://dummyimage.com/1192x1215.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (22, 89, 'http://dummyimage.com/1255x1497.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (22, 90, 'http://dummyimage.com/1893x1271.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (22, 91, 'http://dummyimage.com/1373x1504.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (23, 92, 'http://dummyimage.com/1147x775.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (23, 93, 'http://dummyimage.com/1571x1027.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (23, 94, 'http://dummyimage.com/1787x1021.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (23, 95, 'http://dummyimage.com/1598x725.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (24, 96, 'http://dummyimage.com/1759x1043.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (24, 97, 'http://dummyimage.com/1926x1037.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (24, 98, 'http://dummyimage.com/1594x1508.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (24, 99, 'http://dummyimage.com/1976x1483.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (25, 100, 'http://dummyimage.com/1501x1499.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (25, 101, 'http://dummyimage.com/1236x1377.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (25, 102, 'http://dummyimage.com/1385x1192.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (25, 103, 'http://dummyimage.com/1456x644.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (26, 104, 'http://dummyimage.com/1642x610.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (26, 105, 'http://dummyimage.com/1491x1255.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (26, 106, 'http://dummyimage.com/1643x631.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (26, 107, 'http://dummyimage.com/1203x1220.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (27, 108, 'http://dummyimage.com/1278x723.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (27, 109, 'http://dummyimage.com/1442x880.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (27, 110, 'http://dummyimage.com/1557x651.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (27, 111, 'http://dummyimage.com/1511x1137.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (28, 112, 'http://dummyimage.com/1832x900.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (28, 113, 'http://dummyimage.com/1498x1283.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (28, 114, 'http://dummyimage.com/1387x1487.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (28, 115, 'http://dummyimage.com/1011x1231.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (29, 116, 'http://dummyimage.com/1896x1093.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (29, 117, 'http://dummyimage.com/1093x866.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (29, 118, 'http://dummyimage.com/1355x1189.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (29, 119, 'http://dummyimage.com/1888x1231.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (30, 120, 'http://dummyimage.com/1941x995.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (30, 121, 'http://dummyimage.com/1661x642.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (30, 122, 'http://dummyimage.com/1266x863.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (30, 123, 'http://dummyimage.com/1218x1185.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (31, 124, 'http://dummyimage.com/1314x1358.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (31, 125, 'http://dummyimage.com/1112x977.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (31, 126, 'http://dummyimage.com/1102x1193.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (31, 127, 'http://dummyimage.com/1103x785.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (32, 128, 'http://dummyimage.com/1324x1362.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (32, 129, 'http://dummyimage.com/1266x1244.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (32, 130, 'http://dummyimage.com/1876x1383.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (32, 131, 'http://dummyimage.com/1414x973.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (33, 132, 'http://dummyimage.com/1677x1180.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (33, 133, 'http://dummyimage.com/1457x625.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (33, 134, 'http://dummyimage.com/1990x1473.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (33, 135, 'http://dummyimage.com/1788x721.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (34, 136, 'http://dummyimage.com/1048x1149.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (34, 137, 'http://dummyimage.com/1011x1229.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (34, 138, 'http://dummyimage.com/1536x675.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (34, 139, 'http://dummyimage.com/1997x860.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (35, 140, 'http://dummyimage.com/1956x1317.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (35, 141, 'http://dummyimage.com/1398x1354.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (35, 142, 'http://dummyimage.com/1862x1000.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (35, 143, 'http://dummyimage.com/1019x1221.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (36, 144, 'http://dummyimage.com/1540x828.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (36, 145, 'http://dummyimage.com/1963x711.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (36, 146, 'http://dummyimage.com/1126x799.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (36, 147, 'http://dummyimage.com/1838x1430.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (37, 148, 'http://dummyimage.com/1705x1223.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (37, 149, 'http://dummyimage.com/1746x1266.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (37, 150, 'http://dummyimage.com/1796x855.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (37, 151, 'http://dummyimage.com/1428x930.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (38, 152, 'http://dummyimage.com/1729x891.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (38, 153, 'http://dummyimage.com/1239x1486.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (38, 154, 'http://dummyimage.com/1425x643.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (38, 155, 'http://dummyimage.com/1658x888.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (39, 156, 'http://dummyimage.com/1424x1593.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (39, 157, 'http://dummyimage.com/1220x1442.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (39, 158, 'http://dummyimage.com/1138x1289.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (39, 159, 'http://dummyimage.com/1083x1410.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (40, 160, 'http://dummyimage.com/1690x970.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (40, 161, 'http://dummyimage.com/1457x1516.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (40, 162, 'http://dummyimage.com/1652x1537.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (40, 163, 'http://dummyimage.com/1025x1520.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (41, 164, 'http://dummyimage.com/1608x1075.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (41, 165, 'http://dummyimage.com/1017x818.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (41, 166, 'http://dummyimage.com/1319x844.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (41, 167, 'http://dummyimage.com/1203x1211.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (42, 168, 'http://dummyimage.com/1179x1373.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (42, 169, 'http://dummyimage.com/1222x1115.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (42, 170, 'http://dummyimage.com/1268x1555.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (42, 171, 'http://dummyimage.com/1666x1412.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (43, 172, 'http://dummyimage.com/1908x634.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (43, 173, 'http://dummyimage.com/1124x705.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (43, 174, 'http://dummyimage.com/1176x600.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (43, 175, 'http://dummyimage.com/1631x912.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (44, 176, 'http://dummyimage.com/1958x691.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (44, 177, 'http://dummyimage.com/1188x606.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (44, 178, 'http://dummyimage.com/1699x1496.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (44, 179, 'http://dummyimage.com/1334x810.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (45, 180, 'http://dummyimage.com/1819x1576.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (45, 181, 'http://dummyimage.com/1371x979.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (45, 182, 'http://dummyimage.com/1134x642.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (45, 183, 'http://dummyimage.com/1073x1492.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (46, 184, 'http://dummyimage.com/1555x1262.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (46, 185, 'http://dummyimage.com/1574x1554.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (46, 186, 'http://dummyimage.com/1753x1577.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (46, 187, 'http://dummyimage.com/1760x910.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (47, 188, 'http://dummyimage.com/1889x967.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (47, 189, 'http://dummyimage.com/1505x985.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (47, 190, 'http://dummyimage.com/1556x830.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (47, 191, 'http://dummyimage.com/1771x1368.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (48, 192, 'http://dummyimage.com/1374x1258.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (48, 193, 'http://dummyimage.com/1251x882.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (48, 194, 'http://dummyimage.com/1083x1509.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (48, 195, 'http://dummyimage.com/1792x1131.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (49, 196, 'http://dummyimage.com/1337x1095.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (49, 197, 'http://dummyimage.com/1640x1355.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (49, 198, 'http://dummyimage.com/1512x1390.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (49, 199, 'http://dummyimage.com/1204x614.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (50, 200, 'http://dummyimage.com/1257x1165.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (50, 201, 'http://dummyimage.com/1685x619.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (50, 202, 'http://dummyimage.com/1991x675.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (50, 203, 'http://dummyimage.com/1839x1528.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (51, 204, 'http://dummyimage.com/1795x1327.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (51, 205, 'http://dummyimage.com/1235x1084.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (51, 206, 'http://dummyimage.com/1154x1051.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (51, 207, 'http://dummyimage.com/1403x1179.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (52, 208, 'http://dummyimage.com/1984x1191.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (52, 209, 'http://dummyimage.com/1137x921.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (52, 210, 'http://dummyimage.com/1226x1385.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (52, 211, 'http://dummyimage.com/1611x1552.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (53, 212, 'http://dummyimage.com/1588x1170.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (53, 213, 'http://dummyimage.com/1394x926.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (53, 214, 'http://dummyimage.com/1066x1489.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (53, 215, 'http://dummyimage.com/1334x859.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (54, 216, 'http://dummyimage.com/1131x1052.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (54, 217, 'http://dummyimage.com/1494x1040.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (54, 218, 'http://dummyimage.com/1271x717.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (54, 219, 'http://dummyimage.com/1216x1249.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (55, 220, 'http://dummyimage.com/1207x1236.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (55, 221, 'http://dummyimage.com/1951x1543.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (55, 222, 'http://dummyimage.com/1512x1068.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (55, 223, 'http://dummyimage.com/1850x1382.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (56, 224, 'http://dummyimage.com/1846x680.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (56, 225, 'http://dummyimage.com/1843x991.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (56, 226, 'http://dummyimage.com/1354x1028.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (56, 227, 'http://dummyimage.com/1084x1516.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (57, 228, 'http://dummyimage.com/1663x604.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (57, 229, 'http://dummyimage.com/1482x651.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (57, 230, 'http://dummyimage.com/1130x1503.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (57, 231, 'http://dummyimage.com/1921x1488.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (58, 232, 'http://dummyimage.com/1082x1003.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (58, 233, 'http://dummyimage.com/1996x1581.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (58, 234, 'http://dummyimage.com/1229x1201.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (58, 235, 'http://dummyimage.com/1228x1007.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (59, 236, 'http://dummyimage.com/1755x1050.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (59, 237, 'http://dummyimage.com/1554x1424.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (59, 238, 'http://dummyimage.com/1960x1434.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (59, 239, 'http://dummyimage.com/1906x1287.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (60, 240, 'http://dummyimage.com/1625x673.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (60, 241, 'http://dummyimage.com/1683x888.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (60, 242, 'http://dummyimage.com/1683x880.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (60, 243, 'http://dummyimage.com/1344x852.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (61, 244, 'http://dummyimage.com/1920x1345.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (61, 245, 'http://dummyimage.com/1234x1299.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (61, 246, 'http://dummyimage.com/1317x1096.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (61, 247, 'http://dummyimage.com/1319x809.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (62, 248, 'http://dummyimage.com/1969x1187.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (62, 249, 'http://dummyimage.com/1492x747.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (62, 250, 'http://dummyimage.com/1809x1567.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (62, 251, 'http://dummyimage.com/1411x1134.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (63, 252, 'http://dummyimage.com/1593x1035.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (63, 253, 'http://dummyimage.com/1965x1288.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (63, 254, 'http://dummyimage.com/1822x1192.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (63, 255, 'http://dummyimage.com/1292x728.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (64, 256, 'http://dummyimage.com/1771x1188.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (64, 257, 'http://dummyimage.com/1577x943.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (64, 258, 'http://dummyimage.com/1753x1588.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (64, 259, 'http://dummyimage.com/1525x1597.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (65, 260, 'http://dummyimage.com/1864x1264.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (65, 261, 'http://dummyimage.com/1962x840.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (65, 262, 'http://dummyimage.com/1556x1281.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (65, 263, 'http://dummyimage.com/1440x1287.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (66, 264, 'http://dummyimage.com/1946x1133.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (66, 265, 'http://dummyimage.com/1002x1313.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (66, 266, 'http://dummyimage.com/1426x1355.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (66, 267, 'http://dummyimage.com/1157x651.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (67, 268, 'http://dummyimage.com/1749x1560.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (67, 269, 'http://dummyimage.com/1893x893.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (67, 270, 'http://dummyimage.com/1357x1228.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (67, 271, 'http://dummyimage.com/1551x1259.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (68, 272, 'http://dummyimage.com/1302x845.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (68, 273, 'http://dummyimage.com/1316x1259.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (68, 274, 'http://dummyimage.com/1736x771.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (68, 275, 'http://dummyimage.com/1677x1062.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (69, 276, 'http://dummyimage.com/1069x867.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (69, 277, 'http://dummyimage.com/1498x1435.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (69, 278, 'http://dummyimage.com/1694x1567.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (69, 279, 'http://dummyimage.com/1188x1373.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (70, 280, 'http://dummyimage.com/1485x896.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (70, 281, 'http://dummyimage.com/1799x991.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (70, 282, 'http://dummyimage.com/1271x1117.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (70, 283, 'http://dummyimage.com/1269x672.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (71, 284, 'http://dummyimage.com/1381x1247.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (71, 285, 'http://dummyimage.com/1928x1324.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (71, 286, 'http://dummyimage.com/1171x1133.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (71, 287, 'http://dummyimage.com/1231x1106.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (72, 288, 'http://dummyimage.com/1043x1554.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (72, 289, 'http://dummyimage.com/1351x1386.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (72, 290, 'http://dummyimage.com/1120x644.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (72, 291, 'http://dummyimage.com/1750x1393.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (73, 292, 'http://dummyimage.com/1588x1343.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (73, 293, 'http://dummyimage.com/1650x853.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (73, 294, 'http://dummyimage.com/1798x1589.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (73, 295, 'http://dummyimage.com/1616x854.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (74, 296, 'http://dummyimage.com/1464x1478.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (74, 297, 'http://dummyimage.com/1421x1545.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (74, 298, 'http://dummyimage.com/1911x707.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (74, 299, 'http://dummyimage.com/1344x1099.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (75, 300, 'http://dummyimage.com/1366x912.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (75, 301, 'http://dummyimage.com/1971x857.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (75, 302, 'http://dummyimage.com/1383x657.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (75, 303, 'http://dummyimage.com/1023x1457.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (76, 304, 'http://dummyimage.com/1547x601.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (76, 305, 'http://dummyimage.com/1722x772.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (76, 306, 'http://dummyimage.com/1508x1390.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (76, 307, 'http://dummyimage.com/1567x1218.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (77, 308, 'http://dummyimage.com/1030x1386.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (77, 309, 'http://dummyimage.com/1075x825.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (77, 310, 'http://dummyimage.com/1841x720.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (77, 311, 'http://dummyimage.com/1234x1100.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (78, 312, 'http://dummyimage.com/1617x971.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (78, 313, 'http://dummyimage.com/1982x703.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (78, 314, 'http://dummyimage.com/1069x1181.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (78, 315, 'http://dummyimage.com/1309x645.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (79, 316, 'http://dummyimage.com/1036x1136.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (79, 317, 'http://dummyimage.com/1293x1306.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (79, 318, 'http://dummyimage.com/1787x783.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (79, 319, 'http://dummyimage.com/2000x1149.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (80, 320, 'http://dummyimage.com/1207x1535.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (80, 321, 'http://dummyimage.com/1249x1165.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (80, 322, 'http://dummyimage.com/1992x754.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (80, 323, 'http://dummyimage.com/1081x712.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (81, 324, 'http://dummyimage.com/1425x634.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (81, 325, 'http://dummyimage.com/1116x733.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (81, 326, 'http://dummyimage.com/1437x1337.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (81, 327, 'http://dummyimage.com/1507x1493.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (82, 328, 'http://dummyimage.com/1511x952.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (82, 329, 'http://dummyimage.com/1449x649.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (82, 330, 'http://dummyimage.com/1475x1004.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (82, 331, 'http://dummyimage.com/1415x1206.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (83, 332, 'http://dummyimage.com/1270x1588.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (83, 333, 'http://dummyimage.com/1292x1004.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (83, 334, 'http://dummyimage.com/1752x1295.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (83, 335, 'http://dummyimage.com/1897x783.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (84, 336, 'http://dummyimage.com/1577x643.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (84, 337, 'http://dummyimage.com/1883x1051.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (84, 338, 'http://dummyimage.com/1243x1323.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (84, 339, 'http://dummyimage.com/1974x1282.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (85, 340, 'http://dummyimage.com/1370x1565.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (85, 341, 'http://dummyimage.com/1954x1108.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (85, 342, 'http://dummyimage.com/1747x1354.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (85, 343, 'http://dummyimage.com/1837x1514.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (86, 344, 'http://dummyimage.com/1154x1076.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (86, 345, 'http://dummyimage.com/1436x1396.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (86, 346, 'http://dummyimage.com/1599x648.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (86, 347, 'http://dummyimage.com/1619x1117.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (87, 348, 'http://dummyimage.com/1651x1081.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (87, 349, 'http://dummyimage.com/1620x923.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (87, 350, 'http://dummyimage.com/1640x1105.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (87, 351, 'http://dummyimage.com/1302x1430.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (88, 352, 'http://dummyimage.com/1068x1574.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (88, 353, 'http://dummyimage.com/1826x1443.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (88, 354, 'http://dummyimage.com/1350x1354.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (88, 355, 'http://dummyimage.com/1181x1047.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (89, 356, 'http://dummyimage.com/1849x760.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (89, 357, 'http://dummyimage.com/1069x1250.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (89, 358, 'http://dummyimage.com/1821x1314.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (89, 359, 'http://dummyimage.com/1948x1262.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (90, 360, 'http://dummyimage.com/1335x1413.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (90, 361, 'http://dummyimage.com/1244x714.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (90, 362, 'http://dummyimage.com/1873x965.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (90, 363, 'http://dummyimage.com/1199x1219.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (91, 364, 'http://dummyimage.com/1686x1472.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (91, 365, 'http://dummyimage.com/1538x909.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (91, 366, 'http://dummyimage.com/1303x1530.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (91, 367, 'http://dummyimage.com/1892x1118.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (92, 368, 'http://dummyimage.com/1494x1241.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (92, 369, 'http://dummyimage.com/1025x1486.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (92, 370, 'http://dummyimage.com/1520x1282.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (92, 371, 'http://dummyimage.com/1617x1452.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (93, 372, 'http://dummyimage.com/1232x684.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (93, 373, 'http://dummyimage.com/1498x1051.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (93, 374, 'http://dummyimage.com/1171x1160.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (93, 375, 'http://dummyimage.com/1462x1308.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (94, 376, 'http://dummyimage.com/1355x1264.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (94, 377, 'http://dummyimage.com/1916x1415.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (94, 378, 'http://dummyimage.com/1655x854.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (94, 379, 'http://dummyimage.com/1879x1058.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (95, 380, 'http://dummyimage.com/1292x1520.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (95, 381, 'http://dummyimage.com/1262x1001.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (95, 382, 'http://dummyimage.com/1754x1181.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (95, 383, 'http://dummyimage.com/1619x1132.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (96, 384, 'http://dummyimage.com/2000x1147.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (96, 385, 'http://dummyimage.com/1731x647.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (96, 386, 'http://dummyimage.com/1638x1132.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (96, 387, 'http://dummyimage.com/1426x1196.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (97, 388, 'http://dummyimage.com/1657x1136.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (97, 389, 'http://dummyimage.com/1674x1323.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (97, 390, 'http://dummyimage.com/1103x1112.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (97, 391, 'http://dummyimage.com/1707x964.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (98, 392, 'http://dummyimage.com/1263x873.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (98, 393, 'http://dummyimage.com/1281x1121.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (98, 394, 'http://dummyimage.com/1328x700.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (98, 395, 'http://dummyimage.com/1955x888.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (99, 396, 'http://dummyimage.com/1133x886.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (99, 397, 'http://dummyimage.com/1733x686.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (99, 398, 'http://dummyimage.com/1318x1541.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (99, 399, 'http://dummyimage.com/1875x713.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (100, 400, 'http://dummyimage.com/1762x1474.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (100, 401, 'http://dummyimage.com/1550x682.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (100, 402, 'http://dummyimage.com/1932x1434.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (100, 403, 'http://dummyimage.com/1253x1347.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (101, 404, 'http://dummyimage.com/1295x1170.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (101, 405, 'http://dummyimage.com/1372x1584.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (101, 406, 'http://dummyimage.com/1757x981.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (101, 407, 'http://dummyimage.com/1104x1112.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (102, 408, 'http://dummyimage.com/1105x839.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (102, 409, 'http://dummyimage.com/1745x1574.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (102, 410, 'http://dummyimage.com/1135x977.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (102, 411, 'http://dummyimage.com/1747x811.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (103, 412, 'http://dummyimage.com/1285x689.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (103, 413, 'http://dummyimage.com/1713x1433.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (103, 414, 'http://dummyimage.com/1930x685.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (103, 415, 'http://dummyimage.com/1523x715.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (104, 416, 'http://dummyimage.com/1020x1041.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (104, 417, 'http://dummyimage.com/1458x814.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (104, 418, 'http://dummyimage.com/1259x1211.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (104, 419, 'http://dummyimage.com/1189x605.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (105, 420, 'http://dummyimage.com/1619x1106.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (105, 421, 'http://dummyimage.com/1998x1255.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (105, 422, 'http://dummyimage.com/1301x1414.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (105, 423, 'http://dummyimage.com/1309x1542.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (106, 424, 'http://dummyimage.com/1642x1512.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (106, 425, 'http://dummyimage.com/1558x1326.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (106, 426, 'http://dummyimage.com/1619x1098.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (106, 427, 'http://dummyimage.com/1148x1393.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (107, 428, 'http://dummyimage.com/1647x1362.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (107, 429, 'http://dummyimage.com/1940x1375.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (107, 430, 'http://dummyimage.com/1935x1357.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (107, 431, 'http://dummyimage.com/1049x912.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (108, 432, 'http://dummyimage.com/1730x937.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (108, 433, 'http://dummyimage.com/1509x808.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (108, 434, 'http://dummyimage.com/1445x874.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (108, 435, 'http://dummyimage.com/1628x734.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (109, 436, 'http://dummyimage.com/1959x1441.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (109, 437, 'http://dummyimage.com/1727x1539.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (109, 438, 'http://dummyimage.com/1303x1143.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (109, 439, 'http://dummyimage.com/1036x1155.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (110, 440, 'http://dummyimage.com/1380x1464.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (110, 441, 'http://dummyimage.com/1178x660.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (110, 442, 'http://dummyimage.com/1387x928.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (110, 443, 'http://dummyimage.com/1117x1476.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (111, 444, 'http://dummyimage.com/1290x1356.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (111, 445, 'http://dummyimage.com/1452x833.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (111, 446, 'http://dummyimage.com/1166x1276.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (111, 447, 'http://dummyimage.com/1835x661.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (112, 448, 'http://dummyimage.com/1444x755.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (112, 449, 'http://dummyimage.com/1567x1251.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (112, 450, 'http://dummyimage.com/1743x1202.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (112, 451, 'http://dummyimage.com/1335x1579.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (113, 452, 'http://dummyimage.com/1505x923.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (113, 453, 'http://dummyimage.com/1723x1569.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (113, 454, 'http://dummyimage.com/1234x1419.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (113, 455, 'http://dummyimage.com/1328x1377.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (114, 456, 'http://dummyimage.com/1888x1292.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (114, 457, 'http://dummyimage.com/1131x1474.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (114, 458, 'http://dummyimage.com/1062x637.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (114, 459, 'http://dummyimage.com/1649x1445.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (115, 460, 'http://dummyimage.com/1971x1498.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (115, 461, 'http://dummyimage.com/1570x684.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (115, 462, 'http://dummyimage.com/1728x1410.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (115, 463, 'http://dummyimage.com/1504x603.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (116, 464, 'http://dummyimage.com/1793x1369.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (116, 465, 'http://dummyimage.com/1583x1052.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (116, 466, 'http://dummyimage.com/1256x1326.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (116, 467, 'http://dummyimage.com/1637x1153.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (117, 468, 'http://dummyimage.com/1846x1248.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (117, 469, 'http://dummyimage.com/1702x956.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (117, 470, 'http://dummyimage.com/1040x1350.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (117, 471, 'http://dummyimage.com/1998x1534.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (118, 472, 'http://dummyimage.com/1137x1265.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (118, 473, 'http://dummyimage.com/1387x993.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (118, 474, 'http://dummyimage.com/1940x1495.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (118, 475, 'http://dummyimage.com/1856x1557.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (119, 476, 'http://dummyimage.com/1248x1242.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (119, 477, 'http://dummyimage.com/1509x700.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (119, 478, 'http://dummyimage.com/1968x764.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (119, 479, 'http://dummyimage.com/1395x1077.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (120, 480, 'http://dummyimage.com/1531x828.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (120, 481, 'http://dummyimage.com/1089x840.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (120, 482, 'http://dummyimage.com/1188x1319.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (120, 483, 'http://dummyimage.com/1537x1441.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (121, 484, 'http://dummyimage.com/1792x986.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (121, 485, 'http://dummyimage.com/1786x1237.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (121, 486, 'http://dummyimage.com/1960x680.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (121, 487, 'http://dummyimage.com/1031x1077.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (122, 488, 'http://dummyimage.com/1287x1200.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (122, 489, 'http://dummyimage.com/1543x756.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (122, 490, 'http://dummyimage.com/1888x1104.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (122, 491, 'http://dummyimage.com/1135x728.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (123, 492, 'http://dummyimage.com/1672x1191.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (123, 493, 'http://dummyimage.com/1775x1187.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (123, 494, 'http://dummyimage.com/1004x1525.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (123, 495, 'http://dummyimage.com/1954x784.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (124, 496, 'http://dummyimage.com/1380x1496.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (124, 497, 'http://dummyimage.com/1244x1517.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (124, 498, 'http://dummyimage.com/1353x912.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (124, 499, 'http://dummyimage.com/1670x867.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (125, 500, 'http://dummyimage.com/1246x646.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (125, 501, 'http://dummyimage.com/1602x846.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (125, 502, 'http://dummyimage.com/1765x1147.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (125, 503, 'http://dummyimage.com/1920x899.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (126, 504, 'http://dummyimage.com/1648x603.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (126, 505, 'http://dummyimage.com/1120x998.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (126, 506, 'http://dummyimage.com/1983x1046.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (126, 507, 'http://dummyimage.com/1169x725.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (127, 508, 'http://dummyimage.com/1252x882.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (127, 509, 'http://dummyimage.com/1442x815.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (127, 510, 'http://dummyimage.com/1941x667.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (127, 511, 'http://dummyimage.com/1062x665.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (128, 512, 'http://dummyimage.com/1590x936.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (128, 513, 'http://dummyimage.com/1985x1275.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (128, 514, 'http://dummyimage.com/1489x831.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (128, 515, 'http://dummyimage.com/1644x1245.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (129, 516, 'http://dummyimage.com/1140x1297.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (129, 517, 'http://dummyimage.com/1734x1500.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (129, 518, 'http://dummyimage.com/1279x1071.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (129, 519, 'http://dummyimage.com/1533x653.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (130, 520, 'http://dummyimage.com/1088x723.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (130, 521, 'http://dummyimage.com/1940x1355.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (130, 522, 'http://dummyimage.com/1660x1154.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (130, 523, 'http://dummyimage.com/1172x1283.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (131, 524, 'http://dummyimage.com/1284x1092.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (131, 525, 'http://dummyimage.com/1003x1568.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (131, 526, 'http://dummyimage.com/1826x1271.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (131, 527, 'http://dummyimage.com/1644x967.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (132, 528, 'http://dummyimage.com/1072x669.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (132, 529, 'http://dummyimage.com/1210x926.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (132, 530, 'http://dummyimage.com/1858x851.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (132, 531, 'http://dummyimage.com/1366x1483.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (133, 532, 'http://dummyimage.com/1514x1547.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (133, 533, 'http://dummyimage.com/1603x1541.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (133, 534, 'http://dummyimage.com/1528x1400.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (133, 535, 'http://dummyimage.com/1218x678.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (134, 536, 'http://dummyimage.com/1411x870.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (134, 537, 'http://dummyimage.com/1979x1294.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (134, 538, 'http://dummyimage.com/1549x1456.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (134, 539, 'http://dummyimage.com/1474x1226.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (135, 540, 'http://dummyimage.com/1875x669.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (135, 541, 'http://dummyimage.com/1897x1302.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (135, 542, 'http://dummyimage.com/1415x1590.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (135, 543, 'http://dummyimage.com/1906x1428.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (136, 544, 'http://dummyimage.com/1250x1482.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (136, 545, 'http://dummyimage.com/1147x810.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (136, 546, 'http://dummyimage.com/1447x1193.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (136, 547, 'http://dummyimage.com/1109x1278.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (137, 548, 'http://dummyimage.com/1589x873.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (137, 549, 'http://dummyimage.com/1265x1264.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (137, 550, 'http://dummyimage.com/1790x670.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (137, 551, 'http://dummyimage.com/1403x1282.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (138, 552, 'http://dummyimage.com/1022x987.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (138, 553, 'http://dummyimage.com/1218x1286.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (138, 554, 'http://dummyimage.com/1521x842.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (138, 555, 'http://dummyimage.com/1845x645.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (139, 556, 'http://dummyimage.com/1481x1375.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (139, 557, 'http://dummyimage.com/1088x680.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (139, 558, 'http://dummyimage.com/1357x1026.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (139, 559, 'http://dummyimage.com/1614x1357.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (140, 560, 'http://dummyimage.com/1062x936.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (140, 561, 'http://dummyimage.com/1064x1385.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (140, 562, 'http://dummyimage.com/1755x874.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (140, 563, 'http://dummyimage.com/1299x653.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (141, 564, 'http://dummyimage.com/1569x1553.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (141, 565, 'http://dummyimage.com/1706x674.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (141, 566, 'http://dummyimage.com/1046x613.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (141, 567, 'http://dummyimage.com/1141x926.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (142, 568, 'http://dummyimage.com/1216x714.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (142, 569, 'http://dummyimage.com/1372x897.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (142, 570, 'http://dummyimage.com/1807x1143.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (142, 571, 'http://dummyimage.com/1369x1186.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (143, 572, 'http://dummyimage.com/1645x1339.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (143, 573, 'http://dummyimage.com/1132x700.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (143, 574, 'http://dummyimage.com/1316x1348.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (143, 575, 'http://dummyimage.com/1274x1016.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (144, 576, 'http://dummyimage.com/1337x906.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (144, 577, 'http://dummyimage.com/1158x893.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (144, 578, 'http://dummyimage.com/1274x1503.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (144, 579, 'http://dummyimage.com/1751x927.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (145, 580, 'http://dummyimage.com/1328x1251.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (145, 581, 'http://dummyimage.com/1940x712.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (145, 582, 'http://dummyimage.com/1175x1158.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (145, 583, 'http://dummyimage.com/1507x1207.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (146, 584, 'http://dummyimage.com/1822x1142.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (146, 585, 'http://dummyimage.com/1974x1136.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (146, 586, 'http://dummyimage.com/1942x1423.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (146, 587, 'http://dummyimage.com/1264x1262.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (147, 588, 'http://dummyimage.com/1206x1174.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (147, 589, 'http://dummyimage.com/1226x707.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (147, 590, 'http://dummyimage.com/1942x846.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (147, 591, 'http://dummyimage.com/1595x1329.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (148, 592, 'http://dummyimage.com/1923x717.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (148, 593, 'http://dummyimage.com/1132x1200.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (148, 594, 'http://dummyimage.com/1011x1291.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (148, 595, 'http://dummyimage.com/1427x847.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (149, 596, 'http://dummyimage.com/1859x1406.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (149, 597, 'http://dummyimage.com/1273x1142.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (149, 598, 'http://dummyimage.com/1878x600.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (149, 599, 'http://dummyimage.com/1230x897.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (150, 600, 'http://dummyimage.com/1394x1150.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (150, 601, 'http://dummyimage.com/1522x866.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (150, 602, 'http://dummyimage.com/1917x1063.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (150, 603, 'http://dummyimage.com/1357x977.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (151, 604, 'http://dummyimage.com/1413x693.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (151, 605, 'http://dummyimage.com/1142x1493.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (151, 606, 'http://dummyimage.com/1354x1551.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (151, 607, 'http://dummyimage.com/1758x947.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (152, 608, 'http://dummyimage.com/1203x1488.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (152, 609, 'http://dummyimage.com/1588x1012.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (152, 610, 'http://dummyimage.com/1592x606.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (152, 611, 'http://dummyimage.com/1048x1063.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (153, 612, 'http://dummyimage.com/1545x947.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (153, 613, 'http://dummyimage.com/1509x815.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (153, 614, 'http://dummyimage.com/1274x1357.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (153, 615, 'http://dummyimage.com/1752x871.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (154, 616, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021001.jpg', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (154, 617, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021002.jpg', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (154, 618, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021025.jpg', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (154, 619, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021024.jpg', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (154, 1012, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021005.jpg', 4);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (154, 1013, 'https://s.aolcdn.com/commerce/autodata/images/USC30GMS202B021003.jpg', 5);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (155, 620, 'http://dummyimage.com/1391x965.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (155, 621, 'http://dummyimage.com/1246x745.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (155, 622, 'http://dummyimage.com/1249x754.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (155, 623, 'http://dummyimage.com/1733x1421.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (156, 624, 'http://dummyimage.com/1957x910.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (156, 625, 'http://dummyimage.com/1782x783.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (156, 626, 'http://dummyimage.com/1438x801.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (156, 627, 'http://dummyimage.com/1607x796.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (157, 628, 'http://dummyimage.com/1197x665.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (157, 629, 'http://dummyimage.com/1845x1446.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (157, 630, 'http://dummyimage.com/1849x1348.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (157, 631, 'http://dummyimage.com/1797x861.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (158, 632, 'http://dummyimage.com/1386x850.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (158, 633, 'http://dummyimage.com/1717x1097.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (158, 634, 'http://dummyimage.com/1036x653.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (158, 635, 'http://dummyimage.com/1146x1535.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (159, 636, 'http://dummyimage.com/1483x871.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (159, 637, 'http://dummyimage.com/1687x832.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (159, 638, 'http://dummyimage.com/1249x1138.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (159, 639, 'http://dummyimage.com/1623x1006.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (160, 640, 'http://dummyimage.com/1186x684.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (160, 641, 'http://dummyimage.com/1437x882.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (160, 642, 'http://dummyimage.com/1461x910.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (160, 643, 'http://dummyimage.com/1621x641.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (161, 644, 'http://dummyimage.com/1202x1114.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (161, 645, 'http://dummyimage.com/1263x708.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (161, 646, 'http://dummyimage.com/1206x1313.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (161, 647, 'http://dummyimage.com/1323x681.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (162, 648, 'http://dummyimage.com/1559x1144.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (162, 649, 'http://dummyimage.com/1873x1352.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (162, 650, 'http://dummyimage.com/1746x1393.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (162, 651, 'http://dummyimage.com/1705x1378.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (163, 652, 'http://dummyimage.com/1076x1347.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (163, 653, 'http://dummyimage.com/1908x1422.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (163, 654, 'http://dummyimage.com/1893x642.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (163, 655, 'http://dummyimage.com/1567x1008.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (164, 656, 'http://dummyimage.com/1164x1059.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (164, 657, 'http://dummyimage.com/1276x1493.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (164, 658, 'http://dummyimage.com/1305x1420.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (164, 659, 'http://dummyimage.com/1847x665.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (165, 660, 'http://dummyimage.com/1846x1581.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (165, 661, 'http://dummyimage.com/1781x1242.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (165, 662, 'http://dummyimage.com/1059x1366.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (165, 663, 'http://dummyimage.com/1738x1416.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (166, 664, 'http://dummyimage.com/1655x946.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (166, 665, 'http://dummyimage.com/1315x609.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (166, 666, 'http://dummyimage.com/1229x693.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (166, 667, 'http://dummyimage.com/1943x1272.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (167, 668, 'http://dummyimage.com/1757x765.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (167, 669, 'http://dummyimage.com/1747x944.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (167, 670, 'http://dummyimage.com/1478x848.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (167, 671, 'http://dummyimage.com/1433x1255.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (168, 672, 'http://dummyimage.com/1653x1052.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (168, 673, 'http://dummyimage.com/1130x1416.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (168, 674, 'http://dummyimage.com/1523x1355.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (168, 675, 'http://dummyimage.com/1018x1283.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (169, 676, 'http://dummyimage.com/1190x1390.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (169, 677, 'http://dummyimage.com/1208x1125.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (169, 678, 'http://dummyimage.com/1701x1177.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (169, 679, 'http://dummyimage.com/1205x1045.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (170, 680, 'http://dummyimage.com/1406x1289.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (170, 681, 'http://dummyimage.com/1205x1535.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (170, 682, 'http://dummyimage.com/1669x669.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (170, 683, 'http://dummyimage.com/1235x1516.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (171, 684, 'http://dummyimage.com/1762x1438.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (171, 685, 'http://dummyimage.com/1314x822.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (171, 686, 'http://dummyimage.com/1486x1495.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (171, 687, 'http://dummyimage.com/1665x1371.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (172, 688, 'http://dummyimage.com/1954x1152.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (172, 689, 'http://dummyimage.com/1476x889.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (172, 690, 'http://dummyimage.com/1762x1411.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (172, 691, 'http://dummyimage.com/1431x1582.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (173, 692, 'http://dummyimage.com/1942x1273.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (173, 693, 'http://dummyimage.com/1601x840.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (173, 694, 'http://dummyimage.com/1096x1282.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (173, 695, 'http://dummyimage.com/1685x690.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (174, 696, 'http://dummyimage.com/1037x657.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (174, 697, 'http://dummyimage.com/1921x956.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (174, 698, 'http://dummyimage.com/1568x1235.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (174, 699, 'http://dummyimage.com/1802x1350.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (175, 700, 'http://dummyimage.com/1429x634.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (175, 701, 'http://dummyimage.com/1813x968.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (175, 702, 'http://dummyimage.com/1910x1057.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (175, 703, 'http://dummyimage.com/1007x750.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (176, 704, 'http://dummyimage.com/1887x778.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (176, 705, 'http://dummyimage.com/1195x1502.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (176, 706, 'http://dummyimage.com/1437x631.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (176, 707, 'http://dummyimage.com/1257x1543.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (177, 708, 'http://dummyimage.com/1962x981.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (177, 709, 'http://dummyimage.com/1431x1424.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (177, 710, 'http://dummyimage.com/1089x733.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (177, 711, 'http://dummyimage.com/1746x1555.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (178, 712, 'http://dummyimage.com/1388x940.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (178, 713, 'http://dummyimage.com/1126x1526.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (178, 714, 'http://dummyimage.com/1464x1585.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (178, 715, 'http://dummyimage.com/1554x671.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (179, 716, 'http://dummyimage.com/1036x939.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (179, 717, 'http://dummyimage.com/1933x660.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (179, 718, 'http://dummyimage.com/1478x1182.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (179, 719, 'http://dummyimage.com/1280x1480.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (180, 720, 'http://dummyimage.com/1560x1346.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (180, 721, 'http://dummyimage.com/1624x954.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (180, 722, 'http://dummyimage.com/1597x1109.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (180, 723, 'http://dummyimage.com/1220x1566.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (181, 724, 'http://dummyimage.com/1535x835.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (181, 725, 'http://dummyimage.com/1599x1205.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (181, 726, 'http://dummyimage.com/1986x1126.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (181, 727, 'http://dummyimage.com/1093x737.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (182, 728, 'http://dummyimage.com/1085x664.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (182, 729, 'http://dummyimage.com/1189x1422.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (182, 730, 'http://dummyimage.com/1261x1284.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (182, 731, 'http://dummyimage.com/1833x639.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (183, 732, 'http://dummyimage.com/1466x702.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (183, 733, 'http://dummyimage.com/1917x1341.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (183, 734, 'http://dummyimage.com/1509x1236.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (183, 735, 'http://dummyimage.com/1035x1381.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (184, 736, 'http://dummyimage.com/1679x1357.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (184, 737, 'http://dummyimage.com/1897x1056.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (184, 738, 'http://dummyimage.com/1183x806.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (184, 739, 'http://dummyimage.com/1986x659.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (185, 740, 'http://dummyimage.com/1700x1542.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (185, 741, 'http://dummyimage.com/1855x966.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (185, 742, 'http://dummyimage.com/1263x993.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (185, 743, 'http://dummyimage.com/1498x621.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (186, 744, 'http://dummyimage.com/1316x786.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (186, 745, 'http://dummyimage.com/1857x1056.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (186, 746, 'http://dummyimage.com/1176x1282.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (186, 747, 'http://dummyimage.com/1761x1390.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (187, 748, 'http://dummyimage.com/1350x1419.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (187, 749, 'http://dummyimage.com/1381x1354.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (187, 750, 'http://dummyimage.com/1094x1106.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (187, 751, 'http://dummyimage.com/1194x1568.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (188, 752, 'http://dummyimage.com/1091x1203.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (188, 753, 'http://dummyimage.com/1539x1215.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (188, 754, 'http://dummyimage.com/1534x753.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (188, 755, 'http://dummyimage.com/1156x1230.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (189, 756, 'http://dummyimage.com/1190x782.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (189, 757, 'http://dummyimage.com/1794x966.png/cc0000/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (189, 758, 'http://dummyimage.com/1124x890.png/ff4444/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (189, 759, 'http://dummyimage.com/1950x1312.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (190, 760, 'http://dummyimage.com/1675x1432.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (190, 761, 'http://dummyimage.com/1526x640.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (190, 762, 'http://dummyimage.com/1256x1097.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (190, 763, 'http://dummyimage.com/1633x830.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (191, 764, 'http://dummyimage.com/1249x1599.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (191, 765, 'http://dummyimage.com/1502x1587.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (191, 766, 'http://dummyimage.com/1217x1556.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (191, 767, 'http://dummyimage.com/1858x964.png/dddddd/000000', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (192, 768, 'http://dummyimage.com/1290x735.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (192, 769, 'http://dummyimage.com/1819x942.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (192, 770, 'http://dummyimage.com/1362x1075.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (192, 771, 'http://dummyimage.com/1115x1549.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (193, 772, 'http://dummyimage.com/1787x1345.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (193, 773, 'http://dummyimage.com/1918x1374.png/ff4444/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (193, 774, 'http://dummyimage.com/1060x1114.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (193, 775, 'http://dummyimage.com/1296x1108.png/ff4444/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (194, 776, 'http://dummyimage.com/1031x673.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (194, 777, 'http://dummyimage.com/1395x644.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (194, 778, 'http://dummyimage.com/1704x674.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (194, 779, 'http://dummyimage.com/1152x897.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (195, 780, 'http://dummyimage.com/1407x926.png/5fa2dd/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (195, 781, 'http://dummyimage.com/1185x1144.png/5fa2dd/ffffff', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (195, 782, 'http://dummyimage.com/1609x644.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (195, 783, 'http://dummyimage.com/1415x1120.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (196, 784, 'http://dummyimage.com/1387x615.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (196, 785, 'http://dummyimage.com/1287x667.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (196, 786, 'http://dummyimage.com/1925x617.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (196, 787, 'http://dummyimage.com/1788x1024.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (197, 788, 'http://dummyimage.com/1408x1268.png/ff4444/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (197, 789, 'http://dummyimage.com/1836x1355.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (197, 790, 'http://dummyimage.com/1256x640.png/5fa2dd/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (197, 791, 'http://dummyimage.com/1747x1444.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (198, 792, 'http://dummyimage.com/1903x1567.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (198, 793, 'http://dummyimage.com/2000x1043.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (198, 794, 'http://dummyimage.com/1403x1151.png/dddddd/000000', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (198, 795, 'http://dummyimage.com/1368x1019.png/cc0000/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (199, 796, 'http://dummyimage.com/1472x1052.png/dddddd/000000', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (199, 797, 'http://dummyimage.com/1981x1292.png/dddddd/000000', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (199, 798, 'http://dummyimage.com/1795x658.png/cc0000/ffffff', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (199, 799, 'http://dummyimage.com/1722x904.png/5fa2dd/ffffff', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (200, 800, 'http://dummyimage.com/1660x913.png/cc0000/ffffff', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 801, 'https://www.masslive.com/resizer/v2/3GGRYPT3A5GXHCGHPXVSOMLR2Q.jpg?auth=4d94c79d3ba42f79aa344b58e16c57ed3993c6e0edadd53993eff3921e52c4e1&width=1280&quality=90', 0);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 802, 'https://i0.wp.com/www.theimpulsivebuy.com/wordpress/wp-content/uploads/2023/06/mcdgrimace1.jpeg?resize=600%2C450&ssl=1', 1);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 803, 'https://www.americamagazine.org/sites/default/files/main_image/2023/06/26/Screen%20Shot%202023-06-26%20at%202.50.42%20PM.png.png', 2);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 804, 'https://www.thedailymeal.com/img/gallery/mcdonalds-customers-cant-agree-on-the-new-grimace-shakes-flavor/intro-1686935261.jpg', 3);
-insert into ad_image (ad_id, id_ad_image, path, spot) values (201, 805, 'https://media.discordapp.net/attachments/1202766371193360447/1237899637852078131/IMG_3072.png?ex=663d5360&is=663c01e0&hm=5c2a3a9501a490a44a0cbbb8d4e1ccf9ff78d7a0c6f8e2fa20b0569435b1caa8&=&format=webp&quality=lossless&width=1035&height=670', 4);
-
-/* ad_ad_tag_rel */
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (89, 1);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (154, 2);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (121, 3);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (185, 4);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (101, 5);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (96, 6);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (54, 7);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (12, 8);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (131, 9);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (19, 10);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (82, 11);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (17, 12);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (164, 13);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (95, 14);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (109, 15);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (167, 16);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (65, 17);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (53, 18);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (141, 19);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (104, 20);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (66, 21);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (31, 22);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (108, 23);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (191, 24);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (97, 25);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (112, 26);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (95, 27);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (160, 28);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (133, 29);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (160, 30);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (93, 31);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (132, 32);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (199, 33);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (190, 34);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (10, 35);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (143, 36);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (125, 37);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (22, 38);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (49, 39);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (130, 40);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (21, 41);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (42, 42);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (38, 43);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (142, 44);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (26, 45);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (133, 46);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (82, 47);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (122, 48);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (51, 49);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (117, 50);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (48, 51);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (87, 52);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (1, 53);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (172, 54);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (165, 55);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (64, 56);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (73, 57);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (175, 58);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (124, 59);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (166, 60);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (95, 61);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (171, 62);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (20, 63);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (26, 64);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (172, 65);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (133, 66);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (57, 67);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (195, 68);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (132, 69);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (34, 70);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (195, 71);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (142, 72);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (200, 73);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (164, 74);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (84, 75);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (87, 76);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (91, 77);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (135, 78);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (135, 79);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (167, 80);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (194, 81);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (200, 82);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (29, 83);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (81, 84);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (84, 85);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (184, 86);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (187, 87);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (122, 88);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (32, 89);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (164, 90);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (24, 91);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (179, 92);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (163, 93);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (14, 94);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (181, 95);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (9, 96);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (160, 97);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (72, 98);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (74, 99);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (166, 100);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (167, 101);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (183, 102);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (90, 103);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (188, 104);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (112, 105);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (115, 106);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (61, 107);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (143, 108);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (86, 109);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (175, 110);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (87, 111);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (58, 112);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (84, 113);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (198, 114);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (84, 115);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (153, 116);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (83, 117);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (177, 118);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (106, 119);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (37, 120);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (83, 121);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (117, 122);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (89, 123);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (17, 124);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (113, 125);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (124, 126);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (117, 127);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (39, 128);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (200, 129);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (133, 130);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (150, 131);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (51, 132);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (114, 133);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (53, 134);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (55, 135);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (173, 136);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (76, 137);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (50, 138);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (88, 139);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (74, 140);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (49, 141);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (75, 142);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (196, 143);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (81, 144);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (120, 145);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (80, 146);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (71, 147);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (150, 148);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (2, 149);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (110, 150);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (84, 151);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (178, 152);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (25, 153);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (186, 154);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (15, 155);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (84, 156);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (72, 157);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (196, 158);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (139, 159);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (198, 160);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (50, 161);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (132, 162);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (169, 163);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (198, 164);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (45, 165);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (20, 166);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (6, 167);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (175, 168);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (200, 169);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (101, 170);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (197, 171);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (141, 172);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (178, 173);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (189, 174);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (39, 175);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (197, 176);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (131, 177);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (152, 178);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (167, 179);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (168, 180);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (29, 181);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (34, 182);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (119, 183);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (185, 184);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (143, 185);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (160, 186);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (71, 187);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (93, 188);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (117, 189);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (159, 190);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (65, 191);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (103, 192);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (150, 193);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (55, 194);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (77, 195);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (48, 196);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (73, 197);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (154, 198);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (51, 199);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (59, 200);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (201, 201);
-insert into ad_ad_tag_rel (ad_id, ad_tag_id) values (201, 202);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (1, 1);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (1, 2);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (1, 3);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (2, 4);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (2, 5);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (2, 6);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (3, 7);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (3, 8);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (4, 9);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (4, 10);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (4, 11);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (4, 12);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (4, 13);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (4, 14);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (4, 15);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (5, 16);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (6, 17);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (6, 18);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (7, 19);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (7, 20);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (7, 21);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (8, 22);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (8, 23);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (8, 24);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (8, 25);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (9, 26);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (9, 27);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (9, 28);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (9, 29);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (9, 30);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (9, 31);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (10, 32);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (10, 33);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (10, 34);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (10, 35);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (10, 36);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (11, 37);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (12, 38);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (12, 39);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (12, 40);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (12, 41);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (12, 42);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (12, 43);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (12, 44);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (13, 45);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (13, 33);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (13, 46);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (13, 47);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (13, 48);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (13, 49);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (14, 50);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (14, 33);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (14, 51);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (14, 52);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (14, 53);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (14, 54);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (15, 55);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (15, 54);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (15, 56);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (15, 57);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (15, 58);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (15, 59);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (15, 60);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (16, 61);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (16, 62);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (16, 63);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (16, 64);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (17, 43);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (17, 65);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (18, 66);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (18, 67);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (18, 53);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (18, 68);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (19, 69);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (19, 70);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (19, 71);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (19, 72);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (19, 73);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (19, 74);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (19, 75);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (20, 76);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (20, 77);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (21, 78);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (22, 79);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (23, 80);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (23, 81);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (23, 82);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (23, 83);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (24, 84);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (25, 85);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (25, 86);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (25, 87);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (25, 88);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (26, 89);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (26, 90);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (26, 46);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (26, 91);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (26, 92);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (26, 93);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (27, 94);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (27, 95);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (28, 96);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (28, 97);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (29, 98);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (29, 99);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (29, 100);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (29, 101);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (29, 102);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (29, 103);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (30, 104);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (30, 105);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (30, 106);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (30, 107);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (30, 108);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (31, 109);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (31, 110);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (32, 111);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (32, 112);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (32, 113);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (32, 114);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (33, 115);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (34, 116);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (34, 117);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (34, 118);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (34, 119);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (34, 120);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (34, 121);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (34, 122);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (35, 123);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (36, 124);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (36, 125);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (36, 126);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 127);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 128);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 129);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 130);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 131);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 132);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 133);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (37, 134);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (38, 135);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (39, 136);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (40, 137);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (40, 138);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (40, 139);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (41, 140);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (41, 53);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (42, 141);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (42, 142);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (42, 143);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (42, 144);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (42, 145);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (43, 146);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (44, 147);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (44, 33);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (44, 148);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (44, 107);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (44, 149);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (45, 150);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (45, 12);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (46, 151);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (47, 57);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (47, 152);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (48, 153);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (48, 154);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (49, 155);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (49, 156);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (50, 29);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (50, 157);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (50, 158);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (50, 159);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (50, 160);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (50, 161);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (51, 86);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (51, 162);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (51, 163);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (52, 164);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (52, 165);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (52, 166);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (52, 167);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (52, 168);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (52, 156);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (52, 169);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (53, 170);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (53, 171);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (53, 172);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (53, 173);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (53, 174);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (54, 175);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (54, 176);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (54, 177);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (55, 178);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (55, 179);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (55, 180);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (55, 163);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (56, 181);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (56, 86);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (56, 182);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (56, 183);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (56, 184);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (56, 76);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (57, 185);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (57, 186);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (57, 187);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (57, 188);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (57, 189);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (57, 190);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (58, 50);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (58, 191);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (58, 192);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (58, 193);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (58, 194);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (59, 195);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (59, 196);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (59, 197);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (59, 148);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (59, 198);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (59, 199);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (59, 200);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (60, 139);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (60, 86);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (60, 201);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (60, 66);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (61, 202);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (61, 119);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (61, 203);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (61, 204);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (61, 205);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (61, 206);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (62, 207);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (62, 44);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (63, 208);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (63, 209);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (63, 62);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (63, 210);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (63, 211);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (64, 212);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 213);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 214);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 83);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 215);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 5);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 216);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 217);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 36);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 218);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (65, 96);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (66, 17);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (67, 219);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (67, 220);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (67, 130);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (67, 50);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (68, 221);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (68, 222);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (68, 96);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (68, 223);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (68, 224);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (68, 225);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (69, 226);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (69, 227);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (69, 228);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (69, 179);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (69, 229);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (70, 230);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (70, 231);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (70, 100);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (70, 232);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (70, 233);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (70, 102);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (70, 234);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (71, 235);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 236);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 237);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 238);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 239);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 240);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 241);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 130);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 148);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 242);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (72, 243);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (73, 244);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (73, 245);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (73, 246);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (73, 211);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (74, 247);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (74, 248);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (74, 249);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (74, 9);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (74, 250);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (75, 251);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (75, 151);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (75, 252);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (75, 253);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (75, 254);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 255);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 256);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 257);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 258);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 144);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 33);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 259);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (76, 260);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 46);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 261);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 262);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 263);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 264);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 216);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 265);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (77, 62);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (78, 73);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (78, 41);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (78, 266);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (78, 51);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (78, 267);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (78, 268);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (78, 269);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (79, 270);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (79, 271);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (79, 66);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (79, 272);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (79, 273);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (79, 274);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (80, 36);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (80, 275);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (80, 276);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (80, 277);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (81, 278);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (81, 279);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (81, 280);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (81, 169);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (81, 281);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (82, 282);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (82, 283);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (82, 284);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (82, 285);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (82, 286);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (82, 287);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (83, 288);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (84, 46);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (85, 289);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (85, 290);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (86, 291);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (86, 292);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (86, 293);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (86, 294);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (86, 295);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (86, 296);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (86, 297);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (87, 99);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (87, 298);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (87, 299);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (87, 66);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (88, 300);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (88, 301);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (88, 302);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 303);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 304);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 305);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 306);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 307);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 308);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 309);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 310);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 311);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (89, 193);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (90, 312);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 313);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 58);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 314);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 315);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 316);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 317);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 318);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (91, 319);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (92, 320);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (92, 321);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (92, 322);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (93, 323);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (93, 151);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (93, 28);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (93, 195);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (94, 324);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (94, 325);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (95, 2);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (95, 326);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (95, 327);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (95, 328);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (95, 329);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (95, 330);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (96, 83);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (96, 331);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (96, 332);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (96, 333);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (96, 334);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 335);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 336);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 337);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 172);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 338);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 96);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 55);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 339);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 44);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (97, 340);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 341);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 342);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 343);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 344);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 91);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 156);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 345);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 346);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 347);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (98, 348);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (99, 349);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (99, 350);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (99, 351);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (99, 86);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (100, 352);
+INSERT INTO ad_ad_tag_rel(ad_id, ad_tag_id) VALUES (100, 323);
