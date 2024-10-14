@@ -119,7 +119,7 @@ public class FileUploadService {
 
 					destFile.createNewFile();
 					file.transferTo(destFile);
-					filesPath.add(appConfig.serverUrl() + fileType.folder + randomFileName);
+					filesPath.add(randomFileName);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
