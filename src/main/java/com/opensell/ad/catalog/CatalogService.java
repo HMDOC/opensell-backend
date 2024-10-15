@@ -24,8 +24,9 @@ public class CatalogService {
     private final AdRepository adRepo;
 
     public Page<AdPreviewProjectionDto> adSearch(AdSearchParamsDto query) {
-        System.out.println(query);
-        Pageable page = PageRequest.of(query.page()-1, 12, Sort.by(query.sortBy()));
+        Sort sort = Sort.by(query.sortBy());
+        sort = (query.reverseSort()>0) ? sort.descending() : sort.ascending();
+        Pageable page = PageRequest.of(query.page()-1, 12, sort);
         
         Page<AdPreviewProjectionDto> adList = adRepo.getAdSearch(
             query.query(), query.priceMin(), query.priceMax(),
