@@ -1,5 +1,22 @@
 [{
   "_id": {
+    "$oid": "67088e74aad3fb1ba2c71f1a"
+  },
+  "username": "jack@gmail.com",
+  "email": "jack@gmail.com",
+  "pwd": "$2a$10$jbYvcdqb7eJ.Y4aM/iQYiOxoMl.CsMhpNOUm7JNqlnSGWzqJ4riGG",
+  "isDeleted": false,
+  "isActivated": true,
+  "joinedDate": {
+    "$date": {
+      "$numberLong": "1728614004653"
+    }
+  },
+  "verificationCodes": [],
+  "_class": "com.opensell.model.Customer"
+},
+{
+  "_id": {
     "$oid": "66b0fbdc16a512cc51e690bb"
   },
   "username": "Esther.Huels",
@@ -717,4 +734,95 @@
   "firstName": "Ray",
   "lastName": "Reichert",
   "bio": "educator, founder, student 🏋️‍♀️"
+},
+{
+  "_id": {
+    "$oid": "6709a3a948f074345536c374"
+  },
+  "username": "jebiv36331@foraro.com",
+  "email": "jebiv36331@foraro.com",
+  "pwd": "$2a$10$7IBaR/3jKlabrfLafFcUveYbJkWyWoHwxY73BtQQl07W7miHNTPqC",
+  "isDeleted": false,
+  "isActivated": true,
+  "joinedDate": {
+    "$date": {
+      "$numberLong": "1728684969135"
+    }
+  },
+  "verificationCodes": [],
+  "firstName": "fdsafads",
+  "_class": "com.opensell.model.Customer"
+},
+{
+  "_id": {
+    "$oid": "6709a584f96b1950becfde74"
+  },
+  "username": "jack1@gmail.com",
+  "email": "jack1@gmail.com",
+  "pwd": "$2a$10$mLLJU33OrZYVNGcgPlTIceEbWr.4m4L0oKgbBx2xxY3GpqdhvTq7e",
+  "isDeleted": false,
+  "isActivated": true,
+  "joinedDate": {
+    "$date": {
+      "$numberLong": "1728685444530"
+    }
+  },
+  "verificationCodes": [],
+  "_class": "com.opensell.model.Customer",
+  "iconPath": "fmEGqCQhLIAGymQAqdfBnbDTwCJTQy.png"
+},
+{
+  "_id": {
+    "$oid": "6709c1a4d7c771774aca4c28"
+  },
+  "username": "support@cegepmv.ca",
+  "email": "support@cegepmv.ca",
+  "pwd": "$2a$10$PVZ5uBGcmoCp46xf06fAEu7g/me3pfNKLQz7WU1/0pUSVEfrof5tW",
+  "isDeleted": false,
+  "isActivated": true,
+  "joinedDate": {
+    "$date": {
+      "$numberLong": "1728692644640"
+    }
+  },
+  "verificationCodes": [],
+  "firstName": "Cegep",
+  "lastName": "Marie-Victorin",
+  "bio": "Le compte du cégep Marie-Victorin.",
+  "iconPath": "uTIbSlKbVCTaNAPJxBIzBviLvozXXr.png",
+  "_class": "com.opensell.model.Customer"
+},
+{
+  "_id": {
+    "$oid": "6709c62135156a69a6a1f229"
+  },
+  "username": "a@gmail.com",
+  "email": "a@gmail.com",
+  "pwd": "$2a$10$xxeT13CbX9syx3g2y3VxHuIvMLSqPFKVSroUhHzqg2HlrSpt9JX.a",
+  "isDeleted": false,
+  "isActivated": true,
+  "joinedDate": {
+    "$date": {
+      "$numberLong": "1728693793014"
+    }
+  },
+  "verificationCodes": [],
+  "_class": "com.opensell.model.Customer"
+},
+{
+  "_id": {
+    "$oid": "6709cb4d1643fc5098b9a434"
+  },
+  "username": "Power",
+  "email": "power@gmail.com",
+  "pwd": "$2a$10$nHy7hMx.Mez8TM2lEq/Kj..iXcY0JpoU17owlT7rHmq1XIzEN/yua",
+  "isDeleted": false,
+  "isActivated": true,
+  "joinedDate": {
+    "$date": {
+      "$numberLong": "1728695117782"
+    }
+  },
+  "verificationCodes": [],
+  "_class": "com.opensell.model.Customer"
 }]

@@ -6,7 +6,6 @@ server:
 app:
   allowed-urls: ${APP_ALLOWED_URLS}
   support-email: ${APP_SUPPORT_EMAIL}
-  image-server-url: ${APP_IMAGE_SERVER_URL}
   image-server-path: ${APP_IMAGE_SERVER_PATH}
 spring:
   mail:

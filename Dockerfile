@@ -1,6 +1,7 @@
 FROM eclipse-temurin:21
 WORKDIR /home/opensell
-COPY ./src/main/resources/images ./images
+RUN mkdir -p "images/ad-image"
+RUN mkdir -p "images/customer-profile"
 ARG JAR_FILE=./target/*.jar
 COPY ${JAR_FILE} opensell.jar
 COPY keystore.p12 keystore.p12
