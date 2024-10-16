@@ -127,7 +127,6 @@ UPLOAD_PATH=
 
 </details>
 
-
 ## Run the project in development
 
 ```sh
