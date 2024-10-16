@@ -24,8 +24,9 @@ public class CatalogService {
     private final AdRepository adRepo;
 
     public Page<AdPreviewProjectionDto> adSearch(AdSearchParamsDto query) {
-        System.out.println(query);
-        Pageable page = PageRequest.of(query.page()-1, 12, Sort.by(query.sortBy()));
+        Sort sort = Sort.by(query.sortBy());
+        sort = (query.reverseSort()>0) ? sort.descending() : sort.ascending();
+        Pageable page = PageRequest.of(query.page()-1, 12, sort);
         
         Page<AdPreviewProjectionDto> adList = adRepo.getAdSearch(
             query.query(), query.priceMin(), query.priceMax(),
@@ -42,20 +43,15 @@ public class CatalogService {
      * @author Achraf
      */
     public ResponseEntity<?> getAdBuyerView(String idAd) {
-        try {
-            Ad ad = adRepo.findOneByIdAndDeletedFalse(idAd);
+        Ad ad = adRepo.findOneByIdAndDeletedFalse(idAd);
 
-            if (ad == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ad not found");
+        if (ad == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ad not found");
 
-            // need to do vérification for public when implementing Spring security.
-			/*if(ad.getVisibility() == AdVisibility.PRIVATE.ordinal()) {
-				return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You are not allowed to view this ad.");
-			}*/
+        // need to do vérification for public when implementing Spring security.
+        /*if(ad.getVisibility() == AdVisibility.PRIVATE.ordinal()) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You are not allowed to view this ad.");
+        }*/
 
-            return ResponseEntity.ok(new AdViewDto(ad));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        return ResponseEntity.ok(new AdViewDto(ad));
     }
 }

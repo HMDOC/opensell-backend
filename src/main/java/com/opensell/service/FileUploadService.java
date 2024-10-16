@@ -1,12 +1,18 @@
 package com.opensell.service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import com.opensell.config.AppConfig;
 import com.opensell.enums.FileType;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.FileUrlResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import lombok.Getter;
@@ -17,12 +23,9 @@ import lombok.Getter;
  * @author Achraf
  */
 @Service
+@RequiredArgsConstructor
 public class FileUploadService {
-	@Value("${IMAGE_SERVER_URL}")
-	public String imageServerUrl;
-
-	@Value("${IMAGE_SERVER_PATH}")
-    public String uploadPath;
+	private final AppConfig appConfig;
 
 	@Getter
     public enum RandName {
@@ -92,7 +95,7 @@ public class FileUploadService {
 			if(files == null) throw new Exception("files cannot be null");
 			if(fileType == null) throw new Exception("fileType cannot be null");
 			List<String> filesPath = new ArrayList<>();
-			var folderPath = uploadPath+fileType.folder;
+			var folderPath = appConfig.imageServerPath()+fileType.folder;
 
 			files.forEach(file -> {
 				try {
@@ -115,6 +118,21 @@ public class FileUploadService {
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+
+	public ResponseEntity<?> readFileFromUri(String folder, String fileName) {
+		try {
+			var resource = new FileUrlResource(appConfig.imageServerPath() + folder + "/" + fileName);
+			if (!resource.exists()) {
+				throw new FileNotFoundException(fileName);
+			}
+
+			return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
+		} catch (FileNotFoundException e) {
+			return ResponseEntity.status(400).body("File does not exists.");
+		} catch (MalformedURLException e) {
+			return ResponseEntity.status(400).body("Malformed URL.");
 		}
 	}
 }

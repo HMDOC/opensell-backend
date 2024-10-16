@@ -1,0 +1,32 @@
+{
+  "id" : "66f9a965aee05c412b964033",
+  "title" : "Toyota Echo 2003",
+  "price" : 3000,
+  "addedDate" : "2024-09-29T19:12:42.736Z",
+  "sold" : false,
+  "deleted" : false,
+  "visibility" : 0,
+  "shape" : 3,
+  "description" : "Sold as is.",
+  "address": "Cegep Marie-Victorin",
+  "adCategory" : {
+    "id": "5effaa5662679b5af2c58829",
+    "name" : "Car"
+  },
+  "tags" : ["Toyota", "Echo", "2007"],
+  "images": ["http://localhost:3000/toyota-echo-2003.png"],
+  "customer": {
+    "id" :  "66f9a965aee05c387b175639",
+    "username" : "pierre_laporte",
+    "email" :  "pierre@email-fictif.com",
+    "pwd" : "",
+    "deleted" : false,
+    "activated" : false,
+    "joinedDate" : "",
+    "verificationCodes":  [],
+    "firstName" :  "Pierre",
+    "lastName" : "Laporte",
+    "bio" : "Love cars!",
+    "iconPath" : "http://localhost:3000/pierre-laporte-icon.png"
+  }
+}

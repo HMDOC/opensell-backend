@@ -1,0 +1,14 @@
+app:
+  allowed-urls: http://localhost:3000/
+  support-email: support@opensell.com
+  image-server-path: ${APP_IMAGE_SERVER_PATH:/tmp/opensell-images}
+spring:
+  docker:
+    compose:
+      lifecycle-management: start_only
+  mail:
+    host: localhost
+    port: 1025
+    username: support@opensell.com
+    password: NO_PASSWORD_IS_NEEDED_FOR_DEV
+    default-encoding: UTF-8

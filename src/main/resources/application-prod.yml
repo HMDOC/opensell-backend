@@ -1,0 +1,19 @@
+server:
+  ssl:
+    key-store: ${SSL_KEY_STORE:keystore.p12}
+    key-store-password: ${SSL_KEY_STORE_PASSWORD}
+    key-store-type: PKCS12
+app:
+  allowed-urls: ${APP_ALLOWED_URLS}
+  support-email: ${APP_SUPPORT_EMAIL}
+  image-server-path: ${APP_IMAGE_SERVER_PATH}
+spring:
+  mail:
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    username: ${SMTP_EMAIL}
+    password: ${SMTP_PASSWORD}
+    default-encoding: UTF-8
+  data:
+    mongodb:
+      uri: ${MONGO_DB_URI}
