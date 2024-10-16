@@ -1,3 +1,7 @@
+app:
+  upload-path: ${UPLOAD_PATH}
+  support-email: ${SUPPORT_EMAIL}
+  allowed-urls: ${ALLOWED_URLS}
 server:
   ssl:
     key-store: ${SSL_KEY_STORE:keystore.p12}

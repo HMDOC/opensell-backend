@@ -1,3 +1,7 @@
+app:
+  upload-path: ${UPLOAD_PATH:/tmp/opensell-images}
+  support-email: support@opensell.com
+  allowed-urls: http://localhost:3000
 spring:
   docker:
     compose:
